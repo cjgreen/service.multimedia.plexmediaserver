@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>%@, Episode %d</key>
+	<string>%1$@, Episode %2$d</string>
+	<key>%d TV shows</key>
+	<string>%d TV serier</string>
+	<key>%d artists</key>
+	<string>%d kunstner</string>
+	<key>%d episodes</key>
+	<string>%d episoder</string>
+	<key>%d movies</key>
+	<string>%d film</string>
+	<key>%d tracks</key>
+	<string>%d numre</string>
+	<key>%d tracks, %@ total time, %@</key>
+	<string>%1$d spor, %2$@ total tid, %3$@</string>
+	<key>%d:%02d %@</key>
+	<string>%1$d:%2$02d %3$@</string>
+	<key>1 TV show</key>
+	<string>1 TV serie</string>
+	<key>1 artist</key>
+	<string>1 kunstner</string>
+	<key>1 movie</key>
+	<string>1 film</string>
+	<key>1 track</key>
+	<string>1 nummer</string>
+	<key>1 track, %@ total time, %@</key>
+	<string>1 nummer, %1$@ total tid, %2$@</string>
+	<key>&gt; Add posters, custom genres and more</key>
+	<string>&gt; Tilføj covers, brugerdefinerede genrer med mere</string>
+	<key>&gt; Album reviews</key>
+	<string>&gt; Album anmeldelser</string>
+	<key>&gt; Artist biographies and artwork</key>
+	<string>&gt; Kunstner biografier og illustrationer</string>
+	<key>&gt; Automatic theme music for TV shows</key>
+	<string>&gt; Automatisk titelmelodi til TV serier</string>
+	<key>&gt; Customize every detail of each movie</key>
+	<string>&gt; Tilpas alle detaljer i hver enkelt film</string>
+	<key>&gt; Movie posters and art</key>
+	<string>&gt; Film covers posters og illustrationer</string>
+	<key>&gt; Organize movies into collections</key>
+	<string>&gt; Organiser film i grupper</string>
+	<key>&gt; TV show posters and art</key>
+	<string>&gt; TV serie covers og illustrationer</string>
+	<key>&gt; Thumbnails for every episode</key>
+	<string>&gt; Miniaturebilleder for hver episode</string>
+	<key>AM</key>
+	<string>AM</string>
+	<key>Add Home Movies Section</key>
+	<string>Tilføj samling af egne optagelser</string>
+	<key>Add Movies Section</key>
+	<string>Tilføj Film Samling</string>
+	<key>Add Music Section</key>
+	<string>Tilføj Musik Samling</string>
+	<key>Add Section</key>
+	<string>Tilføj Samling</string>
+	<key>Add TV Shows Section</key>
+	<string>Tilføj TV serie samling</string>
+	<key>Add the folders containing media for this section below. Any media files found inside these folders will be scanned into your library using the above settings.</key>
+	<string>Tilføj mapper, som indeholder medierne til samlingen nedenfor. Alle mediefiler i disse mapper vil blive scannet og tilføjet dit bibliotek ved hjælp af ovenstående indstillinger.</string>
+	<key>Advanced</key>
+	<string>Avanceret</string>
+	<key>All deleted items will be permanently removed from your library. No files on your computer will be removed.</key>
+	<string>All deleted items will be permanently removed from your library. No files on your computer will be removed.</string>
+	<key>Any content in this section will no longer be available in your library. The files on your computer will not be removed.</key>
+	<string>Alt indhold i denne samling vil ikke længere være til rådighed i dit bibliotek. Mediefilerne på din computer vil ikke blive slettet.</string>
+	<key>Aperture Sharing Enabled</key>
+	<string>Aperture Deling Aktiveret</string>
+	<key>Are you sure you want to empty the trash in "%@"?</key>
+	<string>Are you sure you want to empty the trash in "%@"?</string>
+	<key>Are you sure you want to remove the section named "%@"?</key>
+	<string>Er du sikker på du vil fjerne samlingen som hedder "%@"?</string>
+	<key>Authenticate</key>
+	<string>Authenticate</string>
+	<key>Cancel</key>
+	<string>Annuller</string>
+	<key>Capability checking ensures that plug-ins that are incompatible with this version of the server or the current client application you are using are hidden. Disabling capability checking is useful during development, but will enable access to plug-ins that may perform unreliably with certain client applications.</key>
+	<string>Kompatibilitets kontrol sikrer, at plug-ins, der er ukompatible med denne version af serveren eller den aktuelle klient-software du bruger, er skjult. Deaktivering af kompatibilitets kontrol er nyttigt for udviklere, men vil give adgang til plug-ins, der kan opføre sig ustabilt med visse klient applikationer.</string>
+	<key>Change Artwork</key>
+	<string>Skift Cover</string>
+	<key>Change Username</key>
+	<string>Change Username</string>
+	<key>Choose Album Thumbnail</key>
+	<string>Vælg Album Cover</string>
+	<key>Choose Background Art</key>
+	<string>Vælg Baggrunds Illustration</string>
+	<key>Choose Banner</key>
+	<string>Vælg Banner</string>
+	<key>Choose Episode Thumbnail</key>
+	<string>Vælg Episode Cover</string>
+	<key>Choose Icon</key>
+	<string>Vælg Ikon</string>
+	<key>Choose Poster</key>
+	<string>Vælg Cover</string>
+	<key>Choose Season Thumbnail</key>
+	<string>Vælg Sæson Cover</string>
+	<key>Click the titles below to create library sections for your media and have it served to your Plex-enabled devices.</key>
+	<string>Klik på titlerne nedenfor for at oprette samlinger for dine medier og gør dem tilgængelige på dine Plex-kompatible enheder</string>
+	<key>Collections</key>
+	<string>Grupperinger</string>
+	<key>Connecting to Plex Media Server failed with this error: %@.
+
+Are you sure it's running?</key>
+	<string>Forbindelse til Plex Media Server mislykkedes med denne fejl: %@.
+
+Er du sikker på at den er startet?</string>
+	<key>Content Rating</key>
+	<string>Indholds Bedømmelse</string>
+	<key>Custom Search</key>
+	<string>Brugerdefineret Søgning</string>
+	<key>Customize Section</key>
+	<string>Tilpas Samling</string>
+	<key>Directors</key>
+	<string>Instruktører</string>
+	<key>Disable capability checking</key>
+	<string>Deaktiver kompatibilitets kontrol</string>
+	<key>Done</key>
+	<string>OK</string>
+	<key>Drag folders into the list, or click the '+' button to browse.</key>
+	<string>Træk mapper til listen, eller klik på '+' knappen for at gennemse.</string>
+	<key>Edit Metadata</key>
+	<string>Rediger Metadata</string>
+	<key>Edit Metadata...</key>
+	<string>Rediger Metadata...</string>
+	<key>Edit Section</key>
+	<string>Rediger Samling</string>
+	<key>Empty trash automatically after every scan</key>
+	<string>Empty trash automatically after every scan</string>
+	<key>Enable Dolby® Digital during AirPlay</key>
+	<string>Enable Dolby® Digital during AirPlay</string>
+	<key>Enable Secure Access</key>
+	<string>Enable Secure Access</string>
+	<key>Enter your current password to authenticate, then enter and verify your new password.</key>
+	<string>Enter your current password to authenticate, then enter and verify your new password.</string>
+	<key>Episode %d: %@</key>
+	<string>Episode %1$d: %2$@</string>
+	<key>Fix Incorrect Match...</key>
+	<string>Ret Forkert Genkendelse...</string>
+	<key>Fix incorrect match</key>
+	<string>Ret forkert genkendelse</string>
+	<key>Friday</key>
+	<string>Fredag</string>
+	<key>Friendly name:</key>
+	<string>Kaldenavn:</string>
+	<key>General</key>
+	<string>Generelt</string>
+	<key>Genres</key>
+	<string>Genrer</string>
+	<key>Got this error: %@. Are you sure Plex Media Server is running?</key>
+	<string>Fik denne fejl: %@. Er du sikker på at Plex Media Server er startet?</string>
+	<key>Include music sections in automatic updates</key>
+	<string>Medtag musik samlinger i automatiske opdateringer</string>
+	<key>LIBRARY SECTIONS</key>
+	<string>BIBLIOTEKS SAMLINGER</string>
+	<key>Language:</key>
+	<string>Sprog:</string>
+	<key>Large music sections may take a long time to scan</key>
+	<string>Store musik samlinger kan tage lang tid at scanne</string>
+	<key>Last refreshed %@ at %@</key>
+	<string>Senest opdateret %1$@ kl %2$@</string>
+	<key>Library</key>
+	<string>Bibliotek</string>
+	<key>Loading metadata for '%@'</key>
+	<string>Henter metadata for '%@'</string>
+	<key>MEDIA MANAGER</key>
+	<string>MEDIA MANAGER</string>
+	<key>Manual Entry</key>
+	<string>Manuel indtastning</string>
+	<key>Match Using</key>
+	<string>Match Using</string>
+	<key>Matching '%@'</key>
+	<string>Genkender '%@'</string>
+	<key>Media analysis on '%@'</key>
+	<string>Media analyse af '%@'</string>
+	<key>Media file: </key>
+	<string>Media fil: </string>
+	<key>Monday</key>
+	<string>Mandag</string>
+	<key>Movie</key>
+	<string>Film</string>
+	<key>Movies</key>
+	<string>Film</string>
+	<key>Music</key>
+	<string>Musik</string>
+	<key>My Movies</key>
+	<string>Mine Film</string>
+	<key>My Music</key>
+	<string>Mit Musik</string>
+	<key>My TV Shows</key>
+	<string>Mine TV Serier</string>
+	<key>Name</key>
+	<string>Navn</string>
+	<key>Name:</key>
+	<string>Navn:</string>
+	<key>Offer higher bitrates over 3G connections</key>
+	<string>Tillad højere bithastigheder over 3G-forbindelser</string>
+	<key>Original Title</key>
+	<string>Original Titel</string>
+	<key>Originally Available</key>
+	<string>Oprindeligt tilgængelig</string>
+	<key>PM</key>
+	<string>PM</string>
+	<key>Password:</key>
+	<string>Password:</string>
+	<key>Path of the directory you'd like to add:</key>
+	<string>Sti i den mappe du gerne vil tilføje:</string>
+	<key>Prefer subtitles in:</key>
+	<string>Prefer subtitles in:</string>
+	<key>Preferences</key>
+	<string>Indstillinger</string>
+	<key>Primary metadata agent:</key>
+	<string>Primær metadata agent:</string>
+	<key>Rating</key>
+	<string>Bedømmelse</string>
+	<key>Refresh Metadata</key>
+	<string>Opdater Info</string>
+	<key>Refreshing info for %d items</key>
+	<string>Opdaterer info for %d items</string>
+	<key>Refreshing info for one item</key>
+	<string>Opdaterer info for et emne</string>
+	<key>Remove Section</key>
+	<string>Fjern Samling</string>
+	<key>Requesting metadata for '%@'</key>
+	<string>Anmoder om metadata for '%@'</string>
+	<key>Saturday</key>
+	<string>Lørdag</string>
+	<key>Save</key>
+	<string>Gem</string>
+	<key>Search</key>
+	<string>Søg</string>
+	<key>Search using:</key>
+	<string>Søg med:</string>
+	<key>Section name:</key>
+	<string>Samlingens navn:</string>
+	<key>Section type:</key>
+	<string>Type af samling:</string>
+	<key>Security</key>
+	<string>Sikkerhed</string>
+	<key>Select</key>
+	<string>Vælg</string>
+	<key>Select %@</key>
+	<string>Vælg %@</string>
+	<key>Select Folder</key>
+	<string>Vælg Mappe</string>
+	<key>Select Image</key>
+	<string>Vælg Billede</string>
+	<key>Select a directory for this section:</key>
+	<string>Vælg en mappe for denne samling:</string>
+	<key>Select the correct TV show from the list below:</key>
+	<string>Vælg den rigtige TV serie fra listen nedenfor:</string>
+	<key>Select the correct artist from the list below:</key>
+	<string>Vælg den rigtige kunstner fra listen nedenfor:</string>
+	<key>Select the correct movie from the list below:</key>
+	<string>Vælg den rigtige film fra listen nedenfor:</string>
+	<key>Send anonymous usage data to Plex</key>
+	<string>Send anonyme brugerdata til Plex</string>
+	<key>Sharing</key>
+	<string>Deling</string>
+	<key>Show</key>
+	<string>Vis</string>
+	<key>Sort Title</key>
+	<string>Sorter Titel</string>
+	<key>Studio</key>
+	<string>Studie</string>
+	<key>Summary</key>
+	<string>Resumé</string>
+	<key>Sunday</key>
+	<string>Søndag</string>
+	<key>TV Shows</key>
+	<string>TV Serier</string>
+	<key>Tagline</key>
+	<string>Slogan</string>
+	<key>This helps us improve your experience (for example, to help us match movies and TV shows).</key>
+	<string>Dette hjælper os med at forbedre din brugeroplevelse (for eksempel til at hjælpe os med at genkende film og TV serier).</string>
+	<key>This name will be used to identify this media server to other computers on your network. If you leave it blank, your computer's name will be used instead.</key>
+	<string>Dette navn vil blive brugt til at identificere denne medie server overfor andre computere på netværket. Hvis du lader det være tomt, vil din computers navn blive brugt i stedet.</string>
+	<key>This site does not support Internet Explorer. For the best experience, click here to install Google Chrome Frame.</key>
+	<string>Dette websted understøtter ikke Internet Explorer. For den bedste oplevelse, klik her for at installere Google Chrome Frame.</string>
+	<key>Thursday</key>
+	<string>Torsdag</string>
+	<key>Title</key>
+	<string>Titel</string>
+	<key>Tuesday</key>
+	<string>Tirsdag</string>
+	<key>Unable to connect to Plex Media Server</key>
+	<string>Kunne ikke tilslutte til Plex Media Server</string>
+	<key>Unable to create library section</key>
+	<string>Kunne ikke oprette biblioteks samlingen</string>
+	<key>Unable to remove section "%@"</key>
+	<string>Kunne ikke fjerne samlingen "%@"</string>
+	<key>Unable to update library section</key>
+	<string>Kunne ikke opdatere biblioteks samlingen</string>
+	<key>Update Section</key>
+	<string>Opdater Samling</string>
+	<key>Update my library</key>
+	<string>Opdater mit bibliotek</string>
+	<key>Update my library when changes to my folders are detected</key>
+	<string>Opdater mit bibliotek, når der er ændringer i mine mapper</string>
+	<key>Username:</key>
+	<string>Username:</string>
+	<key>Wednesday</key>
+	<string>Onsdag</string>
+	<key>Writers</key>
+	<string>Forfattere</string>
+	<key>Year</key>
+	<string>År</string>
+	<key>Year:</key>
+	<string>Årstal:</string>
+	<key>daily</key>
+	<string>dagligt</string>
+	<key>every 12 hours</key>
+	<string>hver 12 timer</string>
+	<key>every 15 minutes</key>
+	<string>hver 15 minutter</string>
+	<key>every 2 hours</key>
+	<string>hver 2 time</string>
+	<key>every 30 minutes</key>
+	<string>hver 30 minutter</string>
+	<key>every 6 hours</key>
+	<string>hver 6 time</string>
+	<key>hourly</key>
+	<string>hver time</string>
+	<key>iPhoto Sharing Enabled</key>
+	<string>iPhoto Deling Aktiveret</string>
+	<key>iTunes Sharing Enabled</key>
+	<string>iTunes Deling Aktiveret</string>
+	<key>movie</key>
+	<string>film</string>
+	<key>no TV shows</key>
+	<string>ingen TV serier</string>
+	<key>no artists</key>
+	<string>ingen kunstnere</string>
+	<key>no episodes</key>
+	<string>ingen episoder</string>
+	<key>no movies</key>
+	<string>ingen film</string>
+	<key>no tracks</key>
+	<string>ingen numre</string>
+	<key>season</key>
+	<string>sæson</string>
+	<key>show</key>
+	<string>serie</string>
+	<key>today</key>
+	<string>i dag</string>
+	<key>tomorrow</key>
+	<string>i morgen</string>
+	<key>yesterday</key>
+	<string>i går</string>
+</dict>
+</plist>

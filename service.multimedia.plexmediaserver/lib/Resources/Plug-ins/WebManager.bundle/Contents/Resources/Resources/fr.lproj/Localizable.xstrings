@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>%@, Episode %d</key>
+	<string>%1$@, Épisode %2$d</string>
+	<key>%d TV shows</key>
+	<string>%d Séries</string>
+	<key>%d artists</key>
+	<string>%d artistes</string>
+	<key>%d episodes</key>
+	<string>%d épisodes</string>
+	<key>%d movies</key>
+	<string>%d films</string>
+	<key>%d tracks</key>
+	<string>%d pistes</string>
+	<key>%d tracks, %@ total time, %@</key>
+	<string>%1$d pistes, %2$@ durée, %3$@</string>
+	<key>%d:%02d %@</key>
+	<string>%1$d:%2$02d %3$@</string>
+	<key>1 TV show</key>
+	<string>1 Série</string>
+	<key>1 artist</key>
+	<string>1 artiste</string>
+	<key>1 episode</key>
+	<string>1 épisode</string>
+	<key>1 movie</key>
+	<string>1 film</string>
+	<key>1 track</key>
+	<string>1 piste</string>
+	<key>1 track, %@ total time, %@</key>
+	<string>1 piste, %1$@ durée, %2$@</string>
+	<key>&gt; Add posters, custom genres and more</key>
+	<string>&gt; Ajouter affiches, genres personnalisés et plus</string>
+	<key>&gt; Album reviews</key>
+	<string>&gt; Revues d'Albums</string>
+	<key>&gt; Artist biographies and artwork</key>
+	<string>&gt; Biographies d'artistes et images</string>
+	<key>&gt; Automatic theme music for TV shows</key>
+	<string>&gt; Téléchargement automatique des génériques pour séries télés</string>
+	<key>&gt; Customize every detail of each movie</key>
+	<string>&gt; Personnalisation de tous les détails, pour tous les films</string>
+	<key>&gt; Great for your personal media</key>
+	<string>&gt; Génial pour vos médias perso</string>
+	<key>&gt; Movie posters and art</key>
+	<string>&gt; Affiches de films et images</string>
+	<key>&gt; Organize movies into collections</key>
+	<string>&gt; Organisation des films en collections</string>
+	<key>&gt; TV show posters and art</key>
+	<string>&gt; Affiches séries télés et images</string>
+	<key>&gt; Thumbnails for every episode</key>
+	<string>&gt; Vignettes pour tous les épisodes</string>
+	<key>AM</key>
+	<string>AM</string>
+	<key>Add Home Movies Section</key>
+	<string>Ajouter une Section Films Perso</string>
+	<key>Add Movies Section</key>
+	<string>Ajouter une Section Films</string>
+	<key>Add Music Section</key>
+	<string>Ajouter une Section Musique</string>
+	<key>Add Section</key>
+	<string>Ajouter une Section</string>
+	<key>Add TV Shows Section</key>
+	<string>Ajouter une section Séries</string>
+	<key>Add the folders containing media for this section below. Any media files found inside these folders will be scanned into your library using the above settings.</key>
+	<string>Ajouter les dossiers contenant les médias pour cette section. Tous les fichiers médias trouvés dans ces dossiers seront rajoutés dans votre médiatèque avec les paramètres ci-dessus.</string>
+	<key>Advanced</key>
+	<string>Expert</string>
+	<key>Any content in this section will no longer be available in your library. The files on your computer will not be removed.</key>
+	<string>Le contenu de cette section ne sera plus disponible dans votre médiatèque. Les fichiers seront préservés dans votre ordinateur.</string>
+	<key>Aperture Sharing Enabled</key>
+	<string>Partage Aperture Activé</string>
+	<key>Are you sure you want to remove the section named "%@"?</key>
+	<string>Etes vous sur de vouloir supprimer la section "%@"?</string>
+	<key>Artist</key>
+	<string>Artiste</string>
+	<key>Cancel</key>
+	<string>Annuler</string>
+	<key>Capability checking ensures that plug-ins that are incompatible with this version of the server or the current client application you are using are hidden. Disabling capability checking is useful during development, but will enable access to plug-ins that may perform unreliably with certain client applications.</key>
+	<string>La vérification de compatibilité s'assure que les plug-ins incompatibles avec cette version du serveur ou avec la version actuelle de l'application client que vous utilisez demeurent cachés.</string>
+	<key>Change Artwork</key>
+	<string>Changer Images</string>
+	<key>Choose Album Thumbnail</key>
+	<string>Sélectionner Vignette Album</string>
+	<key>Choose Background Art</key>
+	<string>Sélectionner Image fond d'écran</string>
+	<key>Choose Banner</key>
+	<string>Sélectionner Bannière</string>
+	<key>Choose Episode Thumbnail</key>
+	<string>Sélectionner Vignette Épisode</string>
+	<key>Choose Icon</key>
+	<string>Sélectionner Icône</string>
+	<key>Choose Poster</key>
+	<string>Sélectionner Affiche</string>
+	<key>Choose Season Thumbnail</key>
+	<string>Sélectionner Vignette Saison</string>
+	<key>Click the titles below to create library sections for your media and have it served to your Plex-enabled devices.</key>
+	<string>Cliquez sur les titres ci-dessous pour créer des sections dans la médiatèque pour vos médias et les partager avec vos clients Plex.</string>
+	<key>Connecting to Plex Media Server failed with this error: %@.
+
+Are you sure it's running?</key>
+	<string>La Connexion au Plex Media Server a échoué avec cause: %@.
+
+Le Serveur est-il disponible?</string>
+	<key>Content Rating</key>
+	<string>Classement Contenu</string>
+	<key>Custom Search</key>
+	<string>Recherche Avancée</string>
+	<key>Customize Section</key>
+	<string>Personnalisation Section</string>
+	<key>Directors</key>
+	<string>Réalisateurs</string>
+	<key>Disable capability checking</key>
+	<string>Désactiver La Vérification de Compatibilité</string>
+	<key>Done</key>
+	<string>Terminé</string>
+	<key>Drag folders into the list, or click the '+' button to browse.</key>
+	<string>Faites glisser vos dossiers dans la liste, ou cliquez sur le bouton '+' pour explorer.</string>
+	<key>Edit Metadata</key>
+	<string>Modification Metadata</string>
+	<key>Edit Metadata...</key>
+	<string>Modification Metadata...</string>
+	<key>Edit Section</key>
+	<string>Modification Section</string>
+	<key>Episode %d: %@</key>
+	<string>Épisode %1$d: %2$@</string>
+	<key>Fix Incorrect Match...</key>
+	<string>Réparer infos incorrectes...</string>
+	<key>Fix incorrect match</key>
+	<string>Réparer infos incorrectes</string>
+	<key>Friday</key>
+	<string>Vendredi</string>
+	<key>Friendly name:</key>
+	<string>Alias:</string>
+	<key>General</key>
+	<string>Général</string>
+	<key>Got this error: %@. Are you sure Plex Media Server is running?</key>
+	<string>Erreur: %@. Plex Media Server est-il disponible?</string>
+	<key>Include music sections in automatic updates</key>
+	<string>Inclure la section musique dans les mises à jours automatiques</string>
+	<key>LIBRARY SECTIONS</key>
+	<string>SECTIONS MÉDIATÈQUE</string>
+	<key>Language:</key>
+	<string>Langue:</string>
+	<key>Large music sections may take a long time to scan</key>
+	<string>La mise à jour des sections musique de tailles importantes peuvent durer assez longtemps</string>
+	<key>Last refreshed %@ at %@</key>
+	<string>Dernière mise à jour %1$@ à %2$@</string>
+	<key>Library</key>
+	<string>Médiatèque</string>
+	<key>Loading metadata for '%@'</key>
+	<string>Chargement metadata pour '%@'</string>
+	<key>Manual Entry</key>
+	<string>Saisie Manuelle</string>
+	<key>Matching '%@'</key>
+	<string>Recherche '%@'</string>
+	<key>Media analysis on '%@'</key>
+	<string>Analyse des médias dans '%@'</string>
+	<key>Media file: </key>
+	<string>Fichier média: </string>
+	<key>Media scanner:</key>
+	<string>Scanner Médias:</string>
+	<key>Monday</key>
+	<string>Lundi</string>
+	<key>Movie</key>
+	<string>Film</string>
+	<key>Movies</key>
+	<string>Films</string>
+	<key>Music</key>
+	<string>Musique</string>
+	<key>My Movies</key>
+	<string>Mes Films</string>
+	<key>My Music</key>
+	<string>Ma Musique</string>
+	<key>My TV Shows</key>
+	<string>Mes Séries</string>
+	<key>Name</key>
+	<string>Nom</string>
+	<key>Name:</key>
+	<string>Nom:</string>
+	<key>Offer higher bitrates over 3G connections</key>
+	<string>Activer haut débit en connexion 3G</string>
+	<key>Original Title</key>
+	<string>Titre Original</string>
+	<key>Originally Available</key>
+	<string>Disponible Originellement</string>
+	<key>Path of the directory you'd like to add:</key>
+	<string>Chemin du répertoire que vous souhaitez ajouter:</string>
+	<key>Preferences</key>
+	<string>Paramètres</string>
+	<key>Primary metadata agent:</key>
+	<string>Agent metadata prioritaire:</string>
+	<key>Rating</key>
+	<string>Classement</string>
+	<key>Refresh Metadata</key>
+	<string>Rafraichir Info</string>
+	<key>Refreshing info for %d items</key>
+	<string>Rafraichissement infos pour %d objets</string>
+	<key>Refreshing info for one item</key>
+	<string>Rafraichissement infos pour un objet</string>
+	<key>Remove Section</key>
+	<string>Supprimer Section</string>
+	<key>Requesting metadata for '%@'</key>
+	<string>Requête metadata en cours pour '%@'</string>
+	<key>Saturday</key>
+	<string>Samedi</string>
+	<key>Save</key>
+	<string>Sauvegarder</string>
+	<key>Scanning '%@'</key>
+	<string>Je travaille… '%@'</string>
+	<key>Search</key>
+	<string>Rechercher</string>
+	<key>Search using:</key>
+	<string>Rechercher avec:</string>
+	<key>Section name:</key>
+	<string>Nom section:</string>
+	<key>Section type:</key>
+	<string>Type section:</string>
+	<key>Security</key>
+	<string>Sécurité</string>
+	<key>Select</key>
+	<string>Sélectionner</string>
+	<key>Select %@</key>
+	<string>Sélectionner %@</string>
+	<key>Select Folder</key>
+	<string>Sélectionner Dossier</string>
+	<key>Select Image</key>
+	<string>Sélectionner Image</string>
+	<key>Select a directory for this section:</key>
+	<string>Sélectionnez un répertoire pour cette section:</string>
+	<key>Select the correct TV show from the list below:</key>
+	<string>Sélectionnez la série recherchée dans la liste ci-dessous:</string>
+	<key>Select the correct artist from the list below:</key>
+	<string>Sélectionnez l'artiste recherché dans la liste ci-dessous:</string>
+	<key>Select the correct movie from the list below:</key>
+	<string>Sélectionnez le film recherché dans la liste ci-dessous:</string>
+	<key>Send anonymous usage data to Plex</key>
+	<string>Envoi anonyme des données d'utilisations a Plex</string>
+	<key>Sharing</key>
+	<string>Partage</string>
+	<key>Show</key>
+	<string>Série</string>
+	<key>Sort Title</key>
+	<string>Trier par titre</string>
+	<key>Summary</key>
+	<string>Résumé</string>
+	<key>Sunday</key>
+	<string>Dimanche</string>
+	<key>TV Shows</key>
+	<string>Séries</string>
+	<key>Tagline</key>
+	<string>Slogan</string>
+	<key>This helps us improve your experience (for example, to help us match movies and TV shows).</key>
+	<string>Ceci nous aide à améliorer votre expérience (par exemple, en nous aidant à associer vos fichiers aux bons films et séries).</string>
+	<key>This name will be used to identify this media server to other computers on your network. If you leave it blank, your computer's name will be used instead.</key>
+	<string>Ce nom sera utilisé pour identifier ce serveur aux autres ordinateurs de votre réseau. Si vous laissez ce champ vide, le nom de votre ordinateur sera utilisé.</string>
+	<key>This site does not support Internet Explorer. For the best experience, click here to install Google Chrome Frame.</key>
+	<string>Ce site ne supporte pas Internet Explorer. Pour une meilleure expérience, cliquez ici pour installer Google Chrome Frame.</string>
+	<key>Thursday</key>
+	<string>Jeudi</string>
+	<key>Title</key>
+	<string>Titre</string>
+	<key>Transcoding</key>
+	<string>Transcodage</string>
+	<key>Tuesday</key>
+	<string>Mardi`</string>
+	<key>Unable to connect to Plex Media Server</key>
+	<string>Impossible de se connecter à Plex Media Server</string>
+	<key>Unable to create library section</key>
+	<string>Impossible de créer une section dans la médiatèque</string>
+	<key>Unable to remove section "%@"</key>
+	<string>Impossible de supprimer la section "%@"</string>
+	<key>Unable to update library section</key>
+	<string>Impossible de mettre à jour la section</string>
+	<key>Unmatch</key>
+	<string>Dissocier</string>
+	<key>Update Section</key>
+	<string>Mettre à jour Section</string>
+	<key>Update my library</key>
+	<string>Mettre à jour ma médiatèque</string>
+	<key>Update my library when changes to my folders are detected</key>
+	<string>Mettre à jour ma médiatèque quand mes dossiers sont modifiés</string>
+	<key>Wednesday</key>
+	<string>Mercredi</string>
+	<key>Writers</key>
+	<string>Auteurs</string>
+	<key>Year</key>
+	<string>Année</string>
+	<key>Year:</key>
+	<string>Année:</string>
+	<key>artist</key>
+	<string>artiste</string>
+	<key>daily</key>
+	<string>quotidien</string>
+	<key>episode</key>
+	<string>épisode</string>
+	<key>every 12 hours</key>
+	<string>toutes les 12 heures</string>
+	<key>every 15 minutes</key>
+	<string>toutes les 15 minutes</string>
+	<key>every 2 hours</key>
+	<string>toutes les 2 heures</string>
+	<key>every 30 minutes</key>
+	<string>toutes les 30 minutes</string>
+	<key>every 6 hours</key>
+	<string>toutes les 6 heures</string>
+	<key>hourly</key>
+	<string>horaire</string>
+	<key>iPhoto Sharing Enabled</key>
+	<string>Partage iPhoto Activé</string>
+	<key>iTunes Sharing Enabled</key>
+	<string>Partage iTunes Activé</string>
+	<key>movie</key>
+	<string>film</string>
+	<key>no TV shows</key>
+	<string>aucunes séries</string>
+	<key>no artists</key>
+	<string>aucuns artistes</string>
+	<key>no episodes</key>
+	<string>aucuns épisodes</string>
+	<key>no movies</key>
+	<string>aucuns films</string>
+	<key>no tracks</key>
+	<string>aucunes pistes</string>
+	<key>season</key>
+	<string>saison</string>
+	<key>show</key>
+	<string>série</string>
+	<key>today</key>
+	<string>aujourd'hui</string>
+	<key>tomorrow</key>
+	<string>demain</string>
+	<key>yesterday</key>
+	<string>hier</string>
+</dict>
+</plist>

@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>aa</key>
+	<string>Afaraf</string>
+	<key>af</key>
+	<string>Afrikaans</string>
+	<key>ab</key>
+	<string>Abkhazian</string>
+	<key>ak</key>
+	<string>Akan</string>
+	<key>sq</key>
+	<string>Shqip</string>
+	<key>am</key>
+	<string>Amharic</string>
+	<key>ar</key>
+	<string>العربية</string>
+	<key>an</key>
+	<string>Aragonés</string>
+	<key>hy</key>
+	<string>Հայերեն</string>
+	<key>as</key>
+	<string>Assamese</string>
+	<key>av</key>
+	<string>авар мацӀ</string>
+	<key>ae</key>
+	<string>avesta</string>
+	<key>ay</key>
+	<string>aymar aru</string>
+	<key>az</key>
+	<string>azərbaycan dili</string>
+	<key>ba</key>
+	<string>башҡорт теле</string>
+	<key>bm</key>
+	<string>bamanankan</string>
+	<key>eu</key>
+	<string>euskara</string>
+	<key>be</key>
+	<string>Беларуская</string>
+	<key>bn</key>
+	<string>Bengali</string>
+	<key>bh</key>
+	<string>भोजपुरी</string>
+	<key>bi</key>
+	<string>Bislama</string>
+	<key>bs</key>
+	<string>bosanski jezik</string>
+	<key>br</key>
+	<string>brezhoneg</string>
+	<key>bg</key>
+	<string>български език</string>
+	<key>my</key>
+	<string>Burmese</string>
+	<key>ca</key>
+	<string>Català</string>
+	<key>ch</key>
+	<string>Chamoru</string>
+	<key>ce</key>
+	<string>нохчийн мотт</string>
+	<key>cu</key>
+	<string>ѩзыкъ словѣньскъ</string>
+	<key>cv</key>
+	<string>чӑваш чӗлхи</string>
+	<key>kw</key>
+	<string>Kernewek</string>
+	<key>co</key>
+	<string>corsu</string>
+	<key>cr</key>
+	<string>ᓀᐦᐃᔭᐍᐏᐣ</string>
+	<key>dv</key>
+	<string>Divehi</string>
+	<key>dz</key>
+	<string>རྫོང་ཁ</string>
+	<key>en</key>
+	<string>English</string>
+	<key>eo</key>
+	<string>Esperanto</string>
+	<key>et</key>
+	<string>eesti</string>
+	<key>ee</key>
+	<string>Eʋegbe</string>
+	<key>fo</key>
+	<string>føroyskt</string>
+	<key>fj</key>
+	<string>vosa Vakaviti</string>
+	<key>fy</key>
+	<string>Frysk</string>
+	<key>ff</key>
+	<string>Fulfulde</string>
+	<key>ka</key>
+	<string>ქართული</string>
+	<key>gd</key>
+	<string>Gàidhlig</string>
+	<key>ga</key>
+	<string>Gaeilge</string>
+	<key>gl</key>
+	<string>Galego</string>
+	<key>gv</key>
+	<string>Gaelg</string>
+	<key>gn</key>
+	<string>Avañe&apos;ẽ</string>
+	<key>gu</key>
+	<string>ગુજરાતી</string>
+	<key>ht</key>
+	<string>Kreyòl ayisyen</string>
+	<key>ha</key>
+	<string>هَوُسَ</string>
+	<key>hz</key>
+	<string>Otjiherero</string>
+	<key>hi</key>
+	<string>हिन्दी</string>
+	<key>ho</key>
+	<string>Hiri Motu</string>
+	<key>hr</key>
+	<string>hrvatski</string>
+	<key>ig</key>
+	<string>Asụsụ Igbo</string>
+	<key>is</key>
+	<string>Íslenska</string>
+	<key>io</key>
+	<string>Ido</string>
+	<key>ii</key>
+	<string>ꆈꌠ꒿ Nuosuhxop</string>
+	<key>iu</key>
+	<string>ᐃᓄᒃᑎᑐᑦ</string>
+	<key>ie</key>
+	<string>Interlingue</string>
+	<key>ia</key>
+	<string>Interlingua</string>
+	<key>id</key>
+	<string>Bahasa Indonesia</string>
+	<key>ik</key>
+	<string>Iñupiaq</string>
+	<key>jv</key>
+	<string>basa Jawa</string>
+	<key>kl</key>
+	<string>kalaallisut</string>
+	<key>kn</key>
+	<string>ಕನ್ನಡ</string>
+	<key>ks</key>
+	<string>कश्मीरी</string>
+	<key>kr</key>
+	<string>Kanuri</string>
+	<key>kk</key>
+	<string>Қазақ тілі</string>
+	<key>km</key>
+	<string>Khmer</string>
+	<key>ki</key>
+	<string>Gĩkũyũ</string>
+	<key>rw</key>
+	<string>Ikinyarwanda</string>
+	<key>ky</key>
+	<string>кыргыз тили</string>
+	<key>kv</key>
+	<string>коми кыв</string>
+	<key>kg</key>
+	<string>KiKongo</string>
+	<key>kj</key>
+	<string>Kuanyama</string>
+	<key>ku</key>
+	<string>Kurdî</string>
+	<key>lo</key>
+	<string>Lao</string>
+	<key>la</key>
+	<string>latine</string>
+	<key>lv</key>
+	<string>latviešu valoda</string>
+	<key>li</key>
+	<string>Limburgs</string>
+	<key>ln</key>
+	<string>Lingála</string>
+	<key>lt</key>
+	<string>lietuvių kalba</string>
+	<key>lb</key>
+	<string>Lëtzebuergesch</string>
+	<key>lu</key>
+	<string>Luba-Katanga</string>
+	<key>lg</key>
+	<string>Luganda</string>
+	<key>mk</key>
+	<string>македонски јазик</string>
+	<key>mh</key>
+	<string>Kajin M̧ajeļ</string>
+	<key>ml</key>
+	<string>Malayalam</string>
+	<key>mi</key>
+	<string>te reo Māori</string>
+	<key>mr</key>
+	<string>मराठी</string>
+	<key>ms</key>
+	<string>bahasa Melayu</string>
+	<key>mg</key>
+	<string>Malagasy fiteny</string>
+	<key>mt</key>
+	<string>Malti</string>
+	<key>mo</key>
+	<string>Moldavian</string>
+	<key>mn</key>
+	<string>монгол</string>
+	<key>na</key>
+	<string>Ekakairũ Naoero</string>
+	<key>nv</key>
+	<string>Diné bizaad</string>
+	<key>nr</key>
+	<string>isiNdebele (North)</string>
+	<key>nd</key>
+	<string>isiNdebele (South)</string>
+	<key>ng</key>
+	<string>Owambo</string>
+	<key>ne</key>
+	<string>नेपाली</string>
+	<key>nn</key>
+	<string>Norsk nynorsk</string>
+	<key>nb</key>
+	<string>Norsk bokmål</string>
+	<key>ny</key>
+	<string>chiCheŵa</string>
+	<key>oc</key>
+	<string>Occitan</string>
+	<key>oj</key>
+	<string>ᐊᓂᔑᓈᐯᒧᐎᓐ</string>
+	<key>or</key>
+	<string>Oriya</string>
+	<key>om</key>
+	<string>Afaan Oromoo</string>
+	<key>os</key>
+	<string>ирон æвзаг</string>
+	<key>pa</key>
+	<string>ਪੰਜਾਬੀ</string>
+	<key>pi</key>
+	<string>पाऴि</string>
+	<key>ps</key>
+	<string>پښتو</string>
+	<key>qu</key>
+	<string>Runa Simi</string>
+	<key>rm</key>
+	<string>rumantsch grischun</string>
+	<key>ro</key>
+	<string>română</string>
+	<key>rn</key>
+	<string>kiRundi</string>
+	<key>sg</key>
+	<string>yângâ tî sängö</string>
+	<key>sa</key>
+	<string>संस्कृतम्</string>
+	<key>sr</key>
+	<string>српски језик</string>
+	<key>si</key>
+	<string>Sinhala</string>
+	<key>sk</key>
+	<string>slovenčina</string>
+	<key>sl</key>
+	<string>slovenščina</string>
+	<key>se</key>
+	<string>Davvisámegiella</string>
+	<key>sm</key>
+	<string>gagana fa&apos;a Samoa</string>
+	<key>sn</key>
+	<string>chiShona</string>
+	<key>sd</key>
+	<string>सिन्धी</string>
+	<key>so</key>
+	<string>Soomaaliga</string>
+	<key>st</key>
+	<string>Sesotho</string>
+	<key>sc</key>
+	<string>sardu</string>
+	<key>ss</key>
+	<string>SiSwati</string>
+	<key>su</key>
+	<string>Basa Sunda</string>
+	<key>sw</key>
+	<string>Kiswahili</string>
+	<key>ty</key>
+	<string>Reo Tahiti</string>
+	<key>ta</key>
+	<string>தமிழ்</string>
+	<key>tt</key>
+	<string>татарча</string>
+	<key>te</key>
+	<string>Telugu</string>
+	<key>tg</key>
+	<string>тоҷикӣ</string>
+	<key>tl</key>
+	<string>Wikang Tagalog</string>
+	<key>th</key>
+	<string>ไทย</string>
+	<key>bo</key>
+	<string>བོད་ཡིག</string>
+	<key>ti</key>
+	<string>Tigrinya</string>
+	<key>to</key>
+	<string>faka Tonga</string>
+	<key>tn</key>
+	<string>Setswana</string>
+	<key>ts</key>
+	<string>Xitsonga</string>
+	<key>tk</key>
+	<string>Türkmen</string>
+	<key>tw</key>
+	<string>Twi</string>
+	<key>ug</key>
+	<string>Uyƣurqə</string>
+	<key>uk</key>
+	<string>українська</string>
+	<key>ur</key>
+	<string>اردو</string>
+	<key>uz</key>
+	<string>O&apos;zbek</string>
+	<key>ve</key>
+	<string>Tshivenḓa</string>
+	<key>vi</key>
+	<string>Tiếng Việt</string>
+	<key>vo</key>
+	<string>Volapük</string>
+	<key>cy</key>
+	<string>Cymraeg</string>
+	<key>wa</key>
+	<string>Walon</string>
+	<key>wo</key>
+	<string>Wollof</string>
+	<key>xh</key>
+	<string>isiXhosa</string>
+	<key>yi</key>
+	<string>ייִדיש</string>
+	<key>yo</key>
+	<string>Yorùbá</string>
+	<key>za</key>
+	<string>Saɯ cueŋƅ</string>
+	<key>zu</key>
+	<string>isiZulu</string>
+	<key>pb</key>
+	<string>Português (Brasil)</string>
+	<key>fr</key>
+	<string>Français</string>
+	<key>de</key>
+	<string>Deutsch</string>
+	<key>sv</key>
+	<string>Svenska</string>
+	<key>no</key>
+	<string>Norsk</string>
+	<key>da</key>
+	<string>Dansk</string>
+	<key>fi</key>
+	<string>Suomeski</string>
+	<key>nl</key>
+	<string>Nederlands</string>
+	<key>it</key>
+	<string>Italiano</string>
+	<key>es</key>
+	<string>Español</string>
+	<key>pl</key>
+	<string>Polski</string>
+	<key>hu</key>
+	<string>Magyar</string>
+	<key>el</key>
+	<string>Ελληνικά</string>
+	<key>tr</key>
+	<string>Türkçe</string>
+	<key>zh</key>
+	<string>中文</string>
+	<key>ru</key>
+	<string>русский язык</string>
+	<key>he</key>
+	<string>עברית</string>
+	<key>ja</key>
+	<string>日本語</string>
+	<key>pt</key>
+	<string>Português</string>
+	<key>ko</key>
+	<string>한국어</string>
+	<key>cs</key>
+	<string>čeština</string>
+	<key>xx</key>
+	<string>Unknown</string>
+	<key>xn</key>
+	<string>None</string>
+</dict>
+</plist>

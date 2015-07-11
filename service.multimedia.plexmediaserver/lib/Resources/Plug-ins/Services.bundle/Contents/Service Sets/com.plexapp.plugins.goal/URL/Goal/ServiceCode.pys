@@ -1,0 +1,113 @@
+RE_PLAYER_VARS = Regex("addCustomPlayer\('(?P<part1>[^']*)', '(?P<part2>[^']*)', '(?P<part3>[^']*)'")
+RE_RTMP_ARGS = Regex("(?P<player>rtmp.+?/ePlayer[0-9])(?P<playpath>/.+)")
+
+NAMESPACES = {"media":"http://search.yahoo.com/mrss/"}
+XML_URL = "http://xml.eplayer.performgroup.com/eplayer/mrss/%s/%s/%s"
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	video_data = GetVideoXML(url)
+
+	if not video_data:
+		return None
+
+	title = video_data.xpath('./title')[0].text
+	summary = video_data.xpath('./description')[0].text
+	date = Datetime.ParseDate(video_data.xpath('./pubDate')[0].text).date()
+	duration = int(video_data.xpath('.//media:content', namespaces=NAMESPACES)[0].get('duration'))*1000
+	thumb = video_data.xpath('.//media:thumbnail[@height="349"]', namespaces=NAMESPACES)[0].text
+
+	return VideoClipObject(
+		title = title,
+		summary = summary,
+		originally_available_at = date,
+		duration = duration,
+		thumb = thumb
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, bitrate='2400000'))],
+			protocol = 'rtmp',
+			video_resolution = '576',
+			bitrate = '2400',
+			audio_channels = 2
+		),
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, bitrate='1800000'))],
+			protocol = 'rtmp',
+			video_resolution = '432',
+			bitrate = '1800',
+			audio_channels = 2
+		),
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, bitrate='1200000'))],
+			protocol = 'rtmp',
+			video_resolution = '432',
+			bitrate = '1200',
+			audio_channels = 2
+		),
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, bitrate='800000'))],
+			protocol = 'rtmp',
+			video_resolution = '360',
+			bitrate = '800',
+			audio_channels = 2
+		),
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, bitrate='484000'))],
+			protocol = 'rtmp',
+			video_resolution = '270',
+			bitrate = '484',
+			audio_channels = 2
+		),
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, bitrate='280000'))],
+			protocol = 'rtmp',
+			video_resolution = '216',
+			bitrate = '280',
+			audio_channels = 2
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url, bitrate):
+
+	video_data = GetVideoXML(url)
+
+	if not video_data:
+		return None
+
+	rtmp_url = video_data.xpath('.//media:content[@bitrate="'+bitrate+'"]', namespaces=NAMESPACES)[0].get('url')
+	rtmp_args = RE_RTMP_ARGS.match(rtmp_url).groupdict()
+
+	return IndirectResponse(VideoClipObject, key=RTMPVideoURL(url=rtmp_args['player'], clip='mp4:' + rtmp_args['playpath']))
+
+####################################################################################################
+def GetVideoXML(url):
+
+	content = HTTP.Request(url).content
+	player_vars = RE_PLAYER_VARS.search(content)
+
+	if not player_vars:
+		raise Ex.MediaNotAvailable
+	else:
+		player_vars = player_vars.groupdict()
+
+	try:
+		# Once in a while we encounter an empty xml file
+		xml_content = XML.ElementFromURL(XML_URL % (player_vars['part1'], player_vars['part2'], player_vars['part3']))
+	except:
+		raise Ex.MediaNotAvailable
+
+	video_item = xml_content.xpath('.//guid[contains(text(), "%s")]/parent::item' % player_vars['part3'])
+
+	if len(video_item) < 1:
+		raise Ex.MediaExpired
+	else:
+		return video_item[0]

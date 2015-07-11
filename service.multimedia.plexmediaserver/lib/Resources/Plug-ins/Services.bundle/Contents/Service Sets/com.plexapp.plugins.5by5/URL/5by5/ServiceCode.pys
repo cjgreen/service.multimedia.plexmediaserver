@@ -1,0 +1,56 @@
+RE_DURATION = Regex('(?:(\d+) hour )?(\d+) minute')
+
+####################################################################################################
+def NormalizeURL(url):
+
+    return url.split('#')[0].split('?')[0]
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+    html = HTML.ElementFromURL(url)
+
+    show = html.xpath('//title/text()')[0].split(' | ', 1)[-1].split(' #', 1)[0]
+    title = html.xpath('//h2/text()')[0].strip()
+    summary = html.xpath('//meta[@name="description"]/@content')[0]
+    thumb = html.xpath('//div[@id="masthead"]//img/@src')[0]
+
+    (date, duration) = html.xpath('//h5/text()')[0].strip().split('\n', 2)
+    originally_available_at = Datetime.ParseDate(date.split(' at')[0])
+
+    (hours, minutes) = RE_DURATION.search(duration).groups()
+    hours = '0' if hours is None else hours
+    minutes = '00' if minutes is None else minutes
+    duration = Datetime.MillisecondsFromString('%s:%s:00' % (hours, minutes))
+
+    index = url.split('/')[-1]
+
+    return TrackObject(
+        title = title,
+        artist = show,
+        thumb = Resource.ContentsOfURLWithFallback(thumb),
+        originally_available_at = originally_available_at,
+        duration = duration,
+        index = int(index)
+    )
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+    return [
+        MediaObject(
+            audio_codec = AudioCodec.MP3,
+            parts = [
+                PartObject(key=Callback(PlayMedia, url=url, ext='mp3'))
+            ]
+        )
+    ]
+
+####################################################################################################
+def PlayMedia(url, **kwargs):
+
+    html = HTML.ElementFromURL(url)
+
+    # Redirect to the available media
+    track_url = html.xpath('//a[contains(text(), "MP3")]/@href')[0]
+    return Redirect(track_url)

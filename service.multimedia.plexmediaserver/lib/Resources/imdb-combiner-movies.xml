@@ -1,0 +1,7 @@
+<combine class="Movie">
+    <sources>
+      <agent>com.plexapp.agents.localmedia</agent>
+      <agent>com.plexapp.agents.themoviedb</agent>
+      <agent>com.plexapp.agents.imdb</agent>
+    </sources>
+</combine>

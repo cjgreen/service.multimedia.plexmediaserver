@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>com.plexapp.agents.wikipedia</string>
+	<key>PlexAgentAttributionText</key>
+	<string>
+		&lt;a href=&quot;http://en.wikipedia.com/&quot;&gt;Wikipedia&lt;/a&gt;, dual-licensed under the &lt;a href=&quot;http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License&quot;&gt;Creative Commons Attribution-Sharealike 3.0 Unported License&lt;/a&gt; (CC-BY-SA) and the &lt;a href=&quot;http://www.gnu.org/copyleft/fdl.html&quot;&gt;GNU Free Documentation License&lt;/a&gt; (GFDL)
+	</string>
+	<key>PlexFrameworkVersion</key>
+	<string>2</string>
+	<key>PlexPluginClass</key>
+	<string>Agent</string>
+</dict>
+</plist>

@@ -1,0 +1,114 @@
+RE_VIDEO_URL = Regex('<source src="(?P<video_url>[^"]+)" type="video/mp4">')
+RE_VIDEO_ID = Regex('redtube\.com/(?P<video_id>\d+)')
+API_URL = 'http://api.redtube.com/?data=redtube.Videos.getVideoById&video_id=%s&output=json'
+
+####################################################################################################
+def NormalizeURL(url):
+
+	return url.split('?')[0]
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	video_id = RE_VIDEO_ID.search(url)
+
+	if not video_id:
+		return None
+
+	try:
+		data = JSON.ObjectFromURL(API_URL % video_id.group('video_id'))
+	except:
+		raise Ex.MediaNotAvailable
+
+	if not 'video' in data:
+		raise Ex.MediaNotAvailable
+	else:
+		data = data['video']
+
+	title = data['title']
+	thumb = data['thumb'].replace('m.jpg', 'b.jpg')
+
+	try: duration = TimeToMs(data['duration'])
+	except: duration = None
+
+	try: rating = float(data['rating']) * 2
+	except: rating = None
+
+	tags = []
+	if 'tags' in data:
+		for key in data['tags']:
+			tags.append(data['tags'][key])
+
+	try: originally_available_at = Datetime.ParseDate(data['publish_date']).date()
+	except: originally_available_at = None
+
+	try: year = int(data['publish_date'].split('-')[0])
+	except: year = None
+
+	return VideoClipObject(
+		title = title,
+		thumb = thumb,
+		duration = duration,
+		rating = rating,
+		tags = tags,
+		originally_available_at = originally_available_at,
+		year = year,
+		genres = ['XXX','Adult','18+'],
+		content_rating_age = 18,
+		source_title = 'RedTube'
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			video_codec = VideoCodec.H264,
+			audio_codec = AudioCodec.AAC,
+			container = 'mp4',
+			parts = [PartObject(key=Callback(PlayVideo, url=url))]
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url):
+
+	try:
+		page = HTTP.Request(url).content
+	except:
+		raise Ex.MediaNotAvailable
+
+	video_url = RE_VIDEO_URL.search(page)
+
+	if not video_url:
+		raise Ex.MediaNotAvailable
+
+	return IndirectResponse(VideoClipObject, key=video_url.group('video_url'))
+
+####################################################################################################
+def TestURLs():
+
+	test_urls = []
+	data = JSON.ObjectFromURL('http://api.redtube.com/?data=redtube.Videos.searchVideos&output=json')
+
+	for video in data['videos']:
+		url = video['video']['url']
+		test_urls.append(url)
+
+		if len(test_urls) == 3:
+			break
+
+	return test_urls
+
+####################################################################################################
+def TimeToMs(timecode):
+
+	seconds  = 0
+	duration = timecode.split(':')
+	duration.reverse()
+
+	for i in range(0, len(duration)):
+		seconds += int(duration[i]) * (60**i)
+
+	return seconds * 1000

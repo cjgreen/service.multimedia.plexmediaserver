@@ -1,0 +1,113 @@
+META_URL = 'http://www.nbcnews.com/id/%s/displaymode/1219'
+VIDEO_URL = 'http://msnbc.vo.llnwd.net/l1/video/ipad/wifi/%s.mov'
+RE_VIDEO_ID = Regex('(\d{8})')
+RE_VIDEO_XML = Regex('<video .+?</video>', Regex.DOTALL)
+
+AudioStreamObject.language_code = Locale.Language.English
+
+####################################################################################################
+def NormalizeURL(url):
+
+	return url
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	video_id = RE_VIDEO_ID.findall(url)
+
+	if len(video_id) < 1:
+		raise Ex.MediaNotAvailable
+	else:
+		video_id = video_id[-1]
+
+	try:
+		data = HTTP.Request(META_URL % video_id).content
+	except:
+		raise Ex.MediaNotAvailable
+
+	xml = RE_VIDEO_XML.findall(data)
+
+	if xml:
+		xml = XML.ElementFromString(xml[0])
+	else:
+		raise Ex.MediaNotAvailable
+
+	title = xml.xpath('//video/headline/text()')
+
+	if len(title) < 1:
+		raise Ex.MediaNotAvailable
+
+	title = title[0]
+	summary = xml.xpath('//video/caption/text()')[0]
+
+	date = xml.xpath('//video/date/text()')
+
+	if len(date) > 0:
+		# Datetime format is in 'ticks'
+		# http://kramerc.com/2010/11/30/converting-datetime-ticks-into-a-unix-timestamp-in-php/
+
+		ticks = date[0]
+		timestamp = int(ticks[:-7]) - 62135596800
+		originally_available_at = Datetime.FromTimestamp(timestamp).date()
+	else:
+		originally_available_at = None
+
+	thumb = xml.xpath('//video/media[@type="thumbnail"]/text()')[0].replace('.vmod.', '.ss_full.')
+
+	return VideoClipObject(
+		title = title,
+		summary = summary,
+		originally_available_at = originally_available_at,
+		thumb = Resource.ContentsOfURLWithFallback(thumb)
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			parts = [
+				PartObject(
+					key = Callback(PlayVideo, url=url)
+				)
+			],
+			container = Container.MOV,
+			video_codec = VideoCodec.H264,
+			video_resolution = '480',
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url):
+
+	video_id = RE_VIDEO_ID.findall(url)[-1]
+
+	data = HTTP.Request(META_URL % video_id).content
+	xml = RE_VIDEO_XML.findall(data)
+
+	if xml:
+		xml = XML.ElementFromString(xml[0])
+	else:
+		raise Ex.MediaNotAvailable
+
+	video_title = xml.xpath('//video/@title')[0]
+
+	return IndirectResponse(VideoClipObject, key=VIDEO_URL % video_title)
+
+####################################################################################################
+def TestURLs():
+
+	test_urls = []
+	feed = RSS.FeedFromURL('http://rss.msnbc.msn.com/id/21426473/device/rss/')
+
+	for item in feed.entries:
+		test_urls.append(item.link)
+
+		if len(test_urls) > 2:
+			break
+
+	return test_urls

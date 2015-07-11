@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>%@, Episode %d</key>
+	<string>%1$@, 에피소드 %2$d</string>
+	<key>%d TV shows</key>
+	<string>TV 프로그램 %d개</string>
+	<key>%d artists</key>
+	<string>아티스트 %d명</string>
+	<key>%d episodes</key>
+	<string>에피소드 %d개</string>
+	<key>%d items</key>
+	<string>아이템 %d개</string>
+	<key>%d movies</key>
+	<string>영화 %d개</string>
+	<key>%d photos</key>
+	<string>%d 사진</string>
+	<key>%d tracks</key>
+	<string>트랙 %d개</string>
+	<key>%d tracks, %@ total time, %@</key>
+	<string>트랙 %1$d개, 재생시간 %2$@, %3$@</string>
+	<key>%d:%02d %@</key>
+	<string>%1$d:%2$02d %3$@</string>
+	<key>1 TV show</key>
+	<string>TV 프로그램 1개</string>
+	<key>1 artist</key>
+	<string>아티스트 1명</string>
+	<key>1 episode</key>
+	<string>에피소드 1개</string>
+	<key>1 item</key>
+	<string>아이템 1개</string>
+	<key>1 movie</key>
+	<string>영화 1개</string>
+	<key>1 photo</key>
+	<string>사진 1개</string>
+	<key>1 track</key>
+	<string>트랙 1개</string>
+	<key>1 track, %@ total time, %@</key>
+	<string>트랙 1개, 재생시간 %1$@, %2$@</string>
+	<key>&gt; Add posters, custom genres and more</key>
+	<string>&gt; 포스터, 장르 등 추가</string>
+	<key>&gt; Album reviews</key>
+	<string>&gt; 앨범 리뷰</string>
+	<key>&gt; Artist biographies and artwork</key>
+	<string>&gt; 작가 전기와 작품</string>
+	<key>&gt; Automatic theme music for TV shows</key>
+	<string>&gt; TV 프로그램의 테마 음악</string>
+	<key>&gt; Customize every detail of each movie</key>
+	<string>&gt; 영화 세부 사항 변경</string>
+	<key>&gt; Great for your personal media</key>
+	<string>&gt; 최고의 개인 미디어를 위한 도구 </string>
+	<key>&gt; Movie posters and art</key>
+	<string>&gt; 영화 포스터 아트</string>
+	<key>&gt; Organize movies into collections</key>
+	<string>&gt; 영화 컬렉션 구성</string>
+	<key>&gt; TV show posters and art</key>
+	<string>&gt; TV 프로그램 포스터 아트</string>
+	<key>&gt; Thumbnails for every episode</key>
+	<string>&gt; 에피소드의 썸네일</string>
+	<key>ALBUMS</key>
+	<string>앨범</string>
+	<key>AM</key>
+	<string>오전</string>
+	<key>ARTISTS</key>
+	<string>작가</string>
+	<key>Add Home Movies Section</key>
+	<string>홈 무비 섹션 추가</string>
+	<key>Add Movies Section</key>
+	<string>영화 섹션 추가</string>
+	<key>Add Music Section</key>
+	<string>음악 섹션 추가</string>
+	<key>Add Section</key>
+	<string>섹션 추가</string>
+	<key>Add TV Shows Section</key>
+	<string>TV 프로그램 섹션 추가</string>
+	<key>Add the folders containing media for this section below. Any media files found inside these folders will be scanned into your library using the above settings.</key>
+	<string>미디어를 포함하는 폴더를 추가하세요. 해당 폴더 내의 미디어 파일들은 위의 설정에 따라 자동으로 사용자의 라이브러리에 추가됩니다.</string>
+	<key>Advanced</key>
+	<string>고급</string>
+	<key>Agent Settings Save Error</key>
+	<string>에이전트 설정 저장 에러</string>
+	<key>Agents</key>
+	<string>에이전트</string>
+	<key>All deleted items will be permanently removed from your library. No files on your computer will be removed.</key>
+	<string>삭제된 모든 파일은 라이브러리에서 사라집니다. 사용자의 컴퓨터에서 삭제되지는 않습니다.</string>
+	<key>Allow clients to delete media</key>
+	<string>미디어 삭제 고객 허용</string>
+	<key>Always enabled</key>
+	<string>항상 가능</string>
+	<key>Any content in this section will no longer be available in your library. The files on your computer will not be removed.</key>
+	<string>이 섹션의 모든 컨텐츠는 더 이상 라이브러리에서 사용되지 않습니다. 사용자의 컴퓨터에 있는 파일은 삭제되지 않습니다.</string>
+	<key>Aperture Sharing Enabled</key>
+	<string>조리개 공유 가능</string>
+	<key>Are you sure you want to disable secure access to your server?</key>
+	<string>보안 서버를 비활성화 하시겠습니까?</string>
+	<key>Are you sure you want to empty the trash in "%@"?</key>
+	<string>휴지통을 비우시겠습니까?</string>
+	<key>Are you sure you want to remove the collection named "%@"?</key>
+	<string>지정한 컬렉션을 삭제 하시겠습니까?</string>
+	<key>Are you sure you want to remove the section named "%@"?</key>
+	<string>"%@" 섹션을 삭제하시겠습니까?</string>
+	<key>Artist</key>
+	<string>아티스트</string>
+	<key>Authenticate</key>
+	<string>승인</string>
+	<key>Authentication Required</key>
+	<string>승인 필요</string>
+	<key>Cancel</key>
+	<string>취소</string>
+	<key>Capability checking ensures that plug-ins that are incompatible with this version of the server or the current client application you are using are hidden. Disabling capability checking is useful during development, but will enable access to plug-ins that may perform unreliably with certain client applications.</key>
+	<string>이 옵션을 선택 하면 서버의 버전과 호환되지 않는 플러그 인이나 클라이언트 응용 프로그램도 보여줍니다. 이 옵션은 개발 중일 때 유용하지만 플러그 인의 접근이 클라이언트 응용 프로그램에 대해 신뢰할 수 없는 동작을 야기할 수 있습니다.</string>
+	<key>Change</key>
+	<string>변경</string>
+	<key>Change Artwork</key>
+	<string>이미지 변경</string>
+	<key>Change Password</key>
+	<string>비밀번호 변경</string>
+	<key>Change Username</key>
+	<string>계정 변경</string>
+	<key>Change your username, and enter your password to authenticate.</key>
+	<string>계정을 입력하고 비밀번호를 입력하세요.</string>
+	<key>Choose Album Thumbnail</key>
+	<string>앨범 썸네일 선택</string>
+	<key>Choose Background Art</key>
+	<string>배경 변경</string>
+	<key>Choose Banner</key>
+	<string>배너 변경</string>
+	<key>Choose Episode Thumbnail</key>
+	<string>에피소드 썸네일 선택</string>
+	<key>Choose Icon</key>
+	<string>아이콘 변경</string>
+	<key>Choose Poster</key>
+	<string>포스터 변경</string>
+	<key>Choose Season Thumbnail</key>
+	<string>시즌 썸네일 선택</string>
+	<key>Click the titles below to create library sections for your media and have it served to your Plex-enabled devices.</key>
+	<string>Plex가 장착된 디바이스에서 재생되도록 라이브러리 섹션을 생성하세요.</string>
+	<key>Clients will have the ability to request deletion of media files from the hard drive.</key>
+	<string>하드디스크에 있는 미디어 파일 삭제 요청이 가능하게 됩니다.</string>
+	<key>Collections</key>
+	<string>컬렉션</string>
+	<key>Collections...</key>
+	<string>컬렉션</string>
+	<key>Confirm password:</key>
+	<string>비밀번호 확인</string>
+	<key>Connecting to Plex Media Server failed with this error: %@.
+
+Are you sure it's running?</key>
+	<string>다음과 같은 에러로 인하여 Plex Media Server에 접속하지 못했습니다.: %@.
+
+Plex Media Server가 실행 중인지 확인하세요.</string>
+	<key>Content Rating</key>
+	<string>등급</string>
+	<key>Create</key>
+	<string>생성</string>
+	<key>Current Password:</key>
+	<string>현재 비밀번호:</string>
+	<key>Custom Search</key>
+	<string>상세 검색</string>
+	<key>Customize Section</key>
+	<string>사용자 정의 섹션</string>
+	<key>Directors</key>
+	<string>감독</string>
+	<key>Disable Secure Access</key>
+	<string>비활성화</string>
+	<key>Disable capability checking</key>
+	<string>호환성 체크 비활성화</string>
+	<key>Disabled</key>
+	<string>비활성화</string>
+	<key>Don't have an account? It's easy to sign up!</key>
+	<string>계정이 없으시면 등록하시기 바랍니다.</string>
+	<key>Done</key>
+	<string>완료</string>
+	<key>Drag folders into the list, or click the '+' button to browse.</key>
+	<string>'+/-' 버튼을 클릭하여 폴더를 추가/삭제하세요.</string>
+	<key>Edit Metadata</key>
+	<string>메타데이타 편집</string>
+	<key>Edit Metadata...</key>
+	<string>메타데이타 편집...</string>
+	<key>Edit Section</key>
+	<string>섹션 편집</string>
+	<key>Email:</key>
+	<string>이메일:</string>
+	<key>Empty Trash</key>
+	<string>휴지통 비우기</string>
+	<key>Empty trash automatically after every scan</key>
+	<string>스캔 후에 자동 휴지통 비우기</string>
+	<key>Enable</key>
+	<string>활성화</string>
+	<key>Enable DTS mix-down for Media Link clients</key>
+	<string>미디어링크 클라이언트를 위한 DTS 처리 가능</string>
+	<key>Enable Dolby® Digital during AirPlay</key>
+	<string>에어플래이 중에 돌비(R) 디지탈 가능</string>
+	<key>Enable Secure Access</key>
+	<string>보안 서버 활성화</string>
+	<key>Enable this if your router doesn't support automatic configuration.</key>
+	<string>사용 중인 라우터가 자동 설정 되지 않으면, 본 설정을 사용하십시요.</string>
+	<key>Enter a password to enable secure access to your server:</key>
+	<string>보안 서버를 활성화 하기 위해 비밀번호를 입력하세요:</string>
+	<key>Enter your current password to authenticate, then enter and verify your new password.</key>
+	<string>현재 비밀번호와 변경하고자 하는 비밀번호를 입력하세요.</string>
+	<key>Episode %d: %@</key>
+	<string>에피소드 %1$d: %2$@</string>
+	<key>Failed to map ports</key>
+	<string>포트 설정이 되지 않았습니다.</string>
+	<key>Failed to map ports: %@</key>
+	<string>이 포트 설정은 되지 않았습니다.</string>
+	<key>Fix Incorrect Match...</key>
+	<string>다시 선택...</string>
+	<key>Fix incorrect match</key>
+	<string>다시 선택</string>
+	<key>Friday</key>
+	<string>금요일</string>
+	<key>Friendly name:</key>
+	<string>사용자 정의 이름:</string>
+	<key>General</key>
+	<string>일반</string>
+	<key>Genres</key>
+	<string>장르</string>
+	<key>Got this error: %@. Are you sure Plex Media Server is running?</key>
+	<string>에러 발생: %@. Plex Media Server가 실행 중인지 확인하세요.</string>
+	<key>Have a myPlex or forums account?</key>
+	<string>마이플렉스 또는 포럼 계정을 가지고 있습니까?</string>
+	<key>If you want to share your media over the Internet, you can turn on Secure Server Access to prevent unauthorized access to your server.</key>
+	<string>미디어를 공유할 때 보안 서버를 실행하여 인증 받지 못한 접근을 차단할 수 있습니다.</string>
+	<key>Include music sections in automatic updates</key>
+	<string>자동 업데이트에 음악 섹션 포함</string>
+	<key>Invalid email, username, or password</key>
+	<string>유용하지 않은 이메일, 사용자이름 또는 비밀번호 입니다</string>
+	<key>LIBRARY SECTIONS</key>
+	<string>라이브러리 섹션</string>
+	<key>Language:</key>
+	<string>언어:</string>
+	<key>Languages</key>
+	<string>언어</string>
+	<key>Large music sections may take a long time to scan</key>
+	<string>용량이 큰 음악 섹션은 탐색 시간이 오래 걸릴 수 있습니다</string>
+	<key>Last refreshed %@ at %@</key>
+	<string>%1$@ %2$@에 업데이트 되었습니다.</string>
+	<key>Library</key>
+	<string>라이브러리</string>
+	<key>Loading metadata for '%@'</key>
+	<string>%@' 메타데이타 로딩중</string>
+	<key>Loading...</key>
+	<string>로딩...</string>
+	<key>MEDIA MANAGER</key>
+	<string>미디어 매니저</string>
+	<key>MOVIES</key>
+	<string>영화</string>
+	<key>Manual Entry</key>
+	<string>직접 입력</string>
+	<key>Manually selected</key>
+	<string>수동 선택됨</string>
+	<key>Manually specify port</key>
+	<string>수동 포트 지정</string>
+	<key>Match Using</key>
+	<string>에이전트 변경</string>
+	<key>Matching '%@'</key>
+	<string>'%@' 매칭중</string>
+	<key>Media Link does not support DTS audio in certain regions. The Plex Media Server can automatically convert DTS to stereo so that it will play.</key>
+	<string>미디어링크는 특정 지역에서 DTS 오디오를 지원하지 않습니다.  플랙스 미디어 서버는 자동으로 DTS를 스테리오로 변환 시켜서 재생이 되도록 하고 있습니다.</string>
+	<key>Media analysis on '%@'</key>
+	<string>'%@' 미디어 분석</string>
+	<key>Media file: </key>
+	<string>파일 위치: </string>
+	<key>Media scanner:</key>
+	<string>미디어 스캐너:</string>
+	<key>Monday</key>
+	<string>월요일</string>
+	<key>Movie</key>
+	<string>영화</string>
+	<key>Movies</key>
+	<string>영화</string>
+	<key>Music</key>
+	<string>음악</string>
+	<key>My Movies</key>
+	<string>나의 영화</string>
+	<key>My Music</key>
+	<string>나의 음악</string>
+	<key>My Photos</key>
+	<string>나의 사진</string>
+	<key>My TV Shows</key>
+	<string>나의 TV 프로그램</string>
+	<key>Name</key>
+	<string>제목</string>
+	<key>Name:</key>
+	<string>제목:</string>
+	<key>New Collection...</key>
+	<string>새로운 컬렉션...</string>
+	<key>New Password:</key>
+	<string>새 비밀번호:</string>
+	<key>No Match Found</key>
+	<string>일치 항목 없음</string>
+	<key>OK</key>
+	<string>OK</string>
+	<key>Offer higher bitrates over 3G connections</key>
+	<string>3G 연결에서 하이 비트레이트 제공</string>
+	<key>Original Title</key>
+	<string>원제</string>
+	<key>Originally Available</key>
+	<string>개봉(첫방송)일</string>
+	<key>PHOTOS</key>
+	<string>사진</string>
+	<key>PM</key>
+	<string>오후</string>
+	<key>Password</key>
+	<string>비밀번호</string>
+	<key>Password:</key>
+	<string>비밀번호:</string>
+	<key>Path of the directory you'd like to add:</key>
+	<string>추가하고자 하는 디렉토리 경로:</string>
+	<key>Photos</key>
+	<string>사진</string>
+	<key>Plex Media Server requires a username and password:</key>
+	<string>Plex Media Server는 계정과 비밀번호를 요구합니다:</string>
+	<key>Prefer audio tracks in:</key>
+	<string>선호 오디오 트랙:</string>
+	<key>Prefer subtitles in:</key>
+	<string>선호 자막:</string>
+	<key>Preferences</key>
+	<string>설정</string>
+	<key>Primary metadata agent:</key>
+	<string>메타데이타 에이전트:</string>
+	<key>Publish server to myPlex</key>
+	<string>서버를 마이플렉스에 게재</string>
+	<key>Publishing state is unknown</key>
+	<string>작성 상태를 알 수 없습니다.</string>
+	<key>Rating</key>
+	<string>평점</string>
+	<key>Refresh Metadata</key>
+	<string>새로 고침</string>
+	<key>Refreshing info for %d items</key>
+	<string>%d 아이템의 정보를 갱신하고 있습니다.</string>
+	<key>Refreshing info for one item</key>
+	<string>아이템의 정보를 갱신하고 있습니다.</string>
+	<key>Remember me on this computer</key>
+	<string>이 컴퓨터에서 로그인 기억하기</string>
+	<key>Remove Collection</key>
+	<string>컬렉션 삭제</string>
+	<key>Remove Section</key>
+	<string>섹션 삭제</string>
+	<key>Requesting metadata for '%@'</key>
+	<string>'%@' 메타데이타 요청중</string>
+	<key>Saturday</key>
+	<string>토요일</string>
+	<key>Save</key>
+	<string>저장</string>
+	<key>Scanning '%@'</key>
+	<string>'%@' 스캔중</string>
+	<key>Search</key>
+	<string>검색</string>
+	<key>Search using:</key>
+	<string>에이전트:</string>
+	<key>Section name:</key>
+	<string>섹션 이름:</string>
+	<key>Section type:</key>
+	<string>섹션 타입:</string>
+	<key>Secure Server Access</key>
+	<string>보안 서버</string>
+	<key>Security</key>
+	<string>보안</string>
+	<key>Select</key>
+	<string>선택</string>
+	<key>Select %@</key>
+	<string>%@ 선택</string>
+	<key>Select Folder</key>
+	<string>폴더 선택</string>
+	<key>Select Image</key>
+	<string>이미지 변경</string>
+	<key>Select a directory for this section:</key>
+	<string>해당 섹션의 폴더 선택:</string>
+	<key>Select a path for this section:</key>
+	<string>이 섹션을 위한 패스 선택</string>
+	<key>Select the correct TV show from the list below:</key>
+	<string>다음 목록에서 일치하는 TV 프로그램을 선택하세요:</string>
+	<key>Select the correct artist from the list below:</key>
+	<string>다음 목록에서 일치하는 음악을 선택하세요:</string>
+	<key>Select the correct movie from the list below:</key>
+	<string>다음 목록에서 일치하는 영화를 선택하세요:</string>
+	<key>Select which additional agents should contribute to metadata from %@, and drag them to change the order of preference.</key>
+	<string>메타데이터에 기여하는 추가 에이전트를 선택하고, 드래그 하여 선호순서를 변경</string>
+	<key>Send anonymous usage data to Plex</key>
+	<string>Plex에 익명으로 사용 정보를 보냅니다.</string>
+	<key>Server is mapped to port %i</key>
+	<string>서버는 포트 %i 에 매핑되어 있음</string>
+	<key>Server is mapped to port %i (%s)</key>
+	<string>서버는 포트 %i 에 매핑되어 있음</string>
+	<key>Sharing</key>
+	<string>공유</string>
+	<key>Show</key>
+	<string>프로그램</string>
+	<key>Shown with foreign audio</key>
+	<string>외국어 오디오와 같이 보여짐</string>
+	<key>Sign In</key>
+	<string>등록</string>
+	<key>Sign Out</key>
+	<string>사인 아웃</string>
+	<key>Sign Up</key>
+	<string>사인 업</string>
+	<key>Sign in to myPlex</key>
+	<string>마이플렉스에 등록함</string>
+	<key>Sign up to myPlex</key>
+	<string>마이플렉스에 사인 업</string>
+	<key>Signed in as %@</key>
+	<string>등록됨</string>
+	<key>Sort Title</key>
+	<string>기타 제목</string>
+	<key>Studio</key>
+	<string>제작사</string>
+	<key>Subtitle mode:</key>
+	<string>자막 모드:</string>
+	<key>Summary</key>
+	<string>요약</string>
+	<key>Sunday</key>
+	<string>일요일</string>
+	<key>TV SHOWS</key>
+	<string>TV 쇼</string>
+	<key>TV Shows</key>
+	<string>TV 프로그램</string>
+	<key>Tagline</key>
+	<string>태그라인</string>
+	<key>The collection will be removed. The media inside the collection will not be touched.</key>
+	<string>이 컬렉션을 삭제될 것 입니다.  이 컬렉션에 있던 미디어는 사용할 수 없게 됩니다</string>
+	<key>There was a problem saving your changes to the agent settings. Make sure Plex Media Server is running and try again.</key>
+	<string>에이전트 설정 변경을 저장할 수 없습니다. 플렉스 미디어 서버가 동작하는지 확인하여 주십시요.</string>
+	<key>There was an error publishing the connection</key>
+	<string>접속 에러가 있습니다</string>
+	<key>There was no acceptable match using the specified agent.</key>
+	<string>선택한 에이전트에는 일치하는 항목이 없습니다.</string>
+	<key>This helps us improve your experience (for example, to help us match movies and TV shows).</key>
+	<string>이는 시스템 개선에 도움이 됩니다. (영화와 TV 프로그램을 매칭하는데 도움이 됩니다.)</string>
+	<key>This name will be used to identify this media server to other computers on your network. If you leave it blank, your computer's name will be used instead.</key>
+	<string>사용자 정의 이름은 네트워크의 다른 컴퓨터와 사용자의 미디어 서버를 구별하는데 사용됩니다. 입력하지 않으면 사용자의 컴퓨터 이름으로 저장됩니다.</string>
+	<key>This site does not support Internet Explorer. For the best experience, click here to install Google Chrome Frame.</key>
+	<string>이 사이트는 인터넷 익스플로러를 지원하지 않습니다. 이곳을 클릭하여 Google 크롬 프레임을 설치하세요.</string>
+	<key>Thursday</key>
+	<string>목요일</string>
+	<key>Title</key>
+	<string>제목</string>
+	<key>Transcoding</key>
+	<string>트랜스코딩</string>
+	<key>Tuesday</key>
+	<string>화요일</string>
+	<key>Turning off secure server access will allow incoming connections from any computer.</key>
+	<string>보안 서버를 비활성화하면 모든 컴퓨터로부터의 접근을 허용합니다.</string>
+	<key>Unable to authenticate</key>
+	<string>인증되지 않습니다</string>
+	<key>Unable to connect to Plex Media Server</key>
+	<string>Plex Media Server에 연결할 수 없습니다.</string>
+	<key>Unable to create library section</key>
+	<string>라이브러리 섹션을 생성할 수 없습니다.</string>
+	<key>Unable to remove section "%@"</key>
+	<string>"%@" 섹션을 삭제할 수 없습니다.</string>
+	<key>Unable to update library section</key>
+	<string>라이브러리 섹션을 업데이트할 수 없습니다.</string>
+	<key>Unknown sign in state</key>
+	<string>알 수 없는 사인</string>
+	<key>Unmatch</key>
+	<string>매칭 취소</string>
+	<key>Update Section</key>
+	<string>섹션 업데이트</string>
+	<key>Update my library</key>
+	<string>라이브러리 업데이트</string>
+	<key>Update my library when changes to my folders are detected</key>
+	<string>폴더에 변경 발생시 라이브러리 업데이트</string>
+	<key>Username</key>
+	<string>계정</string>
+	<key>Username:</key>
+	<string>계정:</string>
+	<key>Verify:</key>
+	<string>다시 입력:</string>
+	<key>Waiting for a valid mapping...</key>
+	<string>유효 매핑을 기다립니다...</string>
+	<key>Wednesday</key>
+	<string>수요일</string>
+	<key>What would you like to call this collection?</key>
+	<string>이 컬렉션을 사용하겠습니까?</string>
+	<key>When playing video with AirPlay on an Apple TV, allow Dolby® Digital audio to play. You must go to Settings on the Apple TV and set Dolby Digital Out to "On" in the Audio &amp; Video menu.</key>
+	<string>애플 TV에서 에어플레이를 사용하여 비디오를 재생할 때, 돌비(R) 디지탈 오디오를 사용할려면,  돌비(R) 디지털 출력을 "On" 으로 설정하여야 합니다.</string>
+	<key>Writers</key>
+	<string>작가</string>
+	<key>Year</key>
+	<string>연도</string>
+	<key>Year:</key>
+	<string>연도:</string>
+	<key>album</key>
+	<string>앨범</string>
+	<key>artist</key>
+	<string>아티스트</string>
+	<key>daily</key>
+	<string>매일</string>
+	<key>episode</key>
+	<string>에피소드</string>
+	<key>every 12 hours</key>
+	<string>12시간 마다</string>
+	<key>every 15 minutes</key>
+	<string>15분 마다</string>
+	<key>every 2 hours</key>
+	<string>2시간 마다</string>
+	<key>every 30 minutes</key>
+	<string>30분 마다</string>
+	<key>every 6 hours</key>
+	<string>6시간 마다</string>
+	<key>hourly</key>
+	<string>1시간 마다</string>
+	<key>iPhoto Sharing Enabled</key>
+	<string>아이포토 (iPhoto) 공유 가능</string>
+	<key>iTunes Sharing Enabled</key>
+	<string>아이튠 (iTunes) 공유 가능</string>
+	<key>movie</key>
+	<string>영화</string>
+	<key>myPlex</key>
+	<string>마이플렉스</string>
+	<key>myPlex appears to be offline</key>
+	<string>마이플렉스가 오프라인 된 것 같습니다.</string>
+	<key>myPlex ties all your Plex clients and servers together, making it easy for your devices to communicate with each other and share settings and media.</key>
+	<string>마이플렉스는 고객님의 플렉스 클라이언트와 서버에 연결되어 미디어 간의 통신을 쉽게 합니다.</string>
+	<key>myPlex was unable to connect to your Server</key>
+	<string>마이플렉스가 고객님의 서버에 접속되지 않습니다.</string>
+	<key>no TV shows</key>
+	<string>TV 프로그램 없음</string>
+	<key>no artists</key>
+	<string>아티스트 없음</string>
+	<key>no episodes</key>
+	<string>에피소드 없음</string>
+	<key>no items</key>
+	<string>아이템 없음</string>
+	<key>no movies</key>
+	<string>영화 없음</string>
+	<key>no photos</key>
+	<string>사진 없음</string>
+	<key>no tracks</key>
+	<string>트랙 없음</string>
+	<key>photo</key>
+	<string>사진</string>
+	<key>season</key>
+	<string>시즌</string>
+	<key>show</key>
+	<string>프로그램</string>
+	<key>today</key>
+	<string>오늘</string>
+	<key>tomorrow</key>
+	<string>내일</string>
+	<key>yesterday</key>
+	<string>어제</string>
+</dict>
+</plist>

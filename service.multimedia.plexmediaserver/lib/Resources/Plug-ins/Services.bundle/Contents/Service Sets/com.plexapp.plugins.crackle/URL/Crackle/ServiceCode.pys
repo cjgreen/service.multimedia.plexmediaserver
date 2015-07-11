@@ -1,0 +1,214 @@
+URL_GEO = 'http://ios-api.crackle.com/Service.svc/geo/country?format=json'
+URL_DETAILS = 'http://ios-api.crackle.com/Service.svc/channel/%s/folders/%s?format=json'
+
+RE_VIDEO_ID = Regex('\/(?P<id>\d+)')
+RE_HOST = Regex('\/\/.+?\.crackle\.com\/')
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+    details = GetVideoDetails(url)
+
+    if not details:
+        raise Ex.MediaNotAvailable
+
+    title = details['Title']
+
+    try:
+        summary = details['Description']
+    except:
+        summary = None
+
+    try:
+        thumb = details['ThumbnailExternal']
+    except:
+        thumb = None
+
+    try:
+        genres = [ genre.strip() for genre in details['Genre'].split(',') ]
+    except:
+        genres = None
+
+    try:
+        content_rating = details['Rating']
+    except:
+        content_rating = None
+
+    try:
+        user_rating = float(details['UserRating']) * 2
+    except:
+        user_rating = None
+
+    try:
+        date = Datetime.ParseDate(details['ReleaseDate'])
+    except:
+        date = None
+
+    try:
+        directors = [ director.strip() for director in details['Directors'].split(',') ]
+    except:
+        directors = None
+
+    try:
+        writers = [ writer.strip() for writer in details['Writers'].split(',') ]
+    except:
+        writers = None
+
+    try:
+        producers = [ producer.strip() for producer in details['Producers'].split(',') ]
+    except:
+        producers = None
+
+    try:
+        tags = [ tag.strip() for tag in details['Tags'].split(',') ]
+    except:
+        tags = None
+
+    try:
+        duration = int(details['DurationInSeconds']) * 1000
+    except:
+        duration = None
+
+    if details['RootChannel'] == 'Movies':
+        try:
+            studio = details['Studio']
+        except:
+            studio = None
+
+        try:
+            year = int(details['ReleaseYear'])
+        except:
+            year = None
+
+        return MovieObject(
+            title = title,
+            summary = summary,
+            thumb = thumb,
+            genres = genres,
+            rating = user_rating,
+            content_rating = content_rating,
+            duration = duration,
+            originally_available_at = date,
+            year = year,
+            studio = studio
+        )
+
+    elif details['RootChannel'] == 'Television' or details['RootChannel'] == 'Originals':
+        try:
+            show = details['ShowName']
+        except:
+            show = None
+
+        try:
+            season = int(details['Season'])
+        except:
+            season = None
+
+        try:
+            index = int(details['Episode'])
+        except:
+            index = None
+
+        return EpisodeObject(
+            title = title,
+            summary = summary,
+            originally_available_at = date,
+            rating = user_rating,
+            season = season,
+            index = index,
+            thumb = thumb,
+            duration = duration
+        )
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+    return [
+        MediaObject(
+            container = Container.MP4,
+            video_codec = VideoCodec.H264,
+            audio_codec = AudioCodec.AAC,
+            video_resolution = 480,
+            optimized_for_streaming = True,
+            audio_channels = 2,
+            parts = [
+                PartObject(key=Callback(PlayVideo, url=url, res="480p_1mbps"))
+            ]
+        ),
+        MediaObject(
+            container = Container.MP4,
+            video_codec = VideoCodec.H264,
+            audio_codec = AudioCodec.AAC,
+            video_resolution = 480,
+            optimized_for_streaming = True,
+            audio_channels = 2,
+            parts = [
+                PartObject(key=Callback(PlayVideo, url=url, res="480p"))
+            ]
+        ),
+        MediaObject(
+            container = Container.MP4,
+            video_codec = VideoCodec.H264,
+            audio_codec = AudioCodec.AAC,
+            video_resolution = 360,
+            optimized_for_streaming = True,
+            audio_channels = 2,
+            parts = [
+                PartObject(key=Callback(PlayVideo, url=url, res="360p"))
+            ]
+        )
+    ]
+
+####################################################################################################
+@indirect
+def PlayVideo(url, res):
+
+    video_url = GetVideoDetails(url, res)
+
+    if video_url:
+        return IndirectResponse(
+            VideoClipObject,
+            key = video_url
+        )
+    else:
+        raise Ex.MediaNotAvailable
+
+####################################################################################################
+def GetVideoDetails(url, res=None):
+
+    video_id = GetVideoID(url)
+    geo_code = GetGeoCode()
+
+    page_element = HTML.ElementFromURL(url)
+    channel_id = page_element.xpath("//*[@id='channelId']/@value")[0] 
+
+    details = JSON.ObjectFromURL(URL_DETAILS % (channel_id, geo_code))
+
+    if not 'FolderList' in details or len(details['FolderList']) < 1:
+        raise Ex.MediaNotAvailable
+
+    for playlist in details['FolderList'][0]['PlaylistList']:
+        for title in playlist['MediaList']:
+            if str(title['ID']) == video_id:
+                if res:
+                    video_url = title['ThumbnailExternal']
+                    video_url = RE_HOST.sub('//media-us-am.crackle.com/', video_url)
+                    video_url = video_url[:video_url.rfind('_') + 1]
+                    video_url = video_url + res + '.mp4'
+
+                    return video_url
+                else:
+                    return title
+
+    return None
+
+####################################################################################################
+def GetVideoID(url):
+
+    return RE_VIDEO_ID.search(url).group('id')
+
+####################################################################################################
+def GetGeoCode():
+
+    location_details = JSON.ObjectFromURL(URL_GEO)
+    return location_details['CountryCode']

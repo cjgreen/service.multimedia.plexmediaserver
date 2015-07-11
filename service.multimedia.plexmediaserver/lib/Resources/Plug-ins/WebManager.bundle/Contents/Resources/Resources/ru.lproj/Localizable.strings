@@ -1,0 +1,400 @@
+/* First-run help item */
+"> Add posters, custom genres and more" = "> Позволяет добавить описание, обложки и многое другое";
+
+/* First-run help item */
+"> Album reviews" = "> Информация об альбоме, включая рецензии";
+
+/* First-run help item */
+"> Artist biographies and artwork" = "> Биография исполнителей, обложки дисков";
+
+/* First-run help item */
+"> Automatic theme music for TV shows" = "> Музыкальная тема";
+
+/* First-run help item */
+"> Customize every detail of each movie" = "> Дополнительная информация о каждом фильме";
+
+/* First-run help item */
+"> Great for your personal media" = "> Максимально удобен для личного архива";
+
+/* First-run help item */
+"> Movie posters and art" = "> Выбор постеров и изображений";
+
+/* First-run help item */
+"> Organize movies into collections" = "> Организация личной коллекции";
+
+/* First-run help item */
+"> Thumbnails for every episode" = "> Превью к каждому эпизоду/выпуску";
+
+/* First-run help item */
+"> TV show posters and art" = "> Постеры и фотографии";
+
+/* First-run title for adding home movies */
+"Add Home Movies Section" = "Создать раздел домашнего видео";
+
+/* First-run title for adding movies */
+"Add Movies Section" = "Создать раздел фильмов";
+
+/* First-run title for adding music */
+"Add Music Section" = "Создать раздел музыки";
+
+/* Section settings primary informative text */
+"Add the folders containing media for this section below. Any media files found inside these folders will be scanned into your library using the above settings." = "Добавьте папку с медиа файлами соответствующего типа. Найденные в папке эелементы будут добавлены в Вашу медиатеку в соответствии с выбранными выше настройками.";
+
+/* First-run title for adding TV shows */
+"Add TV Shows Section" = "Создать раздел ТВ-шоу и сериалов";
+
+/* Advanced */
+"Advanced" = "Расширенные";
+
+/* Agents */
+"Agents" = "Агенты";
+
+/* Agent settings title for music albums */
+"ALBUMS" = "АЛЬБОМЫ";
+
+/* Preference window setting */
+"Allow clients to delete media" = "Разрешить удаление файлов с клиентстких устройств";
+
+/* Language preference pane subtitle mode option */
+"Always enabled" = "Всегда включены";
+
+/* Disable secure server access confirmation */
+"Are you sure you want to disable secure access to your server?" = "Вы действительно хотите отключить опцию «Безопасный доступ» к серверу?";
+
+/* Cancel */
+"Cancel" = "Отмена";
+
+/* Preference window setting detail */
+"Capability checking ensures that plug-ins that are incompatible with this version of the server or the current client application you are using are hidden. Disabling capability checking is useful during development, but will enable access to plug-ins that may perform unreliably with certain client applications." = "Проверка совместимости гарантирует, что плагины, которые несовместимы с текущей версией сервера или клиентского приложения, не будут отображаться. 
+Отключение проверки может привести к нестабильной работе некоторых плагинов с рядом клиентских приложений.";
+
+/* Security preferences button to change the main account password */
+"Change Password" = "Сменить пароль";
+
+/* Security preferences button to change the main account username */
+"Change Username" = "Сменить имя пользователя";
+
+/* Choose Background Art */
+"Choose Background Art" = "Выбрать фоновое изображение";
+
+/* Choose Icon */
+"Choose Icon" = "Выбрать иконку";
+
+/* First-run help title */
+"Click the titles below to create library sections for your media and have it served to your Plex-enabled devices." = "Нажмите любой из заголовков ниже, чтобы создать соответствующий раздел медиатеки и сделать его доступным для Plex-совместимых устройств.";
+
+/* Preference window setting */
+"Clients will have the ability to request deletion of media files from the hard drive." = "Опция позволяет пользователям удалять медиафайлы с жесткого диска.";
+
+/* Collections */
+"Collections" = "Коллекции";
+
+/* Context menu item for adding to collections */
+"Collections..." = "Коллекции...";
+
+/* Content Rating */
+"Content Rating" = "Возрастной рейтинг";
+
+/* Custom Search */
+"Custom Search" = "Исправить вручную";
+
+/* Customize Section */
+"Customize Section" = "Кастомизация";
+
+/* Library scan interval (i.e. Update my library daily */
+"daily" = "ежедневно";
+
+/* Directors */
+"Directors" = "Режиссеры";
+
+/* Preference window setting */
+"Disable capability checking" = "Отключить проверку совместимости";
+
+/* Disable secure server confirmation button */
+"Disable Secure Access" = "Отключить Безопасный доступ";
+
+/* Done */
+"Done" = "Выполнить";
+
+/* Section settings secondary informative text */
+"Drag folders into the list, or click the '+' button to browse." = "Перетащите папку в список или Нажмите «+» для просмотра.";
+
+/* Edit Metadata */
+"Edit Metadata" = "Редактировать метаданные";
+
+/* Context menu item for metadata items */
+"Edit Metadata..." = "Редактировать метаданные...";
+
+/* Edit Section */
+"Edit Section" = "Редактировать раздел";
+
+/* Confirmation button for the empty trash confirmation dialog */
+"Empty Trash" = "Очистить корзину";
+
+/* Preference window setting */
+"Empty trash automatically after every scan" = "Очищать корзину автоматически после каждого сканирования";
+
+/* Enable */
+"Enable" = "Включить";
+
+/* Preference window setting */
+"Enable DTS mix-down for Media Link clients" = "Включить функцию преобразования DTS для клиентов Media Link";
+
+/* Check box label to enable secure server access */
+"Enable Secure Access" = "Включить Безопасный доступ";
+
+/* Enable security prompt message */
+"Enter a password to enable secure access to your server:" = "Введите пароль чтобы включить опцию «Безопасный доступ» к серверу:";
+
+/* Library scan interval (i.e. Update my library every 12 hours) */
+"every 12 hours" = "каждые 12 часов";
+
+/* Library scan interval (i.e. Update my library every 15 minutes) */
+"every 15 minutes" = "каждые 15 минут";
+
+/* Library scan interval (i.e. Update my library every 2 hours) */
+"every 2 hours" = "каждые 2 часа";
+
+/* Library scan interval (i.e. Update my library every 30 minutes) */
+"every 30 minutes" = "каждые 30 минут";
+
+/* Library scan interval (i.e. Update my library every 6 hours) */
+"every 6 hours" = "каждые 6 часов";
+
+/* Fix incorrect match */
+"Fix incorrect match" = "Исправить неправильное сопоставление";
+
+/* Context menu item for metadata items */
+"Fix Incorrect Match..." = "Исправить неправильное сопоставление...";
+
+/* Friendly name label */
+"Friendly name:" = "Имя:";
+
+/* General */
+"General" = "Общие";
+
+/* Genres */
+"Genres" = "Жанры";
+
+/* Library scan interval (i.e. Update my library hourly) */
+"hourly" = "каждый час";
+
+/* Security preference pane explanation */
+"If you want to share your media over the Internet, you can turn on Secure Server Access to prevent unauthorized access to your server." = "Позволяет предотвратить несанкционированный доступ к серверу при организации доступа к медиатеке через Интернет.";
+
+/* Preference window setting */
+"Include music sections in automatic updates" = "Выполнять автоматическое сканирование для разделов содержащих музыку";
+
+/* Language label */
+"Language:" = "Язык:";
+
+/* Languages */
+"Languages" = "Языки";
+
+/* Preference window setting */
+"Large music sections may take a long time to scan" = "Большое число аудиофайлов может увеличить время сканирования";
+
+/* Status label for media items */
+"Last refreshed %@ at %@" = "Последнее обновление %@ в %@";
+
+/* Library */
+"Library" = "Медиатека";
+
+/* Sidebar group title for library sections */
+"LIBRARY SECTIONS" = "РАЗДЕЛЫ МЕДИАТЕКИ";
+
+/* Button text for the directory browser to allow the user to type in a path manually */
+"Manual Entry" = "Указать  вручную (or “Вручную”)";
+
+/* Language preference pane subtitle mode option */
+"Manually selected" = "Выбирать вручную";
+
+/* Context menu item for metadata items */
+"Match Using" = "Сопоставить используя";
+
+/* Preference window setting detail */
+"Media Link does not support DTS audio in certain regions. The Plex Media Server can automatically convert DTS to stereo so that it will play." = "Media Link не поддерживает звуковую дорожку формата DTS в некоторых регионах. Plex Media Server способен автоматически конвертировать звук DTS в стерео формат для дальнейшего воспроизведения.";
+
+/* Media scanner label */
+"Media scanner:" = "Сканер медиа:";
+
+/* Agent settings title for movies */
+"MOVIES" = "ФИЛЬМЫ";
+
+/* Movies */
+"Movies" = "Фильмы";
+
+/* Music */
+"Music" = "Музыка";
+
+/* Movie section name placeholder */
+"My Movies" = "Мои фильмы";
+
+/* Music section name placeholder */
+"My Music" = "Моя музыка";
+
+/* TV Shows section name placeholder */
+"My TV Shows" = "Мои ТВ-шоу и сериалы";
+
+/* Name */
+"Name" = "Название";
+
+/* Name label */
+"Name:" = "Название:";
+
+/* Status label value for when there are no movies */
+"no movies" = "нет фильмов";
+
+/* Preference window setting */
+"Offer higher bitrates over 3G connections" = "Предлагать более высокий битрейт при 3G соединении";
+
+/* OK */
+"OK" = "OK";
+
+/* Original Title */
+"Original Title" = "Оригинальное название";
+
+/* Originally Available */
+"Originally Available" = "Дата премьеры";
+
+/* Password field placeholder */
+"Password" = "Пароль";
+
+/* Password label */
+"Password:" = "Пароль:";
+
+/* Instruction text for the prompt to add directories manually */
+"Path of the directory you'd like to add:" = "Укажите путь к папке, которую хотите добавить:";
+
+/* Agent settings title for photos */
+"PHOTOS" = "ФОТО";
+
+/* Photos */
+"Photos" = "Фото";
+
+/* Language preference pane audio checkbox label */
+"Prefer audio tracks in:" = "Язык основной аудиодорожки:";
+
+/* Languages preference pane default subtitle language label */
+"Prefer subtitles in:" = "Основной язык субтитров:";
+
+/* Preferences button in top-right */
+"Preferences" = "Настройки";
+
+/* Primary metadata agent label */
+"Primary metadata agent:" = "Основной агент метаданных:";
+
+/* Rating */
+"Rating" = "Рейтинг";
+
+/* Context menu item for metadata items */
+"Refresh Metadata" = "Обновить метаданные";
+
+/* Save */
+"Save" = "Сохранить";
+
+/* Search */
+"Search" = "Искать";
+
+/* Agent label */
+"Search using:" = "Искать с помощью:";
+
+/* Section name label */
+"Section name:" = "Название раздела:";
+
+/* Section type label */
+"Section type:" = "Тип раздела:";
+
+/* Security preference pane title */
+"Secure Server Access" = "Безопасный доступ к серверу";
+
+/* Security */
+"Security" = "Безопасность";
+
+/* Select */
+"Select" = "Выбрать";
+
+/* Confirm button title for selecting */
+"Select %@" = "Выбрать %@";
+
+/* Directory-browser title when adding/editing sections */
+"Select a directory for this section:" = "Выберите папку для со для данного раздела:";
+
+/* Select Folder */
+"Select Folder" = "Выбрать папку";
+
+/* Fix Incorrect Match title for TV show sections */
+"Select the correct TV show from the list below:" = "Выберите корректное название из списка:";
+
+/* Instructions on the Agent preferences panel */
+"Select which additional agents should contribute to metadata from %@, and drag them to change the order of preference." = "Выберите дополнительный агент для сбора метаданных Чтобы изменить порядок предпочтения, перетащите соответствующий элемент списка.";
+
+/* Send anonymous usage data to Plex */
+"Send anonymous usage data to Plex" = "Отправить в Plex анонимый отчет об использовании данных";
+
+/* Language preference pane subtitle mode option */
+"Shown with foreign audio" = "Выводить с иностранной аудиодорожкой";
+
+/* Studio */
+"Studio" = "Студия";
+
+/* Languages preference pane subtitle mode label */
+"Subtitle mode:" = "Режим субтитров:";
+
+/* Summary */
+"Summary" = "Аннотация";
+
+/* Tagline */
+"Tagline" = "Слоган";
+
+/* Summary info for collecting usage data */
+"This helps us improve your experience (for example, to help us match movies and TV shows)." = "Передаваемые сведения помогут улучшить сервис (например, улучшить качество распознавания фильмов или телепередач).";
+
+/* Summary info for friendly name */
+"This name will be used to identify this media server to other computers on your network. If you leave it blank, your computer's name will be used instead." = "Это имя будет использоваться в качестве идентификатора медиасервера для остальных устройств вашей домашней сети. Оставьте поле пустым, чтобы использовать для идентификации имя вашего компьютера.";
+
+/* Title */
+"Title" = "Название";
+
+/* Transcoding */
+"Transcoding" = "Транскодирование";
+
+/* Disable secure server access confirmation info */
+"Turning off secure server access will allow incoming connections from any computer." = "Выключение Безопасного доступа разрешит входящие подключения с любого компьютера.";
+
+/* TV Shows */
+"TV Shows" = "ТВ шоу и сериалы";
+
+/* Agent settings title for TV shows */
+"TV SHOWS" = "ТВ ШОУ И СЕРИАЛЫ";
+
+/* Context menu item for metadata items */
+"Unmatch" = "Убрать сопоставление";
+
+/* Preference window setting - will have frequencies after it e.g. Update my library every two hours */
+"Update my library" = "Обновлять медиатеку";
+
+/* Preference window setting */
+"Update my library when changes to my folders are detected" = "Обновить медиатеку при обнаружении изменений в моих папках";
+
+/* Update section confirm button text */
+"Update Section" = "Обновить раздел";
+
+/* Username field placeholder */
+"Username" = "Имя пользователя";
+
+/* Username label */
+"Username:" = "Имя пользователя:";
+
+/* Verify password label */
+"Verify:" = "Подтверждение:";
+
+/* Writers */
+"Writers" = "Авторы";
+
+/* Year */
+"Year" = "Год";
+
+/* Year label */
+"Year:" = "Год:";
+

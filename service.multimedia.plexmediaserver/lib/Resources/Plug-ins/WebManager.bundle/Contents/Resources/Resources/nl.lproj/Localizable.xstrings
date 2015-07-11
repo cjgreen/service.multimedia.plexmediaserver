@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>%@, Episode %d</key>
+	<string>%1$@, Aflevering %2$d</string>
+	<key>%d TV shows</key>
+	<string>%d TV series</string>
+	<key>%d artists</key>
+	<string>%d artiest</string>
+	<key>%d episodes</key>
+	<string>%d afleveringen</string>
+	<key>%d movies</key>
+	<string>%d films</string>
+	<key>%d tracks</key>
+	<string>%d nummers</string>
+	<key>%d tracks, %@ total time, %@</key>
+	<string>%1$d nummers, %2$@ totale tijd, %3$@</string>
+	<key>%d:%02d %@</key>
+	<string>%1$d:%2$02d %3$@</string>
+	<key>1 TV show</key>
+	<string>1 TV serie</string>
+	<key>1 artist</key>
+	<string>1 artiest</string>
+	<key>1 episode</key>
+	<string>1 aflevering</string>
+	<key>1 movie</key>
+	<string>1 film</string>
+	<key>1 photo</key>
+	<string>1 foto</string>
+	<key>1 track</key>
+	<string>1 nummer</string>
+	<key>1 track, %@ total time, %@</key>
+	<string>1 nummer, %1$@ totale tijd, %2$@</string>
+	<key>&gt; Add posters, custom genres and more</key>
+	<string>&gt; Voeg posters, genres en meer toe</string>
+	<key>&gt; Artist biographies and artwork</key>
+	<string>&gt; Artiestenbiografieën en artwork</string>
+	<key>&gt; Automatic theme music for TV shows</key>
+	<string>&gt; Automatische titelsong voor TV series</string>
+	<key>&gt; Customize every detail of each movie</key>
+	<string>&gt; Personaliseer ieder detail van een film</string>
+	<key>&gt; Great for your personal media</key>
+	<string>&gt; Fantastisch voor je persoonlijke media</string>
+	<key>&gt; Movie posters and art</key>
+	<string>&gt; Filmposters en achtergronden</string>
+	<key>&gt; Organize movies into collections</key>
+	<string>&gt; Stel filmcollecties samen</string>
+	<key>&gt; TV show posters and art</key>
+	<string>&gt; Posters en achtergronden voor TV series</string>
+	<key>&gt; Thumbnails for every episode</key>
+	<string>&gt; Thumbnails voor iedere aflevering</string>
+	<key>ALBUMS</key>
+	<string>ALBUMS</string>
+	<key>AM</key>
+	<string>AM</string>
+	<key>Add Home Movies Section</key>
+	<string>Voeg Homevideosectie toe</string>
+	<key>Add Movies Section</key>
+	<string>Voeg Filmsectie toe</string>
+	<key>Add Music Section</key>
+	<string>Voeg Muzieksectie toe</string>
+	<key>Add Section</key>
+	<string>Voeg sectie toe</string>
+	<key>Add TV Shows Section</key>
+	<string>Voeg sectie voor TV Series toe</string>
+	<key>Add the folders containing media for this section below. Any media files found inside these folders will be scanned into your library using the above settings.</key>
+	<string>Voeg hieronder mappen met media toe voor deze sectie. De mediabestanden die gevonden worden in deze mappen zullen met bovenstaande instellingen gescand en toegevoegd worden aan de bibliotheek.</string>
+	<key>Advanced</key>
+	<string>Geavanceerd</string>
+	<key>All deleted items will be permanently removed from your library. No files on your computer will be removed.</key>
+	<string>Alle verwijderde onderdelen zullen permanent uit uw bibliotheek worden verwijderd. Er worden geen bestanden van je computer gewist.</string>
+	<key>Any content in this section will no longer be available in your library. The files on your computer will not be removed.</key>
+	<string>Alle inhoud van deze sectie zal niet langer beschikbaar zijn in de bibliotheek. De bestanden zelf worden niet verwijderd.</string>
+	<key>Aperture Sharing Enabled</key>
+	<string>Aperture Delen ingeschakeld</string>
+	<key>Are you sure you want to disable secure access to your server?</key>
+	<string>Weet je zeker dat je veilige servertoegang wilt uitschakelen?</string>
+	<key>Are you sure you want to empty the trash in "%@"?</key>
+	<string>Weet je zeker dat je de prullenmand wilt legen in "%@"?</string>
+	<key>Are you sure you want to remove the section named "%@"?</key>
+	<string>Weet je zeker dat je de sectie  "%@" wilt verwijderen?</string>
+	<key>Artist</key>
+	<string>Artiest</string>
+	<key>Authentication Required</key>
+	<string>Authentication Required</string>
+	<key>Cancel</key>
+	<string>Annuleer</string>
+	<key>Change</key>
+	<string>Verander</string>
+	<key>Change Artwork</key>
+	<string>Verander Artwork</string>
+	<key>Change Password</key>
+	<string>Verander wachtwoord</string>
+	<key>Change Username</key>
+	<string>Verander gebruikersnaam</string>
+	<key>Change your username, and enter your password to authenticate.</key>
+	<string>Verander je gebruikersnaam en vul je wachtwoord ter authenticatie in.</string>
+	<key>Choose Album Thumbnail</key>
+	<string>Kies Album Thumbnail</string>
+	<key>Choose Background Art</key>
+	<string>Kies Background Art</string>
+	<key>Choose Banner</key>
+	<string>Kies Banner</string>
+	<key>Choose Episode Thumbnail</key>
+	<string>Kies Afleveringsthumbnail</string>
+	<key>Choose Icon</key>
+	<string>Kies Icon</string>
+	<key>Choose Poster</key>
+	<string>Kies Poster</string>
+	<key>Choose Season Thumbnail</key>
+	<string>Kies Seizoensthumbnail</string>
+	<key>Click the titles below to create library sections for your media and have it served to your Plex-enabled devices.</key>
+	<string>Klik op de titels hieronder om de bibliotheeksecties voor je media aan te maken en deze toegankelijk te maken voor je Plex apparaten.</string>
+	<key>Collections</key>
+	<string>Collecties</string>
+	<key>Connecting to Plex Media Server failed with this error: %@.
+
+Are you sure it's running?</key>
+	<string>Verbinding met de Plex Media Server is mislukt met deze foutmelding: %@.
+
+Weet je zeker dat PMS aan staat?</string>
+	<key>Content Rating</key>
+	<string>Beoordeling</string>
+	<key>Current Password:</key>
+	<string>Huidig wachtwoord:</string>
+	<key>Custom Search</key>
+	<string>Aangepast zoeken</string>
+	<key>Customize Section</key>
+	<string>Pas Sectie aan</string>
+	<key>Directors</key>
+	<string>Regisseurs</string>
+	<key>Disable Secure Access</key>
+	<string>Schakel Veilige Toegang uit</string>
+	<key>Disable capability checking</key>
+	<string>Schakel Compatibiliteitscontrole uit</string>
+	<key>Done</key>
+	<string>Klaar</string>
+	<key>Drag folders into the list, or click the '+' button to browse.</key>
+	<string>Sleep mappen naar de lijst of klik op de '+' knop om te bladeren.</string>
+	<key>Edit Metadata</key>
+	<string>Bewerk Metadata</string>
+	<key>Edit Metadata...</key>
+	<string>Bewerk Metadata...</string>
+	<key>Edit Section</key>
+	<string>Bewerk Sectie</string>
+	<key>Empty Trash</key>
+	<string>Leeg prullenmand</string>
+	<key>Empty trash automatically after every scan</key>
+	<string>Gooi prullenmand automatisch leeg na iedere scan</string>
+	<key>Enable</key>
+	<string>Inschakelen</string>
+	<key>Enable DTS mix-down for Media Link clients</key>
+	<string>Schakel DTS mixdown voor Media Link apparaten in</string>
+	<key>Enable Dolby® Digital during AirPlay</key>
+	<string>Gebruik Dolby® Digital tijdens AirPlay</string>
+	<key>Enable Secure Access</key>
+	<string>Schakel Veilige Toegang in</string>
+	<key>Enter a password to enable secure access to your server:</key>
+	<string>Voer een wachtwoord in om veilige toegang naar uw server in te schakelen:</string>
+	<key>Enter your current password to authenticate, then enter and verify your new password.</key>
+	<string>Voer eerst het huidige wachtwoord in en daarna twee maal het nieuwe ter verificatie.</string>
+	<key>Episode %d: %@</key>
+	<string>Aflevering %1$d: %2$@</string>
+	<key>Fix Incorrect Match...</key>
+	<string>Corrigeer Incorrecte Match...</string>
+	<key>Fix incorrect match</key>
+	<string>Corrigeer incorrecte match</string>
+	<key>Friday</key>
+	<string>Vrijdag</string>
+	<key>Friendly name:</key>
+	<string>Gebruiksvriendelijke naam:</string>
+	<key>General</key>
+	<string>Algemeen</string>
+	<key>Genres</key>
+	<string>Genres</string>
+	<key>Got this error: %@. Are you sure Plex Media Server is running?</key>
+	<string>Krijg deze foutmelding: %@. Weet je zeker dat de Plex Media Server aan staat?</string>
+	<key>If you want to share your media over the Internet, you can turn on Secure Server Access to prevent unauthorized access to your server.</key>
+	<string>Als je je media wilt delen via internet, kun je Veilige Toegang inschakelen om ongeautoriseerde toegang to je server te voorkomen.</string>
+	<key>Include music sections in automatic updates</key>
+	<string>Update ook muzieksecties tijdens automatische updates</string>
+	<key>LIBRARY SECTIONS</key>
+	<string>BIBLIOTHEEKSECTIES</string>
+	<key>Language:</key>
+	<string>Taal:</string>
+	<key>Large music sections may take a long time to scan</key>
+	<string>Een scan van grote muzieksecties kan geruime tijd duren</string>
+	<key>Last refreshed %@ at %@</key>
+	<string>Laatste update %1$@ om %2$@</string>
+	<key>Library</key>
+	<string>Bibliotheek</string>
+	<key>Loading metadata for '%@'</key>
+	<string>Laden van metadata voor '%@'</string>
+	<key>MEDIA MANAGER</key>
+	<string>MEDIA MANAGER</string>
+	<key>Manual Entry</key>
+	<string>Handmatige invoer</string>
+	<key>Manually selected</key>
+	<string>Handmatig geselecteerd</string>
+	<key>Match Using</key>
+	<string>Match Using</string>
+	<key>Media Link does not support DTS audio in certain regions. The Plex Media Server can automatically convert DTS to stereo so that it will play.</key>
+	<string>Media Link ondersteunt niet in alle regio's DTS audio. De Plex Media Server kan DTS automatisch naar stereo converteren zodat het alsnog kan worden afgespeeld.</string>
+	<key>Media analysis on '%@'</key>
+	<string>Media-analyse van '%@'</string>
+	<key>Media file: </key>
+	<string>Mediabestand: </string>
+	<key>Media scanner:</key>
+	<string>Mediascanner:</string>
+	<key>Monday</key>
+	<string>Maandag</string>
+	<key>Movie</key>
+	<string>Film</string>
+	<key>Movies</key>
+	<string>Films</string>
+	<key>Music</key>
+	<string>Muziek</string>
+	<key>My Movies</key>
+	<string>Mijn Films</string>
+	<key>My Music</key>
+	<string>Mijn Muziek</string>
+	<key>My Photos</key>
+	<string>Mijn Foto's</string>
+	<key>My TV Shows</key>
+	<string>Mijn TV Series</string>
+	<key>Name</key>
+	<string>Naam</string>
+	<key>Name:</key>
+	<string>Naam:</string>
+	<key>New Password:</key>
+	<string>Nieuw Wachtwoord:</string>
+	<key>OK</key>
+	<string>OK</string>
+	<key>Offer higher bitrates over 3G connections</key>
+	<string>Verhoog bitrates over 3G connecties</string>
+	<key>Original Title</key>
+	<string>Originele Titel</string>
+	<key>PM</key>
+	<string>PM</string>
+	<key>Password</key>
+	<string>Password</string>
+	<key>Password:</key>
+	<string>Wachtwoord:</string>
+	<key>Path of the directory you'd like to add:</key>
+	<string>Pad van de directory die je wilt toevoegen:</string>
+	<key>Prefer subtitles in:</key>
+	<string>Prefer subtitles in:</string>
+	<key>Preferences</key>
+	<string>Instellingen</string>
+	<key>Primary metadata agent:</key>
+	<string>Primaire metadata agent:</string>
+	<key>Rating</key>
+	<string>Waardering</string>
+	<key>Refresh Metadata</key>
+	<string>Ververs Info</string>
+	<key>Refreshing info for %d items</key>
+	<string>Ververs info voor %d items</string>
+	<key>Refreshing info for one item</key>
+	<string>Ververs info voor één item</string>
+	<key>Remember me on this computer</key>
+	<string>Onthoud mij op deze computer</string>
+	<key>Remove Section</key>
+	<string>Verwijder Sectie</string>
+	<key>Requesting metadata for '%@'</key>
+	<string>Metadata opvragen voor '%@'</string>
+	<key>Saturday</key>
+	<string>Zaterdag</string>
+	<key>Save</key>
+	<string>Opslaan</string>
+	<key>Scanning '%@'</key>
+	<string>'%@' wordt gescand.</string>
+	<key>Search</key>
+	<string>Zoek</string>
+	<key>Search using:</key>
+	<string>Zoek met:</string>
+	<key>Section name:</key>
+	<string>Sectienaam:</string>
+	<key>Section type:</key>
+	<string>Sectietype:</string>
+	<key>Secure Server Access</key>
+	<string>Veilige Servertoegang</string>
+	<key>Security</key>
+	<string>Beveiliging</string>
+	<key>Select</key>
+	<string>Selecteer</string>
+	<key>Select %@</key>
+	<string>Selecteer %@</string>
+	<key>Select Folder</key>
+	<string>Selecteer Map</string>
+	<key>Select Image</key>
+	<string>Selecteer Afbeelding</string>
+	<key>Select a directory for this section:</key>
+	<string>Selecteer een directory voor deze sectie:</string>
+	<key>Select the correct TV show from the list below:</key>
+	<string>Selecteer de juiste TV serie uit onderstaande lijst:</string>
+	<key>Select the correct artist from the list below:</key>
+	<string>Selecteer de juiste artiest uit onderstaande lijst:</string>
+	<key>Select the correct movie from the list below:</key>
+	<string>Selecteer de juiste film uit onderstaande lijst:</string>
+	<key>Send anonymous usage data to Plex</key>
+	<string>Stuur anonieme gebruikersdata naar Plex</string>
+	<key>Sharing</key>
+	<string>Delen</string>
+	<key>Show</key>
+	<string>Serie</string>
+	<key>Sort Title</key>
+	<string>Sorteer Titel</string>
+	<key>Subtitle mode:</key>
+	<string>Subtitle mode:</string>
+	<key>Summary</key>
+	<string>Samenvatting</string>
+	<key>Sunday</key>
+	<string>Zondag</string>
+	<key>TV Shows</key>
+	<string>TV Series</string>
+	<key>There was no acceptable match using the specified agent.</key>
+	<string>There was no acceptable match using the specified agent.</string>
+	<key>This helps us improve your experience (for example, to help us match movies and TV shows).</key>
+	<string>Dit helpt ons de gebruikerservaring te verbeteren (bv. bij het matchen van films en TV series).</string>
+	<key>This name will be used to identify this media server to other computers on your network. If you leave it blank, your computer's name will be used instead.</key>
+	<string>Deze naam zal gebruikt worden om deze media server te identificeren op je netwerk. Wanneer je niks invult zal je computernaam worden gebruikt.</string>
+	<key>This site does not support Internet Explorer. For the best experience, click here to install Google Chrome Frame.</key>
+	<string>Deze site ondersteunt geen Internet Explorer. Voor de beste ervaring, klik hier om Google Chrome Frame te installeren.</string>
+	<key>Thursday</key>
+	<string>Donderdag</string>
+	<key>Title</key>
+	<string>Titel</string>
+	<key>Transcoding</key>
+	<string>Transcoderen</string>
+	<key>Tuesday</key>
+	<string>Dinsdag</string>
+	<key>Turning off secure server access will allow incoming connections from any computer.</key>
+	<string>Wanneer veilige servertoegang is uitgeschakeld kan vanaf iedere computer toegang verkregen worden.</string>
+	<key>Unable to connect to Plex Media Server</key>
+	<string>Kan geen verbinding maken met de Plex Media Server</string>
+	<key>Unable to create library section</key>
+	<string>Kan geen bibliotheeksectie aanmaken</string>
+	<key>Unable to remove section "%@"</key>
+	<string>Kan "%@" niet verwijderen</string>
+	<key>Unable to update library section</key>
+	<string>Kan de bibliotheeksectie niet bijwerken</string>
+	<key>Update Section</key>
+	<string>Sectie bijwerken</string>
+	<key>Update my library</key>
+	<string>Werk mijn bibliotheek bij</string>
+	<key>Update my library when changes to my folders are detected</key>
+	<string>Werk mijn bibliotheek bij wanneer wijzigingen in deze mappen worden gedetecteerd</string>
+	<key>Username</key>
+	<string>Gebruikersnaam</string>
+	<key>Username:</key>
+	<string>Username:</string>
+	<key>Wednesday</key>
+	<string>Woensdag</string>
+	<key>Writers</key>
+	<string>Schrijvers</string>
+	<key>Year</key>
+	<string>Jaar</string>
+	<key>Year:</key>
+	<string>Jaar:</string>
+	<key>album</key>
+	<string>album</string>
+	<key>artist</key>
+	<string>artiest</string>
+	<key>daily</key>
+	<string>dagelijks</string>
+	<key>episode</key>
+	<string>aflevering</string>
+	<key>every 12 hours</key>
+	<string>iedere 12 uur</string>
+	<key>every 15 minutes</key>
+	<string>iedere 15 minuten</string>
+	<key>every 2 hours</key>
+	<string>iedere 2 uur</string>
+	<key>every 30 minutes</key>
+	<string>iedere 30 minuten</string>
+	<key>every 6 hours</key>
+	<string>iedere 6 uur</string>
+	<key>hourly</key>
+	<string>ieder uur</string>
+	<key>iPhoto Sharing Enabled</key>
+	<string>iPhoto Delen ingeschakeld</string>
+	<key>iTunes Sharing Enabled</key>
+	<string>iTunes Delen ingeschakeld</string>
+	<key>movie</key>
+	<string>film</string>
+	<key>no TV shows</key>
+	<string>geen TV series</string>
+	<key>no artists</key>
+	<string>geen artiesten</string>
+	<key>no episodes</key>
+	<string>geen afleveringen</string>
+	<key>no movies</key>
+	<string>geen films</string>
+	<key>no tracks</key>
+	<string>geen nummers</string>
+	<key>season</key>
+	<string>seizoen</string>
+	<key>show</key>
+	<string>serie</string>
+	<key>today</key>
+	<string>vandaag</string>
+	<key>tomorrow</key>
+	<string>morgen</string>
+	<key>yesterday</key>
+	<string>gisteren</string>
+</dict>
+</plist>

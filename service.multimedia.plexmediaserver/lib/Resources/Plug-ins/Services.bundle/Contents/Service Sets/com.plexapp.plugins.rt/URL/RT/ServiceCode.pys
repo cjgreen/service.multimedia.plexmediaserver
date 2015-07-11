@@ -1,0 +1,61 @@
+####################################################################################################
+def NormalizeURL(url):
+
+	return url.split('?')[0]
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	html = HTML.ElementFromURL(url)
+
+	# Check for video content
+	mp4_url = html.xpath('//meta[@itemprop="contentURL"]/@content')
+
+	if len(mp4_url) < 1:
+		raise Ex.MediaNotAvailable
+
+	title = html.xpath('//meta[@property="og:title"]/@content')[0]
+	summary = html.xpath('//meta[@name="description"]/@content')[0].strip()
+	thumb = html.xpath('//meta[@property="og:image"]/@content')[0]
+
+	published = html.xpath('//span[@class="time"]/text()')[0].strip()
+	if 'Published time: ' in published:
+		published = published.split(': ', 1)[-1]
+
+	originally_available_at = Datetime.ParseDate(published)
+
+	return VideoClipObject(
+		title = title,
+		summary = summary,
+		thumb = Resource.ContentsOfURLWithFallback(thumb),
+		originally_available_at = originally_available_at
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url))],
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			video_resolution = '480',
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url):
+
+	html = HTML.ElementFromURL(url)
+
+	# Check for video content
+	mp4_url = html.xpath('//meta[@itemprop="contentURL"]/@content')
+
+	if len(mp4_url) < 1:
+		raise Ex.MediaNotAvailable
+
+	return IndirectResponse(VideoClipObject, key=mp4_url[0])

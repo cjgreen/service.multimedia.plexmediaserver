@@ -1,0 +1,67 @@
+XML_URL = 'http://cms.springboard.gorillanation.com/xml_feeds_advanced/index/%s/rss3/%s/'
+XML_NS = {'media': 'http://search.yahoo.com/mrss/'}
+HTTP.CacheTime = CACHE_1DAY
+
+####################################################################################################
+def NormalizeURL(url):
+
+	return url
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	video = VideoClipObject()
+
+	url = CreateXmlUrl(url)
+	data = XML.ElementFromURL(url).xpath('//item')[0]
+
+	if data:
+		video.title = data.xpath('./title')[0].text
+		video.summary = data.xpath('./description')[0].text
+		video.thumb = data.xpath('./media:thumbnail', namespaces=XML_NS)[0].get('url')
+
+		try:
+			date = data.xpath('./pubDate')[0].text
+			video.originally_available_at = Datetime.ParseDate(date).date()
+		except:
+			pass
+
+		try:
+			video.duration = int( data.xpath('./media:content', namespaces=XML_NS)[0].get('duration') ) * 10000
+		except:
+			pass
+
+	return video
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url))],
+			video_resolution = 'sd',
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True
+		)
+	]
+
+####################################################################################################
+def CreateXmlUrl(url):
+
+	(junk, site_id, content_id) = url.split('/springboard/video/')[1].rstrip('/').split('/')
+	url = XML_URL % (site_id, content_id)
+
+	return url
+
+####################################################################################################
+def PlayVideo(url):
+
+	url = CreateXmlUrl(url)
+	data = XML.ElementFromURL(url).xpath('//item')[0]
+
+	video_url = data.xpath('./media:content', namespaces=XML_NS)[0].get('url')
+
+	return Redirect(video_url)

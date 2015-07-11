@@ -1,0 +1,78 @@
+RE_DEFAULT_MEDIA_JSON = Regex('args\.default_media = (\{.*\});')
+
+####################################################################################################
+def NormalizeURL(url):
+
+	if not '/episode/' in url:
+		json_obj = GetJSON(url)
+		url = json_obj['link']
+
+	return url.split('?')[0]
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	json_obj = GetJSON(url)
+
+	return VideoClipObject(
+		title = json_obj['name'],
+		summary = json_obj['summary'],
+		duration = json_obj['data']['playtime_seconds'] * 1000,
+		originally_available_at = Datetime.ParseDate(json_obj['date_created_formatted']).date(),
+		thumb = Resource.ContentsOfURLWithFallback(json_obj['images']['large'].split('?')[0])
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, fmt='720'))],
+			container = Container.MP4,
+			bitrate = 1600,
+			video_codec = VideoCodec.H264,
+			video_resolution = '720',
+			aspect_ratio = '1.78',
+			audio_codec = AudioCodec.AAC
+		),
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, fmt='sd'))],
+			container = Container.MP4,
+			bitrate = 500,
+			video_codec = VideoCodec.H264,
+			video_resolution = 'sd',
+			aspect_ratio = '1.78',
+			audio_codec = AudioCodec.AAC
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url, fmt='720'):
+
+	json_obj = GetJSON(url)
+
+	if 'h264' in json_obj['media_urls']:
+		video_url = json_obj['media_urls']['h264']
+	elif 'default' in json_obj['media_urls']:
+		video_url = json_obj['media_urls']['default']
+
+	if fmt == '720':
+		if 'm4v' in json_obj['media_urls']:
+			video_url = json_obj['media_urls']['m4v']
+		if 'mp4' in json_obj['media_urls']:
+			video_url = json_obj['media_urls']['mp4']
+
+	return IndirectResponse(VideoClipObject, key=video_url)
+
+####################################################################################################
+def GetJSON(url):
+
+	headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:21.0) Gecko/20100101 Firefox/21.0'}
+	content = HTTP.Request(url, cacheTime=CACHE_1HOUR, headers=headers).content
+	json = RE_DEFAULT_MEDIA_JSON.search(content)
+
+	if json:
+		return JSON.ObjectFromString(json.group(1))
+	else:
+		raise Ex.MediaNotAvailable

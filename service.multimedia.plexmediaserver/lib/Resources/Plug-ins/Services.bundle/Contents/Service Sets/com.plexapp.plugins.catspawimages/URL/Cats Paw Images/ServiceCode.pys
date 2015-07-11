@@ -1,0 +1,84 @@
+####################################################################################################
+
+def MetadataObjectForURL(url):
+
+  page = HTML.ElementFromURL(url)
+
+  # Grab the title
+  title = page.xpath('//h1[@class = "entry-title"]/text()')[0]
+
+  # Combine all of the entries paragraphs into a single summary
+  summary = ""
+  for paragraph in page.xpath('//div[@class = "entry-content"]/p/text()'):
+    paragraph = paragraph.strip()
+    if paragraph != None:
+      if len(paragraph) > 0:
+        summary = summary + '\n'
+      summary = summary + paragraph
+
+  # Grab the first image to be used as the Album's thumbnail
+  thumb = page.xpath('//div[@class = "entry-content"]//img[contains(@src, "static.flickr.com")]')[0].get('src')
+
+  # Grab the post date
+  date = page.xpath('//span[@class = "entry-date"]/text()')[0]
+  date = Datetime.ParseDate(date)
+
+  # Return the photo
+  return PhotoAlbumObject(
+    key = Callback(GetPhotos, url = url),
+    title = title,
+    summary = summary,
+    thumb = thumb,
+    originally_available_at = date
+  )
+
+####################################################################################################
+
+def GetPhotos(url):
+  oc = ObjectContainer()
+
+  page = HTML.ElementFromURL(url)
+  for photo in page.xpath('//div[@class = "entry-content"]//img[contains(@src, "static.flickr.com")]'):
+
+    url = photo.get('src')
+    title = photo.get('alt')
+
+    # This might look a little strange as to why i'm manually adding the items. Normally, you would 
+    # simply return the URL which would then perform another URL Service 'lookup' to find the 
+    # appropriate service. However, if the items are already present, this step is not done. Since
+    # these pictures are coming from flickr, for which no service currently exists, I was relcutant
+    # to add flickr URLs to the URLPatterns associated with this service. We also need to provide a
+    # suitable key/rating_key to allow clients to callback to explicitly 'lookup' this single photo's
+    # details.
+    oc.add(PhotoObject(
+      key = Callback(GetPhotoDetails, url = url, title = title),
+      rating_key = url,
+      title = title,
+      summary = title,
+      thumb = url,
+      items = MediaObjectsForURL(url)))
+
+  return oc
+
+####################################################################################################
+
+def GetPhotoDetails(url, title):
+  oc = ObjectContainer()
+  oc.add(PhotoObject(
+    key = Callback(GetPhotoDetails, url = url, title = title),
+    rating_key = url,
+    url = url,
+    title = title,
+    summary = title,
+    thumb = url,
+    items = MediaObjectsForURL(url)))
+  return oc
+
+####################################################################################################
+
+def MediaObjectsForURL(url):
+  return [
+    MediaObject(
+      parts = [PartObject(key = url)]
+    )
+  ]

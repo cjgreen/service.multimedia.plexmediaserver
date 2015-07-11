@@ -1,0 +1,186 @@
+API_URL = 'http://vimeo.com/api/v2/video/%s.json'
+RE_VIMEO_ID = Regex('(\d{6,})')
+RE_CONTROL_CHARS = Regex(u'[\u0000-\u001F]')
+
+PLAYER_URL = 'http://player.vimeo.com/video/%s'
+RE_JSON = Regex(',a=(\{.+?h264.+?\});')
+
+HTTP_HEADERS = {
+	'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36'
+}
+
+####################################################################################################
+def NormalizeURL(url):
+
+	vimeo_id = RE_VIMEO_ID.search(url)
+
+	if vimeo_id:
+		return 'http://vimeo.com/%s' % vimeo_id.group(1)
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	json_obj = None
+
+	try:
+		json_obj = JSON.ObjectFromURL(API_URL % url.split('/')[-1], cacheTime=CACHE_1HOUR, headers=HTTP_HEADERS)[0]
+	except Ex.HTTPError, e:
+		if e.code == 403:
+			raise Ex.MediaNotAuthorized
+		elif e.code == 404:
+			try:
+				page = HTTP.Request(PLAYER_URL % url.split('/')[-1]).content
+				json = RE_JSON.search(page).group(1)
+				json_obj = JSON.ObjectFromString(json)['video']
+
+				return VideoClipObject(
+					title = json_obj['title'],
+					thumb = Resource.ContentsOfURLWithFallback(json_obj['thumbs']['640'])
+				)
+
+			except:
+				raise Ex.MediaNotAvailable
+		else:
+			raise Ex.MediaNotAvailable
+	except:
+		raise Ex.MediaNotAvailable
+
+	if not json_obj:
+		raise Ex.MediaNotAvailable
+
+	title = json_obj['title']
+
+	summary = RE_CONTROL_CHARS.sub('', json_obj['description'])
+	summary = String.StripTags(summary)
+
+	thumb = json_obj['thumbnail_large']
+	originally_available_at = Datetime.ParseDate(json_obj['upload_date'])
+
+	duration = None
+	if isinstance(json_obj['duration'], int) and json_obj['duration'] > 0:
+		duration = json_obj['duration'] * 1000
+
+	tags = []
+	if json_obj['tags']:
+		tags = json_obj['tags'].split(', ')
+
+	directors = [json_obj['user_name']]
+
+	return VideoClipObject(
+		title = title,
+		summary = summary,
+		thumb = Resource.ContentsOfURLWithFallback(thumb),
+		originally_available_at = originally_available_at.date(),
+		year = originally_available_at.year,
+		duration = duration,
+		tags = tags,
+		directors = directors
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			parts = [
+				PartObject(
+					key = Callback(PlayVideo, url=url, bitrate=bitrate, resolution=resolution)
+				)
+			],
+			bitrate = bitrate,
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			video_resolution = resolution,
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True
+		) for bitrate, resolution in [(5000, '1080'), (2500, '720'), (900, '360')]
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url, bitrate=5000, resolution='1080', **kwargs):
+
+	if not url:
+		raise Ex.MediaNotAvailable
+
+	json_obj = None
+
+	try:
+		html = HTML.ElementFromURL(url, cacheTime=0, headers=HTTP_HEADERS)
+		config_url = html.xpath('//div[contains(@class, "player") and @data-config-url]/@data-config-url')[0].replace('&amp;', '&')
+	except Ex.HTTPError, e:
+		if e.code == 403:
+			raise Ex.MediaNotAuthorized
+		elif e.code == 404:
+			try:
+				page = HTTP.Request(PLAYER_URL % url.split('/')[-1]).content
+				json = RE_JSON.search(page).group(1)
+				json_obj = JSON.ObjectFromString(json)
+
+			except:
+				raise Ex.MediaNotAvailable
+		else:
+			raise Ex.MediaNotAvailable
+	except:
+		raise Ex.MediaNotAvailable
+
+	if not json_obj:
+
+		try:
+			json_obj = JSON.ObjectFromURL(config_url, cacheTime=0, headers=HTTP_HEADERS)
+		except Ex.HTTPError, e:
+			if e.code == 403:
+				raise Ex.MediaNotAuthorized
+			elif e.code == 404:
+				raise Ex.MediaNotAvailable
+			else:
+				raise Ex.MediaNotAvailable
+		except:
+			raise Ex.MediaNotAvailable
+
+	if not 'h264' in json_obj['request']['files']:
+		raise Ex.MediaNotAvailable
+	else:
+		streams = json_obj['request']['files']['h264']
+
+	available_bitrates = []
+	available_resolutions = []
+
+	# Bitrate or resolution info is missing sometimes. We try to find the best match based on
+	# bitrate first (if we have this info for all available versions). If bitrate info is missing
+	# for one or more versions of a video, we try to find the best match based on resolution.
+	for video in streams.keys():
+
+		if video == 'mobile' and '.m3u8' in streams[video]['url']:
+			continue
+
+		b = streams[video]['bitrate']
+
+		if b and b not in available_bitrates:
+			available_bitrates.append(b)
+
+		if streams[video]['height']:
+			available_resolutions.append(streams[video]['height'])
+
+	if len(set(available_bitrates)) == len(set(available_resolutions)):
+		closest = min((abs(int(bitrate) - int(i)), i) for i in available_bitrates)[1]
+
+		for video in streams.keys():
+			if closest == streams[video]['bitrate']:
+				video_url = streams[video]['url']
+				break
+	else:
+		closest = min((abs(int(resolution) - int(i)), i) for i in available_resolutions)[1]
+
+		for video in streams.keys():
+			if closest == streams[video]['height']:
+				video_url = streams[video]['url']
+				break
+
+	if video_url:
+		return IndirectResponse(VideoClipObject, key=video_url)
+
+####################################################################################################
+# Queue fix (PlayVideoIndirect was renamed to PlayVideo at some point)
+PlayVideoIndirect = PlayVideo

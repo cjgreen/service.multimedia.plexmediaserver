@@ -1,0 +1,71 @@
+DATA_URL = "http://www.eurogamer.net/tv/playlist/%s"
+
+####################################################################################################
+def NormalizeURL(url):
+
+	return url
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	html = HTML.ElementFromURL(url)
+
+	title = html.xpath('//meta[@property="og:title"]')[0].get('content')
+	summary = html.xpath('//meta[@property="og:description"]')[0].get('content')
+	thumb = html.xpath('//meta[@property="og:image"]')[0].get('content')
+
+	date = html.xpath('//strong[text()="Published"]/following-sibling::text()')[0].strip()
+	originally_available_at = Datetime.ParseDate(date).date()
+
+	duration = html.xpath('//strong[text()="Duration"]/following-sibling::text()')[0].strip()
+	duration = duration.replace(' minutes ', ':').split(' ')[0]
+	duration = TimeToMs(duration)
+
+	return VideoClipObject(
+		title = title,
+		summary = summary,
+		originally_available_at = Datetime.ParseDate(date).date(),
+		duration = duration,
+		thumb = thumb
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url))],
+			video_resolution = '720',
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url, fmt=None):
+
+	# Obtain the id of the video
+	html = HTML.ElementFromURL(url)
+	id = html.xpath('//div[@class="video-wrapper"]/div')[0].get('id').strip('video-')
+
+	# Look up the associated JSON to extract the MP4 url
+	data = JSON.ObjectFromURL(DATA_URL % id, cacheTime=0)
+	mp4_url = data[0]['file']
+
+	return IndirectResponse(VideoClipObject, key=mp4_url)
+
+####################################################################################################
+def TimeToMs(timecode):
+
+	seconds  = 0
+	duration = timecode.split(':')
+	duration.reverse()
+
+	for i in range(0, len(duration)):
+		seconds += int(duration[i]) * (60**i)
+
+	return seconds * 1000

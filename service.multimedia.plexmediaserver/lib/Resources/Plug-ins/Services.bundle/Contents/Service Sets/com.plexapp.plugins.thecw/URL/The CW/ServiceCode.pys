@@ -1,0 +1,171 @@
+DETAILS_URL = 'http://metaframe.digitalsmiths.tv/v2/CWtv/assets/%s/partner/53?format=json'
+BITRATES = [300, 500, 700, 900]
+BASE_URL = 'http://www.cwtv.com'
+
+CW_SWF = 'http://pdl.warnerbros.com/cwtv/digital-smiths/production_player/vsplayer.swf'
+
+####################################################################################################
+def NormalizeURL(url):
+
+	return url
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	data = GetDetails(url)
+
+	if not data:
+		return None
+
+	video = data['assetFields']
+
+	epTitle = video['title']
+	show = video['seriesName']
+
+	try:
+		epIndex = int(video['episodeNumber'])
+	except:
+		epIndex = None
+
+	try:
+		season = int(video['seasonNumber'])
+	except:
+		season = None
+
+	summary = video['description']
+
+	rating = float(video['rating'])
+	if rating == 0:
+		rating = None
+
+	try:
+		date = Datetime.ParseDate(video['originalAirDate'])
+	except:
+		date = None
+
+	try:
+		duration = int(video['duration']) * 1000
+	except:
+		duration = None
+
+	thumb = GetThumb(url)
+
+	if video['contentType'] == "Full Episodes":    
+		return EpisodeObject(
+			title = epTitle,
+			show = show,
+			index = epIndex,
+			season = season,
+			summary = summary,
+			rating = rating,
+			originally_available_at = date,
+			duration = duration,
+			thumb = Resource.ContentsOfURLWithFallback(thumb)
+		)
+	else:
+		return VideoClipObject(
+			title = epTitle,
+			summary = summary,
+			rating = rating,
+			originally_available_at = date,
+			duration = duration,
+			thumb = Resource.ContentsOfURLWithFallback(thumb)
+		)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	media_objects = []
+
+	for value in reversed(BITRATES):
+		media_objects.append(
+			MediaObject(
+				bitrate = value,
+				protocol = 'rtmp',
+				parts = [
+					PartObject(key=Callback(PlayVideo, url=url, bitrate=value))
+				]
+			)
+		)
+
+	return media_objects
+
+####################################################################################################
+@indirect
+def PlayVideo(url, bitrate):
+
+	available_bitrates = []
+	rtmp_url = None
+	videos = GetDetails(url)['videos']
+
+	for video in videos:
+		available_bitrates.append(int(videos[video]['bitrate']))
+
+	closest = min((abs(int(bitrate) - int(i)), i) for i in available_bitrates)[1]
+
+	for video in videos:
+		if closest == int(videos[video]['bitrate']):
+			rtmp_url = videos[video]['uri']
+			break
+
+	if rtmp_url:
+		rtmp_parts = rtmp_url.partition('mp4:')
+		player = rtmp_parts[0]
+		playpath = rtmp_parts[1] + rtmp_parts[2]
+
+		return IndirectResponse(VideoClipObject, key=RTMPVideoURL(url=player, clip=playpath, swf_url=CW_SWF))
+	else:
+		raise Ex.MediaNotAvailable
+
+####################################################################################################
+def GetDetails(url):
+
+	id = None
+
+	if '?play=' in url:
+		id = url.split('?play=')[1]
+	else:
+		html = HTML.ElementFromURL(url)
+		url = html.xpath('//a[@class="thumbLink"]/@href')
+
+		if len(url) > 0 and '?play=' in url[0]:
+			id = url[0].split('?play=')[1]
+
+	if id:
+		try:
+			return JSON.ObjectFromURL(DETAILS_URL % id)
+		except:
+			raise Ex.MediaExpired
+	else:
+		raise Ex.MediaNotAvailable
+
+####################################################################################################
+def GetThumb(url):
+
+	images = GetDetails(url)['images']
+	width = 0
+
+	for key in images.keys():
+		if images[key]['width'] > width:
+			thumb = images[key]['uri']
+			width = images[key]['width']
+
+	return thumb
+
+####################################################################################################
+def TestURLs():
+
+	test_urls = []
+	data = HTML.ElementFromURL('%s/shows/' % (BASE_URL))
+
+	for url in data.xpath('//a[contains(@href, "/shows/")]/@href'):
+
+		if url.endswith('/shows/'):
+			continue
+
+		test_urls.append(BASE_URL + url)
+
+		if len(test_urls) > 2:
+			break
+
+	return test_urls

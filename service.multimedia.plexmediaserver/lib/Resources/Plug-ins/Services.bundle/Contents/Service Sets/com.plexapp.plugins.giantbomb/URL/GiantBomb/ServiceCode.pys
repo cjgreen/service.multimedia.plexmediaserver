@@ -1,0 +1,86 @@
+HTTP_HEADERS = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36'}
+
+MediaObject.container = Container.MP4
+MediaObject.video_codec = VideoCodec.H264
+MediaObject.audio_codec = AudioCodec.AAC
+MediaObject.audio_channels = 2
+MediaObject.optimized_for_streaming = True
+
+####################################################################################################
+def NormalizeURL(url):
+
+	return url.split('?')[0]
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	html = HTML.ElementFromURL(url)
+
+	json = html.xpath('//div[@data-video]/@data-video')
+	if len(json) < 1:
+		raise Ex.MediaNotAvailable
+
+	title = html.xpath('//meta[@property="og:title"]/@content')[0]
+	summary = html.xpath('//meta[@property="og:description"]/@content')[0]
+	thumb = html.xpath('//meta[@property="og:image"]/@content')[0]
+
+	json_obj = JSON.ObjectFromString(json[0])
+
+	duration = json_obj['lengthSeconds'] * 1000
+
+	return VideoClipObject(
+		title = title,
+		summary = summary,
+		thumb = Resource.ContentsOfURLWithFallback(thumb),
+		duration = duration
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, fmt='hd'))],
+			bitrate = 4000,
+			video_resolution = 720
+		),
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, fmt='high'))],
+			bitrate = 1800,
+			video_resolution = 720
+		),
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, fmt='low'))],
+			bitrate = 250,
+			video_resolution = 360
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url, fmt='high'):
+
+	# This URL Service is meant for publicly available videos. If somehow this service is used
+	# with an API key in the URL, ignore it.
+	if 'api_key=' in url:
+		return None
+
+	html = HTML.ElementFromURL(url)
+	json = html.xpath('//div[@data-video]/@data-video')
+
+	if len(json) < 1:
+		raise Ex.MediaNotAvailable
+
+	json_obj = JSON.ObjectFromString(json[0])
+
+	if not 'videoStreams' in json_obj:
+		raise Ex.MediaNotAvailable
+
+	if fmt == 'hd' and 'progressive_hd' in json_obj['videoStreams']:
+		return IndirectResponse(VideoClipObject, key=json_obj['videoStreams']['progressive_hd'])
+	elif fmt in ('hd', 'high') and 'progressive_high' in json_obj['videoStreams']:
+		return IndirectResponse(VideoClipObject, key=json_obj['videoStreams']['progressive_high'])
+	elif fmt in ('hd', 'high', 'low') and 'progressive_low' in json_obj['videoStreams']:
+		return IndirectResponse(VideoClipObject, key=json_obj['videoStreams']['progressive_low'])
+	else:
+		raise Ex.MediaNotAvailable

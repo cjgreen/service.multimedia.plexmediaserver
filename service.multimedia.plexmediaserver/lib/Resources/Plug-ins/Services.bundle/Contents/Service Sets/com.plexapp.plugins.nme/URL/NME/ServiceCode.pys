@@ -1,0 +1,34 @@
+HTTP_HEADERS = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.78.2 (KHTML, like Gecko) Version/7.0.6 Safari/537.78.2'}
+BC_URL = 'http://c.brightcove.com/services/viewer/htmlFederated?playerID=%s&@videoPlayer=%s'
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	bc_url = GetBrightCoveURL(url)
+	return URLService.MetadataObjectForURL(bc_url)
+
+####################################################################################################
+@deferred
+def MediaObjectsForURL(url):
+
+	bc_url = GetBrightCoveURL(url)
+	return URLService.MediaObjectsForURL(bc_url)
+
+####################################################################################################
+def GetBrightCoveURL(url):
+
+	html = HTML.ElementFromURL(url, headers=HTTP_HEADERS, cacheTime=CACHE_1HOUR)
+
+	brightcove_url = html.xpath('//meta[@property="og:video"]/@content')[0]
+
+	player_id = brightcove_url.split('playerID=')[-1].split('&')[0]
+	video_id = brightcove_url.split('videoId=')[-1].split('&')[0]
+
+	return BC_URL % (player_id, video_id)
+
+####################################################################################################
+def PlayVideo(url):
+
+	media = URLService.MediaObjectsForURL(url)
+
+	return Redirect(media[0].parts[0].key)

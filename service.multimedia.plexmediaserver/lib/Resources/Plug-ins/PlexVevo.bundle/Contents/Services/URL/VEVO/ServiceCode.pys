@@ -1,0 +1,40 @@
+from urlparse import urlparse
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+  return VideoClipObject(
+    title = 'A VEVO Video'
+  )
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+  url = urlparse(url)
+
+  return [
+    MediaObject(
+      parts = [
+        PartObject(key='/services/vevo/video/%s/High' % url.netloc)
+      ],
+      bitrate = 2048*1024,
+      container = Container.MP4,
+      video_codec = VideoCodec.H264,
+      video_resolution = '720',
+      audio_codec = AudioCodec.AAC,
+      audio_channels = 2,
+      optimized_for_streaming = True
+    ),
+    MediaObject(
+      parts = [
+        PartObject(key='/services/vevo/video/%s/Med' % url.netloc)
+      ],
+      bitrate = 512*1024,
+      container = Container.MP4,
+      video_codec = VideoCodec.H264,
+      video_resolution = '360',
+      audio_codec = AudioCodec.AAC,
+      audio_channels = 2,
+      optimized_for_streaming = True
+    )
+  ]

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URL</key>
+	<dict>
+		<key>IGN</key>
+		<dict>
+			<key>TestURLs</key>
+			<array>
+				<string>http://www.ign.com/videos/2011/05/04/mortal-kombat-ladder-master-achievement-trophy-guide</string>
+				<string>http://www.ign.com/articles/2012/09/05/avengers-initiative-review</string>
+			</array>
+			<key>URLPatterns</key>
+			<array>
+				<string>^(http://widgets.ign.com/video/embed/content.html\?url=)?http://(www|[a-z]{2})\.(ign|pcmag)\.com/(articles|videos)/(\d{4})/(\d{2})/(\d{2})/.+</string>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

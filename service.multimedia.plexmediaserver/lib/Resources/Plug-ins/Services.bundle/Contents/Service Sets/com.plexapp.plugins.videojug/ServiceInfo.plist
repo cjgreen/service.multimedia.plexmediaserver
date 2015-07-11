@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URL</key>
+	<dict>
+		<key>VideoJug</key>
+		<dict>
+			<key>TestURLs</key>
+			<array>
+				<string>http://www.videojug.com/film/tennis-high-deep-spin</string>
+				<string>http://www.videojug.com/film/how-to-negotiate-your-salary-for-a-new-job</string>
+				<string>http://m.videojug.com/film/how-to-make-bacon-chicken-salad</string>
+				<string>http://www.videojug.com/interview/how-to-best-handle-multicultural-dating</string>
+			</array>
+			<key>URLPatterns</key>
+			<array>
+				<string>^http://(www|m).videojug.com/(film|interview)/.+</string>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

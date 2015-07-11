@@ -1,0 +1,195 @@
+JSON_URL = 'http://video.query.yahoo.com/v1/public/yql?q=%s&env=prod&format=json'
+QUERY = 'SELECT * FROM yahoo.media.video.streams WHERE id="%s" AND format="mp4" AND protocol="http" AND plrs="" AND region="%s";'
+RESOLUTIONS = [1080, 720, 540, 480, 360]
+BITRATES = [4000, 3000, 2000, 1500, 1000]
+
+RE_VIDEO_ID = Regex('\-(\d{9,})(-.+)?\.html')
+RE_JSON = Regex('YAHOO.Media.CarouselDataManager\(({.+?}), Y\.merge')
+RE_UUID = Regex('[a-f0-9]{8}\-([a-f0-9]{4}\-){3}[a-f0-9]{12}')
+RE_UUID_HTML = Regex('(?:"uuid":|"videoId":|"first_videoid":|curVideo = \{)"([a-f0-9]{8}\-([a-f0-9]{4}\-){3}[a-f0-9]{12})"')
+
+####################################################################################################
+def NormalizeURL(url):
+
+	url = url.split(';')[0].split('?')[0].split('\n')[0]
+
+	if 'movies.yahoo.com/movie' in url:
+		if '#' in url:
+			(url, video) = url.split('#', 1)
+			if RE_UUID.match(video):
+				url = GetJSON(url, content_id=video)['meta']['url']
+			else:
+				url = FindVideoURL(url, video)
+		elif RE_VIDEO_ID.search(url):
+			video_id = RE_VIDEO_ID.search(data).group(1)
+			url = 'http://movies.yahoo.com/video/%s' % video_id
+		else:
+			url = FindVideoURL(url, video='Theatrical Trailer')
+
+	return unicode(url)
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	meta = GetJSON(url)['meta']
+
+	title = String.DecodeHTMLEntities(meta['title'])
+	summary = String.DecodeHTMLEntities(String.StripTags(meta['description']))
+	duration = int(meta['duration'] * 1000)
+
+	if 'thumbnail' in meta:
+		thumb = meta['thumbnail']
+	else:
+		thumb = ''
+
+	if '/http:' in thumb or '/http%3A' in thumb:
+		thumb = String.Unquote(thumb)
+		thumb = 'http://%s' % thumb.split('http://')[-1]
+		thumb = thumb.replace('.jpg.cf.png', '.jpg')
+
+	if 'show_name' in meta and meta['show_name'] is not None:
+		title = '%s: %s' % (meta['show_name'], title)
+
+	return VideoClipObject(
+		title = title,
+		summary = summary,
+		duration = duration,
+		thumb = Resource.ContentsOfURLWithFallback(thumb)
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	media_objects = []
+
+	for i in range(len(RESOLUTIONS)):
+		media_objects.append(
+			MediaObject(
+				parts = [
+					PartObject(
+						key = Callback(PlayVideo, url=url, bitrate=BITRATES[i])
+					)
+				],
+				container = Container.MP4,
+				bitrate = BITRATES[i],
+				video_codec = VideoCodec.H264,
+				video_resolution = str(RESOLUTIONS[i]),
+				audio_codec = AudioCodec.AAC,
+				audio_channels = 2,
+				optimized_for_streaming = True
+			)
+		)
+
+	return media_objects
+
+####################################################################################################
+@indirect
+def PlayVideo(url, bitrate):
+
+	available_bitrates = []
+	streams = GetJSON(url)['streams']
+
+	for stream in streams:
+		available_bitrates.append(stream['bitrate'])
+
+	if len(available_bitrates) < 1:
+		raise Ex.MediaNotAvailable
+
+	closest = min((abs(bitrate - i), i) for i in available_bitrates)[1]
+
+	for stream in streams:
+		if stream['bitrate'] == closest:
+			return IndirectResponse(VideoClipObject, key='%s%s' % (stream['host'], stream['path']))
+
+	raise Ex.MediaNotAvailable
+
+####################################################################################################
+def GetJSON(url, content_id=None):
+
+	if not content_id:
+
+		try:
+			html = HTML.ElementFromURL(url, cacheTime=CACHE_1WEEK, headers={'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.65 Safari/537.36'})
+		except:
+			raise Ex.MediaNotAvailable
+
+		content_id = html.xpath('//section[contains(@id, "mediacontentvideo")]/@data-uuid|//div[contains(@class, "video-meta")]/@data-uuid')
+
+		if len(content_id) > 0:
+			content_id = content_id[0]
+		else:
+			content_id = html.xpath('//meta[@property="og:video"]/@content')
+
+			if len(content_id) > 0 and 'uuid=' in content_id[0]:
+				content_id = content_id[0].split('uuid=')[-1].split('&')[0]
+			else:
+				content_id = None
+
+	if not content_id:
+
+		data = HTTP.Request(url, cacheTime=CACHE_1WEEK, headers={'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.65 Safari/537.36'}).content
+		content_id = RE_UUID_HTML.search(data)
+
+		if content_id:
+			content_id = content_id.group(1)
+		else:
+			content_id = None
+
+	if not content_id:
+		raise Ex.MediaNotAvailable
+
+	if url.split('/')[2].split('.')[0] in ('screen', 'movies', 'gma', 'www'):
+		region = 'US'
+	else:
+		region = url.split('/')[2].split('.')[0].upper()
+
+	json_url = JSON_URL % String.Quote(QUERY % (content_id, region), usePlus=False)
+
+	try:
+		json_data = HTTP.Request(json_url, cacheTime=0).content
+	except Ex.IncompleteRead, e:
+		json_data = e.partial
+
+	try:
+		json_obj = JSON.ObjectFromString(json_data)
+	except:
+		json_obj = {}
+
+	if json_obj['query']['results']['mediaObj'][0]['status']['msg'] == 'ready':
+		return json_obj['query']['results']['mediaObj'][0]
+	elif json_obj['query']['results']['mediaObj'][0]['status']['msg'] == 'geo restricted':
+		raise Ex.MediaGeoblocked
+	else:
+		raise Ex.MediaNotAvailable
+
+####################################################################################################
+def FindVideoURL(url, video):
+
+	url = url.rstrip('/')
+	if not url.endswith('/trailers'):
+		url = '%s/trailers/' % url
+	else:
+		url = '%s/' % url
+
+	data = HTTP.Request(url, cacheTime=CACHE_1WEEK).content
+	json = RE_JSON.search(data)
+
+	if not json:
+		raise Ex.MediaNotAvailable
+
+	json_obj = JSON.ObjectFromString(json.group(1))
+	video = String.Unquote(video).lower()
+	smallest_distance = None
+
+	for key in json_obj['items'].keys():
+		title = json_obj['items'][key]['ttle_x'].lower()
+		distance = String.LevenshteinDistance(title, video)
+
+		if video in title:
+			distance = distance - 2*len(video)
+
+		if not smallest_distance or distance < smallest_distance:
+			smallest_distance = distance
+			url = 'http://movies.yahoo.com/video/%s' % json_obj['items'][key]['plnk'].split('/')[-1]
+
+	return url

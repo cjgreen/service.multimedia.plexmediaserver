@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URL</key>
+	<dict>
+		<key>CanoeTV</key>
+		<dict>
+			<key>TestURLs</key>
+			<array>
+				<string>http://en.video.canoe.tv/video/featured/featured-videos/1906868830/virtual-reality-too-real-for-this-guy/2366105694001</string>
+			</array>
+			<key>URLPatterns</key>
+			<array>
+				<string>^http://(en|fr)\.video\.canoe\.tv/video/[^/]+/[^/]+/\d+/[^/]+/\d+</string>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

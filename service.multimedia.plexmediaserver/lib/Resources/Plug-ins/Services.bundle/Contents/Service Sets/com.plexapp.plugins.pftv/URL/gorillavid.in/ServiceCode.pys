@@ -1,0 +1,90 @@
+import time
+
+RE_TITLE = Regex('<textarea.+onFocus="copy\(this\);">.+?\](.+)\s\-\s')
+RE_THUMB = Regex('image: "([^"]+)"')
+RE_FILE = Regex('file: "([^"]+)"')
+
+####################################################################################################
+def NormalizeURL(url):
+
+	if 'embed-ptv-' in url:
+		url = 'http://gorillavid.in/%s.html' % (url.split('-')[2])
+
+	return url
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	html = HTML.ElementFromURL(url)
+	post_values = {}
+
+	for item in html.xpath('//form[@method="POST"]/input'):
+
+		name = item.get('name')
+		value = item.get('value')
+		post_values[name] = value
+
+	time.sleep(5)
+
+	try:
+		page = HTTP.Request(url, values=post_values, method='POST').content
+	except:
+		raise Ex.MediaNotAvailable
+
+	title = RE_TITLE.search(page)
+	thumb = RE_THUMB.search(page)
+
+	if not title or not thumb:
+		raise Ex.MediaNotAvailable
+
+	title = title.group(1).strip()
+	thumb = thumb.group(1)
+
+	return VideoClipObject(
+		title = title,
+		thumb = thumb
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			video_resolution = 'sd',
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True,
+			parts = [
+				PartObject(key=Callback(PlayVideo, url=url))
+			]
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url):
+
+	html = HTML.ElementFromURL(url)
+	post_values = {}
+
+	for item in html.xpath('//form[@method="POST"]/input'):
+
+		name = item.get('name')
+		value = item.get('value')
+		post_values[name] = value
+
+	time.sleep(5)
+
+	try:
+		page = HTTP.Request(url, values=post_values, method='POST').content
+	except:
+		raise Ex.MediaNotAvailable
+
+	file = RE_FILE.search(page)
+
+	if file:
+		return IndirectResponse(VideoClipObject, key=file.group(1))
+
+	raise Ex.MediaNotAvailable

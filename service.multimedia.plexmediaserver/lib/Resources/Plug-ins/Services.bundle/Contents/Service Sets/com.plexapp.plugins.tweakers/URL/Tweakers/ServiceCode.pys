@@ -1,0 +1,61 @@
+XSPF_URL = 'https://tweakers.net/video/s1playlist/%s/playlist.xspf'
+XSPF_NS = {
+	'a': 'http://xspf.org/ns/0/',
+	's1': 'http://static.streamone.nl/player/ns/0'
+}
+
+####################################################################################################
+def NormalizeURL(url):
+
+	return url.split('#')[0].split('?')[0].replace('/player/', '/')
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	video_id = url.split('/video/')[-1].split('/')[0]
+	xml = XML.ElementFromURL(XSPF_URL % (video_id)).xpath('//a:trackList/a:track', namespaces=XSPF_NS)[0]
+
+	title = xml.xpath('./a:title/text()', namespaces=XSPF_NS)[0]
+	summary = xml.xpath('./a:annotation/text()', namespaces=XSPF_NS)[0]
+	duration = xml.xpath('./a:duration/text()', namespaces=XSPF_NS)[0]
+	thumb = xml.xpath('./a:image/text()', namespaces=XSPF_NS)[0]
+
+	return VideoClipObject(
+		title = title,
+		summary = String.StripTags(summary),
+		duration = int(duration),
+		thumb = Resource.ContentsOfURLWithFallback(thumb)
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			video_resolution = res,
+			audio_codec = AudioCodec.AAC,
+			optimized_for_streaming = True,
+			parts = [
+				PartObject(key=Callback(PlayVideo, url=url, res=res))
+			]
+		) for res in (1080, 720, 360)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url, res=1080):
+
+	video_id = url.split('/video/')[-1].split('/')[0]
+	xml = XML.ElementFromURL(XSPF_URL % (video_id))
+
+	available = xml.xpath('//a:trackList/a:track/a:location/@s1:height', namespaces=XSPF_NS)
+
+	if len(available) < 1:
+		raise Ex.MediaNotAvailable
+
+	closest = min((abs(res - int(i)), i) for i in available)[1]
+	video_url = xml.xpath('//a:trackList/a:track/a:location[@s1:height="%s"]/text()' % closest, namespaces=XSPF_NS)[0]
+
+	return IndirectResponse(VideoClipObject, key=video_url)

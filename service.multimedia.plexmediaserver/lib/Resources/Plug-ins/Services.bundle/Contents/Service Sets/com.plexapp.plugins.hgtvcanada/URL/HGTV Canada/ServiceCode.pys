@@ -1,0 +1,232 @@
+FEED_URL = 'http://feed.theplatform.com/f/dtjsEC/EAlt6FfQ_kCX?byContent=byReleases%3DbyPid%253D'
+RAW_HLS_CLIENTS = ['Android', 'iOS', 'Roku', 'Safari']
+
+RE_PID = Regex('pid: *"(.*)",')
+RE_KEY_URI = Regex('URI *= *"(.*)"')
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/600.3.18 (KHTML, like Gecko) Version/8.0.3 Safari/600.3.18'
+
+#########################################################################################
+def MetadataObjectForURL(url):
+    
+    pid = GetPID(url)
+    
+    if not pid:
+        raise Ex.MediaNotAvailable
+        
+    data = JSON.ObjectFromURL(FEED_URL + pid + '&form=json')
+    entry = data['entries'][0] 
+            
+    title = entry['title']
+    summary = entry['description'] if 'description' in entry else None
+    thumb = entry['plmedia$defaultThumbnailUrl'] if 'plmedia$defaultThumbnailUrl' in entry else None
+    show = entry['pl1$show'] if 'pl1$show' in entry else None
+    season = int(entry['pl1$season']) if 'pl1$season' in entry else None
+    index = int(entry['pl1$episode']) if 'pl1$episode' in entry else None
+    originally_available_at = Datetime.FromTimestamp(entry['pubDate'] / 1000).date() if 'pubDate' in entry else None
+        
+    duration = None
+    if 'media$content' in entry:
+        if 'plfile$duration' in entry['media$content'][0]:
+            duration = int(float(entry['media$content'][0]['plfile$duration']) * 1000)
+    
+    if show and season and index:
+        return EpisodeObject(
+            title = title,
+            summary = summary,
+            thumb = thumb,
+            show = show,
+            season = season,
+            index = index,
+            originally_available_at = originally_available_at,
+            duration = duration
+        )
+    else:
+        return VideoClipObject(
+            title = title,
+            summary = summary,
+            thumb = thumb,
+            originally_available_at = originally_available_at,
+            duration = duration
+        )
+    
+#########################################################################################
+@deferred
+def MediaObjectsForURL(url):
+    pid = GetPID(url)
+    
+    if not pid:
+        raise Ex.MediaNotAvailable
+        
+    data = JSON.ObjectFromURL(FEED_URL + pid + '&form=json')
+    entry = data['entries'][0]  
+
+    mo = []
+    for item in entry['media$content']:
+        if not "f4m" in item['plfile$url']:
+            continue
+        
+        data = HTML.ElementFromURL(item['plfile$url'].replace("f4m", "m3u"))
+        video_url = data.xpath("//video/@src")[0]
+        
+        if Client.Platform in RAW_HLS_CLIENTS:
+            parts = [PartObject(key=HTTPLiveStreamURL(url=video_url))]
+        else:
+            # Other clients can't handle SSL/HTTPS playlists
+            parts = [
+                PartObject(
+                    key =
+                        HTTPLiveStreamURL(
+                            Callback(
+                                PlayVideo,
+                                url = video_url,
+                                video_resolution = int(item['plfile$height'])
+                            )
+                    )
+                )
+            ] 
+            
+        mo.append(   
+            MediaObject(
+                video_resolution = int(item['plfile$height']),
+                audio_channels = int(item['plfile$audioChannels']),
+                bitrate = int(item['plfile$bitrate']),
+                duration = int(item['plfile$duration'] * 1000),
+                video_frame_rate = int(item['plfile$frameRate']),
+                parts = parts
+                
+            )
+        )
+        
+    return mo
+
+##########################################################################################
+def GetPID(url): 
+    html = HTML.ElementFromURL(url)
+    pid = None
+    
+    for text in html.xpath("//script[@type='text/javascript']/text()"):
+        match = RE_PID.search(text)
+        
+        if match:
+            pid = match.groups()[0]     
+    
+    return pid
+
+##########################################################################################
+def PlayVideo(url, video_resolution = '544', **kwargs):
+    hls_url = GetSpecificResolutionURL(url, video_resolution)
+    
+    return Redirect(
+        Callback(CreatePatchedPlaylist, url = hls_url, cookies = HTTP.CookiesForURL(url))
+    )
+
+##########################################################################################
+def GetSpecificResolutionURL(url, video_resolution):
+
+    streams = GetHLSStreams(url)            
+    hls_url = None
+
+    min_diff_found = 10000000 # Some huge number to get it started
+    for stream in streams:
+        if 'resolution' in stream:
+            diff = abs(stream['resolution'] - int(video_resolution))
+            
+            if diff < min_diff_found:
+                hls_url = stream['url']
+                min_diff_found = diff
+
+     
+    if not '?' in hls_url:
+        # Samsung requires an arbitrary parameter in the stream url since
+        # '&' is always appended by that client ...
+        hls_url = hls_url + '?null='
+     
+    return hls_url
+
+##########################################################################################
+def GetHLSStreams(url):
+    headers               = {}
+    headers['User-Agent'] = USER_AGENT
+
+    streams = []
+
+    try:
+        playList = HTTP.Request(url, headers = headers, cacheTime = 0).content
+    except:
+        raise Ex.MediaNotAvailable
+
+    # Parse the m3u8 file to get:
+    # - URL
+    # - Resolution
+    # - Bitrate
+    for line in playList.splitlines():
+        if "BANDWIDTH" in line:
+            stream            = {}
+            stream["bitrate"] = int(Regex('(?<=BANDWIDTH=)[0-9]+').search(line).group(0))        
+
+            if "RESOLUTION" in line:
+                stream["resolution"] = int(Regex('(?<=RESOLUTION=)[0-9]+x[0-9]+').search(line).group(0).split("x")[1])
+
+            if not 'resolution' in stream:
+                stream["resolution"] = int(BitrateToResolution(stream["bitrate"]))
+                
+        elif "m3u8" in line:
+            path = ''
+            
+            if not line.startswith("http"):
+                path = url[ : url.rfind('/') + 1]
+            
+            try:
+                stream["url"] = path + line    
+                streams.append(stream)
+            except:
+                pass
+                
+    sorted_streams = sorted(streams, key = lambda stream: stream["bitrate"], reverse = True)        
+
+    return sorted_streams
+
+##########################################################################################
+def BitrateToResolution(bitrate):
+    if bitrate >= 1924000:
+        return 720
+    elif bitrate >= 1424000:
+        return 576
+    elif bitrate >= 892000:
+        return 360
+    elif bitrate >= 392000:
+        return 270
+    else:
+        return 226
+        
+####################################################################################################
+def CreatePatchedPlaylist(url, cookies):
+    headers               = {}
+    headers['Cookie']     = cookies
+    headers['User-Agent'] = USER_AGENT
+
+    original_playlist = HTTP.Request(url, headers = headers, cacheTime = 0).content
+    path = path = url[ : url.rfind('/') + 1]
+    new_playlist = ''
+
+    for line in original_playlist.splitlines():
+        if line.startswith('#EXT-X-KEY') and 'https' in line:
+            original_key_url = RE_KEY_URI.search(line).groups()[0]
+            new_key_url = Callback(ContentOfURL, url = original_key_url, cookies = cookies)
+            new_playlist = new_playlist + line.replace(original_key_url, new_key_url) + '\n'
+        elif line.startswith('https'):
+            original_segment_url = line
+            new_segment_url = Callback(ContentOfURL, url = original_segment_url, cookies = cookies)
+            new_playlist = new_playlist + new_segment_url + '\n'
+        else:
+            new_playlist = new_playlist + line + '\n'
+
+    return new_playlist
+    
+####################################################################################################
+def ContentOfURL(url, cookies):
+    headers               = {}
+    headers['Cookie']     = cookies
+    headers['User-Agent'] = USER_AGENT
+    
+    return HTTP.Request(url, headers = headers, cacheTime = 0).content

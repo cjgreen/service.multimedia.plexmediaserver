@@ -1,0 +1,111 @@
+DETAILS_URL  = 'http://api.vevo.com/mobile/v1/video/%s.json'
+AUTH_URL     = 'http://videoplayer.vevo.com/VideoService/AuthenticateVideo?isrc=%s'
+VIDEO_URL    = 'http://www.vevo.com/watch/%s/%s/%s'
+
+HTTP_HEADERS = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36'}
+
+####################################################################################################
+def NormalizeURL(url):
+
+	return url.split('#')[0].split('?')[0]
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	id = url.split('/')[-1].strip()
+	json_obj = JSON.ObjectFromURL(DETAILS_URL % id, headers=HTTP_HEADERS)
+
+	if not json_obj['success']:
+		raise Ex.MediaNotAvailable
+
+	details = json_obj['result']
+
+	return VideoClipObject(
+		title = '%s - %s' % (details['artists_main'][0]['name'], details['title']),
+		summary = details['description'],
+		duration = int(details['duration_in_seconds']) * 1000,
+		originally_available_at = Datetime.ParseDate(details['created_at'].split('T')[0]),
+		genres = details['genres'],
+		thumb = Resource.ContentsOfURLWithFallback(url=details['image_url']),
+		art = Resource.ContentsOfURLWithFallback(url=details['artists_main'][0]['image_url'], fallback='http://resources-cdn.plexapp.com/image/art/com.plexapp.plugins.vevo.jpg')
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	if Client.Product in ('Web Client', 'Plex Web'):
+
+		return [
+			MediaObject(
+				parts = [
+					PartObject(
+						key=EmbedURL(Callback(CreateEmbed, url=url))
+					)
+				],
+				video_resolution = '1080',
+				audio_channels = 2
+			)
+		]
+
+	else:
+
+		return [
+			MediaObject(
+				parts = [
+					PartObject(
+						key=HTTPLiveStreamURL(Callback(PlayVideo, url=url))
+					)
+				],
+				video_resolution = '1080',
+				audio_channels = 2,
+				optimized_for_streaming = True
+			)
+		]
+
+####################################################################################################
+@indirect
+def PlayVideo(url, **kwargs):
+
+	id = url.split('/')[-1]
+	json_obj = JSON.ObjectFromURL(AUTH_URL % id, headers=HTTP_HEADERS)
+
+	if 'video' not in json_obj or not json_obj['video']:
+
+		if 'statusMessage' in json_obj and 'where you live' in json_obj['statusMessage']:
+			raise Ex.MediaGeoblocked
+
+		raise Ex.MediaNotAvailable
+
+	hls_url = None
+
+	for version in json_obj['video']['videoVersions']:
+
+		if 'sourceType' in version and version['sourceType'] == 4:
+
+			data = version['data']
+			xml = XML.ElementFromString(data)
+			hls_url = xml.xpath('//rendition/@url')[0]
+
+	if not hls_url:
+		raise Ex.MediaNotAvailable
+
+	return IndirectResponse(VideoClipObject, key=hls_url)
+
+####################################################################################################
+def CreateEmbed(url):
+
+	video_id = url.split('/')[-1]
+
+	return '<iframe width="940px" height="530px" src="http://cache.vevo.com/m/html/embed.html?video=%s&autoplay=1" frameborder="0" allowfullscreen></iframe>' % video_id
+
+####################################################################################################
+def TestURLs():
+
+    test_urls = []
+    results = JSON.ObjectFromURL('http://api.vevo.com/mobile/v1/video/list.json?order=mostrecent&max=3', headers=HTTP_HEADERS)['result']
+
+    for result in results:
+        url = VIDEO_URL % (result['artists_main'][0]['url_safename'], result['url_safe_title'], result['isrc'])
+        test_urls.append(url)
+
+    return test_urls

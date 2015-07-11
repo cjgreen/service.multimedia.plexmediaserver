@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URL</key>
+	<dict>
+		<key>South Park</key>
+		<dict>
+			<key>TestURLs</key>
+			<array>
+				<string>http://southpark.cc.com/full-episodes/s02e14-chef-aid</string>
+			</array>    
+			<key>URLPatterns</key>
+			<array>
+				<string>^http:\/\/(www\.)?southpark(studios)?\.(cc\.com|de|dk|fi|nl|no|se)\/((full\-)?episodes|alle-episoden)\/s\d+e\d+\-.+</string>
+				<string>^http:\/\/(www\.)?southpark(studios)?\.(cc\.com|de|dk|fi|nl|no|se)\/clips\/[^/]{6}\/.+</string>
+			</array>
+		</dict>
+	</dict>
+	<key>PlexFrameworkFlags</key>
+	<array>
+		<string>UseRealRTMP</string>
+	</array>
+</dict>
+</plist>

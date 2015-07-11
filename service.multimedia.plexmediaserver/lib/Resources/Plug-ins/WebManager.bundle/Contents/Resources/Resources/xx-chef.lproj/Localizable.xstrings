@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>%@, Episode %d</key>
+	<string>%@, Ipeesude-a %d</string>
+	<key>%d TV shows</key>
+	<string>%d TF shoos</string>
+	<key>%d artists</key>
+	<string>%d erteests</string>
+	<key>%d episodes</key>
+	<string>%d ipeesudes</string>
+	<key>%d movies</key>
+	<string>%d mufeees</string>
+	<key>%d tracks</key>
+	<string>%d trecks</string>
+	<key>%d tracks, %@ total time, %@</key>
+	<string>%d trecks, %@ tutel teeme-a, %@</string>
+	<key>%d:%02d %@</key>
+	<string>%d:%02d %@</string>
+	<key>1 TV show</key>
+	<string>1 TF shoo</string>
+	<key>1 artist</key>
+	<string>1 erteest</string>
+	<key>1 episode</key>
+	<string>1 ipeesude-a</string>
+	<key>1 movie</key>
+	<string>1 mufeee-a</string>
+	<key>1 track</key>
+	<string>1 treck</string>
+	<key>1 track, %@ total time, %@</key>
+	<string>1 treck, %@ tutel teeme-a, %@</string>
+	<key>&gt; Add posters, custom genres and more</key>
+	<string>&gt; Edd pusters, coostum genres und mure-a</string>
+	<key>&gt; Album reviews</key>
+	<string>&gt; Elboom refeeoos</string>
+	<key>&gt; Artist biographies and artwork</key>
+	<string>&gt; Erteest beeugrephies und ertvurk</string>
+	<key>&gt; Automatic theme music for TV shows</key>
+	<string>&gt; Ootumeteec zeeme-a mooseec fur TF shoos</string>
+	<key>&gt; Customize every detail of each movie</key>
+	<string>&gt; Coostumeeze-a ifery deteeel ooff iech mufeee-a</string>
+	<key>&gt; Great for your personal media</key>
+	<string>&gt; Greet fur yuoor persunel medeea</string>
+	<key>&gt; Movie posters and art</key>
+	<string>&gt; Mufeee-a pusters und ert</string>
+	<key>&gt; Organize movies into collections</key>
+	<string>&gt; Oorguneeze-a mufeees intu cullecshuns</string>
+	<key>&gt; TV show posters and art</key>
+	<string>&gt; TF shoo pusters und ert</string>
+	<key>&gt; Thumbnails for every episode</key>
+	<string>&gt; Thoombneeels fur ifery ipeesude-a</string>
+	<key>AM</key>
+	<string>EM</string>
+	<key>Add Home Movies Section</key>
+	<string>Edd Hume-a Mufeees Secshun</string>
+	<key>Add Movies Section</key>
+	<string>Edd Mufeees Secshun</string>
+	<key>Add Music Section</key>
+	<string>Edd Mooseec Secshun</string>
+	<key>Add Section</key>
+	<string>Edd Secshun</string>
+	<key>Add TV Shows Section</key>
+	<string>Edd TF Shoos Secshun</string>
+	<key>Add the folders containing media for this section below. Any media files found inside these folders will be scanned into your library using the above settings.</key>
+	<string>Edd zee fulders cunteeening medeea fur thees secshun beloo. Uny medeea feeles fuoond inseede-a zeese-a fulders veell be-a scunned intu yuoor leebrery useeng zee ebufe-a setteengs.</string>
+	<key>Advanced</key>
+	<string>Edfunced</string>
+	<key>All deleted items will be permanently removed from your library. No files on your computer will be removed.</key>
+	<string>Ell deleted items veell be-a permunently remufed frum yuoor leebrery. Nu feeles oon yuoor cumpooter veell be-a remufed.</string>
+	<key>Always enabled</key>
+	<string>Elveys inebled</string>
+	<key>Any content in this section will no longer be available in your library. The files on your computer will not be removed.</key>
+	<string>Uny cuntent in thees secshun veell nu lunger be-a efeeeleble-a in yuoor leebrery. Zee feeles oon yuoor cumpooter veell nut be-a remufed.</string>
+	<key>Aperture Sharing Enabled</key>
+	<string>Epertoore-a Shereeng Inebled</string>
+	<key>Are you sure you want to disable secure access to your server?</key>
+	<string>Ere-a yuoo soore-a yuoo vunt tu deeseble-a secoore-a eccess tu yuoor serfer?</string>
+	<key>Are you sure you want to empty the trash in "%@"?</key>
+	<string>Ere-a yuoo soore-a yuoo vunt tu impty zee tresh in "%@"?</string>
+	<key>Are you sure you want to remove the section named "%@"?</key>
+	<string>Ere-a yuoo soore-a yuoo vunt tu remufe-a zee secshun nemed "%@"?</string>
+	<key>Artist</key>
+	<string>Erteest</string>
+	<key>Authenticate</key>
+	<string>Oozeenteecete-a</string>
+	<key>Authentication Required</key>
+	<string>Oozeenteeceshun Reqooured</string>
+	<key>Cancel</key>
+	<string>Cuncel</string>
+	<key>Capability checking ensures that plug-ins that are incompatible with this version of the server or the current client application you are using are hidden. Disabling capability checking is useful during development, but will enable access to plug-ins that may perform unreliably with certain client applications.</key>
+	<string>Cepebeelity checkeeng insoores thet ploog-ins thet ere-a incumpeteeble-a veet thees ferseeun ooff zee serfer oor zee coorrent cleeent eppleeceshun yuoo ere-a useeng ere-a heeddee. Deesebling cepebeelity checkeeng is useffool dooreeng defelupment, boot veell ineble-a eccess tu ploog-ins thet mey perffurm unreleeebly veet certeeen cleeent eppleeceshuns.</string>
+	<key>Change</key>
+	<string>Chunge-a</string>
+	<key>Change Artwork</key>
+	<string>Chunge-a Ertvurk</string>
+	<key>Change Password</key>
+	<string>Chunge-a Pessvurd</string>
+	<key>Change Username</key>
+	<string>Chunge-a Userneme-a</string>
+	<key>Change your username, and enter your password to authenticate.</key>
+	<string>Chunge-a yuoor userneme-a, und inter yuoor pessvurd tu oozeenteecete-a.</string>
+	<key>Choose Album Thumbnail</key>
+	<string>Chuuse-a Elboom Thoombneeel</string>
+	<key>Choose Background Art</key>
+	<string>Chuuse-a Beckgruoond Ert</string>
+	<key>Choose Banner</key>
+	<string>Chuuse-a Bunner</string>
+	<key>Choose Episode Thumbnail</key>
+	<string>Chuuse-a Ipeesude-a Thoombneeel</string>
+	<key>Choose Icon</key>
+	<string>Chuuse-a Icun</string>
+	<key>Choose Poster</key>
+	<string>Chuuse-a Puster</string>
+	<key>Choose Season Thumbnail</key>
+	<string>Chuuse-a Seesun Thoombneeel</string>
+	<key>Click the titles below to create library sections for your media and have it served to your Plex-enabled devices.</key>
+	<string>Cleeck zee teetles beloo tu creete-a leebrery secshuns fur yuoor medeea und hefe-a it serfed tu yuoor Plex-inebled defeeces.</string>
+	<key>Collections</key>
+	<string>Cullecshuns</string>
+	<key>Connecting to Plex Media Server failed with this error: %@.
+
+Are you sure it's running?</key>
+	<string>Cunnecteeng tu Plex Medeea Serfer feeeled veet thees irrur: %@.
+
+Are yuoo soore-a it's roonneeng?</string>
+	<key>Content Rating</key>
+	<string>Cuntent Reteeng</string>
+	<key>Current Password:</key>
+	<string>Coorrent Pessvurd:</string>
+	<key>Custom Search</key>
+	<string>Coostum Seerch</string>
+	<key>Customize Section</key>
+	<string>Coostumeeze-a Secshun</string>
+	<key>Directors</key>
+	<string>Durecturs</string>
+	<key>Disable Secure Access</key>
+	<string>Deeseble-a Secoore-a Eccess</string>
+	<key>Disable capability checking</key>
+	<string>Deeseble-a cepebeelity checkeeng</string>
+	<key>Done</key>
+	<string>Dune-a</string>
+	<key>Drag folders into the list, or click the '+' button to browse.</key>
+	<string>Dreg fulders intu zee leest, oor cleeck zee '+' boottun tu broose-a.</string>
+	<key>Edit Metadata</key>
+	<string>Edeet Metedeta</string>
+	<key>Edit Metadata...</key>
+	<string>Edeet Metedeta...</string>
+	<key>Edit Section</key>
+	<string>Edeet Secshun</string>
+	<key>Empty Trash</key>
+	<string>Empty Tresh</string>
+	<key>Empty trash automatically after every scan</key>
+	<string>Empty tresh ootumeteecelly effter ifery scun</string>
+	<key>Enable</key>
+	<string>Eneble-a</string>
+	<key>Enable DTS mix-down for Media Link clients</key>
+	<string>Eneble-a DTS meex-doon fur Medeea Leenk cleeents</string>
+	<key>Enable Dolby® Digital during AirPlay</key>
+	<string>Eneble-a Dulby® Deegitel dooreeng EurPley</string>
+	<key>Enable Secure Access</key>
+	<string>Eneble-a Secoore-a Eccess</string>
+	<key>Enter a password to enable secure access to your server:</key>
+	<string>Enter a pessvurd tu ineble-a secoore-a eccess tu yuoor serfer:</string>
+	<key>Enter your current password to authenticate, then enter and verify your new password.</key>
+	<string>Enter yuoor coorrent pessvurd tu oozeenteecete-a, zeen inter und fereeffy yuoor noo pessvurd.</string>
+	<key>Episode %d: %@</key>
+	<string>Epeesude-a %d: %@</string>
+	<key>Fix Incorrect Match...</key>
+	<string>Feex Incurrect Metch...</string>
+	<key>Fix incorrect match</key>
+	<string>Feex incurrect metch</string>
+	<key>Friday</key>
+	<string>Freedey</string>
+	<key>Friendly name:</key>
+	<string>Freeendly neme-a:</string>
+	<key>General</key>
+	<string>Generel</string>
+	<key>Genres</key>
+	<string>Genres</string>
+	<key>Got this error: %@. Are you sure Plex Media Server is running?</key>
+	<string>Gut thees irrur: %@. Ere-a yuoo soore-a Plex Medeea Serfer is roonneeng?</string>
+	<key>If you want to share your media over the Internet, you can turn on Secure Server Access to prevent unauthorized access to your server.</key>
+	<string>Iff yuoo vunt tu shere-a yuoor medeea oofer zee Internet, yuoo cun toorn oon Secoore-a Serfer Eccess tu prefent unoothureezed eccess tu yuoor serfer.</string>
+	<key>Include music sections in automatic updates</key>
+	<string>Incloode-a mooseec secshuns in ootumeteec updetes</string>
+	<key>LIBRARY SECTIONS</key>
+	<string>LIBRERY SECTIONS</string>
+	<key>Language:</key>
+	<string>Lungooege-a:</string>
+	<key>Languages</key>
+	<string>Lungooeges</string>
+	<key>Large music sections may take a long time to scan</key>
+	<string>Lerge-a mooseec secshuns mey teke-a a lung teeme-a tu scun</string>
+	<key>Last refreshed %@ at %@</key>
+	<string>Lest reffreshed %@ et %@</string>
+	<key>Library</key>
+	<string>Leebrery</string>
+	<key>Loading metadata for '%@'</key>
+	<string>Luedeeng metedeta fur '%@'</string>
+	<key>MEDIA MANAGER</key>
+	<string>MEDIA MENEGER</string>
+	<key>Manual Entry</key>
+	<string>Munooel Intry</string>
+	<key>Manually selected</key>
+	<string>Munooelly selected</string>
+	<key>Match Using</key>
+	<string>Metch Useeng</string>
+	<key>Matching '%@'</key>
+	<string>Metcheeng '%@'</string>
+	<key>Media Link does not support DTS audio in certain regions. The Plex Media Server can automatically convert DTS to stereo so that it will play.</key>
+	<string>Medeea Leenk dues nut sooppurt DTS oodeeu in certeeen regeeuns. Zee Plex Medeea Serfer cun ootumeteecelly cunfert DTS tu stereu su thet it veell pley.</string>
+	<key>Media analysis on '%@'</key>
+	<string>Medeea unelysees oon '%@'</string>
+	<key>Media file: </key>
+	<string>Medeea feele-a: </string>
+	<key>Media scanner:</key>
+	<string>Medeea scunner:</string>
+	<key>Monday</key>
+	<string>Mundey</string>
+	<key>Movie</key>
+	<string>Mufeee-a</string>
+	<key>Movies</key>
+	<string>Mufeees</string>
+	<key>Music</key>
+	<string>Mooseec</string>
+	<key>My Movies</key>
+	<string>My Mufeees</string>
+	<key>My Music</key>
+	<string>My Mooseec</string>
+	<key>My TV Shows</key>
+	<string>My TF Shoos</string>
+	<key>Name</key>
+	<string>Neme-a</string>
+	<key>Name:</key>
+	<string>Neme-a:</string>
+	<key>New Password:</key>
+	<string>Noo Pessvurd:</string>
+	<key>No Match Found</key>
+	<string>Nu Metch Fuoond</string>
+	<key>OK</key>
+	<string>OK</string>
+	<key>Offer higher bitrates over 3G connections</key>
+	<string>Offffer heegher beetretes oofer 3G cunnecshuns</string>
+	<key>Original Title</key>
+	<string>Oreeginel Teetle-a</string>
+	<key>Originally Available</key>
+	<string>Oreeginelly Efeeeleble-a</string>
+	<key>PM</key>
+	<string>PM</string>
+	<key>Password</key>
+	<string>Pessvurd</string>
+	<key>Password:</key>
+	<string>Pessvurd:</string>
+	<key>Path of the directory you'd like to add:</key>
+	<string>Pet ooff zee durectury yuoo'd leeke-a tu edd:</string>
+	<key>Plex Media Server requires a username and password:</key>
+	<string>Plex Medeea Serfer reqooures a userneme-a und pessvurd:</string>
+	<key>Prefer audio tracks in:</key>
+	<string>Preffer oodeeu trecks in:</string>
+	<key>Prefer subtitles in:</key>
+	<string>Preffer soobteetles in:</string>
+	<key>Preferences</key>
+	<string>Prefferences</string>
+	<key>Primary metadata agent:</key>
+	<string>Preemery metedeta egent:</string>
+	<key>Rating</key>
+	<string>Reteeng</string>
+	<key>Refresh Metadata</key>
+	<string>Reffresh Metedeta</string>
+	<key>Refreshing info for %d items</key>
+	<string>Reffresheeng inffu fur %d items</string>
+	<key>Refreshing info for one item</key>
+	<string>Reffresheeng inffu fur oone-a item</string>
+	<key>Remember me on this computer</key>
+	<string>Remember me-a oon thees cumpooter</string>
+	<key>Remove Section</key>
+	<string>Remufe-a Secshun</string>
+	<key>Requesting metadata for '%@'</key>
+	<string>Reqooesteeng metedeta fur '%@'</string>
+	<key>Saturday</key>
+	<string>Setoordey</string>
+	<key>Save</key>
+	<string>Sefe-a</string>
+	<key>Scanning '%@'</key>
+	<string>Scunneeng '%@'</string>
+	<key>Search</key>
+	<string>Seerch</string>
+	<key>Search using:</key>
+	<string>Seerch useeng:</string>
+	<key>Section name:</key>
+	<string>Secshun neme-a:</string>
+	<key>Section type:</key>
+	<string>Secshun type-a:</string>
+	<key>Secure Server Access</key>
+	<string>Secoore-a Serfer Eccess</string>
+	<key>Security</key>
+	<string>Secooreety</string>
+	<key>Select</key>
+	<string>Select</string>
+	<key>Select %@</key>
+	<string>Select %@</string>
+	<key>Select Folder</key>
+	<string>Select Fulder</string>
+	<key>Select Image</key>
+	<string>Select Imege-a</string>
+	<key>Select a directory for this section:</key>
+	<string>Select a durectury fur thees secshun:</string>
+	<key>Select the correct TV show from the list below:</key>
+	<string>Select zee currect TF shoo frum zee leest beloo:</string>
+	<key>Select the correct artist from the list below:</key>
+	<string>Select zee currect erteest frum zee leest beloo:</string>
+	<key>Select the correct movie from the list below:</key>
+	<string>Select zee currect mufeee-a frum zee leest beloo:</string>
+	<key>Send anonymous usage data to Plex</key>
+	<string>Send ununymuoos usege-a deta tu Plex</string>
+	<key>Sharing</key>
+	<string>Shereeng</string>
+	<key>Show</key>
+	<string>Shoo</string>
+	<key>Shown with foreign audio</key>
+	<string>Shoon veet fureeegn oodeeu</string>
+	<key>Sort Title</key>
+	<string>Surt Teetle-a</string>
+	<key>Studio</key>
+	<string>Stoodeeu</string>
+	<key>Subtitle mode:</key>
+	<string>Soobteetle-a mude-a:</string>
+	<key>Summary</key>
+	<string>Soommery</string>
+	<key>Sunday</key>
+	<string>Soondey</string>
+	<key>TV Shows</key>
+	<string>TF Shoos</string>
+	<key>Tagline</key>
+	<string>Tegleene-a</string>
+	<key>There was no acceptable match using the specified agent.</key>
+	<string>Zeere-a ves nu eccepteble-a metch useeng zee speceeffied egent.</string>
+	<key>This helps us improve your experience (for example, to help us match movies and TV shows).</key>
+	<string>Thees helps us imprufe-a yuoor ixpereeence-a (fur ixemple-a, tu help us metch mufeees und TF shoos).</string>
+	<key>This name will be used to identify this media server to other computers on your network. If you leave it blank, your computer's name will be used instead.</key>
+	<string>Thees neme-a veell be-a used tu identeeffy thees medeea serfer tu oozeer cumpooters oon yuoor netvurk. Iff yuoo leefe-a it blunk, yuoor cumpooter's neme-a veell be-a used insteed.</string>
+	<key>This site does not support Internet Explorer. For the best experience, click here to install Google Chrome Frame.</key>
+	<string>Thees seete-a dues nut sooppurt Internet Ixplurer. Fur zee best ixpereeence-a, cleeck here-a tu instell Guugle-a Chrume-a Freme-a.</string>
+	<key>Thursday</key>
+	<string>Thoorsdey</string>
+	<key>Title</key>
+	<string>Teetle-a</string>
+	<key>Transcoding</key>
+	<string>Trunscudeeng</string>
+	<key>Tuesday</key>
+	<string>Tooesdey</string>
+	<key>Turning off secure server access will allow incoming connections from any computer.</key>
+	<string>Toorneeng ooffff secoore-a serfer eccess veell elloo incumeeng cunnecshuns frum uny cumpooter.</string>
+	<key>Unable to connect to Plex Media Server</key>
+	<string>Uneble-a tu cunnect tu Plex Medeea Serfer</string>
+	<key>Unable to create library section</key>
+	<string>Uneble-a tu creete-a leebrery secshun</string>
+	<key>Unable to remove section "%@"</key>
+	<string>Uneble-a tu remufe-a secshun "%@"</string>
+	<key>Unable to update library section</key>
+	<string>Uneble-a tu updete-a leebrery secshun</string>
+	<key>Unmatch</key>
+	<string>Unmetch</string>
+	<key>Update Section</key>
+	<string>Updete-a Secshun</string>
+	<key>Update my library</key>
+	<string>Updete-a my leebrery</string>
+	<key>Update my library when changes to my folders are detected</key>
+	<string>Updete-a my leebrery vhee chunges tu my fulders ere-a detected</string>
+	<key>Username</key>
+	<string>Userneme-a</string>
+	<key>Username:</key>
+	<string>Userneme-a:</string>
+	<key>Verify:</key>
+	<string>Fereeffy:</string>
+	<key>Wednesday</key>
+	<string>Vednesdey</string>
+	<key>When playing video with AirPlay on an Apple TV, allow Dolby® Digital audio to play. You must go to Settings on the Apple TV and set Dolby Digital Out to "On" in the Audio &amp; Video menu.</key>
+	<string>Vhee pleyeeng feedeu veet EurPley oon un Epple-a TF, elloo Dulby® Deegitel oodeeu tu pley. Yuoo moost gu tu Setteengs oon zee Epple-a TF und set Dulby Deegitel Oooot tu "Oon" in zee Oodeeu &amp; Feedeu menoo.</string>
+	<key>Writers</key>
+	<string>Vreeters</string>
+	<key>Year</key>
+	<string>Yeer</string>
+	<key>Year:</key>
+	<string>Yeer:</string>
+	<key>album</key>
+	<string>elboom</string>
+	<key>artist</key>
+	<string>erteest</string>
+	<key>daily</key>
+	<string>deeely</string>
+	<key>episode</key>
+	<string>epeesude-a</string>
+	<key>every 12 hours</key>
+	<string>efery 12 huoors</string>
+	<key>every 15 minutes</key>
+	<string>efery 15 meenootes</string>
+	<key>every 2 hours</key>
+	<string>efery 2 huoors</string>
+	<key>every 30 minutes</key>
+	<string>efery 30 meenootes</string>
+	<key>every 6 hours</key>
+	<string>efery 6 huoors</string>
+	<key>hourly</key>
+	<string>huoorly</string>
+	<key>iPhoto Sharing Enabled</key>
+	<string>iPhutu Shereeng Inebled</string>
+	<key>iTunes Sharing Enabled</key>
+	<string>iToones Shereeng Inebled</string>
+	<key>movie</key>
+	<string>mufeee-a</string>
+	<key>no TV shows</key>
+	<string>nu TF shoos</string>
+	<key>no artists</key>
+	<string>nu erteests</string>
+	<key>no episodes</key>
+	<string>nu ipeesudes</string>
+	<key>no movies</key>
+	<string>nu mufeees</string>
+	<key>no tracks</key>
+	<string>nu trecks</string>
+	<key>season</key>
+	<string>seesun</string>
+	<key>show</key>
+	<string>shoo</string>
+	<key>today</key>
+	<string>tudey</string>
+	<key>tomorrow</key>
+	<string>tumurroo</string>
+	<key>yesterday</key>
+	<string>yesterdey</string>
+</dict>
+</plist>

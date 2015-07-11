@@ -1,0 +1,601 @@
+/* Season plus full episode title (e.g. Season 4, Episode 1 */
+"%@, Episode %d" = "%1$@, Aflevering %2$d";
+
+/* Status label value for when there is more than one musical artist */
+"%d artists" = "%d artiest";
+
+/* Status for list of episodes when there is more than one
+   Subtitle for a season thumbnail on a TV Show detail view */
+"%d episodes" = "%d afleveringen";
+
+/* Status label value for when there is more than one movie */
+"%d movies" = "%d films";
+
+/* Subtitle for a album thumbnail on an artist detail view */
+"%d tracks" = "%d nummers";
+
+/* Status label for when there are more than one track (e.g. 11 tracks, 47:34 total time, 91.2 MB) */
+"%d tracks, %@ total time, %@" = "%1$d nummers, %2$@ totale tijd, %3$@";
+
+/* Status label value for when there is more than one TV show */
+"%d TV shows" = "%d TV series";
+
+/* ShortLocalTimeFormat */
+"%d:%02d %@" = "%1$d:%2$02d %3$@";
+
+/* Status label value for when there is one musical artist */
+"1 artist" = "1 artiest";
+
+/* Status for list of episodes when there is one
+   Subtitle for a season thumbnail on a TV Show detail view */
+"1 episode" = "1 aflevering";
+
+/* Status label value for when there is one movie */
+"1 movie" = "1 film";
+
+/* Status label value for when there is one photo */
+"1 photo" = "1 foto";
+
+/* Subtitle for a album thumbnail on an artist detail view */
+"1 track" = "1 nummer";
+
+/* Status label for when there is one track in an album (e.g. 1 track, 4:28 total time, 5.6 MB) */
+"1 track, %@ total time, %@" = "1 nummer, %1$@ totale tijd, %2$@";
+
+/* Status label value for when there is one TV show */
+"1 TV show" = "1 TV serie";
+
+/* First-run help item */
+"> Add posters, custom genres and more" = "> Voeg posters, genres en meer toe";
+
+/* First-run help item */
+"> Artist biographies and artwork" = "> Artiestenbiografieën en artwork";
+
+/* First-run help item */
+"> Automatic theme music for TV shows" = "> Automatische titelsong voor TV series";
+
+/* First-run help item */
+"> Customize every detail of each movie" = "> Personaliseer ieder detail van een film";
+
+/* First-run help item */
+"> Great for your personal media" = "> Fantastisch voor je persoonlijke media";
+
+/* First-run help item */
+"> Movie posters and art" = "> Filmposters en achtergronden";
+
+/* First-run help item */
+"> Organize movies into collections" = "> Stel filmcollecties samen";
+
+/* First-run help item */
+"> Thumbnails for every episode" = "> Thumbnails voor iedere aflevering";
+
+/* First-run help item */
+"> TV show posters and art" = "> Posters en achtergronden voor TV series";
+
+/* First-run title for adding home movies */
+"Add Home Movies Section" = "Voeg Homevideosectie toe";
+
+/* First-run title for adding movies */
+"Add Movies Section" = "Voeg Filmsectie toe";
+
+/* First-run title for adding music */
+"Add Music Section" = "Voeg Muzieksectie toe";
+
+/* Add section confirm button text */
+"Add Section" = "Voeg sectie toe";
+
+/* Section settings primary informative text */
+"Add the folders containing media for this section below. Any media files found inside these folders will be scanned into your library using the above settings." = "Voeg hieronder mappen met media toe voor deze sectie. De mediabestanden die gevonden worden in deze mappen zullen met bovenstaande instellingen gescand en toegevoegd worden aan de bibliotheek.";
+
+/* First-run title for adding TV shows */
+"Add TV Shows Section" = "Voeg sectie voor TV Series toe";
+
+/* Advanced */
+"Advanced" = "Geavanceerd";
+
+/* A recording album */
+"album" = "album";
+
+/* Agent settings title for music albums */
+"ALBUMS" = "ALBUMS";
+
+/* Explanation text for the empty trash confirmation dialog */
+"All deleted items will be permanently removed from your library. No files on your computer will be removed." = "Alle verwijderde onderdelen zullen permanent uit uw bibliotheek worden verwijderd. Er worden geen bestanden van je computer gewist.";
+
+/* AnteMeridiem */
+"AM" = "AM";
+
+/* Informative text for removing a section */
+"Any content in this section will no longer be available in your library. The files on your computer will not be removed." = "Alle inhoud van deze sectie zal niet langer beschikbaar zijn in de bibliotheek. De bestanden zelf worden niet verwijderd.";
+
+/* Preference window setting */
+"Aperture Sharing Enabled" = "Aperture Delen ingeschakeld";
+
+/* Disable secure server access confirmation */
+"Are you sure you want to disable secure access to your server?" = "Weet je zeker dat je veilige servertoegang wilt uitschakelen?";
+
+/* Confirmation text for the empty trash confirmation dialog */
+"Are you sure you want to empty the trash in \"%@\"?" = "Weet je zeker dat je de prullenmand wilt legen in \"%@\"?";
+
+/* Confirmation message for removing a section */
+"Are you sure you want to remove the section named \"%@\"?" = "Weet je zeker dat je de sectie  \"%@\" wilt verwijderen?";
+
+/* A musical artist */
+"artist" = "artiest";
+
+/* Artist */
+"Artist" = "Artiest";
+
+/* Login prompt title */
+"Authentication Required" = "Authentication Required";
+
+/* Cancel */
+"Cancel" = "Annuleer";
+
+/* Change */
+"Change" = "Verander";
+
+/* Change Artwork */
+"Change Artwork" = "Verander Artwork";
+
+/* Security preferences button to change the main account password */
+"Change Password" = "Verander wachtwoord";
+
+/* Security preferences button to change the main account username */
+"Change Username" = "Verander gebruikersnaam";
+
+/* Change username prompt message */
+"Change your username, and enter your password to authenticate." = "Verander je gebruikersnaam en vul je wachtwoord ter authenticatie in.";
+
+/* Choose Album Thumbnail menu item */
+"Choose Album Thumbnail" = "Kies Album Thumbnail";
+
+/* Choose Background Art */
+"Choose Background Art" = "Kies Background Art";
+
+/* Choose Banner */
+"Choose Banner" = "Kies Banner";
+
+/* Choose Episode Thumbnail menu item */
+"Choose Episode Thumbnail" = "Kies Afleveringsthumbnail";
+
+/* Choose Icon */
+"Choose Icon" = "Kies Icon";
+
+/* Choose Poster menu item */
+"Choose Poster" = "Kies Poster";
+
+/* Choose Season Thumbnail menu item */
+"Choose Season Thumbnail" = "Kies Seizoensthumbnail";
+
+/* First-run help title */
+"Click the titles below to create library sections for your media and have it served to your Plex-enabled devices." = "Klik op de titels hieronder om de bibliotheeksecties voor je media aan te maken en deze toegankelijk te maken voor je Plex apparaten.";
+
+/* Collections */
+"Collections" = "Collecties";
+
+/* Error message for when we cannot connect to PMS or when the response is invalid */
+"Connecting to Plex Media Server failed with this error: %@.\n\nAre you sure it's running?" = "Verbinding met de Plex Media Server is mislukt met deze foutmelding: %@.\n\nWeet je zeker dat PMS aan staat?";
+
+/* Content Rating */
+"Content Rating" = "Beoordeling";
+
+/* Password label */
+"Current Password:" = "Huidig wachtwoord:";
+
+/* Custom Search */
+"Custom Search" = "Aangepast zoeken";
+
+/* Customize Section */
+"Customize Section" = "Pas Sectie aan";
+
+/* Library scan interval (i.e. Update my library daily */
+"daily" = "dagelijks";
+
+/* Directors */
+"Directors" = "Regisseurs";
+
+/* Preference window setting */
+"Disable capability checking" = "Schakel Compatibiliteitscontrole uit";
+
+/* Disable secure server confirmation button */
+"Disable Secure Access" = "Schakel Veilige Toegang uit";
+
+/* Done */
+"Done" = "Klaar";
+
+/* Section settings secondary informative text */
+"Drag folders into the list, or click the '+' button to browse." = "Sleep mappen naar de lijst of klik op de '+' knop om te bladeren.";
+
+/* Edit Metadata */
+"Edit Metadata" = "Bewerk Metadata";
+
+/* Context menu item for metadata items */
+"Edit Metadata..." = "Bewerk Metadata...";
+
+/* Edit Section */
+"Edit Section" = "Bewerk Sectie";
+
+/* Confirmation button for the empty trash confirmation dialog */
+"Empty Trash" = "Leeg prullenmand";
+
+/* Preference window setting */
+"Empty trash automatically after every scan" = "Gooi prullenmand automatisch leeg na iedere scan";
+
+/* Enable */
+"Enable" = "Inschakelen";
+
+/* Preference window setting */
+"Enable Dolby® Digital during AirPlay" = "Gebruik Dolby® Digital tijdens AirPlay";
+
+/* Preference window setting */
+"Enable DTS mix-down for Media Link clients" = "Schakel DTS mixdown voor Media Link apparaten in";
+
+/* Check box label to enable secure server access */
+"Enable Secure Access" = "Schakel Veilige Toegang in";
+
+/* Enable security prompt message */
+"Enter a password to enable secure access to your server:" = "Voer een wachtwoord in om veilige toegang naar uw server in te schakelen:";
+
+/* Change password prompt message */
+"Enter your current password to authenticate, then enter and verify your new password." = "Voer eerst het huidige wachtwoord in en daarna twee maal het nieuwe ter verificatie.";
+
+/* A TV Show episode */
+"episode" = "aflevering";
+
+/* Full episode title (e.g. Episode 1: Pilot */
+"Episode %d: %@" = "Aflevering %1$d: %2$@";
+
+/* Library scan interval (i.e. Update my library every 12 hours) */
+"every 12 hours" = "iedere 12 uur";
+
+/* Library scan interval (i.e. Update my library every 15 minutes) */
+"every 15 minutes" = "iedere 15 minuten";
+
+/* Library scan interval (i.e. Update my library every 2 hours) */
+"every 2 hours" = "iedere 2 uur";
+
+/* Library scan interval (i.e. Update my library every 30 minutes) */
+"every 30 minutes" = "iedere 30 minuten";
+
+/* Library scan interval (i.e. Update my library every 6 hours) */
+"every 6 hours" = "iedere 6 uur";
+
+/* Fix incorrect match */
+"Fix incorrect match" = "Corrigeer incorrecte match";
+
+/* Context menu item for metadata items */
+"Fix Incorrect Match..." = "Corrigeer Incorrecte Match...";
+
+/* Friday */
+"Friday" = "Vrijdag";
+
+/* Friendly name label */
+"Friendly name:" = "Gebruiksvriendelijke naam:";
+
+/* General */
+"General" = "Algemeen";
+
+/* Genres */
+"Genres" = "Genres";
+
+/* Error message for when we cannot remove a library section */
+"Got this error: %@. Are you sure Plex Media Server is running?" = "Krijg deze foutmelding: %@. Weet je zeker dat de Plex Media Server aan staat?";
+
+/* Library scan interval (i.e. Update my library hourly) */
+"hourly" = "ieder uur";
+
+/* Security preference pane explanation */
+"If you want to share your media over the Internet, you can turn on Secure Server Access to prevent unauthorized access to your server." = "Als je je media wilt delen via internet, kun je Veilige Toegang inschakelen om ongeautoriseerde toegang to je server te voorkomen.";
+
+/* Preference window setting */
+"Include music sections in automatic updates" = "Update ook muzieksecties tijdens automatische updates";
+
+/* Preference window setting */
+"iPhoto Sharing Enabled" = "iPhoto Delen ingeschakeld";
+
+/* Preference window setting */
+"iTunes Sharing Enabled" = "iTunes Delen ingeschakeld";
+
+/* Language label */
+"Language:" = "Taal:";
+
+/* Preference window setting */
+"Large music sections may take a long time to scan" = "Een scan van grote muzieksecties kan geruime tijd duren";
+
+/* Status label for media items */
+"Last refreshed %@ at %@" = "Laatste update %1$@ om %2$@";
+
+/* Library */
+"Library" = "Bibliotheek";
+
+/* Sidebar group title for library sections */
+"LIBRARY SECTIONS" = "BIBLIOTHEEKSECTIES";
+
+/* Metadata item status message when its data is importing */
+"Loading metadata for '%@'" = "Laden van metadata voor '%@'";
+
+/* Button text for the directory browser to allow the user to type in a path manually */
+"Manual Entry" = "Handmatige invoer";
+
+/* Language preference pane subtitle mode option */
+"Manually selected" = "Handmatig geselecteerd";
+
+/* Context menu item for metadata items */
+"Match Using" = "Match Using";
+
+/* Metadata item status message when it is being read */
+"Media analysis on '%@'" = "Media-analyse van '%@'";
+
+/* Label for the path to the file whose match is being fixed */
+"Media file: " = "Mediabestand: ";
+
+/* Preference window setting detail */
+"Media Link does not support DTS audio in certain regions. The Plex Media Server can automatically convert DTS to stereo so that it will play." = "Media Link ondersteunt niet in alle regio's DTS audio. De Plex Media Server kan DTS automatisch naar stereo converteren zodat het alsnog kan worden afgespeeld.";
+
+/* Header title */
+"MEDIA MANAGER" = "MEDIA MANAGER";
+
+/* Media scanner label */
+"Media scanner:" = "Mediascanner:";
+
+/* Monday */
+"Monday" = "Maandag";
+
+/* Movie */
+"Movie" = "Film";
+
+/* A movie */
+"movie" = "film";
+
+/* Movies */
+"Movies" = "Films";
+
+/* Music */
+"Music" = "Muziek";
+
+/* Movie section name placeholder */
+"My Movies" = "Mijn Films";
+
+/* Music section name placeholder */
+"My Music" = "Mijn Muziek";
+
+/* Photo section name placeholder */
+"My Photos" = "Mijn Foto's";
+
+/* TV Shows section name placeholder */
+"My TV Shows" = "Mijn TV Series";
+
+/* Name */
+"Name" = "Naam";
+
+/* Name label */
+"Name:" = "Naam:";
+
+/* Password label */
+"New Password:" = "Nieuw Wachtwoord:";
+
+/* Status label value when there are no musical artists */
+"no artists" = "geen artiesten";
+
+/* Status for list of episodes when there are none
+   Subtitle for a season thumbnail on a TV Show detail view */
+"no episodes" = "geen afleveringen";
+
+/* Status label value for when there are no movies */
+"no movies" = "geen films";
+
+/* Status label for when there are no tracks in an album
+   Subtitle for a album thumbnail on an artist detail view */
+"no tracks" = "geen nummers";
+
+/* Status label value when there are no TV shows */
+"no TV shows" = "geen TV series";
+
+/* Preference window setting */
+"Offer higher bitrates over 3G connections" = "Verhoog bitrates over 3G connecties";
+
+/* OK */
+"OK" = "OK";
+
+/* Original Title */
+"Original Title" = "Originele Titel";
+
+/* Password field placeholder */
+"Password" = "Password";
+
+/* Password label */
+"Password:" = "Wachtwoord:";
+
+/* Instruction text for the prompt to add directories manually */
+"Path of the directory you'd like to add:" = "Pad van de directory die je wilt toevoegen:";
+
+/* PostMeridiem */
+"PM" = "PM";
+
+/* Languages preference pane default subtitle language label */
+"Prefer subtitles in:" = "Prefer subtitles in:";
+
+/* Preferences button in top-right */
+"Preferences" = "Instellingen";
+
+/* Primary metadata agent label */
+"Primary metadata agent:" = "Primaire metadata agent:";
+
+/* Rating */
+"Rating" = "Waardering";
+
+/* Context menu item for metadata items */
+"Refresh Metadata" = "Ververs Info";
+
+/* Status label for refreshing sections */
+"Refreshing info for %d items" = "Ververs info voor %d items";
+
+/* Status label for refreshing sections with one remaining item */
+"Refreshing info for one item" = "Ververs info voor één item";
+
+/* Check box label for the login prompt */
+"Remember me on this computer" = "Onthoud mij op deze computer";
+
+/* Remove section confirmation button */
+"Remove Section" = "Verwijder Sectie";
+
+/* Metadata item status message when its info is downloading */
+"Requesting metadata for '%@'" = "Metadata opvragen voor '%@'";
+
+/* Saturday */
+"Saturday" = "Zaterdag";
+
+/* Save */
+"Save" = "Opslaan";
+
+/* Metadata item status message when it is newly scanned/created */
+"Scanning '%@'" = "'%@' wordt gescand.";
+
+/* Search */
+"Search" = "Zoek";
+
+/* Agent label */
+"Search using:" = "Zoek met:";
+
+/* A TV Show season */
+"season" = "seizoen";
+
+/* Section name label */
+"Section name:" = "Sectienaam:";
+
+/* Section type label */
+"Section type:" = "Sectietype:";
+
+/* Security preference pane title */
+"Secure Server Access" = "Veilige Servertoegang";
+
+/* Security */
+"Security" = "Beveiliging";
+
+/* Select */
+"Select" = "Selecteer";
+
+/* Confirm button title for selecting */
+"Select %@" = "Selecteer %@";
+
+/* Directory-browser title when adding/editing sections */
+"Select a directory for this section:" = "Selecteer een directory voor deze sectie:";
+
+/* Select Folder */
+"Select Folder" = "Selecteer Map";
+
+/* Select Image */
+"Select Image" = "Selecteer Afbeelding";
+
+/* Fix Incorrect Match title for music sections */
+"Select the correct artist from the list below:" = "Selecteer de juiste artiest uit onderstaande lijst:";
+
+/* Fix Incorrect Match title for movie sections */
+"Select the correct movie from the list below:" = "Selecteer de juiste film uit onderstaande lijst:";
+
+/* Fix Incorrect Match title for TV show sections */
+"Select the correct TV show from the list below:" = "Selecteer de juiste TV serie uit onderstaande lijst:";
+
+/* Send anonymous usage data to Plex */
+"Send anonymous usage data to Plex" = "Stuur anonieme gebruikersdata naar Plex";
+
+/* Sharing */
+"Sharing" = "Delen";
+
+/* Show */
+"Show" = "Serie";
+
+/* A TV Show */
+"show" = "serie";
+
+/* Sort Title */
+"Sort Title" = "Sorteer Titel";
+
+/* Languages preference pane subtitle mode label */
+"Subtitle mode:" = "Subtitle mode:";
+
+/* Summary */
+"Summary" = "Samenvatting";
+
+/* Sunday */
+"Sunday" = "Zondag";
+
+/* 'Match Using' error message */
+"There was no acceptable match using the specified agent." = "There was no acceptable match using the specified agent.";
+
+/* Summary info for collecting usage data */
+"This helps us improve your experience (for example, to help us match movies and TV shows)." = "Dit helpt ons de gebruikerservaring te verbeteren (bv. bij het matchen van films en TV series).";
+
+/* Summary info for friendly name */
+"This name will be used to identify this media server to other computers on your network. If you leave it blank, your computer's name will be used instead." = "Deze naam zal gebruikt worden om deze media server te identificeren op je netwerk. Wanneer je niks invult zal je computernaam worden gebruikt.";
+
+/* Warning for IE users */
+"This site does not support Internet Explorer. For the best experience, click here to install Google Chrome Frame." = "Deze site ondersteunt geen Internet Explorer. Voor de beste ervaring, klik hier om Google Chrome Frame te installeren.";
+
+/* Thursday */
+"Thursday" = "Donderdag";
+
+/* Title */
+"Title" = "Titel";
+
+/* today */
+"today" = "vandaag";
+
+/* tomorrow */
+"tomorrow" = "morgen";
+
+/* Transcoding */
+"Transcoding" = "Transcoderen";
+
+/* Tuesday */
+"Tuesday" = "Dinsdag";
+
+/* Disable secure server access confirmation info */
+"Turning off secure server access will allow incoming connections from any computer." = "Wanneer veilige servertoegang is uitgeschakeld kan vanaf iedere computer toegang verkregen worden.";
+
+/* TV Shows */
+"TV Shows" = "TV Series";
+
+/* Error title for when we cannot connect to PMS or when the response is invalid */
+"Unable to connect to Plex Media Server" = "Kan geen verbinding maken met de Plex Media Server";
+
+/* Unable to create library section */
+"Unable to create library section" = "Kan geen bibliotheeksectie aanmaken";
+
+/* Error title for when we cannot remove a library section */
+"Unable to remove section \"%@\"" = "Kan \"%@\" niet verwijderen";
+
+/* Unable to update library section */
+"Unable to update library section" = "Kan de bibliotheeksectie niet bijwerken";
+
+/* Preference window setting - will have frequencies after it e.g. Update my library every two hours */
+"Update my library" = "Werk mijn bibliotheek bij";
+
+/* Preference window setting */
+"Update my library when changes to my folders are detected" = "Werk mijn bibliotheek bij wanneer wijzigingen in deze mappen worden gedetecteerd";
+
+/* Update section confirm button text */
+"Update Section" = "Sectie bijwerken";
+
+/* Username field placeholder */
+"Username" = "Gebruikersnaam";
+
+/* Username label */
+"Username:" = "Username:";
+
+/* Wednesday */
+"Wednesday" = "Woensdag";
+
+/* Writers */
+"Writers" = "Schrijvers";
+
+/* Year */
+"Year" = "Jaar";
+
+/* Year label */
+"Year:" = "Jaar:";
+
+/* yesterday */
+"yesterday" = "gisteren";
+

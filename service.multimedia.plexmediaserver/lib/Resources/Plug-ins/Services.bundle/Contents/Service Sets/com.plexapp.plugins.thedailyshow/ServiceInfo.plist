@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URL</key>
+	<dict>
+		<key>The Daily Show</key>
+		<dict>
+			<key>TestURLs</key>
+			<array>
+				<string>http://thedailyshow.cc.com/full-episodes/</string>
+				<string>http://thedailyshow.cc.com/videos/65jewx/armadebtdon-2011---call-congress</string>
+			</array>
+			<key>URLPatterns</key>
+			<array>
+				<string>^http:\/\/thedailyshow\.cc\.com\/(full\-episodes|special\-editions|videos)\/[^/]{6}\/.+</string>
+			</array>
+		</dict>
+	</dict>
+	<key>PlexFrameworkFlags</key>
+	<array>
+		<string>UseRealRTMP</string>
+	</array>
+</dict>
+</plist>

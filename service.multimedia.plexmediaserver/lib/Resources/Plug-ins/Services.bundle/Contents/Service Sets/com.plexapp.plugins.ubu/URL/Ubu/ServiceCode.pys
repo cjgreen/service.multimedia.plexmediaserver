@@ -1,0 +1,55 @@
+RE_FLV_URL = Regex("'file=(http://ubumexico\.centro\.org\.mx/video/flash/.+\.flv)'")
+
+####################################################################################################
+def NormalizeURL(url):
+
+	return url
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	content = HTTP.Request(url, encoding='latin1').content
+	html = HTML.ElementFromString(content)
+
+	# Extract the available information from the page
+	title = html.xpath('//title/text()')
+
+	if title:
+		title = title[0].split('Film & Video: ')[-1]
+	else:
+		title = html.xpath('//a[@id="moviename"]/text()')[0]
+
+	if '<!--PLAYER END-->' in content:
+		description = content.split('<!--PLAYER END-->')[1]
+		description = description.split('<center>')[0]
+		description = String.StripTags(description)
+	elif '<div id="ubudesc">' in content:
+		description = html.xpath('//div[@id="ubudesc"]')[0].text_content()
+
+	return VideoClipObject(
+		title = title.strip(),
+		summary = description.strip()
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			video_codec = VideoCodec.H263,
+			audio_codec = AudioCodec.MP3,
+			container = 'flv',
+			video_resolution = 'sd',
+			optimized_for_streaming = True,
+			audio_channels = 2,
+			parts = [PartObject(key=Callback(PlayVideo, url = url))]
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url):
+
+	content = HTTP.Request(url).content
+	flv_url = RE_FLV_URL.search(content).group(1)
+	return IndirectResponse(VideoClipObject, key=flv_url)

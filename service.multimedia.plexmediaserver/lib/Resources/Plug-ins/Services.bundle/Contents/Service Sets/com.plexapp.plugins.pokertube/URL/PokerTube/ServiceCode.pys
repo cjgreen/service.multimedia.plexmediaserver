@@ -1,0 +1,92 @@
+XML_URL = 'http://pokertube.streamingbolaget.se/contents/%s.xml'
+RE_VIDEO_ID = Regex('content=(?P<video_id>\d+)')
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	html = HTML.ElementFromURL(url, cacheTime=CACHE_1DAY)
+
+	title = html.xpath('//meta[@property="og:title"]/@content')[0].strip()
+	summary = html.xpath('//meta[@property="og:description"]/@content')[0].strip()
+	thumb = html.xpath('//meta[@property="og:image"]/@content')[0]
+
+	video = html.xpath('//meta[@property="og:secure_url"]/@content|//meta[@property="og:video:secure_url"]/@content')[0]
+	video_id = RE_VIDEO_ID.search(video).group('video_id')
+
+	try:
+		xml = XML.ElementFromURL(XML_URL % video_id, cacheTime=CACHE_1DAY)
+	except:
+		raise Ex.MediaNotAvailable
+
+	if len(xml.xpath('//*[starts-with(name(), "video-")]')) < 1:
+		raise Ex.MediaNotAvailable
+
+	duration = xml.xpath('//*[starts-with(name(), "video-")]/@duration')[0]
+	duration = int(float(duration) * 1000)
+
+	return VideoClipObject(
+		title = title,
+		summary = summary,
+		duration = duration,
+		thumb = Resource.ContentsOfURLWithFallback(url=thumb)
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, res=720))],
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			video_resolution = '720',
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True
+		),
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, res=360))],
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			video_resolution = '360',
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True
+		),
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, res=270))],
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			video_resolution = '270',
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url, res):
+
+	html = HTML.ElementFromURL(url, cacheTime=CACHE_1DAY)
+
+	video = html.xpath('//meta[@property="og:secure_url"]/@content|//meta[@property="og:video:secure_url"]/@content')[0]
+	video_id = RE_VIDEO_ID.search(video).group('video_id')
+
+	try:
+		xml = XML.ElementFromURL(XML_URL % video_id, cacheTime=CACHE_1DAY)
+	except:
+		raise Ex.MediaNotAvailable
+
+	available = xml.xpath('//*[starts-with(name(), "video-")]/@height')
+
+	if len(available) < 1:
+		raise Ex.MediaNotAvailable
+
+	closest = min((abs(res - int(i)), i) for i in available)[1]
+	file = xml.xpath('//*[starts-with(name(), "video-") and @height="%s"]/text()' % closest)[0]
+	host = xml.xpath('/content/@fqdn')[0]
+
+	url = 'http://%s/resources/%s' % (host, file)
+
+	return IndirectResponse(VideoClipObject, key=url)

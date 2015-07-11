@@ -1,0 +1,17 @@
+RE_PLAYER = Regex('player.setPlayer\((\d+)\)')
+RE_VIDEO = Regex('player.setVideo\((\d+)\)')
+
+####################################################################################################
+def NormalizeURL(url):
+
+	return url.split('?')[0]
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	data = HTTP.Request(url).content
+	player = RE_PLAYER.search(data)
+	video = RE_VIDEO.search(data)
+
+	if player and video:
+		return URLService.MetadataObjectForURL('http://c.brightcove.com/services/viewer/htmlFederated?playerID=%s&@videoPlayer=%s' % (player.group(1), video.group(1)))

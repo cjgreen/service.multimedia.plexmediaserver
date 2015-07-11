@@ -1,0 +1,94 @@
+import time
+
+RE_ID = Regex('php\|(.+?)\|playlist')
+XML_URL = 'http://nosvideo.com/xml/%s.xml'
+XML_NS = {'a': 'http://xspf.org/ns/0/'}
+
+####################################################################################################
+def NormalizeURL(url):
+
+	if '/embed/' in url:
+		url = 'http://www.nosvideo.com/?v=%s' % (url.split('/')[4])
+
+	return url
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	html = HTML.ElementFromURL(url)
+	post_values = {}
+
+	for item in html.xpath('//form[@method="POST"]/input'):
+
+		name = item.get('name')
+		value = item.get('value')
+		post_values[name] = value
+
+	post_values['method_free'] = 'Continue to Video'
+	post_values['down_script'] = '1'
+
+	time.sleep(8)
+
+	page = HTTP.Request(url, values=post_values, method='POST').content
+
+	id = RE_ID.search(page)
+
+	if not id:
+		raise Ex.MediaNotAvailable
+
+	xml = XML.ElementFromURL(XML_URL % (id.group(1)))
+
+	title = xml.xpath('//a:title/text()', namespaces=XML_NS)[0].strip()
+	thumb = xml.xpath('//a:image/text()', namespaces=XML_NS)[0]
+
+	return VideoClipObject(
+		title = title,
+		thumb = thumb
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			video_resolution = 'sd',
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True,
+			parts = [
+				PartObject(key=Callback(PlayVideo, url=url))
+			]
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url):
+
+	html = HTML.ElementFromURL(url)
+	post_values = {}
+
+	for item in html.xpath('//form[@method="POST"]/input'):
+
+		name = item.get('name')
+		value = item.get('value')
+		post_values[name] = value
+
+	post_values['method_free'] = 'Continue to Video'
+	post_values['down_script'] = '1'
+
+	time.sleep(8)
+
+	page = HTTP.Request(url, values=post_values, method='POST').content
+
+	id = RE_ID.search(page)
+
+	if not id:
+		raise Ex.MediaNotAvailable
+
+	xml = XML.ElementFromURL(XML_URL % (id.group(1)))
+	video_url = xml.xpath('//a:file/text()', namespaces=XML_NS)[0]
+
+	return IndirectResponse(VideoClipObject, key=video_url)

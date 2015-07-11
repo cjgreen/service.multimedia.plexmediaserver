@@ -1,0 +1,45 @@
+import re
+
+def NormalizeURL(url):
+    return url
+    
+def MetadataObjectForURL(url):
+    data = HTML.ElementFromURL(url, errors='ignore')
+    
+    title = data.xpath('//h1[@class="title"]/a')[0].text
+    #Log(title)
+    summary = data.xpath('//div[@class="text"]//text()')[0]
+    #Log(summary)
+    date = data.xpath('//span[@class="date"]')[0].text
+    #Log(date)
+    thumb = re.search('image: "(http://.+)",', HTML.StringFromElement(data)).group(1)
+    #Log(thumb)
+    
+    co = VideoClipObject(
+        title = title,
+        summary = summary,
+        originally_available_at = Datetime.ParseDate(date).date(),
+        thumb = thumb
+        )
+    
+    return co
+
+def MediaObjectsForURL(url):
+    return [
+        MediaObject(
+            parts = [PartObject(key=Callback(PlayVideo, url=url))],
+            protocol = Protocol.RTMP
+            )
+        ]
+
+def PlayVideo(url):
+
+    content = HTTP.Request(url).content
+     
+    player = re.search('flashvars\.streamer = "(rtmp://.+)";' ,content).group(1)
+    #Log(player)
+     
+    clip = re.search('flashvars\.ss_episode_title = "(.+)\.flv",' ,content).group(1)
+    #Log(clip)
+     
+    return Redirect(RTMPVideoURL(url=player, clip=clip))

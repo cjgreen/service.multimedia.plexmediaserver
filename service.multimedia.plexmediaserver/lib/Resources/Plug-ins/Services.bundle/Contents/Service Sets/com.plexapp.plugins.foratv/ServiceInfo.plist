@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URL</key>
+	<dict>
+		<key>ForaTV</key>
+		<dict>
+			<key>TestURLs</key>
+			<array>
+				<string>http://fora.tv/2011/06/14/Monitor_Breakfast_CBO_Director_Douglas_Elmendorf#CBO_Director_Past_Budgets_Cant_Guide_Countrys_Future</string>
+				<string>http://fora.tv/2011/07/15/R_James_Woolsey_US_Central_Intelligence</string>
+			</array>
+			<key>URLPatterns</key>
+			<array>
+				<string>^http://fora.tv/[0-9]{4}/[0-9]{2}/[0-9]{2}/.+</string>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

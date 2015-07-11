@@ -1,0 +1,119 @@
+DETAILS_URL = 'http://api.break.com/invoke/content/%s/'
+RE_ID = Regex(".+/.+-(?P<id>[0-9]{5,})/?$")
+
+####################################################################################################
+def NormalizeURL(url):
+
+    return url.split('?')[0].split('#')[0]
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+    details_page = GetDetails(url)
+    if not details_page:
+        raise Ex.MediaNotAvailable
+
+    if len(details_page.xpath("/Content/*")) == 1:
+        raise Ex.MediaNotAvailable
+
+    # Extract the information available from the page.
+    title = details_page.xpath("//ContentTitle/text()")[0]
+    description = details_page.xpath("//ContentDescription/text()")[0]
+    duration = int(details_page.xpath("//VideoLengthInSeconds/text()")[0])
+
+    try: thumb = details_page.xpath("//Thumbnail/text()")[0]
+    except: thumb = None
+
+    tags = details_page.xpath("//TagCollection/Tag/text()")
+    content_rating = details_page.xpath("//MaturityRating/text()")[0]
+    date = details_page.xpath("//PublishedDate/text()")[0]
+    date = Datetime.ParseDate(date)
+
+    return VideoClipObject(
+        title = title,
+        summary = description,
+        thumb = thumb,
+        duration = duration,
+        tags = tags,
+        content_rating = content_rating,
+        originally_available_at = date
+    )
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+    return [
+        MediaObject(
+            container = Container.MP4,
+            video_codec = VideoCodec.H264,
+            audio_codec = AudioCodec.AAC,
+            video_resolution = 720,
+            parts = [PartObject(key=Callback(PlayVideo, url=url, res='720'))],
+            audio_channels = 2
+        ),
+        MediaObject(
+            container = Container.MP4,
+            video_codec = VideoCodec.H264,
+            audio_codec = AudioCodec.AAC,
+            video_resolution = 480,
+            parts = [PartObject(key=Callback(PlayVideo, url=url, res='480'))],
+            audio_channels = 2
+        ),
+        MediaObject(
+            container = Container.MP4,
+            video_codec = VideoCodec.H264,
+            audio_codec = AudioCodec.AAC,
+            video_resolution = 348,
+            parts = [PartObject(key=Callback(PlayVideo, url=url, res='sd'))],
+            audio_channels = 2
+        )
+    ]
+
+####################################################################################################
+@indirect
+def PlayVideo(url, res):
+
+    # Find the associated video items
+    details_page = GetDetails(url)
+    video_items = details_page.xpath("//media-group/media-content")
+
+    if len(video_items) < 1:
+        raise Ex.MediaNotAvailable
+
+    # It's possible that the requested resolution is not actually available. Therefore we should clamp
+    # the requested index by the length of actual video items. This should still provide a suitable
+    # video as it is in ascending or of quality.
+    index = 0
+    if res == '480':
+        index = 1
+    elif res == '720':
+        index = 2
+    index = max(0, min(index, len(video_items) - 1))
+
+    return IndirectResponse(VideoClipObject, key=video_items[index].get('url'))
+
+####################################################################################################
+def GetDetails(url):
+
+    # It's possible that the ID is actually contained within the url. If this is the case, then we
+    # can simply extract it from there. Otherwise, we need to load the page and find it. Once we've
+    # done this, we can load the XML page which contains all the meta data associated with the title.
+
+    id = None
+    id_in_url = RE_ID.search(url)
+
+    if id_in_url != None:
+        id = id_in_url.group('id')
+    else:
+        page = HTML.ElementFromURL(url)
+        embed_url = page.xpath('//meta[@name="embed_video_url"]/@content')
+
+        if len(embed_url) < 1:
+            raise Ex.MediaNotAvailable
+
+        id = embed_url[0].split('/')[-1]
+
+    if id != None:
+        return XML.ElementFromURL(DETAILS_URL % id)
+    else:
+        raise Ex.MediaNotAvailable

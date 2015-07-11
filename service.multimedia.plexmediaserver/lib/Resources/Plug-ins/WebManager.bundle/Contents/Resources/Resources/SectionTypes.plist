@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>TypeClass</key>
+		<string>Movie</string>
+		<key>TypeScanners</key>
+		<string>Movies</string>
+		<key>TypeName</key>
+		<string>Movies</string>
+		<key>TypeID</key>
+		<integer>1</integer>
+		<key>TypeIcon</key>
+		<string>SourceIconMovies.png</string>
+		<key>TypeDefaultAgent</key>
+		<string>com.plexapp.agents.imdb</string>
+		<key>TypeDefaultLanguage</key>
+		<string>en</string>
+		<key>TypeDefaultScanner</key>
+		<string>Plex Movie Scanner</string>
+	</dict>
+	<dict>
+		<key>TypeClass</key>
+		<string>TV_Show</string>
+		<key>TypeScanners</key>
+		<string>Series</string>
+		<key>TypeName</key>
+		<string>TV Shows</string>
+		<key>TypeID</key>
+		<integer>2</integer>
+		<key>TypeIcon</key>
+		<string>SourceIconTVShows.png</string>
+		<key>TypeDefaultAgent</key>
+		<string>com.plexapp.agents.thetvdb</string>
+		<key>TypeDefaultLanguage</key>
+		<string>en</string>
+		<key>TypeDefaultScanner</key>
+		<string>Plex Series Scanner</string>
+	</dict>
+	<dict>
+		<key>TypeClass</key>
+		<string>Artist</string>
+		<key>TypeScanners</key>
+		<string>Music</string>
+		<key>TypeName</key>
+		<string>Music</string>
+		<key>TypeID</key>
+		<integer>8</integer>
+		<key>TypeIcon</key>
+		<string>SourceIconMusic.png</string>
+		<key>TypeDefaultAgent</key>
+		<string>com.plexapp.agents.lastfm</string>
+		<key>TypeDefaultLanguage</key>
+		<string>en</string>
+		<key>TypeDefaultScanner</key>
+		<string>Plex Music Scanner</string>
+	</dict>
+	<dict>
+    <key>TypeClass</key>
+    <string>Photo</string>
+    <key>TypeScanners</key>
+    <string>Photos</string>
+    <key>TypeName</key>
+    <string>Photos</string>
+    <key>TypeID</key>
+    <integer>13</integer>
+    <key>TypeIcon</key>
+    <string>SourceIconPhotos.png</string>
+    <key>TypeDefaultAgent</key>
+    <string>com.plexapp.agents.none</string>
+    <key>TypeDefaultLanguage</key>
+    <string>en</string>
+    <key>TypeDefaultScanner</key>
+    <string>Plex Photo Scanner</string>
+  </dict>
+</array>
+</plist>

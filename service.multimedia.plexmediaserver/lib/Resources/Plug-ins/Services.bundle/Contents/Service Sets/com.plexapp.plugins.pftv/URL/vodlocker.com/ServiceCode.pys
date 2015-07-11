@@ -1,0 +1,96 @@
+import time
+
+RE_FILE = Regex('file: "([^"]+)"')
+
+####################################################################################################
+def NormalizeURL(url):
+
+	if 'embed-' in url:
+		url = 'http://vodlocker.com/%s.html' % (url.split('-')[1])
+
+	return url
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	try:
+		html = HTML.ElementFromURL(url)
+	except:
+		raise Ex.MediaNotAvailable
+
+	if len(html.xpath('//*[text()="File Not Found" or contains(text(), "was removed")]')) > 0:
+		raise Ex.MediaNotAvailable
+
+	post_values = {}
+
+	for item in html.xpath('//form[@method="POST"]/input'):
+
+		name = item.get('name')
+		value = item.get('value')
+		post_values[name] = value
+
+	time.sleep(5)
+
+	try:
+		html = HTML.ElementFromURL(url, values=post_values, method='POST')
+	except:
+		raise Ex.MediaNotAvailable
+
+	title = html.xpath('//meta[@property="og:title"]/@content')[0]
+	thumb = html.xpath('//meta[@property="og:image"]/@content')[-1].replace('_t.jpg', '.jpg')
+
+	return VideoClipObject(
+		title = title,
+		thumb = thumb
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			video_resolution = 'sd',
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True,
+			parts = [
+				PartObject(key=Callback(PlayVideo, url=url))
+			]
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url):
+
+	try:
+		html = HTML.ElementFromURL(url)
+	except:
+		raise Ex.MediaNotAvailable
+
+	if len(html.xpath('//*[text()="File Not Found" or contains(text(), "was removed")]')) > 0:
+		raise Ex.MediaNotAvailable
+
+	post_values = {}
+
+	for item in html.xpath('//form[@method="POST"]/input'):
+
+		name = item.get('name')
+		value = item.get('value')
+		post_values[name] = value
+
+	time.sleep(5)
+
+	try:
+		page = HTTP.Request(url, values=post_values, method='POST').content
+	except:
+		raise Ex.MediaNotAvailable
+
+	file = RE_FILE.search(page)
+
+	if file:
+		return IndirectResponse(VideoClipObject, key=file.group(1))
+
+	raise Ex.MediaNotAvailable

@@ -1,0 +1,82 @@
+####################################################################################################
+def NormalizeURL(url):
+
+	return url.split('#')[0].split('?')[0]
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	html = HTML.ElementFromURL(url)
+
+	title = html.xpath('//meta[@itemprop="name"]/@content')[0]
+	summary = html.xpath('//meta[@itemprop="description"]/@content')[0]
+	thumb = html.xpath('//meta[@itemprop="thumbnailUrl"]/@content')[0]
+	duration = html.xpath('//meta[@itemprop="duration"]/@content')[0]
+
+	if ':' in duration:
+		duration = Datetime.MillisecondsFromString(duration.split('+')[0])
+	else:
+		duration = int(duration) * 1000
+
+	return VideoClipObject(
+		title = title,
+		summary = summary,
+		duration = duration,
+		thumb = Resource.ContentsOfURLWithFallback(thumb)
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			parts = [
+				PartObject(
+					key=HTTPLiveStreamURL(Callback(PlayVideo, url=url))
+				)
+			],
+			video_resolution = '720',
+			audio_channels = 2,
+			optimized_for_streaming = True
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url, **kwargs):
+
+	json_obj = GetJSON(url)
+
+	if not 'files' in json_obj or not 'hls_tablet' in json_obj['files'] or json_obj['files']['hls_tablet'] is None:
+		raise Ex.MediaNotAvailable
+
+	video_id = json_obj['files']['hls_tablet']
+	video_url = 'http://link.theplatform.com/s/kYEXFC/%s' % (video_id)
+
+	try:
+		headers = HTTP.Request(video_url, follow_redirects=False).headers
+	except Ex.RedirectError, e:
+		if 'Location' in e.headers:
+			video_url = e.headers['Location']
+
+	return IndirectResponse(VideoClipObject, key=video_url)
+
+####################################################################################################
+def GetJSON(url):
+
+	html = HTML.ElementFromURL(url)
+	json = html.xpath('//div[@data-cnet-video-options]/@data-cnet-video-options')
+
+	if len(json) < 1:
+		raise Ex.MediaNotAvailable
+
+	json_obj = JSON.ObjectFromString(json[0])
+
+	if 'video' in json_obj and json_obj['video'] is not None:
+		json_obj = json_obj['video']
+	elif 'videos' in json_obj and json_obj['videos'] is not None:
+		json_obj = json_obj['videos'][0]
+	else:
+		raise Ex.MediaNotAvailable
+
+	return json_obj

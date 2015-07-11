@@ -1,0 +1,98 @@
+VIDEO_URL_EXT_480 = '__VJ480PENG.mp4'
+VIDEO_URL_EXT_360 = '__VJ360PENG.mp4'
+VIDEO_URL_EXT_SD = '__PHOENG.mp4'
+
+PLAYLIST_URL = 'http://www.videojug.com/feed/playlist?id=%s&items=&userName=&ar=16_9'
+
+####################################################################################################
+def NormalizeURL(url):
+
+    return url.replace('http://m.','http://www.')
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+    # Attempt to extract the details of the title from the page.
+    html = HTML.ElementFromURL(url)
+
+    # Extract the details from the page
+    # We parse the document as HTML, so use lowercase only for attribute names
+    title = html.xpath("//meta[@property='og:title']/@content")[0]
+    description = html.xpath("//meta[@property='og:description']/@content")[0]
+    thumb = html.xpath("//link[@rel='image_src']/@href|//meta[@property='og:image']/@content")[0].replace('.WidePromo.jpg', '.jpg')
+    tags = html.xpath("//meta[@name='keywords']/@content")[0].split(',')
+    tags = [ tag.strip() for tag in tags ]
+
+    return VideoClipObject(
+        title = title,
+        summary = description,
+        thumb = thumb,
+        tags = tags
+    )
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+    return [
+        MediaObject(
+            container = Container.MP4,
+            video_codec = VideoCodec.H264,
+            audio_codec = AudioCodec.AAC,
+            video_resolution = '480',
+            audio_channels = 2,
+            optimized_for_streaming = True,
+            parts = [PartObject(key=Callback(PlayVideo, url = url, file_ext = VIDEO_URL_EXT_480))]
+        ),
+        MediaObject(
+            container = Container.MP4,
+            video_codec = VideoCodec.H264,
+            audio_codec = AudioCodec.AAC,
+            video_resolution = '360',
+            audio_channels = 2,
+            optimized_for_streaming = True,
+            parts = [PartObject(key=Callback(PlayVideo, url = url, file_ext = VIDEO_URL_EXT_360))]
+        ),
+        MediaObject(
+            container = Container.MP4,
+            video_codec = VideoCodec.H264,
+            audio_codec = AudioCodec.AAC,
+            video_resolution = '180',
+            audio_channels = 2,
+            optimized_for_streaming = True,
+            parts = [PartObject(key=Callback(PlayVideo, url = url, file_ext = VIDEO_URL_EXT_SD))]
+        )
+    ]
+
+####################################################################################################
+def PlayVideo(url, file_ext):
+
+    html = HTML.ElementFromURL(url)
+
+    # Attempt to locate the ID of the video
+    video_src = html.xpath('//link[@rel="video_src"]/@href')[0]
+
+    if 'id=' in video_src:
+        id = video_src.split('id=')[1]
+    else:
+        id = video_src.split('videojug.com/')[-1].split('/')[1]
+
+    playlist = XML.ElementFromURL(PLAYLIST_URL % id)
+    location = playlist.xpath('//Locations/Location')[0].get('Url')
+    video_prefix = playlist.xpath('//Items/Media')[0].get('Prefix')
+
+    # There appears to be a number of videos which are not available in all resolutions. Therefore
+    # we must verify that the requested one exists and in the case that it doesn't drop down to 
+    # another.
+    resolutions = [VIDEO_URL_EXT_480, VIDEO_URL_EXT_360, VIDEO_URL_EXT_SD]
+    index = resolutions.index(file_ext)
+
+    for resolution_index in range(index, len(resolutions)):
+        video_url = location + video_prefix + resolutions[resolution_index]
+
+        try:
+            test = HTTP.Request(video_url).headers
+            return Redirect(video_url)
+        except:
+            pass
+
+    raise Ex.MediaNotAvailable

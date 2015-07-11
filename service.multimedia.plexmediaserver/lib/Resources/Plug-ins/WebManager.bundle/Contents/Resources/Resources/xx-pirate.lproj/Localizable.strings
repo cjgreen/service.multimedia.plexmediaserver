@@ -1,0 +1,640 @@
+/* Season plus full episode title (e.g. Season 4, Episode 1 */
+"%@, Episode %d" = "%1$@, Story %2$d";
+
+/* Status label value for when there is more than one musical artist */
+"%d artists" = "%d arrrtists";
+
+/* Status for list of episodes when there is more than one
+   Subtitle for a season thumbnail on a TV Show detail view */
+"%d episodes" = "%d stories";
+
+/* Status label value for when there is more than one movie */
+"%d movies" = "%d long stories";
+
+/* Subtitle for a album thumbnail on an artist detail view */
+"%d tracks" = "%d ditties";
+
+/* Status label for when there are more than one track (e.g. 11 tracks, 47:34 total time, 91.2 MB) */
+"%d tracks, %@ total time, %@" = "%1$d ditties, %2$@ 'till yer done, %3$@";
+
+/* Status label value for when there is more than one TV show */
+"%d TV shows" = "%d troupes";
+
+/* ShortLocalTimeFormat */
+"%d:%02d %@" = "%1$d:%2$02d %3$@";
+
+/* Status label value for when there is one musical artist */
+"1 artist" = "1 arrrtist";
+
+/* Status for list of episodes when there is one
+   Subtitle for a season thumbnail on a TV Show detail view */
+"1 episode" = "1 story";
+
+/* Status label value for when there is one movie */
+"1 movie" = "1 long story";
+
+/* Subtitle for a album thumbnail on an artist detail view */
+"1 track" = "1 ditty";
+
+/* Status label for when there is one track in an album (e.g. 1 track, 4:28 total time, 5.6 MB) */
+"1 track, %@ total time, %@" = "1 ditty, %1$@ 'till yer done, %2$@";
+
+/* Status label value for when there is one TV show */
+"1 TV show" = "1 troupes";
+
+/* First-run help item */
+"> Add posters, custom genres and more" = "> More portraits, tailored genres and more";
+
+/* First-run help item */
+"> Album reviews" = "> Album reviews";
+
+/* First-run help item */
+"> Artist biographies and artwork" = "> Arrrtist biographies and paint";
+
+/* First-run help item */
+"> Automatic theme music for TV shows" = "> Troupe ditties play like magic";
+
+/* First-run help item */
+"> Customize every detail of each movie" = "> Fix up yer long stories with spit & polish";
+
+/* First-run help item */
+"> Great for your personal media" = "> Tell yer own stories";
+
+/* First-run help item */
+"> Movie posters and art" = "> Portraits and murals";
+
+/* First-run help item */
+"> Organize movies into collections" = "> Split the booty into lovely groups";
+
+/* First-run help item */
+"> Thumbnails for every episode" = "> Tiny portraits for yer stories";
+
+/* First-run help item */
+"> TV show posters and art" = "> Troupe portraits and murals";
+
+/* First-run title for adding home movies */
+"Add Home Movies Section" = "Tell yer own stories";
+
+/* First-run title for adding movies */
+"Add Movies Section" = "Tell the long stories of the world";
+
+/* First-run title for adding music */
+"Add Music Section" = "Ditties for yer ears";
+
+/* Add section confirm button text */
+"Add Section" = "Be it so!";
+
+/* Section settings primary informative text */
+"Add the folders containing media for this section below. Any media files found inside these folders will be scanned into your library using the above settings." = "Tell us where ye keep yer booty that we may plunder it!";
+
+/* First-run title for adding TV shows */
+"Add TV Shows Section" = "Yer favorite troupes";
+
+/* Advanced */
+"Advanced" = "Skilled";
+
+/* A recording album */
+"album" = "musical story";
+
+/* Explanation text for the empty trash confirmation dialog */
+"All deleted items will be permanently removed from your library. No files on your computer will be removed." = "All yer missing booty be joinin' Davey Jones if ye agree, but yer files shant be hurt.";
+
+/* Language preference pane subtitle mode option */
+"Always enabled" = "Always be showin' 'em";
+
+/* AnteMeridiem */
+"AM" = "o' the morn";
+
+/* Informative text for removing a section */
+"Any content in this section will no longer be available in your library. The files on your computer will not be removed." = "Yer booty will be buried and hidden from the view of man and the gods!";
+
+/* Preference window setting */
+"Aperture Sharing Enabled" = "Let Aperture be seen";
+
+/* Disable secure server access confirmation */
+"Are you sure you want to disable secure access to your server?" = "Ye be sure ye want them scurvy scum to be let in without a password?";
+
+/* Confirmation text for the empty trash confirmation dialog */
+"Are you sure you want to empty the trash in \"%@\"?" = "Throw the wastes of \"%@\" overboard?";
+
+/* Confirmation message for removing a section */
+"Are you sure you want to remove the section named \"%@\"?" = "Forever hide your booty in \"%@\"?";
+
+/* Artist */
+"Artist" = "Arrrtist";
+
+/* A musical artist */
+"artist" = "arrrtist";
+
+/* Authenticate */
+"Authenticate" = "Authenticate";
+
+/* Login prompt title */
+"Authentication Required" = "Authentication Required";
+
+/* Cancel */
+"Cancel" = "Belay that!";
+
+/* Preference window setting detail */
+"Capability checking ensures that plug-ins that are incompatible with this version of the server or the current client application you are using are hidden. Disabling capability checking is useful during development, but will enable access to plug-ins that may perform unreliably with certain client applications." = "Yer plug-ins will be shown, no matter the cost, no matter whether they'll work. Ye developers can use this to check yer codes. But beware, here be tigers.";
+
+/* Change */
+"Change" = "Change";
+
+/* Change Artwork */
+"Change Artwork" = "Change Portraits";
+
+/* Security preferences button to change the main account password */
+"Change Password" = "Change Password";
+
+/* Security preferences button to change the main account username */
+"Change Username" = "Change Username";
+
+/* Change username prompt message */
+"Change your username, and enter your password to authenticate." = "Change what yer called, and enter yer password to bind it.";
+
+/* Choose Album Thumbnail menu item */
+"Choose Album Thumbnail" = "Choose Musical Story Portrait";
+
+/* Choose Background Art */
+"Choose Background Art" = "Choose Mural";
+
+/* Choose Banner */
+"Choose Banner" = "Choose Horizon Portrait";
+
+/* Choose Episode Thumbnail menu item */
+"Choose Episode Thumbnail" = "Choose Story Portrait";
+
+/* Choose Icon */
+"Choose Icon" = "Choose Emblem";
+
+/* Choose Poster menu item */
+"Choose Poster" = "Choose Portrait";
+
+/* Choose Season Thumbnail menu item */
+"Choose Season Thumbnail" = "Choose Season Portrait";
+
+/* First-run help title */
+"Click the titles below to create library sections for your media and have it served to your Plex-enabled devices." = "Choose well yer booty to be puttin' on display, be it on yer wall portrait or pocket portrait.";
+
+/* Collections */
+"Collections" = "Collections";
+
+/* Error message for when we cannot connect to PMS or when the response is invalid */
+"Connecting to Plex Media Server failed with this error: %@.\n\nAre you sure it's running?" = "Plex Media Server has gone to sleep with the fishes, or mayhap we have: %@";
+
+/* Content Rating */
+"Content Rating" = "Allowed personages";
+
+/* Password label */
+"Current Password:" = "Current Password:";
+
+/* Custom Search */
+"Custom Search" = "Telescope Findin'";
+
+/* Customize Section */
+"Customize Section" = "Have it yer way";
+
+/* Library scan interval (i.e. Update my library daily */
+"daily" = "with the sunrise";
+
+/* Directors */
+"Directors" = "Captains";
+
+/* Preference window setting */
+"Disable capability checking" = "Stop yer checkin'";
+
+/* Disable secure server confirmation button */
+"Disable Secure Access" = "Disable Secure Access";
+
+/* Done */
+"Done" = "No more";
+
+/* Section settings secondary informative text */
+"Drag folders into the list, or click the '+' button to browse." = "Walk yer folders off the plank into the list with the '+'.";
+
+/* Edit Metadata */
+"Edit Metadata" = "Change yer infos";
+
+/* Context menu item for metadata items */
+"Edit Metadata..." = "Change yer infos...";
+
+/* Edit Section */
+"Edit Section" = "Change yer infos";
+
+/* Confirmation button for the empty trash confirmation dialog */
+"Empty Trash" = "Dump Wastes";
+
+/* Preference window setting */
+"Empty trash automatically after every scan" = "Dump wastes with each plunderin'";
+
+/* Enable */
+"Enable" = "Enable";
+
+/* Preference window setting */
+"Enable Dolby® Digital during AirPlay" = "Employ Dolby® Digital o'er AirPlay";
+
+/* Preference window setting */
+"Enable DTS mix-down for Media Link clients" = "Employ DTS mix-down o'er Media Link";
+
+/* Check box label to enable secure server access */
+"Enable Secure Access" = "Enable Secure Access";
+
+/* Enable security prompt message */
+"Enter a password to enable secure access to your server:" = "Scrawl yer password to keep out the scurvy scum:";
+
+/* Change password prompt message */
+"Enter your current password to authenticate, then enter and verify your new password." = "Enter yer current password, then enter twice the password of yer liking.";
+
+/* A TV Show episode */
+"episode" = "story";
+
+/* Full episode title (e.g. Episode 1: Pilot */
+"Episode %d: %@" = "Story %1$d: %2$@";
+
+/* Library scan interval (i.e. Update my library every 12 hours) */
+"every 12 hours" = "with the change of the tides";
+
+/* Library scan interval (i.e. Update my library every 15 minutes) */
+"every 15 minutes" = "a hundred times a day";
+
+/* Library scan interval (i.e. Update my library every 2 hours) */
+"every 2 hours" = "with the change of lookout";
+
+/* Library scan interval (i.e. Update my library every 30 minutes) */
+"every 30 minutes" = "fifty times a day";
+
+/* Library scan interval (i.e. Update my library every 6 hours) */
+"every 6 hours" = "every meal";
+
+/* Fix incorrect match */
+"Fix incorrect match" = "That be wrong";
+
+/* Context menu item for metadata items */
+"Fix Incorrect Match..." = "That be wrong...";
+
+/* Friday */
+"Friday" = "Friday";
+
+/* Friendly name label */
+"Friendly name:" = "What it be called:";
+
+/* General */
+"General" = "General";
+
+/* Genres */
+"Genres" = "Genres";
+
+/* Error message for when we cannot remove a library section */
+"Got this error: %@. Are you sure Plex Media Server is running?" = "We've run aground: %@.";
+
+/* Library scan interval (i.e. Update my library hourly) */
+"hourly" = "on the chime of the hour";
+
+/* Security preference pane explanation */
+"If you want to share your media over the Internet, you can turn on Secure Server Access to prevent unauthorized access to your server." = "If you want to share your media over the Internet, you can turn on Secure Server Access to prevent unauthorized access to your server.";
+
+/* Preference window setting */
+"Include music sections in automatic updates" = "Plunder musical booty regularly";
+
+/* Preference window setting */
+"iPhoto Sharing Enabled" = "Let iPhoto be seen";
+
+/* Preference window setting */
+"iTunes Sharing Enabled" = "Let iTunes be seen";
+
+/* Language label */
+"Language:" = "Tongue:";
+
+/* Languages */
+"Languages" = "Tongues";
+
+/* Preference window setting */
+"Large music sections may take a long time to scan" = "Large musical booty may keep you until ye be old";
+
+/* Status label for media items */
+"Last refreshed %@ at %@" = "Last refreshed %1$@ at %2$@";
+
+/* Library */
+"Library" = "Library";
+
+/* Sidebar group title for library sections */
+"LIBRARY SECTIONS" = "BOOTY";
+
+/* Metadata item status message when its data is importing */
+"Loading metadata for '%@'" = "Plundering infos for '%@'";
+
+/* Button text for the directory browser to allow the user to type in a path manually */
+"Manual Entry" = "Take the wheel";
+
+/* Language preference pane subtitle mode option */
+"Manually selected" = "Shown by hand";
+
+/* Context menu item for metadata items */
+"Match Using" = "Match Using";
+
+/* Metadata item status message when it is being matched to a canonical item */
+"Matching '%@'" = "Identifyin' '%@'";
+
+/* Metadata item status message when it is being read */
+"Media analysis on '%@'" = "Eyein' '%@'";
+
+/* Label for the path to the file whose match is being fixed */
+"Media file: " = "X marks it: ";
+
+/* Preference window setting detail */
+"Media Link does not support DTS audio in certain regions. The Plex Media Server can automatically convert DTS to stereo so that it will play." = "Media Link be at odds with DTS on certain seas. The PMS can translate DTS to stereo so that sound be workin'.";
+
+/* Header title */
+"MEDIA MANAGER" = "BOOTY KEEPER";
+
+/* Media scanner label */
+"Media scanner:" = "Booty monkey:";
+
+/* Monday */
+"Monday" = "Monday";
+
+/* Movie */
+"Movie" = "Long Story";
+
+/* A movie */
+"movie" = "long story";
+
+/* Movies */
+"Movies" = "Long Stories";
+
+/* Music */
+"Music" = "Music";
+
+/* Movie section name placeholder */
+"My Movies" = "Me own long stories";
+
+/* Music section name placeholder */
+"My Music" = "Me own ditties";
+
+/* TV Shows section name placeholder */
+"My TV Shows" = "Me own stories";
+
+/* Name */
+"Name" = "Name";
+
+/* Name label */
+"Name:" = "Name:";
+
+/* Password label */
+"New Password:" = "New Password:";
+
+/* Status label value when there are no musical artists */
+"no artists" = "no arrrtists";
+
+/* Status for list of episodes when there are none
+   Subtitle for a season thumbnail on a TV Show detail view */
+"no episodes" = "no stories";
+
+/* 'Match Using' error title */
+"No Match Found" = "No Match Found";
+
+/* Status label value for when there are no movies */
+"no movies" = "no long stories";
+
+/* Status label for when there are no tracks in an album
+   Subtitle for a album thumbnail on an artist detail view */
+"no tracks" = "no ditties";
+
+/* Status label value when there are no TV shows */
+"no TV shows" = "no troupes";
+
+/* Preference window setting */
+"Offer higher bitrates over 3G connections" = "Give 'em more pixels on the high seas of 3G";
+
+/* OK */
+"OK" = "Yar";
+
+/* Original Title */
+"Original Title" = "What 'twas called";
+
+/* Originally Available */
+"Originally Available" = "When 'twas known";
+
+/* Password field placeholder */
+"Password" = "Password";
+
+/* Password label */
+"Password:" = "Password:";
+
+/* Instruction text for the prompt to add directories manually */
+"Path of the directory you'd like to add:" = "Where d'ye keep yer booty, matey?";
+
+/* Login prompt message */
+"Plex Media Server requires a username and password:" = "Plex Media Server ain't be trustin' ya:";
+
+/* PostMeridiem */
+"PM" = "o' the eve";
+
+/* Language preference pane audio checkbox label */
+"Prefer audio tracks in:" = "Tongue ye speak:";
+
+/* Languages preference pane default subtitle language label */
+"Prefer subtitles in:" = "Tongue ye read:";
+
+/* Preferences button in top-right */
+"Preferences" = "Dock";
+
+/* Primary metadata agent label */
+"Primary metadata agent:" = "First mate:";
+
+/* Rating */
+"Rating" = "Rating";
+
+/* Context menu item for metadata items */
+"Refresh Metadata" = "Plunder again";
+
+/* Status label for refreshing sections */
+"Refreshing info for %d items" = "Plundering info for %d pieces of booty";
+
+/* Status label for refreshing sections with one remaining item */
+"Refreshing info for one item" = "Plundering info for one piece of booty";
+
+/* Check box label for the login prompt */
+"Remember me on this computer" = "I am who I am, trouble me no more!";
+
+/* Remove section confirmation button */
+"Remove Section" = "Throw overboard";
+
+/* Metadata item status message when its info is downloading */
+"Requesting metadata for '%@'" = "Askin' about '%@'";
+
+/* Saturday */
+"Saturday" = "Saturday";
+
+/* Save */
+"Save" = "So be it!";
+
+/* Metadata item status message when it is newly scanned/created */
+"Scanning '%@'" = "Plundering '%@'";
+
+/* Search */
+"Search" = "Scour";
+
+/* Agent label */
+"Search using:" = "Scour using:";
+
+/* A TV Show season */
+"season" = "season";
+
+/* Section name label */
+"Section name:" = "Booty name:";
+
+/* Section type label */
+"Section type:" = "Booty type:";
+
+/* Security preference pane title */
+"Secure Server Access" = "Secure Server Access";
+
+/* Security */
+"Security" = "Pirate's Code";
+
+/* Select */
+"Select" = "Appoint";
+
+/* Confirm button title for selecting */
+"Select %@" = "Appoint %@";
+
+/* Directory-browser title when adding/editing sections */
+"Select a directory for this section:" = "Mark the X for this booty:";
+
+/* Select Folder */
+"Select Folder" = "Appoint Location";
+
+/* Select Image */
+"Select Image" = "Appoint Portrait";
+
+/* Fix Incorrect Match title for music sections */
+"Select the correct artist from the list below:" = "Appoint the arrrtist being the most true:";
+
+/* Fix Incorrect Match title for movie sections */
+"Select the correct movie from the list below:" = "Appoint the long story being the most true:";
+
+/* Fix Incorrect Match title for TV show sections */
+"Select the correct TV show from the list below:" = "Appoint the troupe being the most true:";
+
+/* Send anonymous usage data to Plex */
+"Send anonymous usage data to Plex" = "Let yet usage be known, but not who ye are";
+
+/* Sharing */
+"Sharing" = "Divvy";
+
+/* Show */
+"Show" = "Troupe";
+
+/* A TV Show */
+"show" = "troupe";
+
+/* Language preference pane subtitle mode option */
+"Shown with foreign audio" = "Only with foreign speech";
+
+/* Sort Title */
+"Sort Title" = "Placement name";
+
+/* Studio */
+"Studio" = "House of the maker";
+
+/* Languages preference pane subtitle mode label */
+"Subtitle mode:" = "Ye be readin':";
+
+/* Summary */
+"Summary" = "About this tale";
+
+/* Sunday */
+"Sunday" = "Sunday";
+
+/* Tagline */
+"Tagline" = "Quip";
+
+/* 'Match Using' error message */
+"There was no acceptable match using the specified agent." = "Nothin' be found by that agent, mayhap he be a lazy dog.";
+
+/* Summary info for collecting usage data */
+"This helps us improve your experience (for example, to help us match movies and TV shows)." = "This be helping us identify yer booty with deadly precision.";
+
+/* Summary info for friendly name */
+"This name will be used to identify this media server to other computers on your network. If you leave it blank, your computer's name will be used instead." = "What to be callin' yer vessel on the open sea. Without a name, we'll use the name of yer computer.";
+
+/* Warning for IE users */
+"This site does not support Internet Explorer. For the best experience, click here to install Google Chrome Frame." = "Internet Explorer is a landlubber. Ye best be sailing a ship meant for the open sea, so make yer mark here to get aboard Google Chrome Frame.";
+
+/* Thursday */
+"Thursday" = "Thursday";
+
+/* Title */
+"Title" = "What 'tis called";
+
+/* today */
+"today" = "this day";
+
+/* tomorrow */
+"tomorrow" = "the morrow";
+
+/* Transcoding */
+"Transcoding" = "Transmogrifying";
+
+/* Tuesday */
+"Tuesday" = "Tuesday";
+
+/* Disable secure server access confirmation info */
+"Turning off secure server access will allow incoming connections from any computer." = "Yer port'll be open to all who travel on the 'lectric seaways.";
+
+/* TV Shows */
+"TV Shows" = "Troupes";
+
+/* Error title for when we cannot connect to PMS or when the response is invalid */
+"Unable to connect to Plex Media Server" = "'Twere impossible to signal land";
+
+/* Unable to create library section */
+"Unable to create library section" = "'Twere impossible to plunder yer booty";
+
+/* Error title for when we cannot remove a library section */
+"Unable to remove section \"%@\"" = "'Twere impossible to hide yer plunder \"%@\"";
+
+/* Unable to update library section */
+"Unable to update library section" = "'Twere impossible to plunder yer booty again";
+
+/* Context menu item for metadata items */
+"Unmatch" = "Unmatch";
+
+/* Preference window setting - will have frequencies after it e.g. Update my library every two hours */
+"Update my library" = "Plunder me booty";
+
+/* Preference window setting */
+"Update my library when changes to my folders are detected" = "Plunder me booty when something begins to stir";
+
+/* Update section confirm button text */
+"Update Section" = "Plunder me booty";
+
+/* Username field placeholder */
+"Username" = "Who y'are";
+
+/* Username label */
+"Username:" = "Username:";
+
+/* Verify password label */
+"Verify:" = "Verify:";
+
+/* Wednesday */
+"Wednesday" = "Wednesday";
+
+/* Preference window setting detail */
+"When playing video with AirPlay on an Apple TV, allow Dolby® Digital audio to play. You must go to Settings on the Apple TV and set Dolby Digital Out to \"On\" in the Audio & Video menu." = "Allow Dolby® Digital audio passage over the air to make port with an Apple TV, which must be fixed to do so.";
+
+/* Writers */
+"Writers" = "Writers";
+
+/* Year */
+"Year" = "Year";
+
+/* Year label */
+"Year:" = "Year:";
+
+/* yesterday */
+"yesterday" = "yesterday";
+

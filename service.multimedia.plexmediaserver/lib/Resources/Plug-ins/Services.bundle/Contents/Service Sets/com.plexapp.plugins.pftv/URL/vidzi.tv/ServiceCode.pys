@@ -1,0 +1,59 @@
+RE_FILE = Regex('file: "([^"]+\.(?:mp4|flv))"')
+
+####################################################################################################
+def NormalizeURL(url):
+
+	if '/embed-' in url:
+		url = url.replace('/embed-', '/')
+		url = url.split('-')[0]
+
+	return url
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	try:
+		html = HTML.ElementFromURL(url)
+	except:
+		raise Ex.MediaNotAvailable
+
+	if len(html.xpath('//*[contains(., "deleted")]')) > 0:
+		raise Ex.MediaNotAvailable
+
+	title = html.xpath('//h2[@class="video-title"]/text()')[0].strip()
+	thumb = html.xpath('//span[@id="vplayer"]/img/@src')[0]
+
+	return VideoClipObject(
+		title = title,
+		thumb = thumb
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			video_resolution = 'sd',
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True,
+			parts = [
+				PartObject(key=Callback(PlayVideo, url=url))
+			]
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url):
+
+	page = HTTP.Request(url).content
+
+	file = RE_FILE.search(page)
+
+	if file:
+		return IndirectResponse(VideoClipObject, key=file.group(1))
+
+	raise Ex.MediaNotAvailable

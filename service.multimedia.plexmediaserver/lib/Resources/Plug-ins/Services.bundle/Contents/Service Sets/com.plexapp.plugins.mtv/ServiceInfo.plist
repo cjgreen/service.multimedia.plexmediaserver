@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URL</key>
+	<dict>
+		<key>MTV</key>
+		<dict>
+			<key>URLPatterns</key>
+			<array>
+				<string>^http:\/\/www\.(vh1|mtv|cmt)\.com\/shows\/.+\/\d{6,7}\/(playlist|video)\/(#id=\d{7})?</string>
+				<string>^http:\/\/www\.(vh1|mtv|cmt)\.com\/videos?\/.+\/\d{5,7}\/.+jhtml(.+id=\d{7})?</string>
+				<string>^http:\/\/www\.(vh1|mtv|cmt)\.com\/videos?\/(play.jhtml)?\?(.+|v)?id=\d{4,7}</string>
+				<string>^http:\/\/www\.mtvhive\.com\/videos?\/\d{6}\/</string>
+				<string>^http:\/\/www\.mtvhive\.com\/.+?\/\d{6}\/.+</string>
+			</array>
+		</dict>
+	</dict>
+	<key>PlexFrameworkFlags</key>
+	<array>
+		<string>UseRealRTMP</string>
+	</array>
+</dict>
+</plist>

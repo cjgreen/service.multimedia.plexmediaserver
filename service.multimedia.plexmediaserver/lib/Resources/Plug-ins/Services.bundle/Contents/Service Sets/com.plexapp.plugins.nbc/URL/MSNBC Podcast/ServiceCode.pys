@@ -1,0 +1,62 @@
+VIDEO_URL = "http://www.msnbc.msn.com/default.cdnx/id/%s/displaymode/1157?t=.flv" #video_id
+
+AudioStreamObject.language_code = Locale.Language.English
+
+RE_VIDEO_ID = Regex('/(\d{8})/')
+
+####################################################################################################
+def NormalizeURL(url):
+
+	return url
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	feed = RSS.FeedFromURL(url)
+
+	title = feed.entries[0].title
+	desc = feed.entries[0].description
+	duration = Datetime.MillisecondsFromString(feed.entries[0].itunes_duration)
+	thumb = feed.channel.image['href']
+
+	return VideoClipObject(
+		title = title,
+		summary = desc,
+		duration = duration,
+		thumb = Resource.ContentsOfURLWithFallback(thumb)
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			parts = [
+				PartObject(
+					key = Callback(PlayVideo, url=url)
+				)
+			],
+			container = 'm4v',
+			video_codec = VideoCodec.H264,
+			audio_codec = AudioCodec.AAC,
+			optimized_for_streaming = True
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url):
+
+	video_url = XML.ElementFromURL(url).xpath('//enclosure')[0].get('url')
+	return IndirectResponse(VideoClipObject, key=video_url)
+
+####################################################################################################
+def TestURLs():
+
+	test_urls = [
+		'http://podcastfeeds.nbcnews.com/audio/podcast/MSNBC-MADDOW-NETCAST-M4V.xml',
+		'http://podcastfeeds.nbcnews.com/audio/podcast/MSNBC-NN-NETCAST-M4V.xml',
+		'http://podcastfeeds.nbcnews.com/audio/podcast/MSNBC-MTP-NETCAST-M4V.xml'
+	]
+
+	return test_urls

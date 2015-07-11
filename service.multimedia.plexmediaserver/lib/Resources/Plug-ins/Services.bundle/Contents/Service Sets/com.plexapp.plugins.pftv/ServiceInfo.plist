@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URL</key>
+	<dict>
+		<key>faststream.in</key>
+		<dict>
+			<key>URLPatterns</key>
+			<array>
+				<string>^http:\/\/(www\.)?faststream\.in\/.+</string>
+			</array>
+		</dict>
+		<key>gorillavid.in</key>
+		<dict>
+			<key>URLPatterns</key>
+			<array>
+				<string>^http:\/\/(www\.)?gorillavid\.in\/.+</string>
+			</array>
+		</dict>
+		<key>nosvideo.com</key>
+		<dict>
+			<key>URLPatterns</key>
+			<array>
+				<string>^http:\/\/(www\.)?nosvideo\.com\/.+</string>
+			</array>
+		</dict>
+		<key>royalvids.eu</key>
+		<dict>
+			<key>URLPatterns</key>
+			<array>
+				<string>^http:\/\/(www\.)?royalvids\.eu\/(?!dl).+</string>
+			</array>
+		</dict>
+		<key>vidzi.tv</key>
+		<dict>
+			<key>URLPatterns</key>
+			<array>
+				<string>^http:\/\/(www\.)?vidzi\.tv\/.+</string>
+			</array>
+		</dict>
+		<key>vodlocker.com</key>
+		<dict>
+			<key>URLPatterns</key>
+			<array>
+				<string>^http:\/\/(www\.)?vodlocker\.com\/.+</string>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

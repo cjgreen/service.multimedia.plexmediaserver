@@ -1,0 +1,84 @@
+RE_STATUS = Regex('"status","ok"')
+RE_DURATION = Regex('"length_seconds","(\d+)"')
+RE_TITLE = Regex("'title': '([^']+)'")
+RE_FMT_MAP = Regex('"fmt_stream_map","([^"]+)"')
+
+####################################################################################################
+def NormalizeURL(url):
+
+	url = url.split('/preview')[0]
+	url = url.split('/edit')[0]
+	return url
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	try:
+		data = HTTP.Request(url, cacheTime=300).content
+	except Ex.HTTPError, e:
+		if e.code == 403:
+			raise Ex.MediaNotAuthorized
+		else:
+			raise Ex.MediaNotAvailable
+	except:
+		raise Ex.MediaNotAvailable
+
+	if not RE_STATUS.search(data) or not RE_DURATION.search(data):
+		raise Ex.MediaNotAvailable
+
+	title = RE_TITLE.search(data).group(1)
+	duration = RE_DURATION.search(data).group(1)
+
+	return VideoClipObject(
+		title = title,
+		duration = int(duration)*1000
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			parts = [
+				PartObject(key=Callback(PlayVideo, url=url, post_url=url, res=resolution))
+			],
+			video_resolution = resolution,
+			bitrate = bitrate,
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True
+		) for resolution, bitrate in [('1080', 3000), ('720', 1500), ('360', 750)]
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url, res):
+
+	try:
+		data = HTTP.Request(url, cacheTime=300).content
+	except Ex.HTTPError, e:
+		if e.code == 403:
+			raise Ex.MediaNotAuthorized
+		else:
+			raise Ex.MediaNotAvailable
+	except:
+		raise Ex.MediaNotAvailable
+
+	if not RE_STATUS.search(data):
+		raise Ex.MediaNotAvailable
+
+	fmts = RE_FMT_MAP.search(data).group(1).decode('unicode_escape').split(',')
+
+	for fmt in fmts:
+		if fmt.startswith('37|') and res == '1080':
+			return IndirectResponse(VideoClipObject, key=fmt.split('|')[1])
+
+	for fmt in fmts:
+		if fmt.startswith('22|') and res in ('1080', '720'):
+			return IndirectResponse(VideoClipObject, key=fmt.split('|')[1])
+
+	for fmt in fmts:
+		if fmt.startswith('18|'):
+			return IndirectResponse(VideoClipObject, key=fmt.split('|')[1])

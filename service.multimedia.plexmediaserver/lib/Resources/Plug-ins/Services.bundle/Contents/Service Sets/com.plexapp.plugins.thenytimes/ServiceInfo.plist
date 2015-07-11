@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URL</key>
+	<dict>
+		<key>New York Times</key>
+		<dict>
+			<key>URLPatterns</key>
+			<array>
+				<string>^http://www\.nytimes\.com/video/([^/]+/){1,2}\d+/.+\.html</string>
+			</array>
+			<key>TestURLs</key>
+			<array>
+				<string>http://www.nytimes.com/video/sports/football/100000002506603/the-giants-losing-streak-by-the-number.html</string>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

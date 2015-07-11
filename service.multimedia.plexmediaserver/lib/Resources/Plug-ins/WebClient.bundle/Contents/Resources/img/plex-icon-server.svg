@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1000px" height="1000px" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>plex-icon-server</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#F9BE03" offset="0%"></stop>
+            <stop stop-color="#E5A00D" offset="47.7375379%"></stop>
+            <stop stop-color="#CC7C19" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-2">
+            <stop stop-color="#282828" offset="0%"></stop>
+            <stop stop-color="#1F1F1F" offset="100%"></stop>
+        </linearGradient>
+        <radialGradient cx="89.2670157%" cy="49.76%" fx="89.2670157%" fy="49.76%" r="92.4996161%" id="radialGradient-3">
+            <stop stop-color="#F9BE03" offset="0%"></stop>
+            <stop stop-color="#CC7C19" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="plex-icon-server" sketch:type="MSArtboardGroup">
+            <g sketch:type="MSLayerGroup">
+                <circle id="bg-orange" fill="url(#linearGradient-1)" sketch:type="MSShapeGroup" cx="500" cy="500" r="500"></circle>
+                <circle id="bg-grey" fill="url(#linearGradient-2)" sketch:type="MSShapeGroup" cx="500" cy="500" r="470"></circle>
+                <path d="M329,188 L510.607,188 L711,500.5 L510.607,813 L329,813 L529.393,500.5 L329,188" id="chevron" fill="url(#radialGradient-3)" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

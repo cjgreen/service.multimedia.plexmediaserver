@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1 TV show</key>
+	<string>TV sarja</string>
+	<key>1 artist</key>
+	<string>artisti</string>
+	<key>1 episode</key>
+	<string>jakso</string>
+	<key>1 item</key>
+	<string>osio</string>
+	<key>1 movie</key>
+	<string>elokuva</string>
+	<key>1 photo</key>
+	<string>valokuva</string>
+	<key>1 track</key>
+	<string>kappale</string>
+	<key>1 track, %@ total time, %@</key>
+	<string>1 kappale, %@ kokonaisaika, %@</string>
+	<key>&gt; Add posters, custom genres and more</key>
+	<string>Lisää juliste, kustoomi laji ja lisää</string>
+	<key>&gt; Album reviews</key>
+	<string>&gt; Albumi arvostelut</string>
+	<key>ALBUMS</key>
+	<string>ALBUMIT</string>
+	<key>Add Home Movies Section</key>
+	<string>Lisää Kotielokuvat sektio</string>
+	<key>Add Movies Section</key>
+	<string>Lisää Elokuvat sektio</string>
+	<key>Add Music Section</key>
+	<string>Lisää Musiikki sektio</string>
+	<key>Add Section</key>
+	<string>Lisää sektio</string>
+	<key>Add TV Shows Section</key>
+	<string>Lisää TV Sarjat sektio</string>
+	<key>album</key>
+	<string>albumi</string>
+</dict>
+</plist>

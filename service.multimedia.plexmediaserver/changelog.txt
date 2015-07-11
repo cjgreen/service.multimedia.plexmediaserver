@@ -1,0 +1,6 @@
+1.0.0
+- initial release based on escalade and hugepants addons
+- PMS version 0.9.12.4
+- runs as a systemd service
+- configurable startup delay (default: 5s)
+- configurable stack size (default: 3000 kb)

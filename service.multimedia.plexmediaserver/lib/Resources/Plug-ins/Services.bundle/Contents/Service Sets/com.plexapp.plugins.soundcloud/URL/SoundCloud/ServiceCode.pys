@@ -1,0 +1,86 @@
+CLIENT_ID = '4f6c5882fe9cfc80ebf7ff815cd8b383'
+FIND_API_URL = 'https://api.soundcloud.com/resolve?url=%%s&_status_code_map[302]=200&_status_format=json&client_id=%s' % CLIENT_ID
+TRACK_DETAILS_URL = 'https://api.soundcloud.com/tracks.json?client_id=%s&ids=%%s' % CLIENT_ID
+MP3_URL = 'https://api.soundcloud.com/tracks/%%s/stream?client_id=%s' % CLIENT_ID
+
+RE_TRACK_ID = Regex('/tracks/(?P<id>\d+)')
+
+####################################################################################################
+def NormalizeURL(url):
+
+	return url.split('?')[0].replace('soundcloud.com/#', 'soundcloud.com/')
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	track_id = GetTrackId(url)
+	track = JSON.ObjectFromURL(TRACK_DETAILS_URL % track_id)[0]
+
+	# Construct a list of thumbnails, in expected size order, largest first
+	thumb = track['artwork_url'] if track['artwork_url'] is not None else ''
+	thumbs = [
+		thumb.replace('large', 'original'),
+		thumb.replace('large', 't500x500'),
+		thumb
+	]
+	
+	if track['user'] != None:
+		artist = track['user']['username']
+	else:
+		artist = '[Unknown Artist]'
+
+	return TrackObject(
+		title = track['title'],
+		artist = artist,
+		source_title = 'SoundCloud',
+		thumb = Resource.ContentsOfURLWithFallback(url=thumbs),
+		duration = int(track['duration'])
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			#bitrate = '128',
+			audio_codec = AudioCodec.MP3,
+			container = 'mp3',
+			parts = [
+				PartObject(key = Callback(PlayTrack, url=url, ext='mp3'))
+			]
+		)
+	]
+
+####################################################################################################
+def GetTrackId(url):
+
+	if 'api.soundcloud.com' in url:
+		track_id = RE_TRACK_ID.search(url)
+
+		if track_id:
+			track_id = track_id.group('id')
+		else:
+			raise Ex.MediaNotAvailable
+	else:
+		try:
+			api_url = JSON.ObjectFromURL(FIND_API_URL % String.Quote(url, usePlus=False))
+		except:
+			raise Ex.MediaNotAvailable
+
+		if not 'location' in api_url:
+			raise Ex.MediaNotAvailable
+
+		track_id = RE_TRACK_ID.search(api_url['location'])
+
+		if track_id:
+			track_id = track_id.group('id')
+		else:
+			raise Ex.MediaNotAvailable
+
+	return track_id
+
+####################################################################################################
+def PlayTrack(url):
+
+	track_id = GetTrackId(url)
+	return Redirect(MP3_URL % track_id)

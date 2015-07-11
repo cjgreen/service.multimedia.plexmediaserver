@@ -1,0 +1,169 @@
+from CoveAPI import connect as PBS
+from SortThumbs import SortThumbs
+from PBS_API import API_ID, API_SECRET
+
+NAMESPACES = {'a':'http://www.w3.org/2001/SMIL20/Language'}
+
+RE_TP_ID =   Regex('http://video.pbs.org/video/([0-9]+)')
+PBS_URL = 'http://video.pbs.org/'
+DETAILS = '/cove/v1/videos/?fields=mediafiles%2Cassociated_images&filter_tp_media_object_id='
+
+def NormalizeURL(url):
+    return url
+
+def MetadataObjectForURL(url):
+    tp_id = RE_TP_ID.search(url).group(1)
+    video = PBS(String.Decode(API_ID), String.Decode(API_SECRET)).videos.get(DETAILS + tp_id)
+
+    if len(video['results']) < 1:
+        raise Ex.MediaNotAvailable
+
+    video = video['results'][0]
+    thumbs = SortThumbs(video['associated_images'])
+    try:
+        airdate = Datetime.ParseDate(video['airdate']).date()
+    except:
+        airdate = None
+    summary = video['long_description']
+    title = video['title']
+    try:
+        duration = int(video['mediafiles'][0]['length_mseconds'])
+    except:
+        duration = None
+
+    return  VideoClipObject(
+        title=title,
+        summary=summary,
+        originally_available_at=airdate,
+        duration=duration,
+        thumb=Resource.ContentsOfURLWithFallback(url=thumbs)
+    )
+
+def MediaObjectsForURL(url):
+    return [
+        MediaObject(
+            parts = [PartObject(key=Callback(PlayVideo, url=url))],
+            video_codec = VideoCodec.H264,
+            audio_codec = AudioCodec.AAC,
+            optimized_for_streaming = True,
+            audio_channels = 2
+        )
+    ]
+
+@indirect
+def PlayVideo(url):
+    video_url = None
+    tp_id = RE_TP_ID.search(url).group(1)
+    video = PBS(String.Decode(API_ID), String.Decode(API_SECRET)).videos.get(DETAILS + tp_id)
+
+    if len(video['results']) < 1:
+        raise Ex.MediaNotAvailable
+
+    video = video['results'][0]
+
+    for media in video['mediafiles']:
+        try:
+            video_url = media['video_download_url']
+            if video_url:
+                break
+        except:
+            video_url = None
+
+    if video_url:
+        # corner case, some shows use http://urs.pbs.org/redirect/ to obtain an m3u8 or an mp4
+        # we now have to check here for this as well as there are some cases where whoever is
+        # entering the data has started putting these in video_download_url (they never used to be there)
+        if video_url.startswith('http://urs.pbs.org/redirect/'):
+            Log.Debug("Found redirect: "+video_url)
+            # We have to do a bit of juggling to get the correct URL 302, the framework/clients don't follow 
+            # these redirects properly (PBS serves them up strangely, they 302 AND they serve page content)
+            try:
+                page_request = HTTP.Request(video_url, follow_redirects = False)
+                page = page_request.content
+            except Ex.RedirectError, e:
+                if e.headers.has_key('Location'):
+                    video_url = e.headers['Location']
+            except Ex.HTTPError, e:
+                if e.code == 410:
+                    raise Ex.MediaExpired
+            Log.Debug("Parsed URL: "+video_url)
+            if video_url.endswith(".m3u8"):
+	            return IndirectResponse(VideoClipObject, key=HTTPLiveStreamURL(url=video_url))
+
+        return IndirectResponse(VideoClipObject, key=video_url)
+    else:
+        # We have an older format, but things have changed slightly from the older parsing methods
+        video_url = video['mediafiles'][-1]['video_data_url']
+
+        # corner case, some shows use http://urs.pbs.org/redirect/ to obtain an m3u8 or an mp4
+        if video_url.startswith('http://urs.pbs.org/redirect/'):
+            Log.Debug("Found redirect: "+video_url)
+            # We have to do a bit of juggling to get the correct URL 302, the framework/clients don't follow 
+            # these redirects properly (PBS serves them up strangely, they 302 AND they serve page content)
+            try:
+                page_request = HTTP.Request(video_url, follow_redirects = False)
+                page = page_request.content
+            except Ex.RedirectError, e:
+                if e.headers.has_key('Location'):
+                    video_url = e.headers['Location']
+            Log.Debug("Parsed URL: "+video_url)
+            if video_url.endswith(".m3u8"):
+	            return IndirectResponse(VideoClipObject, key=HTTPLiveStreamURL(url=video_url))
+
+            return IndirectResponse(VideoClipObject, key=HTTPLiveStreamURL(url=video_url))
+
+        smil = XML.ElementFromURL(video_url + '&format=SMIL')
+
+        base = smil.xpath('//a:meta', namespaces=NAMESPACES)[0].get('base')
+        clip = smil.xpath('//a:ref', namespaces=NAMESPACES)[0].get('src')
+        if base.startswith('rtmp'):
+            app = base.split("/",3)[3]
+            url = base.split(app)[0]
+            playpath = "mp4:"+clip
+            return IndirectResponse(VideoClipObject, key=RTMPVideoURL(url=url, app=app, clip=playpath))
+
+        if base.startswith('http'):
+            final_url = base + clip
+            if '.m3u8' in clip:
+                Log.Debug("Found HLS: "+final_url)
+                return IndirectResponse(VideoClipObject, key=HTTPLiveStreamURL(url=final_url))
+            else:
+                Log.Debug("Found MP4: "+final_url)
+                return IndirectResponse(VideoClipObject, key=final_url)
+
+        Log.Debug("Failed to handle video stream.")
+        Log.Debug(base)
+        Log.Debug(clip)
+        raise Ex.MediaNotAvailable
+
+        ### Keeping this code just in case MP4s aren't available for all videos -- this was the previous parsing and still worth keeping details of just in case we find more like this ###
+        '''
+        video_url = video['mediafiles'][-1]['video_data_url']
+        Log(HTTP.Request(video_url + '&format=SMIL').content)
+        smil = XML.ElementFromURL(video_url + '&format=SMIL')
+        base = smil.xpath('//a:meta', namespaces=NAMESPACES)[0].get('base')
+        clip = smil.xpath('//a:ref', namespaces=NAMESPACES)[0].get('src')
+
+        if base.startswith('http'):
+            final_url = base + clip
+            if '.m3u8' in clip:
+                Log('HTTPLiveStreamURL: %s' % final_url)
+                return IndirectResponse(VideoClipObject, key=HTTPLiveStreamURL(url=final_url))
+            else:
+                return IndirectResponse(VideoClipObject, key=final_url)
+        else:
+            clip = 'MP4:' + clip.split('.mp4')[0]
+            return IndirectResponse(VideoClipObject, key=RTMPVideoURL(url=base, clip=clip))
+        '''
+
+def TestURLs():
+    test_urls = []
+
+    for show in HTML.ElementFromURL(PBS_URL).xpath('//div[@id="most-watched-videos"]//li'):
+        url = show.xpath('.//div/a')[0].get('href')
+        test_urls.append(url)
+
+        if len(test_urls) > 2:
+            break
+
+    return test_urls

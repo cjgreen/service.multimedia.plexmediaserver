@@ -1,0 +1,249 @@
+### For videos that have 'nXXXX' as id
+METADATA_URL = 'http://www.nbc.com/assets/esp/mobile/PortalFeedV0140/portalGetFullVideoDetail/.json?video_id=%s'
+VIDEO_URL = 'https://secure.services.nbc.nbcuni.com/mobile/PortalFeedV0140/portalGetVideoURL/.json?videoId=%s'
+THUMB_URL = 'http://video.nbc.com/player/mezzanine/image.php?w=640&h=360&trusted=yes&path=%s'
+###
+
+### For videos that have 'XXXX' as id
+SHOWS_URL = 'http://tve-atcnbce.nbcuni.com/live/3/nbce/containers/iPad'
+#EPISODES_URL = 'http://tve-atcnbce.nbcuni.com/live/3/nbce/containers/%s/iPad?filterBy=episode'
+EPISODES_URL = 'http://tve-atcnbce.nbcuni.com/live/3/nbce/containers/%s/iPad'
+#CLIPS_URL = 'http://tve-atcnbce.nbcuni.com/live/3/nbce/containers/%s/iPad?filterBy=clip'
+###
+
+RE_VIDEO_ID = Regex('(nbc|latenightwithjimmyfallon|jaylenosgarage).com/((?!Vintage_Shows).+/)?video/.+?/(?P<id>n?\d{4,})')
+RE_CLEANUP_TITLE = Regex('[^a-z0-9]+')
+
+AudioStreamObject.language_code = Locale.Language.English
+
+####################################################################################################
+def NormalizeURL(url):
+
+	if '#' in url and '|' in url and not '?' in url:
+		return url
+
+	return url.split('#')[0].split('?')[0]
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	video_id = RE_VIDEO_ID.search(url)
+
+	if not video_id:
+		raise Ex.MediaNotAvailable
+
+	video_id = video_id.group('id')
+	show = None
+	season = None
+	index = None
+
+	if video_id.startswith('n'):
+		try:
+			json_obj = JSON.ObjectFromURL(METADATA_URL % video_id, cacheTime=CACHE_1WEEK)
+			json_obj = json_obj[0]
+		except:
+			raise Ex.MediaExpired
+
+		title = json_obj['title']
+		summary = json_obj['shortDescription']
+		duration = int(float(json_obj['cliplength']) * 1000)
+		thumb = THUMB_URL % json_obj['thumbnail']
+		originally_available_at = Datetime.ParseDate(json_obj['publishedDate']).date()
+
+		if json_obj['contentType'] == 'Full Episode':
+			show = json_obj['subtitle']
+			season = json_obj['season']
+			index = json_obj['episode_number'].split(' ')[-1]
+
+	else:
+		(episodes_url, video_id) = GetEpisodeData(url, video_id)
+		found_episode = False
+
+		for episode in JSON.ObjectFromURL(episodes_url)['results']:
+			if episode['assetID'].endswith(video_id):
+				show = episode['parentContainerTitle']
+				season = episode['seasonNumber'] if 'seasonNumber' in episode else None
+				index = episode['episodeNumber'] if 'episodeNumber' in episode else None
+				title = episode['title']
+				summary = episode['description']
+				duration = episode['totalDuration']
+				thumb = episode['images'][0]['images']['episode_banner']
+				originally_available_at = Datetime.FromTimestamp(episode['firstAiredDate']).date()
+
+				found_episode = True
+				break
+
+		if not found_episode:
+			raise Ex.MediaNotAvailable
+
+	if show and season and index:
+		return EpisodeObject(
+			show = show,
+			season = int(season),
+			index = int(index),
+			title = title,
+			summary = summary,
+			duration = duration,
+			thumb = Resource.ContentsOfURLWithFallback(thumb),
+			originally_available_at = originally_available_at
+		)
+
+	else:
+		return VideoClipObject(
+			title = title,
+			summary = summary,
+			duration = duration,
+			thumb = Resource.ContentsOfURLWithFallback(thumb),
+			originally_available_at = originally_available_at
+		)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	if '/classic-tv/' in url:
+		return [
+			MediaObject(
+				parts = [
+					PartObject(
+						key=HTTPLiveStreamURL(Callback(PlayVideo, url=url))
+					)
+				],
+				video_resolution = '480',
+				aspect_ratio = '1.33',
+				audio_channels = 2,
+				optimized_for_streaming = True
+			)
+		]
+	else:
+		return [
+			MediaObject(
+				parts = [
+					PartObject(
+						key=HTTPLiveStreamURL(Callback(PlayVideo, url=url))
+					)
+				],
+				video_resolution = '720',
+				aspect_ratio = '1.78',
+				audio_channels = 2,
+				optimized_for_streaming = True
+			)
+		]
+
+####################################################################################################
+@indirect
+def PlayVideo(url):
+
+	video_id = RE_VIDEO_ID.search(url)
+
+	if not video_id:
+		raise Ex.MediaNotAvailable
+
+	video_id = video_id.group('id')
+
+	if video_id.startswith('n'):
+
+		json_obj = JSON.ObjectFromURL(VIDEO_URL % video_id, cacheTime=10)
+		m3u8_url = json_obj['tokenizedURL']
+		playlist = HTTP.Request(m3u8_url, cacheTime=10)
+
+		try:
+			content = playlist.content
+		except Ex.HTTPError, e:
+			if e.code == 404 and '/nbcu/' in m3u8_url:
+				m3u8_url = m3u8_url.replace('/nbcu/', '/')
+				playlist = HTTP.Request(m3u8_url, cacheTime=10)
+
+				try:
+					content = playlist.content
+				except:
+					raise Ex.MediaNotAvailable
+			else:
+				raise Ex.MediaNotAvailable
+		except:
+			raise Ex.MediaNotAvailable
+
+		cookie = playlist.headers['set-cookie']
+
+		return IndirectResponse(VideoClipObject,
+			key = HTTPLiveStreamURL(m3u8_url),
+			http_cookies = cookie
+		)
+
+	else:
+		(episodes_url, video_id) = GetEpisodeData(url, video_id)
+		found_episode = False
+
+		try:
+			json_obj = JSON.ObjectFromURL(episodes_url)['results']
+		except:
+			raise Ex.MediaNotAvailable
+
+		for episode in json_obj:
+			if episode['assetID'].endswith(video_id):
+				m3u8_url = episode['videoURL']
+
+				found_episode = True
+				break
+
+		if not found_episode:
+			raise Ex.MediaNotAvailable
+
+		try:
+			m3u8 = HTTP.Request(m3u8_url, cacheTime=10, follow_redirects=False).content
+		except Ex.RedirectError, e:
+			if 'Location' in e.headers:
+				m3u8_url = e.headers['Location']
+		except Ex.HTTPError, e:
+			if e.code == 403:
+				raise Ex.MediaGeoblocked
+			elif e.code == 404:
+				raise Ex.MediaNotAvailable
+			else:
+				raise Ex.MediaNotAvailable
+		except:
+			raise Ex.MediaNotAvailable
+
+		return IndirectResponse(VideoClipObject,
+			key = HTTPLiveStreamURL(m3u8_url)
+		)
+
+####################################################################################################
+def GetEpisodeData(url, video_id):
+
+	# URL Service requests coming from the NBC channel already have some of the required information
+	# added to the end of the URL, after the anchor.
+
+	if '#' in url:
+		(show_id, video_id) = url.split('#')[-1].split('|')
+
+		try:
+			test = HTTP.Request(EPISODES_URL % show_id).content
+			return (EPISODES_URL % (show_id), video_id)
+		except:
+			return GetEpisodeData(url.split('#')[0], video_id)
+
+	else:
+		# Get the show name
+		try:
+			html = HTML.ElementFromURL(url)
+		except:
+			raise Ex.MediaNotAvailable
+
+		try:
+			show_name = html.xpath('//title/text()')[0].split(' | ')[2].lower()
+			show_name = RE_CLEANUP_TITLE.sub('', show_name)
+		except:
+			try:
+				show_name = html.xpath('//meta[@property="og:url"]/@content')[0].split('/')[3]
+				show_name = RE_CLEANUP_TITLE.sub('', show_name)
+			except:
+				show_name = ''
+
+		for show in JSON.ObjectFromURL(SHOWS_URL):
+			show_title = RE_CLEANUP_TITLE.sub('', show['title'].lower())
+
+			if show_title == show_name:
+				show_id = show['assetID']
+				return (EPISODES_URL % (show_id), video_id)
+
+	raise Ex.MediaNotAvailable

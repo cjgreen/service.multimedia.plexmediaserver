@@ -1,0 +1,111 @@
+BASE_URL = 'http://www.fux.com'
+VIDEOS_URL = 'http://tkn.fux.com/%s/desktop/%s'
+RE_PLAYLIST = Regex('playlist: \[(.+?)\],', Regex.DOTALL)
+RE_MEDIA_ID = Regex('\}\)\((\d+), \d+, \[(.+?)\]\);')
+RE_AVAILABILITY = Regex('no longer available')
+
+####################################################################################################
+def NormalizeURL(url):
+
+	return url
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	html = HTML.ElementFromURL(url)
+	json_obj = GetJSON(url)
+
+	return VideoClipObject(
+		title = html.xpath('//h1/text()')[0].replace('&amp;', '&'),
+		thumb = json_obj['image'],
+		genres = ['XXX','Adult','18+'],
+		content_rating = 'X'
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, res=1080))],
+			container = 'mp4',
+			video_codec = VideoCodec.H264,
+			video_resolution = '1080',
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True
+		),
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, res=720))],
+			container = 'mp4',
+			video_codec = VideoCodec.H264,
+			video_resolution = '720',
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True
+		),
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, res=480))],
+			container = 'mp4',
+			video_codec = VideoCodec.H264,
+			video_resolution = '480',
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url, res=1080):
+
+	data = HTTP.Request(url).content
+
+	if RE_AVAILABILITY.search(data):
+		raise Ex.MediaExpired
+
+	(media_id, qualities) = RE_MEDIA_ID.search(data).groups()
+
+	videos_url = VIDEOS_URL % (media_id, '+'.join(qualities.split(',')))
+
+	json_obj = JSON.ObjectFromURL(videos_url, values={'':''}, headers={'Origin': 'http://www.fux.com'})
+	available_versions = json_obj.keys()
+
+	if len(available_versions) < 1:
+		raise Ex.MediaNotAvailable
+
+	closest = min((abs(res - int(i)), int(i)) for i in available_versions)[1]
+	video_url = json_obj[str(closest)]['token']
+
+	return IndirectResponse(VideoClipObject, key=video_url)
+
+####################################################################################################
+def GetJSON(url):
+
+	data = HTTP.Request(url).content
+	json = RE_PLAYLIST.search(data)
+
+	if not json:
+		raise Ex.MediaNotAvailable
+
+	json = json.group(1).replace('streamsConfig', '""')
+
+	return JSON.ObjectFromString(json)
+
+####################################################################################################
+def TestURLs():
+
+	test_urls = []
+	urls = HTML.ElementFromURL(BASE_URL).xpath('//a[contains(@href, "/video/")]/@href')
+
+	for url in urls:
+		if not url.startswith('http://'):
+			url = '%s%s' % (BASE_URL, url)
+		
+		if url not in test_urls:
+			test_urls.append(url)
+
+		if len(test_urls) >= 3:
+			break
+
+	return test_urls

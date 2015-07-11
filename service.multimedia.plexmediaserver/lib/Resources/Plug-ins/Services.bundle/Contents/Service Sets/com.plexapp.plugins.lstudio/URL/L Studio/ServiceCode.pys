@@ -1,0 +1,80 @@
+# All the videos on the lstudio site are located in http://videos.lstudio.com
+# And all video information is available in xml files in the xml/video-page/ folder
+
+RE_SEASON = Regex('Season (\d+):')
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	url = 'http://www.lstudio.com/xml/videos-page/%s' % url.split('lstudio.com/')[-1].replace('.html', '.xml')
+	xml = XML.ElementFromURL(url, cacheTime=CACHE_1DAY)
+
+	show = xml.xpath('//video/seriesTitle/text()')[0]
+	episode_title = xml.xpath('//video/episodeTitle/text()')[0]
+
+	if RE_SEASON.search(episode_title):
+		title = episode_title.split(': ', 1)[-1]
+		season = RE_SEASON.search(episode_title).group(1)
+	else:
+		title = episode_title
+		season = 1
+
+	index = xml.xpath('//video/episodeNumber/text()')
+
+	if len(index) == 1:
+		index = index[0]
+	else:
+		index = None
+
+	summary = xml.xpath('//video/episodeDescription/text()')[0]
+	thumb = 'http://www.lstudio.com%s' % xml.xpath('//video/thumbnail/text()')[0]
+	originally_available_at = Datetime.ParseDate(xml.xpath('//video/datepublished/text()')[0]).date()
+
+	return EpisodeObject(
+		show = show,
+		title = title,
+		season = int(season),
+		index = int(index) if index else None,
+		summary = summary,
+		thumb = Resource.ContentsOfURLWithFallback(thumb),
+		originally_available_at = originally_available_at
+	)
+
+####################################################################################################
+# Defining the different types of videos available at lstudio.com and the values for their quality
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			video_resolution = '720',
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			parts = [PartObject(key=Callback(PlayVideo, url=url, fmt='hi'))]
+		),
+		MediaObject(
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			video_resolution = '360',
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			parts = [PartObject(key=Callback(PlayVideo, url=url, fmt='lo'))]
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url, fmt='hi'):
+
+	url = 'http://www.lstudio.com/xml/videos-page/%s' % url.split('lstudio.com/')[-1].replace('.html', '.xml')
+	xml = XML.ElementFromURL(url, cacheTime=CACHE_1DAY)
+
+	if fmt == 'hi' and len(xml.xpath('//video/videoHi')) > 0:
+		video_url = xml.xpath('//video/videoHi/text()')[0].replace('.f4v', '.mp4')
+	elif len(xml.xpath('//video/videoLo')) > 0:
+		video_url = xml.xpath('//video/videoLo/text()')[0].replace('.f4v', '.mp4')
+	else:
+		raise Ex.MediaNotAvailable
+
+	return IndirectResponse(VideoClipObject, key=video_url)

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URL</key>
+	<dict>
+		<key>Pitchfork TV</key>
+		<dict>
+			<key>TestURLs</key>
+			<array>
+				<string>http://pitchfork.com/tv/27-pitchfork-classic/716-belle-and-sebastian-if-youre-feeling-sinister/</string>
+			</array>
+			<key>URLPatterns</key>
+			<array>
+				<string>^http://(www\.)?pitchfork\.com/tv/\d+\-.+</string>
+			</array>
+		</dict>
+		<key>Pitchfork TV YouTube</key>
+		<dict>
+			<key>TestURLs</key>
+			<array>
+				<string>http://pitchfork.com/tv/youtube/11-pitchfork-weekly/275-andrew-wk-flying-lotus-pay-attention/</string>
+			</array>
+			<key>URLPatterns</key>
+			<array>
+				<string>^http://(www\.)?pitchfork\.com/tv/youtube/.+</string>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

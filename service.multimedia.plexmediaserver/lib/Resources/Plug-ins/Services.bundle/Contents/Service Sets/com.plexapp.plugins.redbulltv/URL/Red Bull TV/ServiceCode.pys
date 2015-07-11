@@ -1,0 +1,17 @@
+RE_PLAYER_KEY = Regex('param name="playerKey" value="([^"]+)"')
+RE_VIDEO_PLAYER = Regex("video_id = '(\d+)'")
+
+####################################################################################################
+def NormalizeURL(url):
+
+	return url.split('?')[0]
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	data = HTTP.Request(url).content
+	player_key = RE_PLAYER_KEY.search(data)
+	video_player = RE_VIDEO_PLAYER.search(data)
+
+	if player_key and video_player:
+		return URLService.MetadataObjectForURL('http://c.brightcove.com/services/viewer/htmlFederated?playerKey=%s&dynamicStreaming=true&%%40videoPlayer=%s' % (player_key.group(1), video_player.group(1)))

@@ -1,0 +1,187 @@
+import re
+
+ZDF_BEITRAG_DETAILS = 'http://www.zdf.de/ZDFmediathek/xmlservice/web/beitragsDetails?id=%s'
+# Video: http://www.zdf.de/ZDFmediathek/beitrag/video/257404/heute-100SEC
+# LiveVideo: http://www.zdf.de/ZDFmediathek/beitrag/livevideo/1822600/Das-ZDF-im-Livestream
+# PhotoAlbum: http://www.zdf.de/ZDFmediathek/beitrag/bilderserie/661062
+
+####################################################################################################
+
+def NormalizeURL(url):
+    type, assetId = GetTypeAssetIdFromURL(url)
+    if(type == None):
+        Log('Not a valid URL')
+        return None
+    return 'http://www.zdf.de/ZDFmediathek/beitrag/%s/%s' % (type, assetId)
+
+####################################################################################################
+def MetadataObjectForURL(url):
+    type, assetId = GetTypeAssetIdFromURL(url)
+    if(type == None):
+        Log('Not a valid URL')
+        return None
+    
+    details = XML.ElementFromURL(ZDF_BEITRAG_DETAILS % assetId, cacheTime=CACHE_1HOUR)
+    
+    status = details.xpath('/response/status/statuscode/text()')[0]
+    if(status != 'ok'):
+        Log('Status: %s' % status)
+        raise Ex.MediaNotAvailable
+    
+    if(type == 'video'):
+        title = details.xpath('//video/information/title')[0].text
+        summary = details.xpath('//video/information/detail')[0].text
+        thumbUrl = details.xpath('//video/teaserimages/teaserimage[@key="946x532"]')[0].text
+        date = Datetime.ParseDate(details.xpath('//video/details/airtime')[0].text).date()
+        duration = CalculateDuration(details.xpath('//video/details/length')[0].text)
+        
+        return VideoClipObject(
+            title = title,
+            summary = summary,
+            thumb = thumbUrl,
+            originally_available_at = date,
+            duration = duration
+        )
+    elif(type == 'bilderserie'):
+        title = details.xpath('//imageseries/information/title')[0].text
+        summary = details.xpath('//imageseries/information/detail')[0].text
+        thumbUrl = details.xpath('//imageseries/teaserimages/teaserimage[@key="946x532"]')[0].text
+        
+        return PhotoAlbumObject(
+            key = Callback(GetPhotos, url=url),
+            title = title,
+            summary = summary,
+            thumb = thumbUrl
+        )
+
+####################################################################################################
+
+def MediaObjectsForURL(url):
+    type, assetId = GetTypeAssetIdFromURL(url)
+    if(type == None):
+        Log('Not a valid URL')
+        return None
+    
+    if(type == 'video'):
+        return [
+            MediaObject(
+                container = Container.MP4,
+                video_codec = VideoCodec.H264,
+                audio_codec = AudioCodec.AAC,
+                optimized_for_streaming = True,
+                parts = [PartObject(key=Callback(PlayVideo, url = url))]
+            )
+        ]
+    elif(type == 'bilderserie'):
+        return [
+            MediaObject(
+                parts = Callback(GetPhotos, url)
+            )
+        ]
+
+####################################################################################################
+@indirect
+def PlayVideo(url=None):
+    type, assetId = GetTypeAssetIdFromURL(url)
+    if(type == None):
+        Log('Not a valid URL')
+        return None
+    
+    if(type != 'video'):
+        return None
+    
+    try:
+        details = XML.ElementFromURL(ZDF_BEITRAG_DETAILS % assetId, cacheTime=CACHE_1HOUR)
+    except:
+        raise Ex.MediaNotAuthorized
+    
+    status = details.xpath('/response/status/statuscode/text()')[0]
+    if(status != 'ok'):
+        Log('Status: %s' % status)
+        raise Ex.MediaNotAvailable
+    
+    type = details.xpath('//video/type')[0].text
+    if(type == 'video'):
+      videoURL = details.xpath('//formitaet[@basetype="h264_aac_mp4_http_na_na" and quality="veryhigh" and ratio="16:9"]/url')[0].text
+    elif(type == 'livevideo'):
+      videoURL = details.xpath('//formitaet[@basetype="h264_aac_ts_http_m3u8_http"]')[0].text
+    else:
+      Log('PlayVideo: unkown Type ' + type)	
+    Log(" -> PICKED %s", videoURL)
+    
+    return IndirectResponse(VideoClipObject, key=videoURL)
+
+####################################################################################################
+def GetPhotos(url):
+    type, assetId = GetTypeAssetIdFromURL(url)
+    if(type == None):
+        Log('Not a valid URL')
+        return None
+    
+    if(type != 'bilderserie'):
+        return None
+    
+    oc = ObjectContainer()
+    try:
+        details = XML.ElementFromURL(ZDF_BEITRAG_DETAILS % assetId, cacheTime=CACHE_1HOUR)
+    except:
+        raise Ex.MediaNotAuthorized
+    
+    image = 1
+    photos = details.xpath('//images/image')
+    for photo in photos:
+        summary = photo.xpath('./description')[0].text
+        url = photo.xpath('./url')[0].text
+        oc.add(PhotoObject(
+            key = url,
+            title = 'Bild %d' % image,
+            summary = summary,
+            thumb = url
+        ))
+        image += 1
+    return oc
+
+####################################################################################################
+def CalculateDuration(timecode):
+  milliseconds = 0
+  hours        = 0
+  minutes      = 0
+  seconds      = 0
+  d = re.search('([0-9]{1,2}) min', timecode)
+  if(None != d):
+    minutes = int( d.group(1) )
+  else:
+    d = re.search('([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}).([0-9]{1,3})', timecode)
+    if(None != d):
+      hours = int ( d.group(1) )
+      minutes = int ( d.group(2) )
+      seconds = int ( d.group(3) )
+      milliseconds = int ( d.group(4) )
+  milliseconds += hours * 60 * 60 * 1000
+  milliseconds += minutes * 60 * 1000
+  milliseconds += seconds * 1000
+  return milliseconds
+
+####################################################################################################
+def GetTypeAssetIdFromURL(url):
+  d = re.search('^http://www.zdf.de/ZDFmediathek[^#]*[#]?/beitrag/(video|livevideo|bilderserie)/([0-9]+)', url)
+  if(None != d):
+    return [ d.group(1), d.group(2) ]
+  else:
+    return [ None, None ]
+	
+####################################################################################################
+def TestURLs():
+  test_urls = []
+
+  data = XML.ElementFromURL('http://www.zdf.de/ZDFmediathek/xmlservice/web/meistGesehen?id=_GLOBAL&maxLength=10&offset=0')
+
+  for link in data.xpath('//teaser[type="video"]/details/vcmsUrl/text()'):
+    if len(test_urls) < 3:
+      if link not in test_urls:
+        test_urls.append(link)
+    else:
+      break
+
+  return test_urls
+  

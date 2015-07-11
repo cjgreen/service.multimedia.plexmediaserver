@@ -1,0 +1,52 @@
+/* Status label value for when there is one musical artist */
+"1 artist" = "artisti";
+
+/* Status for list of episodes when there is one
+   Subtitle for a season thumbnail on a TV Show detail view */
+"1 episode" = "jakso";
+
+/* Status label value for unknown type for when there is one */
+"1 item" = "osio";
+
+/* Status label value for when there is one movie */
+"1 movie" = "elokuva";
+
+/* Status label value for when there is one photo */
+"1 photo" = "valokuva";
+
+/* Subtitle for a album thumbnail on an artist detail view */
+"1 track" = "kappale";
+
+/* Status label for when there is one track in an album (e.g. 1 track, 4:28 total time, 5.6 MB) */
+"1 track, %@ total time, %@" = "1 kappale, %@ kokonaisaika, %@";
+
+/* Status label value for when there is one TV show */
+"1 TV show" = "TV sarja";
+
+/* First-run help item */
+"> Add posters, custom genres and more" = "Lisää juliste, kustoomi laji ja lisää";
+
+/* First-run help item */
+"> Album reviews" = "> Albumi arvostelut";
+
+/* First-run title for adding home movies */
+"Add Home Movies Section" = "Lisää Kotielokuvat sektio";
+
+/* First-run title for adding movies */
+"Add Movies Section" = "Lisää Elokuvat sektio";
+
+/* First-run title for adding music */
+"Add Music Section" = "Lisää Musiikki sektio";
+
+/* Add section confirm button text */
+"Add Section" = "Lisää sektio";
+
+/* First-run title for adding TV shows */
+"Add TV Shows Section" = "Lisää TV Sarjat sektio";
+
+/* A recording album */
+"album" = "albumi";
+
+/* Agent settings title for music albums */
+"ALBUMS" = "ALBUMIT";
+

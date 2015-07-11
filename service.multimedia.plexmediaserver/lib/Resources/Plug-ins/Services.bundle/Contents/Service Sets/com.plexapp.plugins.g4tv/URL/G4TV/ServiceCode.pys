@@ -1,0 +1,107 @@
+XML_URL = 'http://www.g4tv.com/xml/BroadbandPlayerService.asmx/GetEmbeddedVideo?videoKey=%s&strPlaylist=&playLargeVideo=true&excludedVideoKeys=&playlistType=normal&maxPlaylistSize=1&cb=1288569'
+HD_XML_URL = 'http://www.g4tv.com/xml/BroadbandPlayerService.asmx/GetEmbeddedHdVideo?videoKey=%s&strPlaylist=&playLargeVideo=true&excludedVideoKeys=&playlistType=normal&maxPlaylistSize=1&cb=1288569'
+XML_NS = {'a': 'http://www.g4tv.com/'}
+
+RE_VID_ID = Regex('/(\d+?)/')
+
+####################################################################################################
+def NormalizeURL(url):
+  return url
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+  data = GetXML(url)
+
+  if not data:
+    return None
+
+  clip_title = data.xpath('//a:Title', namespaces=XML_NS)[0].text
+  clip_summary = data.xpath('//a:Description', namespaces=XML_NS)[0].text
+  date = data.xpath('//a:Date', namespaces=XML_NS)[0].text
+  thumb_url = data.xpath('//a:LargeImage', namespaces=XML_NS)[0].text
+  duration = data.xpath('//a:Duration', namespaces=XML_NS)[0].text
+  duration = int(duration)*1000
+
+  # Construct a metadata item
+  vc = VideoClipObject(
+    title = clip_title,
+    originally_available_at = Datetime.ParseDate(date).date(),
+    summary = clip_summary,
+    thumb = thumb_url,
+    duration = duration
+  )
+
+  return vc
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+  return [
+    MediaObject(
+      parts = [PartObject(key=Callback(PlayVideo, url=url, HD=True))],
+      container = 'flv',
+      video_resolution = '540',
+      #aspect_ratio = '1.78',
+      bitrate = '2000',
+      video_codec = VideoCodec.VP6,
+      audio_codec = AudioCodec.MP3
+    ),
+    MediaObject(
+      parts = [PartObject(key=Callback(PlayVideo, url=url, HD=False))],
+      container = 'flv',
+      video_resolution = 'sd',
+      #aspect_ratio = '1.33',
+      bitrate = '704',
+      video_codec = VideoCodec.VP6,
+      audio_codec = AudioCodec.MP3
+    )
+  ]
+
+####################################################################################################
+def PlayVideo(url, HD=False):
+
+  data = GetXML(url)
+
+  if not data:
+    return None
+
+  video_url = data.xpath('//a:FilePath', namespaces=XML_NS)[0].text
+  video_url = String.Unquote(video_url.split('r=')[1])
+
+  if HD:
+    try:
+      data = HTML.ElementFromURL(HD_XML_URL % video_id, cacheTime=7200)
+      video_url = data.xpath('//a:FilePath, namespaces=XML_NS')[0].text
+      video_url= String.Unquote(video_url.split('r=')[1])
+    except:
+      pass
+
+  return Redirect(video_url)
+
+####################################################################################################
+def GetXML(url):
+
+  video_id = None
+
+  re_video_id = RE_VID_ID.search(url)
+
+  if re_video_id:
+    video_id = re_video_id.group(1)
+  else:
+    video_page = HTML.ElementFromURL(url, cacheTime=7200)
+    xp_video_id = video_page.xpath('//div[@class="video-player-wrap"]')
+
+    if xp_video_id:
+      video_id = xp_video_id[0].get('id').split('_')[1]
+
+  if video_id:
+    try:
+      data = XML.ElementFromURL(XML_URL % video_id, cacheTime=7200)
+
+      if data.xpath('//a:BroadbandPlayer', namespaces=XML_NS)[0].get("Status") == "Success":
+        return data
+    except:
+      pass
+
+  return None

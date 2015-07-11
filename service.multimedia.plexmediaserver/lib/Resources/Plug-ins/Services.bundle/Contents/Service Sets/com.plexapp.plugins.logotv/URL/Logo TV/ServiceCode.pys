@@ -1,0 +1,135 @@
+NAMESPACES = {"media":"http://search.yahoo.com/mrss/"}
+MRSS_URL = "http://www.logotv.com/player/includes/rss.jhtml?uri=%s"
+
+URI_FORMAT = 'mgid:uma:%s:mtv.com:%s'
+RE_URI = Regex('MTVN.Player.(?:episode|video)Uri = \"(.+?)\"')
+RE_URI2 = Regex("MTVN.VIDEO.contentUri = \'(.+?)\';")
+RE_PLAYLIST = Regex('MTVN.Player.defaultPlaylistId = (\d{7})')
+
+RE_RES_BIT = Regex('x(\d+)_(\d+)_?[^._]*\.(mp4|flv)')
+
+MediaObject.audio_channels = 2
+MediaObject.optimized_for_streaming = True
+####################################################################################################
+def NormalizeURL(url):
+
+	return url.split('#')[0]
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+    data = GetRSS(url)
+    title = data.xpath('//title')[0].text
+
+    try: summary = data.xpath('//description')[0].text
+    except: summary = None
+
+    # The thumb is in item vs the main content in the xml files
+    thumb = data.xpath('//item/image//@url')[0]
+    date = Datetime.ParseDate(data.xpath('//pubDate')[0].text).date()
+
+    return VideoClipObject(
+        title = title,
+        summary = summary,
+        thumb = Resource.ContentsOfURLWithFallback(url=thumb),
+        originally_available_at = date
+    )
+
+####################################################################################################
+@deferred
+def MediaObjectsForURL(url):
+
+    mrss_data = GetRSS(url)
+    media_urls = mrss_data.xpath('//media:content[@medium="video"]/@url', namespaces=NAMESPACES)
+    available_streams = {}
+        
+    for media_url in media_urls:
+        try:
+            video_data = XML.ElementFromURL(media_url, cacheTime=CACHE_1HOUR)
+        except:
+            raise Ex.MediaNotAvailable
+
+        renditions = video_data.xpath('//rendition')
+
+        if len(renditions) < 1:
+            raise Ex.MediaNotAvailable
+
+        for rendition in renditions:
+            rtmp_url = rendition.xpath('./src/text()')[0]
+            # For video with incorrect fields, try to get the bitrate and height from the rtmp url first
+            # Found one that was different, adjusted regex, but still best to put in a try/except
+            try: bitrate = RE_RES_BIT.search(rtmp_url).group(2)
+            except: bitrate = rendition.get('bitrate')
+            try: height = RE_RES_BIT.search(rtmp_url).group(1)
+            except: height = rendition.get('height')
+
+            # Set up to pull the type of video file so that it can work with flv or mp4
+            part = {}
+            part['duration'] = rendition.get('duration')
+            part['height'] = height
+            part['rtmp_url'] = rtmp_url.split('/viacomlogostrm/')[-1]
+            part['clip_type'] = rtmp_url.split('.')[-1]
+
+            if bitrate not in available_streams:
+                available_streams[bitrate] = []
+            available_streams[bitrate].append(part)
+
+    media_objects = []
+    bitrates = [int(i) for i in available_streams.keys()]
+    bitrates.sort(reverse=True)
+
+    for bitrate in bitrates:
+
+        parts = []
+
+        for part in available_streams[str(bitrate)]:
+
+            parts.append(
+                PartObject(
+                    key = RTMPVideoURL(
+                        url='rtmpe://viacommtvstrmfs.fplive.net:1935/viacommtvstrm/',
+                        clip='%s:%s' % (part['clip_type'], part['rtmp_url'])
+                    ),
+                    duration = int(part['duration'])*1000
+                )
+            )
+
+            video_resolution = int(part['height'])
+
+        media_objects.append(
+            MediaObject(
+                parts = parts,
+                bitrate = bitrate,
+                video_resolution = video_resolution
+            )
+        )
+
+    return media_objects
+
+####################################################################################################
+# Pull the uri from the html of video page. 
+# We no longer use the mgid number in the url since the length no longer determines if is it a video or videolist type of uri. 
+def GetRSS(url):
+
+    # The uri may not show that it is part of a video clip playlist, so we check for a playlist id on the page first.
+    content = HTTP.Request(url).content
+    try: mgid_num = RE_PLAYLIST.search(content).group(1)
+    except: mgid_num = None
+    if mgid_num:
+        # if there is a playlist id, build a videolist type uri
+        uri = URI_FORMAT %('videolist', mgid_num)
+    else:
+        # Pull the uri from the web page
+        content = HTTP.Request(url).content
+        try:
+            uri = RE_URI.search(content).group(1)
+        except:
+            try: uri = RE_URI2.search(content).group(1)
+            except: raise Ex.MediaNotAvailable
+
+    xml = XML.ElementFromURL(MRSS_URL % uri)
+
+    if len(xml.xpath('//media:content[@medium="video"]', namespaces=NAMESPACES)) < 1:
+        raise Ex.MediaNotAvailable
+    else:
+        return xml

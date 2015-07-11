@@ -1,0 +1,126 @@
+BASE_URL = 'http://www.4tube.com'
+VIDEOS_URL = 'http://tkn.4tube.com/%s/desktop/%s'
+RE_MEDIA_ID = Regex('\}\)\((\d+), \d+, \[(.+?)\]\);')
+
+####################################################################################################
+def NormalizeURL(url):
+
+	url = url.split('?')[0].rstrip('/')
+	url = 'http://www.4tube.com/%s' % url.split('4tube.com/')[1]
+
+	return url
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	try:
+		html = HTML.ElementFromURL(url, follow_redirects=False)
+	except Ex.RedirectError, e:
+		raise Ex.MediaExpired
+	except:
+		raise Ex.MediaNotAvailable
+
+	video = html.xpath('//div[@itemtype="http://schema.org/VideoObject"]')
+
+	if len(video) < 1:
+		raise Ex.MediaNotAvailable
+
+	title = video[0].xpath('.//meta[@itemprop="name"]/@content')[0]
+	thumb = video[0].xpath('.//meta[@itemprop="image"]/@content')[0]
+
+	date = video[0].xpath('.//meta[@itemprop="dateCreated"]/@content')[0]
+	originally_available_at = Datetime.ParseDate(date).date()
+
+	duration = video[0].xpath('.//meta[@itemprop="duration"]/@content')[0]
+	duration = duration.replace('PT', '').replace('H', ':').replace('M', ':').replace('S', '')
+	duration = Datetime.MillisecondsFromString(duration)
+
+	return VideoClipObject(
+		title = title,
+		thumb = thumb,
+		originally_available_at = originally_available_at,
+		duration = duration,
+		genres = ['XXX','Adult','18+'],
+		content_rating = 'X'
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, res=1080))],
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			video_resolution = '1080',
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True
+		),
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, res=720))],
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			video_resolution = '720',
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True
+		),
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url, res=480))],
+			container = Container.MP4,
+			video_codec = VideoCodec.H264,
+			video_resolution = '480',
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2,
+			optimized_for_streaming = True
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url, res=1080):
+
+	try:
+		data = HTTP.Request(url, follow_redirects=False).content
+	except Ex.RedirectError, e:
+		raise Ex.MediaExpired
+	except:
+		raise Ex.MediaNotAvailable
+
+	mid = RE_MEDIA_ID.search(data)
+	if not mid:
+		raise Ex.MediaNotAvailable
+
+	(media_id, qualities) = mid.groups()
+
+	videos_url = VIDEOS_URL % (media_id, '+'.join(qualities.split(',')))
+
+	json_obj = JSON.ObjectFromURL(videos_url, headers={'Origin': 'http://www.4tube.com'}, method='POST')
+	available_versions = json_obj.keys()
+
+	if len(available_versions) < 1:
+		raise Ex.MediaNotAvailable
+
+	closest = min((abs(res - int(i)), int(i)) for i in available_versions)[1]
+	video_url = json_obj[str(closest)]['token']
+
+	return IndirectResponse(VideoClipObject, key=video_url)
+
+####################################################################################################
+def TestURLs():
+
+	test_urls = []
+	urls = HTML.ElementFromURL('http://www.4tube.com/').xpath('//a[contains(@href, "/videos/")]/@href')
+
+	for url in urls:
+		if not url.startswith('http://'):
+			url = '%s%s' % (BASE_URL, url)
+
+		if url not in test_urls:
+			test_urls.append(url)
+
+		if len(test_urls) >= 3:
+			break
+
+	return test_urls

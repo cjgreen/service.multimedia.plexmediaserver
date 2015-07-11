@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URL</key>
+	<dict>
+		<key>G4TV</key>
+		<dict>
+			<key>TestURLs</key>
+			<array>
+				<string>http://www.g4tv.com/videos/54455/twisted-metal-gameplay-preview/?quality=hd</string>
+				<string>http://www.g4tv.com/thefeed/blog/post/714853/gaming-through-history-sesslers-soapbox/</string>
+				<string>http://g4tv.com/videos/44277/dice-2010-design-outside-the-box-presentation/</string>
+			</array>
+			<key>URLPatterns</key>
+			<array>
+				<string>^http://(www\.)?g4tv.com/.+</string>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

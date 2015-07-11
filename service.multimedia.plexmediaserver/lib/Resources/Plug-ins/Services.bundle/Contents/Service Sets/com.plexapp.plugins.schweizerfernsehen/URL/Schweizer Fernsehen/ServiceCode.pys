@@ -1,0 +1,59 @@
+ID_REGEX = Regex('/video/.*\?id=([^;]+)')
+
+DETAILS_URL = 'http://www.srf.ch/webservice/cvis/segment/%s/.json?nohttperr=1;omit_video_segments_validity=1;omit_related_segments=1;nearline_data=1'
+THUMB_URL = 'http://www.srf.ch/webservice/cvis/videogroup/thumbnail/%s?width=500'
+SF_SWF_URL = 'http://www.srf.ch/player/flash/srfplayer.swf'
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	id = ID_REGEX.findall(url)[0]
+	details = GetDetails(id)
+
+	return VideoClipObject(
+		title = details['video']['description_title'],
+		summary = details['description_lead'],
+		thumb = THUMB_URL % details['video']['video_group']['uuid'],
+		originally_available_at = Datetime.ParseDate(details['time_published'])
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			parts = [PartObject(key=HTTPLiveStreamURL(Callback(PlayVideo, url=url)))],
+			video_resolution = '720',
+			audio_channels = 2
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url):
+
+	id = ID_REGEX.findall(url)[0]
+	details = GetDetails(id)
+
+	playlists = details["playlists"]["playlist"] if 'playlist' in details["playlists"] else []
+	if len(playlists) == 0:
+		if 'geoblock' in details['flags']:
+			raise Ex.MediaGeoblocked
+		else:
+			raise Ex.MediaNotAvailable
+
+	if isinstance(playlists, dict):
+		stream_url = playlists['url']
+	else:
+		stream_url = filter(lambda x: x["streaming"]=="hls", details["playlists"]["playlist"])[0]['url']
+
+	return IndirectResponse(VideoClipObject, key=HTTPLiveStreamURL(url = stream_url))
+
+####################################################################################################
+def GetDetails(id):
+
+	contents = HTTP.Request(DETAILS_URL % id).content
+	start = contents.find('{')
+	end = contents.rfind('}') +1
+
+	return JSON.ObjectFromString(contents[start:end])

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>&gt; Add posters, custom genres and more</key>
+	<string>&gt; Позволяет добавить описание, обложки и многое другое</string>
+	<key>&gt; Album reviews</key>
+	<string>&gt; Информация об альбоме, включая рецензии</string>
+	<key>&gt; Artist biographies and artwork</key>
+	<string>&gt; Биография исполнителей, обложки дисков</string>
+	<key>&gt; Automatic theme music for TV shows</key>
+	<string>&gt; Музыкальная тема</string>
+	<key>&gt; Customize every detail of each movie</key>
+	<string>&gt; Дополнительная информация о каждом фильме</string>
+	<key>&gt; Great for your personal media</key>
+	<string>&gt; Максимально удобен для личного архива</string>
+	<key>&gt; Movie posters and art</key>
+	<string>&gt; Выбор постеров и изображений</string>
+	<key>&gt; Organize movies into collections</key>
+	<string>&gt; Организация личной коллекции</string>
+	<key>&gt; TV show posters and art</key>
+	<string>&gt; Постеры и фотографии</string>
+	<key>&gt; Thumbnails for every episode</key>
+	<string>&gt; Превью к каждому эпизоду/выпуску</string>
+	<key>ALBUMS</key>
+	<string>АЛЬБОМЫ</string>
+	<key>Add Home Movies Section</key>
+	<string>Создать раздел домашнего видео</string>
+	<key>Add Movies Section</key>
+	<string>Создать раздел фильмов</string>
+	<key>Add Music Section</key>
+	<string>Создать раздел музыки</string>
+	<key>Add TV Shows Section</key>
+	<string>Создать раздел ТВ-шоу и сериалов</string>
+	<key>Add the folders containing media for this section below. Any media files found inside these folders will be scanned into your library using the above settings.</key>
+	<string>Добавьте папку с медиа файлами соответствующего типа. Найденные в папке эелементы будут добавлены в Вашу медиатеку в соответствии с выбранными выше настройками.</string>
+	<key>Advanced</key>
+	<string>Расширенные</string>
+	<key>Agents</key>
+	<string>Агенты</string>
+	<key>Allow clients to delete media</key>
+	<string>Разрешить удаление файлов с клиентстких устройств</string>
+	<key>Always enabled</key>
+	<string>Всегда включены</string>
+	<key>Are you sure you want to disable secure access to your server?</key>
+	<string>Вы действительно хотите отключить опцию «Безопасный доступ» к серверу?</string>
+	<key>Cancel</key>
+	<string>Отмена</string>
+	<key>Capability checking ensures that plug-ins that are incompatible with this version of the server or the current client application you are using are hidden. Disabling capability checking is useful during development, but will enable access to plug-ins that may perform unreliably with certain client applications.</key>
+	<string>Проверка совместимости гарантирует, что плагины, которые несовместимы с текущей версией сервера или клиентского приложения, не будут отображаться. 
+Отключение проверки может привести к нестабильной работе некоторых плагинов с рядом клиентских приложений.</string>
+	<key>Change Password</key>
+	<string>Сменить пароль</string>
+	<key>Change Username</key>
+	<string>Сменить имя пользователя</string>
+	<key>Choose Background Art</key>
+	<string>Выбрать фоновое изображение</string>
+	<key>Choose Icon</key>
+	<string>Выбрать иконку</string>
+	<key>Click the titles below to create library sections for your media and have it served to your Plex-enabled devices.</key>
+	<string>Нажмите любой из заголовков ниже, чтобы создать соответствующий раздел медиатеки и сделать его доступным для Plex-совместимых устройств.</string>
+	<key>Clients will have the ability to request deletion of media files from the hard drive.</key>
+	<string>Опция позволяет пользователям удалять медиафайлы с жесткого диска.</string>
+	<key>Collections</key>
+	<string>Коллекции</string>
+	<key>Collections...</key>
+	<string>Коллекции...</string>
+	<key>Content Rating</key>
+	<string>Возрастной рейтинг</string>
+	<key>Custom Search</key>
+	<string>Исправить вручную</string>
+	<key>Customize Section</key>
+	<string>Кастомизация</string>
+	<key>Directors</key>
+	<string>Режиссеры</string>
+	<key>Disable Secure Access</key>
+	<string>Отключить Безопасный доступ</string>
+	<key>Disable capability checking</key>
+	<string>Отключить проверку совместимости</string>
+	<key>Done</key>
+	<string>Выполнить</string>
+	<key>Drag folders into the list, or click the '+' button to browse.</key>
+	<string>Перетащите папку в список или Нажмите «+» для просмотра.</string>
+	<key>Edit Metadata</key>
+	<string>Редактировать метаданные</string>
+	<key>Edit Metadata...</key>
+	<string>Редактировать метаданные...</string>
+	<key>Edit Section</key>
+	<string>Редактировать раздел</string>
+	<key>Empty Trash</key>
+	<string>Очистить корзину</string>
+	<key>Empty trash automatically after every scan</key>
+	<string>Очищать корзину автоматически после каждого сканирования</string>
+	<key>Enable</key>
+	<string>Включить</string>
+	<key>Enable DTS mix-down for Media Link clients</key>
+	<string>Включить функцию преобразования DTS для клиентов Media Link</string>
+	<key>Enable Secure Access</key>
+	<string>Включить Безопасный доступ</string>
+	<key>Enter a password to enable secure access to your server:</key>
+	<string>Введите пароль чтобы включить опцию «Безопасный доступ» к серверу:</string>
+	<key>Fix Incorrect Match...</key>
+	<string>Исправить неправильное сопоставление...</string>
+	<key>Fix incorrect match</key>
+	<string>Исправить неправильное сопоставление</string>
+	<key>Friendly name:</key>
+	<string>Имя:</string>
+	<key>General</key>
+	<string>Общие</string>
+	<key>Genres</key>
+	<string>Жанры</string>
+	<key>If you want to share your media over the Internet, you can turn on Secure Server Access to prevent unauthorized access to your server.</key>
+	<string>Позволяет предотвратить несанкционированный доступ к серверу при организации доступа к медиатеке через Интернет.</string>
+	<key>Include music sections in automatic updates</key>
+	<string>Выполнять автоматическое сканирование для разделов содержащих музыку</string>
+	<key>LIBRARY SECTIONS</key>
+	<string>РАЗДЕЛЫ МЕДИАТЕКИ</string>
+	<key>Language:</key>
+	<string>Язык:</string>
+	<key>Languages</key>
+	<string>Языки</string>
+	<key>Large music sections may take a long time to scan</key>
+	<string>Большое число аудиофайлов может увеличить время сканирования</string>
+	<key>Last refreshed %@ at %@</key>
+	<string>Последнее обновление %@ в %@</string>
+	<key>Library</key>
+	<string>Медиатека</string>
+	<key>MOVIES</key>
+	<string>ФИЛЬМЫ</string>
+	<key>Manual Entry</key>
+	<string>Указать  вручную (or “Вручную”)</string>
+	<key>Manually selected</key>
+	<string>Выбирать вручную</string>
+	<key>Match Using</key>
+	<string>Сопоставить используя</string>
+	<key>Media Link does not support DTS audio in certain regions. The Plex Media Server can automatically convert DTS to stereo so that it will play.</key>
+	<string>Media Link не поддерживает звуковую дорожку формата DTS в некоторых регионах. Plex Media Server способен автоматически конвертировать звук DTS в стерео формат для дальнейшего воспроизведения.</string>
+	<key>Media scanner:</key>
+	<string>Сканер медиа:</string>
+	<key>Movies</key>
+	<string>Фильмы</string>
+	<key>Music</key>
+	<string>Музыка</string>
+	<key>My Movies</key>
+	<string>Мои фильмы</string>
+	<key>My Music</key>
+	<string>Моя музыка</string>
+	<key>My TV Shows</key>
+	<string>Мои ТВ-шоу и сериалы</string>
+	<key>Name</key>
+	<string>Название</string>
+	<key>Name:</key>
+	<string>Название:</string>
+	<key>OK</key>
+	<string>OK</string>
+	<key>Offer higher bitrates over 3G connections</key>
+	<string>Предлагать более высокий битрейт при 3G соединении</string>
+	<key>Original Title</key>
+	<string>Оригинальное название</string>
+	<key>Originally Available</key>
+	<string>Дата премьеры</string>
+	<key>PHOTOS</key>
+	<string>ФОТО</string>
+	<key>Password</key>
+	<string>Пароль</string>
+	<key>Password:</key>
+	<string>Пароль:</string>
+	<key>Path of the directory you'd like to add:</key>
+	<string>Укажите путь к папке, которую хотите добавить:</string>
+	<key>Photos</key>
+	<string>Фото</string>
+	<key>Prefer audio tracks in:</key>
+	<string>Язык основной аудиодорожки:</string>
+	<key>Prefer subtitles in:</key>
+	<string>Основной язык субтитров:</string>
+	<key>Preferences</key>
+	<string>Настройки</string>
+	<key>Primary metadata agent:</key>
+	<string>Основной агент метаданных:</string>
+	<key>Rating</key>
+	<string>Рейтинг</string>
+	<key>Refresh Metadata</key>
+	<string>Обновить метаданные</string>
+	<key>Save</key>
+	<string>Сохранить</string>
+	<key>Search</key>
+	<string>Искать</string>
+	<key>Search using:</key>
+	<string>Искать с помощью:</string>
+	<key>Section name:</key>
+	<string>Название раздела:</string>
+	<key>Section type:</key>
+	<string>Тип раздела:</string>
+	<key>Secure Server Access</key>
+	<string>Безопасный доступ к серверу</string>
+	<key>Security</key>
+	<string>Безопасность</string>
+	<key>Select</key>
+	<string>Выбрать</string>
+	<key>Select %@</key>
+	<string>Выбрать %@</string>
+	<key>Select Folder</key>
+	<string>Выбрать папку</string>
+	<key>Select a directory for this section:</key>
+	<string>Выберите папку для со для данного раздела:</string>
+	<key>Select the correct TV show from the list below:</key>
+	<string>Выберите корректное название из списка:</string>
+	<key>Select which additional agents should contribute to metadata from %@, and drag them to change the order of preference.</key>
+	<string>Выберите дополнительный агент для сбора метаданных Чтобы изменить порядок предпочтения, перетащите соответствующий элемент списка.</string>
+	<key>Send anonymous usage data to Plex</key>
+	<string>Отправить в Plex анонимый отчет об использовании данных</string>
+	<key>Shown with foreign audio</key>
+	<string>Выводить с иностранной аудиодорожкой</string>
+	<key>Studio</key>
+	<string>Студия</string>
+	<key>Subtitle mode:</key>
+	<string>Режим субтитров:</string>
+	<key>Summary</key>
+	<string>Аннотация</string>
+	<key>TV SHOWS</key>
+	<string>ТВ ШОУ И СЕРИАЛЫ</string>
+	<key>TV Shows</key>
+	<string>ТВ шоу и сериалы</string>
+	<key>Tagline</key>
+	<string>Слоган</string>
+	<key>This helps us improve your experience (for example, to help us match movies and TV shows).</key>
+	<string>Передаваемые сведения помогут улучшить сервис (например, улучшить качество распознавания фильмов или телепередач).</string>
+	<key>This name will be used to identify this media server to other computers on your network. If you leave it blank, your computer's name will be used instead.</key>
+	<string>Это имя будет использоваться в качестве идентификатора медиасервера для остальных устройств вашей домашней сети. Оставьте поле пустым, чтобы использовать для идентификации имя вашего компьютера.</string>
+	<key>Title</key>
+	<string>Название</string>
+	<key>Transcoding</key>
+	<string>Транскодирование</string>
+	<key>Turning off secure server access will allow incoming connections from any computer.</key>
+	<string>Выключение Безопасного доступа разрешит входящие подключения с любого компьютера.</string>
+	<key>Unmatch</key>
+	<string>Убрать сопоставление</string>
+	<key>Update Section</key>
+	<string>Обновить раздел</string>
+	<key>Update my library</key>
+	<string>Обновлять медиатеку</string>
+	<key>Update my library when changes to my folders are detected</key>
+	<string>Обновить медиатеку при обнаружении изменений в моих папках</string>
+	<key>Username</key>
+	<string>Имя пользователя</string>
+	<key>Username:</key>
+	<string>Имя пользователя:</string>
+	<key>Verify:</key>
+	<string>Подтверждение:</string>
+	<key>Writers</key>
+	<string>Авторы</string>
+	<key>Year</key>
+	<string>Год</string>
+	<key>Year:</key>
+	<string>Год:</string>
+	<key>daily</key>
+	<string>ежедневно</string>
+	<key>every 12 hours</key>
+	<string>каждые 12 часов</string>
+	<key>every 15 minutes</key>
+	<string>каждые 15 минут</string>
+	<key>every 2 hours</key>
+	<string>каждые 2 часа</string>
+	<key>every 30 minutes</key>
+	<string>каждые 30 минут</string>
+	<key>every 6 hours</key>
+	<string>каждые 6 часов</string>
+	<key>hourly</key>
+	<string>каждый час</string>
+	<key>no movies</key>
+	<string>нет фильмов</string>
+</dict>
+</plist>

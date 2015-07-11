@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>%@, Episode %d</key>
+	<string>%1$@, Story %2$d</string>
+	<key>%d TV shows</key>
+	<string>%d troupes</string>
+	<key>%d artists</key>
+	<string>%d arrrtists</string>
+	<key>%d episodes</key>
+	<string>%d stories</string>
+	<key>%d movies</key>
+	<string>%d long stories</string>
+	<key>%d tracks</key>
+	<string>%d ditties</string>
+	<key>%d tracks, %@ total time, %@</key>
+	<string>%1$d ditties, %2$@ 'till yer done, %3$@</string>
+	<key>%d:%02d %@</key>
+	<string>%1$d:%2$02d %3$@</string>
+	<key>1 TV show</key>
+	<string>1 troupes</string>
+	<key>1 artist</key>
+	<string>1 arrrtist</string>
+	<key>1 episode</key>
+	<string>1 story</string>
+	<key>1 movie</key>
+	<string>1 long story</string>
+	<key>1 track</key>
+	<string>1 ditty</string>
+	<key>1 track, %@ total time, %@</key>
+	<string>1 ditty, %1$@ 'till yer done, %2$@</string>
+	<key>&gt; Add posters, custom genres and more</key>
+	<string>&gt; More portraits, tailored genres and more</string>
+	<key>&gt; Album reviews</key>
+	<string>&gt; Album reviews</string>
+	<key>&gt; Artist biographies and artwork</key>
+	<string>&gt; Arrrtist biographies and paint</string>
+	<key>&gt; Automatic theme music for TV shows</key>
+	<string>&gt; Troupe ditties play like magic</string>
+	<key>&gt; Customize every detail of each movie</key>
+	<string>&gt; Fix up yer long stories with spit &amp; polish</string>
+	<key>&gt; Great for your personal media</key>
+	<string>&gt; Tell yer own stories</string>
+	<key>&gt; Movie posters and art</key>
+	<string>&gt; Portraits and murals</string>
+	<key>&gt; Organize movies into collections</key>
+	<string>&gt; Split the booty into lovely groups</string>
+	<key>&gt; TV show posters and art</key>
+	<string>&gt; Troupe portraits and murals</string>
+	<key>&gt; Thumbnails for every episode</key>
+	<string>&gt; Tiny portraits for yer stories</string>
+	<key>AM</key>
+	<string>o' the morn</string>
+	<key>Add Home Movies Section</key>
+	<string>Tell yer own stories</string>
+	<key>Add Movies Section</key>
+	<string>Tell the long stories of the world</string>
+	<key>Add Music Section</key>
+	<string>Ditties for yer ears</string>
+	<key>Add Section</key>
+	<string>Be it so!</string>
+	<key>Add TV Shows Section</key>
+	<string>Yer favorite troupes</string>
+	<key>Add the folders containing media for this section below. Any media files found inside these folders will be scanned into your library using the above settings.</key>
+	<string>Tell us where ye keep yer booty that we may plunder it!</string>
+	<key>Advanced</key>
+	<string>Skilled</string>
+	<key>All deleted items will be permanently removed from your library. No files on your computer will be removed.</key>
+	<string>All yer missing booty be joinin' Davey Jones if ye agree, but yer files shant be hurt.</string>
+	<key>Always enabled</key>
+	<string>Always be showin' 'em</string>
+	<key>Any content in this section will no longer be available in your library. The files on your computer will not be removed.</key>
+	<string>Yer booty will be buried and hidden from the view of man and the gods!</string>
+	<key>Aperture Sharing Enabled</key>
+	<string>Let Aperture be seen</string>
+	<key>Are you sure you want to disable secure access to your server?</key>
+	<string>Ye be sure ye want them scurvy scum to be let in without a password?</string>
+	<key>Are you sure you want to empty the trash in "%@"?</key>
+	<string>Throw the wastes of "%@" overboard?</string>
+	<key>Are you sure you want to remove the section named "%@"?</key>
+	<string>Forever hide your booty in "%@"?</string>
+	<key>Artist</key>
+	<string>Arrrtist</string>
+	<key>Authenticate</key>
+	<string>Authenticate</string>
+	<key>Authentication Required</key>
+	<string>Authentication Required</string>
+	<key>Cancel</key>
+	<string>Belay that!</string>
+	<key>Capability checking ensures that plug-ins that are incompatible with this version of the server or the current client application you are using are hidden. Disabling capability checking is useful during development, but will enable access to plug-ins that may perform unreliably with certain client applications.</key>
+	<string>Yer plug-ins will be shown, no matter the cost, no matter whether they'll work. Ye developers can use this to check yer codes. But beware, here be tigers.</string>
+	<key>Change</key>
+	<string>Change</string>
+	<key>Change Artwork</key>
+	<string>Change Portraits</string>
+	<key>Change Password</key>
+	<string>Change Password</string>
+	<key>Change Username</key>
+	<string>Change Username</string>
+	<key>Change your username, and enter your password to authenticate.</key>
+	<string>Change what yer called, and enter yer password to bind it.</string>
+	<key>Choose Album Thumbnail</key>
+	<string>Choose Musical Story Portrait</string>
+	<key>Choose Background Art</key>
+	<string>Choose Mural</string>
+	<key>Choose Banner</key>
+	<string>Choose Horizon Portrait</string>
+	<key>Choose Episode Thumbnail</key>
+	<string>Choose Story Portrait</string>
+	<key>Choose Icon</key>
+	<string>Choose Emblem</string>
+	<key>Choose Poster</key>
+	<string>Choose Portrait</string>
+	<key>Choose Season Thumbnail</key>
+	<string>Choose Season Portrait</string>
+	<key>Click the titles below to create library sections for your media and have it served to your Plex-enabled devices.</key>
+	<string>Choose well yer booty to be puttin' on display, be it on yer wall portrait or pocket portrait.</string>
+	<key>Collections</key>
+	<string>Collections</string>
+	<key>Connecting to Plex Media Server failed with this error: %@.
+
+Are you sure it's running?</key>
+	<string>Plex Media Server has gone to sleep with the fishes, or mayhap we have: %@</string>
+	<key>Content Rating</key>
+	<string>Allowed personages</string>
+	<key>Current Password:</key>
+	<string>Current Password:</string>
+	<key>Custom Search</key>
+	<string>Telescope Findin'</string>
+	<key>Customize Section</key>
+	<string>Have it yer way</string>
+	<key>Directors</key>
+	<string>Captains</string>
+	<key>Disable Secure Access</key>
+	<string>Disable Secure Access</string>
+	<key>Disable capability checking</key>
+	<string>Stop yer checkin'</string>
+	<key>Done</key>
+	<string>No more</string>
+	<key>Drag folders into the list, or click the '+' button to browse.</key>
+	<string>Walk yer folders off the plank into the list with the '+'.</string>
+	<key>Edit Metadata</key>
+	<string>Change yer infos</string>
+	<key>Edit Metadata...</key>
+	<string>Change yer infos...</string>
+	<key>Edit Section</key>
+	<string>Change yer infos</string>
+	<key>Empty Trash</key>
+	<string>Dump Wastes</string>
+	<key>Empty trash automatically after every scan</key>
+	<string>Dump wastes with each plunderin'</string>
+	<key>Enable</key>
+	<string>Enable</string>
+	<key>Enable DTS mix-down for Media Link clients</key>
+	<string>Employ DTS mix-down o'er Media Link</string>
+	<key>Enable Dolby® Digital during AirPlay</key>
+	<string>Employ Dolby® Digital o'er AirPlay</string>
+	<key>Enable Secure Access</key>
+	<string>Enable Secure Access</string>
+	<key>Enter a password to enable secure access to your server:</key>
+	<string>Scrawl yer password to keep out the scurvy scum:</string>
+	<key>Enter your current password to authenticate, then enter and verify your new password.</key>
+	<string>Enter yer current password, then enter twice the password of yer liking.</string>
+	<key>Episode %d: %@</key>
+	<string>Story %1$d: %2$@</string>
+	<key>Fix Incorrect Match...</key>
+	<string>That be wrong...</string>
+	<key>Fix incorrect match</key>
+	<string>That be wrong</string>
+	<key>Friday</key>
+	<string>Friday</string>
+	<key>Friendly name:</key>
+	<string>What it be called:</string>
+	<key>General</key>
+	<string>General</string>
+	<key>Genres</key>
+	<string>Genres</string>
+	<key>Got this error: %@. Are you sure Plex Media Server is running?</key>
+	<string>We've run aground: %@.</string>
+	<key>If you want to share your media over the Internet, you can turn on Secure Server Access to prevent unauthorized access to your server.</key>
+	<string>If you want to share your media over the Internet, you can turn on Secure Server Access to prevent unauthorized access to your server.</string>
+	<key>Include music sections in automatic updates</key>
+	<string>Plunder musical booty regularly</string>
+	<key>LIBRARY SECTIONS</key>
+	<string>BOOTY</string>
+	<key>Language:</key>
+	<string>Tongue:</string>
+	<key>Languages</key>
+	<string>Tongues</string>
+	<key>Large music sections may take a long time to scan</key>
+	<string>Large musical booty may keep you until ye be old</string>
+	<key>Last refreshed %@ at %@</key>
+	<string>Last refreshed %1$@ at %2$@</string>
+	<key>Library</key>
+	<string>Library</string>
+	<key>Loading metadata for '%@'</key>
+	<string>Plundering infos for '%@'</string>
+	<key>MEDIA MANAGER</key>
+	<string>BOOTY KEEPER</string>
+	<key>Manual Entry</key>
+	<string>Take the wheel</string>
+	<key>Manually selected</key>
+	<string>Shown by hand</string>
+	<key>Match Using</key>
+	<string>Match Using</string>
+	<key>Matching '%@'</key>
+	<string>Identifyin' '%@'</string>
+	<key>Media Link does not support DTS audio in certain regions. The Plex Media Server can automatically convert DTS to stereo so that it will play.</key>
+	<string>Media Link be at odds with DTS on certain seas. The PMS can translate DTS to stereo so that sound be workin'.</string>
+	<key>Media analysis on '%@'</key>
+	<string>Eyein' '%@'</string>
+	<key>Media file: </key>
+	<string>X marks it: </string>
+	<key>Media scanner:</key>
+	<string>Booty monkey:</string>
+	<key>Monday</key>
+	<string>Monday</string>
+	<key>Movie</key>
+	<string>Long Story</string>
+	<key>Movies</key>
+	<string>Long Stories</string>
+	<key>Music</key>
+	<string>Music</string>
+	<key>My Movies</key>
+	<string>Me own long stories</string>
+	<key>My Music</key>
+	<string>Me own ditties</string>
+	<key>My TV Shows</key>
+	<string>Me own stories</string>
+	<key>Name</key>
+	<string>Name</string>
+	<key>Name:</key>
+	<string>Name:</string>
+	<key>New Password:</key>
+	<string>New Password:</string>
+	<key>No Match Found</key>
+	<string>No Match Found</string>
+	<key>OK</key>
+	<string>Yar</string>
+	<key>Offer higher bitrates over 3G connections</key>
+	<string>Give 'em more pixels on the high seas of 3G</string>
+	<key>Original Title</key>
+	<string>What 'twas called</string>
+	<key>Originally Available</key>
+	<string>When 'twas known</string>
+	<key>PM</key>
+	<string>o' the eve</string>
+	<key>Password</key>
+	<string>Password</string>
+	<key>Password:</key>
+	<string>Password:</string>
+	<key>Path of the directory you'd like to add:</key>
+	<string>Where d'ye keep yer booty, matey?</string>
+	<key>Plex Media Server requires a username and password:</key>
+	<string>Plex Media Server ain't be trustin' ya:</string>
+	<key>Prefer audio tracks in:</key>
+	<string>Tongue ye speak:</string>
+	<key>Prefer subtitles in:</key>
+	<string>Tongue ye read:</string>
+	<key>Preferences</key>
+	<string>Dock</string>
+	<key>Primary metadata agent:</key>
+	<string>First mate:</string>
+	<key>Rating</key>
+	<string>Rating</string>
+	<key>Refresh Metadata</key>
+	<string>Plunder again</string>
+	<key>Refreshing info for %d items</key>
+	<string>Plundering info for %d pieces of booty</string>
+	<key>Refreshing info for one item</key>
+	<string>Plundering info for one piece of booty</string>
+	<key>Remember me on this computer</key>
+	<string>I am who I am, trouble me no more!</string>
+	<key>Remove Section</key>
+	<string>Throw overboard</string>
+	<key>Requesting metadata for '%@'</key>
+	<string>Askin' about '%@'</string>
+	<key>Saturday</key>
+	<string>Saturday</string>
+	<key>Save</key>
+	<string>So be it!</string>
+	<key>Scanning '%@'</key>
+	<string>Plundering '%@'</string>
+	<key>Search</key>
+	<string>Scour</string>
+	<key>Search using:</key>
+	<string>Scour using:</string>
+	<key>Section name:</key>
+	<string>Booty name:</string>
+	<key>Section type:</key>
+	<string>Booty type:</string>
+	<key>Secure Server Access</key>
+	<string>Secure Server Access</string>
+	<key>Security</key>
+	<string>Pirate's Code</string>
+	<key>Select</key>
+	<string>Appoint</string>
+	<key>Select %@</key>
+	<string>Appoint %@</string>
+	<key>Select Folder</key>
+	<string>Appoint Location</string>
+	<key>Select Image</key>
+	<string>Appoint Portrait</string>
+	<key>Select a directory for this section:</key>
+	<string>Mark the X for this booty:</string>
+	<key>Select the correct TV show from the list below:</key>
+	<string>Appoint the troupe being the most true:</string>
+	<key>Select the correct artist from the list below:</key>
+	<string>Appoint the arrrtist being the most true:</string>
+	<key>Select the correct movie from the list below:</key>
+	<string>Appoint the long story being the most true:</string>
+	<key>Send anonymous usage data to Plex</key>
+	<string>Let yet usage be known, but not who ye are</string>
+	<key>Sharing</key>
+	<string>Divvy</string>
+	<key>Show</key>
+	<string>Troupe</string>
+	<key>Shown with foreign audio</key>
+	<string>Only with foreign speech</string>
+	<key>Sort Title</key>
+	<string>Placement name</string>
+	<key>Studio</key>
+	<string>House of the maker</string>
+	<key>Subtitle mode:</key>
+	<string>Ye be readin':</string>
+	<key>Summary</key>
+	<string>About this tale</string>
+	<key>Sunday</key>
+	<string>Sunday</string>
+	<key>TV Shows</key>
+	<string>Troupes</string>
+	<key>Tagline</key>
+	<string>Quip</string>
+	<key>There was no acceptable match using the specified agent.</key>
+	<string>Nothin' be found by that agent, mayhap he be a lazy dog.</string>
+	<key>This helps us improve your experience (for example, to help us match movies and TV shows).</key>
+	<string>This be helping us identify yer booty with deadly precision.</string>
+	<key>This name will be used to identify this media server to other computers on your network. If you leave it blank, your computer's name will be used instead.</key>
+	<string>What to be callin' yer vessel on the open sea. Without a name, we'll use the name of yer computer.</string>
+	<key>This site does not support Internet Explorer. For the best experience, click here to install Google Chrome Frame.</key>
+	<string>Internet Explorer is a landlubber. Ye best be sailing a ship meant for the open sea, so make yer mark here to get aboard Google Chrome Frame.</string>
+	<key>Thursday</key>
+	<string>Thursday</string>
+	<key>Title</key>
+	<string>What 'tis called</string>
+	<key>Transcoding</key>
+	<string>Transmogrifying</string>
+	<key>Tuesday</key>
+	<string>Tuesday</string>
+	<key>Turning off secure server access will allow incoming connections from any computer.</key>
+	<string>Yer port'll be open to all who travel on the 'lectric seaways.</string>
+	<key>Unable to connect to Plex Media Server</key>
+	<string>'Twere impossible to signal land</string>
+	<key>Unable to create library section</key>
+	<string>'Twere impossible to plunder yer booty</string>
+	<key>Unable to remove section "%@"</key>
+	<string>'Twere impossible to hide yer plunder "%@"</string>
+	<key>Unable to update library section</key>
+	<string>'Twere impossible to plunder yer booty again</string>
+	<key>Unmatch</key>
+	<string>Unmatch</string>
+	<key>Update Section</key>
+	<string>Plunder me booty</string>
+	<key>Update my library</key>
+	<string>Plunder me booty</string>
+	<key>Update my library when changes to my folders are detected</key>
+	<string>Plunder me booty when something begins to stir</string>
+	<key>Username</key>
+	<string>Who y'are</string>
+	<key>Username:</key>
+	<string>Username:</string>
+	<key>Verify:</key>
+	<string>Verify:</string>
+	<key>Wednesday</key>
+	<string>Wednesday</string>
+	<key>When playing video with AirPlay on an Apple TV, allow Dolby® Digital audio to play. You must go to Settings on the Apple TV and set Dolby Digital Out to "On" in the Audio &amp; Video menu.</key>
+	<string>Allow Dolby® Digital audio passage over the air to make port with an Apple TV, which must be fixed to do so.</string>
+	<key>Writers</key>
+	<string>Writers</string>
+	<key>Year</key>
+	<string>Year</string>
+	<key>Year:</key>
+	<string>Year:</string>
+	<key>album</key>
+	<string>musical story</string>
+	<key>artist</key>
+	<string>arrrtist</string>
+	<key>daily</key>
+	<string>with the sunrise</string>
+	<key>episode</key>
+	<string>story</string>
+	<key>every 12 hours</key>
+	<string>with the change of the tides</string>
+	<key>every 15 minutes</key>
+	<string>a hundred times a day</string>
+	<key>every 2 hours</key>
+	<string>with the change of lookout</string>
+	<key>every 30 minutes</key>
+	<string>fifty times a day</string>
+	<key>every 6 hours</key>
+	<string>every meal</string>
+	<key>hourly</key>
+	<string>on the chime of the hour</string>
+	<key>iPhoto Sharing Enabled</key>
+	<string>Let iPhoto be seen</string>
+	<key>iTunes Sharing Enabled</key>
+	<string>Let iTunes be seen</string>
+	<key>movie</key>
+	<string>long story</string>
+	<key>no TV shows</key>
+	<string>no troupes</string>
+	<key>no artists</key>
+	<string>no arrrtists</string>
+	<key>no episodes</key>
+	<string>no stories</string>
+	<key>no movies</key>
+	<string>no long stories</string>
+	<key>no tracks</key>
+	<string>no ditties</string>
+	<key>season</key>
+	<string>season</string>
+	<key>show</key>
+	<string>troupe</string>
+	<key>today</key>
+	<string>this day</string>
+	<key>tomorrow</key>
+	<string>the morrow</string>
+	<key>yesterday</key>
+	<string>yesterday</string>
+</dict>
+</plist>

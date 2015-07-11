@@ -1,0 +1,252 @@
+RE_CHANNEL    = Regex('http://www\.kanal([0-9]+)play\.se')
+RE_VIDEO_ID   = Regex('/video/([0-9]+)')
+RE_EP_INDEX   = Regex('Avsnitt ([0-9]+)')
+RE_SE_INDEX   = Regex('song ([0-9]+)')
+RE_PATH       = Regex('mp4:(.*)_[0-9]+')
+
+API_URL  = 'http://www.kanal%splay.se/api/getVideo?format=%s&videoId=%s&withTheme=true'
+RSS_URLS = ['http://www.kanal%splay.se/rss?type=CLIP', 'http://www.kanal%splay.se/rss?type=PROGRAM']
+
+PLATFORMS_WITH_REAL_RTMP_SUPPORT = [
+	'Plex Home Theater',
+	'iOS',
+	'MacOSX',
+	'Android',
+	'Windows',
+	'Roku',
+	'Unknown',
+	'Firefox',
+	'Internet Explorer',
+	'Opera',
+	'Safari',
+	'Chrome',
+	'OmniWeb',
+	'iCab',
+	'Konqueror',
+	'Camino',
+	'Netscape',
+	'Mozilla'
+]
+
+####################################################################################################
+def NormalizeURL(url):
+
+	if '#!' in url:
+		url = url.replace('progam#!', '')
+		url = url.replace('/play/', '')
+		url = url.split('|')[0]
+
+	return url
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	details = GetDetails(url = url, format = 'FLASH')
+
+	episode_title = details['title']
+	show_title = details['program']['name']
+	episode_summary = details['description']
+	episode_duration = int(details['length']) if 'length' in details else None
+	episode_thumb = details['posterUrl']
+
+	try: season_index = int(details['seasonNumber'])
+	except: season_index = None
+
+	try: episode_index = int(details['episodeNumber'])
+	except: episode_index = None
+
+	try: originally_available_at = Datetime.FromTimestamp(details['shownOnTvDateTimestamp']/1000)
+	except: originally_available_at = None
+
+	if "SEGMENT" in details['type'] or episode_index is None:
+		return VideoClipObject(
+			title = show_title + ' - ' + episode_title,
+			summary = episode_summary,
+			duration = episode_duration,
+			thumb = episode_thumb
+		)
+	else:
+		return EpisodeObject(
+			title = episode_title,
+			index = episode_index,
+			season = season_index,
+			show = show_title,
+			originally_available_at = originally_available_at,
+			summary = episode_summary,
+			duration = episode_duration,
+			thumb = episode_thumb
+		)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+	if Client.Platform in PLATFORMS_WITH_REAL_RTMP_SUPPORT:
+		# Use RTMP. All programs are available
+		# in this format, so even for iOS clients we prefer this.
+		return [
+			MediaObject(
+				protocol                = 'rtmp',
+				video_resolution        = 480,
+				video_codec             = VideoCodec.H264,
+				audio_codec             = AudioCodec.AAC,          
+				audio_channels          = 2,
+				optimized_for_streaming = True,
+				parts = [
+					PartObject(
+						key = Callback(PlayRTMP, url = url)
+					)
+				]
+			)
+		]
+		
+	else:
+		# Use HLS for the rest. Not all programs are available
+		# in this format, but this is the best we can do.
+		return [
+			MediaObject(
+				video_resolution        = 480,
+				audio_channels          = 2,
+				optimized_for_streaming = True,
+				parts = [
+					PartObject(
+						key = HTTPLiveStreamURL(Callback(PlayHLS, url = url))
+					)
+				]
+			)
+		]
+
+####################################################################################################
+def PlayHLS(url):
+	details = GetDetails(url, 'IPAD')
+
+	if not 'streams' in details:
+		if 'reasonsForNoStreams' in details and 'region' in details['reasonsForNoStreams'][0]:
+			raise Ex.MediaGeoblocked
+		else:
+			raise Ex.MediaNotAvailable
+
+	try:
+		hlsURL = details['streams'][0]['source']
+	except:
+		hlsURL = None
+		
+	if not hlsURL or 'm3u8' not in hlsURL:
+		details  = GetDetails(url, 'FLASH')
+		playPath = details['streams'][-1]['source']
+		hlsURL   = 'http://hls0.00607-od0.dna.qbrick.com/00607-od0/_definst_/smil:' + RE_PATH.search(playPath).groups()[0] + '_ipad/playlist.m3u8'		
+	
+	# Patch playlist so that it contains absolute URLs
+	# The Samsung client has problems with this otherwise
+	streams = GetHLSStreams(hlsURL)
+	
+	if len(streams) < 1:
+		raise Ex.MediaNotAvailable
+		
+	maxBitrateURL = streams[0]["url"]
+	path          = maxBitrateURL[ : maxBitrateURL.rfind('/') + 1]
+		
+	orgPlayList = HTTP.Request(maxBitrateURL).content
+	newPlayList = ''
+
+	for line in orgPlayList.splitlines():
+		if line.startswith("#"):
+			newPlayList = newPlayList + line + '\n'
+		else:
+			newPlayList = newPlayList + path + line + '\n'
+
+	return newPlayList
+
+####################################################################################################
+@indirect
+def PlayRTMP(url):
+	details = GetDetails(url, 'FLASH')
+
+	if not 'streams' in details:
+		if 'reasonsForNoStreams' in details and 'region' in details['reasonsForNoStreams'][0]:
+			raise Ex.MediaGeoblocked
+		else:
+			raise Ex.MediaNotAvailable
+
+	maxBitrateFound = 0
+	for stream in details['streams']:
+		if stream['bitrate'] > maxBitrateFound:
+			maxBitrateFound = stream['bitrate']
+			clip            = stream['source']
+			rtmpURL         = details['streamBaseUrl']
+			
+	if rtmpURL:
+		return IndirectResponse(
+			VideoClipObject,
+			key = RTMPVideoURL(
+				url = rtmpURL,
+				clip = clip,
+				swf_url = 'http://www.kanal5play.se/flash/K5StandardPlayer.swf'
+			)
+		)
+		
+	else:
+		raise Ex.MediaNotAvailable
+
+####################################################################################################
+def GetDetails(url, format):
+	channel    = RE_CHANNEL.search(url).groups()[0]
+	content    = HTTP.Request(url).content
+	
+	try:
+		vid_id = RE_VIDEO_ID.search(url).group(1)
+	except:
+		data   = HTML.ElementFromString(content)
+		og_url = data.xpath('//meta[@property="og:url"]')[0].get('content')
+		vid_id = RE_VIDEO_ID.search(url).group(1)
+
+	details = JSON.ObjectFromURL(API_URL % (channel, format, vid_id))
+
+	return details
+
+####################################################################################################
+def GetHLSStreams(url):
+	streams = []
+
+	playList = HTTP.Request(url).content
+	
+	# Parse the m3u8 file to get:
+	# - URL
+	# - Resolution
+	# - Bitrate
+	for line in playList.splitlines():
+		if "BANDWIDTH" in line:
+			stream            = {}
+			stream["bitrate"] = int(Regex('(?<=BANDWIDTH=)[0-9]+').search(line).group(0))
+		
+		elif line.startswith("#"):
+			pass
+		
+		elif ".m3u8" in line:
+			path = ''
+			if not line.startswith("http://"):
+				path = url[ : url.rfind('/') + 1]
+			
+			stream["url"] = path + line
+			streams.append(stream)
+
+	sorted_streams = sorted(streams, key = lambda stream: stream["bitrate"], reverse = True)
+
+	return sorted_streams
+
+####################################################################################################
+def TestURLs():
+
+	test_urls = []
+
+	for channel in ["5", "9", "11"]:
+		for url in RSS_URLS % channel:
+			data  = XML.ElementFromURL(url)
+			count = 0
+
+			for item in data.xpath('//item/link'):
+				test_urls.append(item.text)
+				count = count+1
+
+				if count > 1:
+					break
+
+	return test_urls

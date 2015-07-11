@@ -1,0 +1,114 @@
+RE_APU = Regex("apu='([^']+)")
+RE_BANDWIDTH = Regex('BANDWIDTH=(\d+)')
+
+####################################################################################################
+def NormalizeURL(url):
+
+	return url.split('#')[0]
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	try:
+		html = HTML.ElementFromURL(url, cacheTime=CACHE_1HOUR)
+	except:
+		raise Ex.MediaNotAvailable
+
+	title = html.xpath('//meta[@property="og:title"]/@content')[0]
+	summary = html.xpath('//meta[@property="og:description"]/@content')[0]
+	duration = html.xpath('//meta[@property="video:duration"]/@content')[0]
+	thumb = html.xpath('//meta[@property="og:image"]/@content')[0].replace('285x408.jpg', '204x143.jpg')
+
+	return VideoClipObject(
+		title = title,
+		summary = summary,
+		duration = int(duration) * 1000 if duration != '' else None,
+		thumb = Resource.ContentsOfURLWithFallback(url=thumb)
+	)
+
+####################################################################################################
+@deferred
+def MediaObjectsForURL(url):
+
+	try:
+		data = HTTP.Request(url, cacheTime=CACHE_1HOUR).content
+	except:
+		raise Ex.MediaNotAvailable
+
+	video_url = RE_APU.search(data)
+
+	if not video_url:
+		raise Ex.MediaNotAvailable
+
+	video_url = video_url.group(1).decode('rot13')[::-1]
+
+	if video_url.endswith('.m3u8'):
+
+		return [
+			MediaObject(
+				parts = [
+					PartObject(
+						key = HTTPLiveStreamURL(Callback(PlayVideo, url=video_url))
+					)
+				]
+			)
+		]
+
+	elif video_url.endswith('.mp4'):
+
+		return [
+			MediaObject(
+				parts = [
+					PartObject(
+						key = video_url
+					)
+				],
+				container = Container.MP4,
+				video_codec = VideoCodec.H264,
+				audio_codec = AudioCodec.AAC,
+				optimized_for_streaming = True,
+				audio_channels = 2
+			)
+		]
+
+	else:
+
+		raise Ex.MediaNotAvailable
+
+####################################################################################################
+def PlayVideo(url):
+
+	try:
+		playlist = HTTP.Request(url).content
+	except:
+		raise Ex.MediaNotAvailable
+
+	new_playlist = '#EXTM3U'
+	streams = []
+	bandwidth = None
+
+	for line in playlist.splitlines(False)[1:]:
+		if line.startswith('#'):
+			bandwidth = RE_BANDWIDTH.search(line)
+			previous_line = line
+			continue
+		elif len(line) < 1:
+			continue
+		else:
+			if not bandwidth:
+				continue
+			if line.startswith('/'):
+				host = url.split('/')[2]
+				line = 'http://%s%s' % (host, line)
+
+			streams.append({
+				'bandwidth': int(bandwidth.group(1)),
+				'stream': '%s\n%s' % (previous_line, line)
+			})
+
+	sorted_streams = sorted(streams, key=lambda stream: stream['bandwidth'])
+
+	for stream in sorted_streams:
+		new_playlist += '\n%s' % stream['stream']
+
+	return new_playlist

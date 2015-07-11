@@ -1,0 +1,119 @@
+NAMESPACES = {'og': 'http://opengraphprotocol.org/schema/'}
+XML_URL = 'http://www.kaltura.com//api_v3/index.php?service=multirequest&action=null&kalsig=%s'
+HTTP_HEADERS = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11'}
+
+####################################################################################################
+def NormalizeURL(url):
+
+	return url
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+	data = GetHTML(url)
+	video_xml = GetXML(url)
+
+	title = data.xpath('//meta[@property="og:title"]', namespaces=NAMESPACES)[0].get('content')
+	thumb_url = data.xpath('//meta[@property="og:image"]', namespaces=NAMESPACES)[0].get('content')
+	duration = int(video_xml.xpath('//msDuration')[0].text)
+
+	try:
+		summary = data.xpath('//meta[@name="description"]')[0].get('content')
+	except:
+		summary = None
+
+	try:
+		date = float(video_xml.xpath('//createdAt')[0].text)
+		originally_available_at = Datetime.FromTimestamp(date).date()
+	except:
+		originally_available_at = None
+
+	return VideoClipObject(
+		title = title,
+		summary = summary,
+		thumb = thumb_url,
+		duration = duration,
+		originally_available_at = originally_available_at
+	)
+
+####################################################################################################
+def MediaObjectsForURL(url):
+
+	return [
+		MediaObject(
+			parts = [PartObject(key=Callback(PlayVideo, url=url))],
+			container = Container.MP4,
+			optimized_for_streaming = True,
+			video_resolution = 'sd',
+			#aspect_ratio = '1.78',
+			video_codec = VideoCodec.H264,
+			audio_codec = AudioCodec.AAC,
+			audio_channels = 2
+		)
+	]
+
+####################################################################################################
+@indirect
+def PlayVideo(url):
+
+	video_data = GetXML(url)
+	video_url = video_data.xpath('//dataUrl')[0].text 
+
+	return IndirectResponse(VideoClipObject, key=video_url)
+
+####################################################################################################
+def GetHTML(url, retry=0):
+
+	if retry > 2:
+		raise Ex.MediaNotAvailable
+
+	try:
+		data = HTML.ElementFromURL(url, sleep=2.0, headers=HTTP_HEADERS)
+	except:
+		data = GetHTML(url, retry=retry+1)
+
+	return data
+
+####################################################################################################
+def GetXML(url):
+
+	data = GetHTML(url)
+	video_id = data.xpath('//param[@name="movie"]')[0].get('value').split('/entry_id/')[1].split('/')[0]
+
+	post_values = {
+		"1:action": "get",
+		"1:service": "baseentry",
+		"4:action": "list",
+		"3:entryId": video_id,
+		"3:contextDataParams:referrer": url,
+		#"ks": "NWRjMTBiNjQxM2VjZmE1MmQ5YTE4YzlhMmQzNDQ2ZDIwNTg0ZmJkMXw2MjA5NDI7NjIwOTQyOzEzMTk1ODE2MDM7MDsxMzE5NDk1MjAzLjgzNTY7MDt2aWV3Oio7Ow==",
+		"2:action": "getWebPlayableByEntryId",
+		"3:contextDataParams:objectType": "KalturaEntryContextDataParams",
+		"ignoreNull": 1,
+		"4:service": "cuepoint_cuepoint",
+		"2:service": "flavorasset",
+		"3:action": "getContextData",
+		"1:version": -1,
+		"2:entryId": video_id,
+		"1:entryId": video_id,
+		"3:contextDataParams:streamerType": "http",
+		"4:filter:objectType": "KalturaCuePointFilter",
+		"3:service": "baseentry",
+		"clientTag": "kdp:v3.5.21,cache_st:1316726652",
+		"4:filter:entryIdEqual": video_id
+	}
+
+	video_xml = XML.ElementFromURL(XML_URL % (GetSignature(post_values)), post_values, headers=HTTP_HEADERS)
+
+	return(video_xml)
+
+####################################################################################################
+def GetSignature(params):
+
+	sig = ""
+	for key, value in sorted(params.iteritems()):
+		sig = '%s%s%s' % (sig, key, value)
+
+	sig = Hash.MD5(sig)
+
+	return sig
