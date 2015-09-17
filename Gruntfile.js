@@ -5,8 +5,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         clean: {
             build: 'build',
-            temp: 'temp',
-            redundantFiles: 'temp/<%= pkg.name %>/lib/dsm_config'
+            temp: 'temp'
         },
         copy: {
             source: {
@@ -33,7 +32,7 @@ module.exports = function(grunt) {
                 },
                 expand: true,
                 cwd: 'temp/',
-                src: '<%= pkg.name %>/**'
+                src: ['<%= pkg.name %>/**', '!**/<%= pkg.name %>/lib/dsm_config/**']
             }
         }
     });
@@ -54,5 +53,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-curl');
     grunt.loadNpmTasks('grunt-contrib-compress');
 
-    grunt.registerTask('default', ['clean:build', 'copy', 'curl', 'extract', 'clean:redundantFiles', 'compress', 'clean:temp']);
+    grunt.registerTask('default', ['clean:build', 'copy', 'curl', 'extract', 'compress', 'clean:temp']);
 };
