@@ -1,7 +1,0 @@
-# Edit this file for local setup changes
-SSL=/data/jenkins/pms-deps-universal-v2/BUILD_TAG/linux-synology-arm7/output/pms-depends-linux-synology-arm7-release-8798140
-_ssl _ssl.c \
-	-DUSE_SSL -I$(SSL)/include -I$(SSL)/include/openssl \
-	-L$(SSL)/lib -lssl -lcrypto
-
-
