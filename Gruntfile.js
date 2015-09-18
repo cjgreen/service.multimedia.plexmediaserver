@@ -1,4 +1,7 @@
 var tarball = require('tarball-extract');
+var fstream = require('fstream');
+var tar = require('tar');
+var zlib = require('zlib');
 
 module.exports = function(grunt) {
     grunt.initConfig({
@@ -24,34 +27,59 @@ module.exports = function(grunt) {
                 src: 'https://plex.tv/downloads/latest/1?channel=8&build=linux-synology-arm7&distro=synology&X-Plex-Token=<%= plex.XPlexToken %>',
                 dest: 'temp/PlexMediaServer.tar'
             }
-        },
-        compress: {
-            zip: {
-                options: {
-                    archive: 'build/<%= pkg.name %>-<%= pkg.version %>.zip'
-                },
-                expand: true,
-                cwd: 'temp/',
-                src: ['<%= pkg.name %>/**', '!**/<%= pkg.name %>/lib/dsm_config/**']
-            }
         }
     });
 
     grunt.registerTask('extract', function() {
         var done = this.async();
         tarball.extractTarball('temp/PlexMediaServer.tar', 'temp/PlexMediaServer', function(err) {
-            if (err) grunt.fail.fatal('Failed to extract temp/PlexMediaServer.tar: ' + err);
-            tarball.extractTarball('temp/PlexMediaServer/package.tgz', 'temp/'+grunt.config('pkg.name')+'/lib', function(err) {
-                if (err) grunt.fail.fatal('Failed to extract temp/PlexMediaServer/package.tgz: ' + err);
+            if (err) {
+                console.log('Failed to extract temp/PlexMediaServer.tar to temp/PlexMediaServer');
+                grunt.fail.fatal(err);
+            }
+            tarball.extractTarball('temp/PlexMediaServer/package.tgz', 'temp/PlexMediaServer/package', function(err) {
+                if (err) {
+                    console.log('Failed to extract temp/PlexMediaServer/package.tgz to temp/PlexMediaServer/package');
+                    grunt.fail.fatal(err);
+                }
                 done();
             });
+        });
+    });
+
+    grunt.registerTask('copyPlexLib', function() {
+        var done = this.async();
+        var pkg = grunt.config('pkg');
+        fstream.Reader({ 'path': 'temp/PlexMediaServer/package', 'type': 'Directory' })
+        .pipe(fstream.Writer({ 'path': 'temp/'+pkg.name+'/lib', 'type': 'Directory' }))
+        .on('error', function(err) {
+            console.log('Failed to copy temp/PlexMediaServer/package to temp/'+pkg.name+'/lib');
+            grunt.fail.fatal(err);
+        })
+        .on('end', function() {
+            done();
+        });
+    });
+
+    grunt.registerTask('compress', function() {
+        var done = this.async();
+        var pkg = grunt.config('pkg');
+        fstream.Reader({ 'path': 'temp/'+pkg.name, 'type': 'Directory' })
+        .pipe(tar.Pack())
+        .pipe(zlib.Gzip())
+        .pipe(fstream.Writer({ 'path': 'build/'+pkg.name+'-'+pkg.version+'.tar.gz' }))
+        .on('error', function(err) {
+            console.log('Failed to compress temp/'+pkg.name+' to build/'+pkg.name+'-'+pkg.version+'.tar.gz');
+            grunt.fail.fatal(err);
+        })
+        .on('end', function() {
+            done();
         });
     });
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-curl');
-    grunt.loadNpmTasks('grunt-contrib-compress');
 
-    grunt.registerTask('default', ['clean:build', 'copy', 'curl', 'extract', 'compress', 'clean:temp']);
+    grunt.registerTask('default', ['clean:build', 'copy', 'curl', 'extract', 'copyPlexLib', 'compress', 'clean:temp']);
 };
