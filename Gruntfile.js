@@ -1,4 +1,4 @@
-var tarball = require('tarball-extract');
+var fs = require('fs');
 var fstream = require('fstream');
 var tar = require('tar');
 var zlib = require('zlib');
@@ -32,32 +32,24 @@ module.exports = function(grunt) {
 
     grunt.registerTask('extract', function() {
         var done = this.async();
-        tarball.extractTarball('temp/PlexMediaServer.tar', 'temp/PlexMediaServer', function(err) {
-            if (err) {
-                console.log('Failed to extract temp/PlexMediaServer.tar to temp/PlexMediaServer');
-                grunt.fail.fatal(err);
-            }
-            tarball.extractTarball('temp/PlexMediaServer/package.tgz', 'temp/PlexMediaServer/package', function(err) {
-                if (err) {
-                    console.log('Failed to extract temp/PlexMediaServer/package.tgz to temp/PlexMediaServer/package');
-                    grunt.fail.fatal(err);
-                }
-                done();
-            });
-        });
-    });
-
-    grunt.registerTask('copyPlexLib', function() {
-        var done = this.async();
         var pkg = grunt.config('pkg');
-        fstream.Reader({ 'path': 'temp/PlexMediaServer/package', 'type': 'Directory' })
-        .pipe(fstream.Writer({ 'path': 'temp/'+pkg.name+'/lib', 'type': 'Directory' }))
+        fs.createReadStream('temp/PlexMediaServer.tar')
+        .pipe(tar.Extract({ path: 'temp/PlexMediaServer'}))
         .on('error', function(err) {
-            console.log('Failed to copy temp/PlexMediaServer/package to temp/'+pkg.name+'/lib');
+            console.log('Failed to extract temp/PlexMediaServer.tar to temp/PlexMediaServer');
             grunt.fail.fatal(err);
         })
         .on('end', function() {
-            done();
+            fs.createReadStream('temp/PlexMediaServer/package.tgz')
+            .pipe(zlib.createGunzip())
+            .pipe(tar.Extract({ path: 'temp/'+pkg.name+'/lib'}))
+            .on('error', function(err) {
+                console.log('Failed to extract temp/PlexMediaServer/package.tgz to temp/'+pkg.name+'/lib');
+                grunt.fail.fatal(err);
+            })
+            .on('end', function() {
+                done();
+            });
         });
     });
 
@@ -81,5 +73,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-curl');
 
-    grunt.registerTask('default', ['clean:build', 'copy', 'curl', 'extract', 'copyPlexLib', 'compress', 'clean:temp']);
+    grunt.registerTask('default', ['clean:build', 'copy', 'curl', 'extract', 'compress', 'clean:temp']);
 };
