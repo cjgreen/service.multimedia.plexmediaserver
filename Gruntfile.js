@@ -72,7 +72,12 @@ module.exports = function(grunt) {
             });
         }
 
-        fstream.Reader({ 'path': 'temp/' + pkg.name })
+        fstream.Reader({
+            'path': 'temp/' + pkg.name,
+            filter: function () {
+                return !this.basename.match(/^dsm_config$/) && !this.basename.match(/^.DS_Store$/);
+            }
+        })
         .on('entry', onEntry)
         .on('error', function(err) {
             console.log('Failed to read temp/' + pkg.name);
