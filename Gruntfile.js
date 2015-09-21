@@ -55,7 +55,11 @@ module.exports = function(grunt) {
     grunt.registerTask('compress', function() {
         var done = this.async();
         var pkg = grunt.config('pkg');
-        var archive = archiver('zip');
+        var archive = archiver('zip', {
+            zlib: {
+                level: 9
+            }
+        });
         archive.pipe(fstream.Writer({ path: 'build/' + pkg.name + '-' + pkg.version + '.zip' }).on('close', done));
         archive.on('error', function(err) {
             console.log('Failed to compress temp/' + pkg.name + ' to build/' + pkg.name + '-' + pkg.version + '.zip');
