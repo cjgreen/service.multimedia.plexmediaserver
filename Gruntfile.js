@@ -65,7 +65,10 @@ module.exports = function(grunt) {
         var onEntry = function(entry) {
             if (entry.type === 'Directory') return entry.on('entry', onEntry);
             var fileName = entry.path.split(pkg.name)[2];
-            archive.append(entry, { name: fileName }, function(err) {
+            archive.append(entry, {
+                name: fileName,
+                stats: entry.props
+            }, function(err) {
                 if (!err) return;
                 console.log('Failed to add ' + fileName + ' to archive');
                 grunt.fail.fatal(err);
