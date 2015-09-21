@@ -72,7 +72,7 @@ module.exports = function(grunt) {
             });
         }
 
-        fstream.Reader({ 'path': 'temp/' + pkg.name, 'type': 'Directory'})
+        fstream.Reader({ 'path': 'temp/' + pkg.name })
         .on('entry', onEntry)
         .on('error', function(err) {
             console.log('Failed to read temp/' + pkg.name);
