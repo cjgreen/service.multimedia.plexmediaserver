@@ -1,5 +1,4 @@
 var fs = require('fs');
-var fstream = require('fstream');
 var tar = require('tar');
 var zlib = require('zlib');
 var archiver = require('archiver');
@@ -80,45 +79,13 @@ module.exports = function(grunt) {
     grunt.registerTask('compress', function() {
         var done = this.async();
         var pkg = grunt.config('pkg');
-        var archive = archiver('zip', {
-            zlib: {
-                level: 9
-            }
-        });
-        archive.pipe(fstream.Writer({ path: 'build/' + pkg.name + '-' + pkg.version + '.zip' }).on('close', done));
+        var archive = archiver('zip', { zlib: { level: 9 } });
         archive.on('error', function(err) {
             console.error('Failed to compress temp/' + pkg.name + ' to build/' + pkg.name + '-' + pkg.version + '.zip');
             grunt.fail.fatal(err);
         });
-
-        var onEntry = function(entry) {
-            if (entry.type === 'Directory') return entry.on('entry', onEntry);
-            var fileName = entry.path.split(pkg.name)[2];
-            archive.append(entry, {
-                name: fileName,
-                stats: entry.props
-            }, function(err) {
-                if (err) {
-                    console.error('Failed to add ' + fileName + ' to archive');
-                    grunt.fail.fatal(err);
-                }
-            });
-        }
-
-        fstream.Reader({
-            'path': 'temp/' + pkg.name,
-            filter: function () {
-                return !this.basename.match(/^dsm_config$/) && !this.basename.match(/^.DS_Store$/);
-            }
-        })
-        .on('entry', onEntry)
-        .on('error', function(err) {
-            console.error('Failed to read temp/' + pkg.name);
-            grunt.fail.fatal(err);
-        })
-        .on('end', function() {
-            archive.finalize();
-        });
+        archive.pipe(fs.createWriteStream('build/' + pkg.name + '-' + pkg.version + '.zip').on('close', done));
+        archive.directory('temp/' + pkg.name, false).finalize();
     });
 
     grunt.loadNpmTasks('grunt-contrib-clean');
