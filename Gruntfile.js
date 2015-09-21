@@ -3,6 +3,7 @@ var fstream = require('fstream');
 var tar = require('tar');
 var zlib = require('zlib');
 var archiver = require('archiver');
+var mkdirp = require('mkdirp');
 
 module.exports = function(grunt) {
     grunt.initConfig({
@@ -34,21 +35,45 @@ module.exports = function(grunt) {
     grunt.registerTask('extract', function() {
         var done = this.async();
         var pkg = grunt.config('pkg');
-        fs.createReadStream('temp/PlexMediaServer.tar')
-        .pipe(tar.Extract({ path: 'temp/PlexMediaServer' }))
+        var root = process.cwd();
+        var dir = './temp/PlexMediaServer';
+        mkdirp.sync(dir, function(err) {
+            if (err) {
+                console.error('Failed to create the directory ' + dir);
+                grunt.fail.fatal(err);
+            }
+        });
+        process.chdir(dir);
+        fs.createReadStream('../PlexMediaServer.tar')
+        .pipe(tar.Extract({
+            path: './'
+        }))
         .on('error', function(err) {
-            console.log('Failed to extract temp/PlexMediaServer.tar to temp/PlexMediaServer');
+            console.error('Failed to extract temp/PlexMediaServer.tar to temp/PlexMediaServer');
             grunt.fail.fatal(err);
         })
         .on('end', function() {
-            fs.createReadStream('temp/PlexMediaServer/package.tgz')
+            dir = '../'+pkg.name+'/lib';
+            mkdirp.sync(dir, function(err) {
+                if (err) {
+                    console.error('Failed to create the directory ' + dir);
+                    grunt.fail.fatal(err);
+                }
+            });
+            process.chdir(dir);
+            fs.createReadStream('../../PlexMediaServer/package.tgz')
             .pipe(zlib.createGunzip())
-            .pipe(tar.Extract({ path: 'temp/' + pkg.name + '/lib' }))
+            .pipe(tar.Extract({
+                path: './'
+            }))
             .on('error', function(err) {
-                console.log('Failed to extract temp/PlexMediaServer/package.tgz to temp/' + pkg.name + '/lib');
+                console.error('Failed to extract temp/PlexMediaServer/package.tgz to temp/' + pkg.name + '/lib');
                 grunt.fail.fatal(err);
             })
-            .on('end', done);
+            .on('end', function() {
+                process.chdir(root);
+                done();
+            });
         });
     });
 
@@ -62,7 +87,7 @@ module.exports = function(grunt) {
         });
         archive.pipe(fstream.Writer({ path: 'build/' + pkg.name + '-' + pkg.version + '.zip' }).on('close', done));
         archive.on('error', function(err) {
-            console.log('Failed to compress temp/' + pkg.name + ' to build/' + pkg.name + '-' + pkg.version + '.zip');
+            console.error('Failed to compress temp/' + pkg.name + ' to build/' + pkg.name + '-' + pkg.version + '.zip');
             grunt.fail.fatal(err);
         });
 
@@ -73,9 +98,10 @@ module.exports = function(grunt) {
                 name: fileName,
                 stats: entry.props
             }, function(err) {
-                if (!err) return;
-                console.log('Failed to add ' + fileName + ' to archive');
-                grunt.fail.fatal(err);
+                if (err) {
+                    console.error('Failed to add ' + fileName + ' to archive');
+                    grunt.fail.fatal(err);
+                }
             });
         }
 
@@ -87,7 +113,7 @@ module.exports = function(grunt) {
         })
         .on('entry', onEntry)
         .on('error', function(err) {
-            console.log('Failed to read temp/' + pkg.name);
+            console.error('Failed to read temp/' + pkg.name);
             grunt.fail.fatal(err);
         })
         .on('end', function() {
