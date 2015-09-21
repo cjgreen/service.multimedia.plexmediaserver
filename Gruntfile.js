@@ -56,7 +56,7 @@ module.exports = function(grunt) {
         var done = this.async();
         var pkg = grunt.config('pkg');
         var archive = archiver('zip');
-        archive.pipe(fs.createWriteStream('build/' + pkg.name + '-' + pkg.version + '.zip').on('close', done));
+        archive.pipe(fstream.Writer({ path: 'build/' + pkg.name + '-' + pkg.version + '.zip' }).on('close', done));
         archive.on('error', function(err) {
             console.log('Failed to compress temp/' + pkg.name + ' to build/' + pkg.name + '-' + pkg.version + '.zip');
             grunt.fail.fatal(err);
