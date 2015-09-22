@@ -1,0 +1,13 @@
+1.0.2
+- Updating build script to fetch latest PSM version on build
+- at service startup delete plexmediaserver.pid which may remain after an unclean shutdown
+
+1.0.1
+- Updating build script to use Grunt
+
+1.0.0
+- initial release based on escalade and hugepants addons
+- PMS version 0.9.12.4
+- runs as a systemd service
+- configurable startup delay (default: 5s)
+- configurable stack size (default: 3000 kb)
