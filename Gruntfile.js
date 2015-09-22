@@ -41,7 +41,8 @@ module.exports = function(grunt) {
                 },
                 expand: true,
                 cwd: 'temp/<%= pkg.name %>/',
-                src: ['**', '!**/*.DS_Store', '!**/dsm_config/**']
+                src: ['**', '!**/*.DS_Store', '!**/dsm_config/**'],
+                dest: '<%= pkg.name %>/'
             }
         }
     });
