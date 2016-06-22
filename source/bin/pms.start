@@ -37,11 +37,798 @@ export PLEX_MEDIA_SERVER_MAX_STACK_SIZE="$PMS_MAX_STACK_SIZE"
 
 ulimit -s $PLEX_MEDIA_SERVER_MAX_STACK_SIZE
 
-chmod a+x $ADDON_DIR/bin/*
-chmod a+x $ADDON_DIR/lib/Plex*
-chmod a+x $ADDON_DIR/lib/Resources/Plex*
-chmod a+x $ADDON_DIR/lib/Resources/rsync
-chmod a+x $ADDON_DIR/lib/Resources/Python/bin/python
+chmod a+x $ADDON_DIR/addon.xml
+chmod a+x $ADDON_DIR/bin/pms.start
+chmod a+x $ADDON_DIR/changelog.txt
+chmod a+x $ADDON_DIR/default.py
+chmod a+x $ADDON_DIR/icon.png
+chmod a+x $ADDON_DIR/lib/libavcodec.so.57
+chmod a+x $ADDON_DIR/lib/libavformat.so.57
+chmod a+x $ADDON_DIR/lib/libavutil.so.55
+chmod a+x $ADDON_DIR/lib/libboost_atomic.so.1.59.0
+chmod a+x $ADDON_DIR/lib/libboost_chrono.so.1.59.0
+chmod a+x $ADDON_DIR/lib/libboost_date_time.so.1.59.0
+chmod a+x $ADDON_DIR/lib/libboost_filesystem.so.1.59.0
+chmod a+x $ADDON_DIR/lib/libboost_iostreams.so.1.59.0
+chmod a+x $ADDON_DIR/lib/libboost_locale.so.1.59.0
+chmod a+x $ADDON_DIR/lib/libboost_program_options.so.1.59.0
+chmod a+x $ADDON_DIR/lib/libboost_regex.so.1.59.0
+chmod a+x $ADDON_DIR/lib/libboost_system.so.1.59.0
+chmod a+x $ADDON_DIR/lib/libboost_thread.so.1.59.0
+chmod a+x $ADDON_DIR/lib/libboost_timer.so.1.59.0
+chmod a+x $ADDON_DIR/lib/libcrypto.so.1.0.0
+chmod a+x $ADDON_DIR/lib/libcurl.so.4
+chmod a+x $ADDON_DIR/lib/libexpat.so.1
+chmod a+x $ADDON_DIR/lib/libexslt.so.0
+chmod a+x $ADDON_DIR/lib/liblrc.so.0
+chmod a+x $ADDON_DIR/lib/libpython2.7.so.1.0
+chmod a+x $ADDON_DIR/lib/libsqlite3.so.0
+chmod a+x $ADDON_DIR/lib/libssl.so.1.0.0
+chmod a+x $ADDON_DIR/lib/libswscale.so.4
+chmod a+x $ADDON_DIR/lib/libxml2.so.2
+chmod a+x $ADDON_DIR/lib/libxslt.so.1
+chmod a+x $ADDON_DIR/lib/libz.so.1
+chmod a+x $ADDON_DIR/lib/Plex\ DLNA\ Server
+chmod a+x $ADDON_DIR/lib/Plex\ Media\ Scanner
+chmod a+x $ADDON_DIR/lib/Plex\ Media\ Server
+chmod a+x $ADDON_DIR/lib/Resources/Fonts/OpenSans-Bold.ttf
+chmod a+x $ADDON_DIR/lib/Resources/Fonts/OpenSans-Regular.ttf
+chmod a+x $ADDON_DIR/lib/Resources/Plex\ Relay
+chmod a+x $ADDON_DIR/lib/Resources/Plex\ Script\ Host
+chmod a+x $ADDON_DIR/lib/Resources/Plex\ Transcoder
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/binascii_plus.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/__init__.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/cipher/__init__.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/cipher/aes.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/cipher/aes_cbc.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/cipher/aes_sbox_analysis.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/cipher/arc4.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/cipher/base.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/cipher/cbc.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/cipher/ccm.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/cipher/icedoll.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/cipher/rijndael.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/cipher/tkip_encr.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/cipher/trolldoll.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/cipher/wep.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/common.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/entropy/__init__.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/entropy/pagingEntropy.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/entropy/prn_rijndael.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/errors.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/hash/__init__.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/hash/hash.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/hash/md5Hash.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/hash/sha1Hash.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/keyedHash/__init__.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/keyedHash/hmacHash.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/keyedHash/michael.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/keyedHash/pbkdf2.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/keyedHash/prf_dot11.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/keyedHash/tkip_key_mixing.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/keyedHash/tkip_mic.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/crypto/LICENSE.txt
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/fcrypt.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/tornado/httpserver.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/tornado/httputil.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/tornado/ioloop.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/tornado/test/ioloop_test.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/tornado/test/runtests.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/tornado/test/stack_context_test.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Versions/0/Python/bootstrap.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Versions/1/Python/bootstrap.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Versions/2/Python/bootstrap.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Framework.bundle/Contents/Resources/Versions/2/Resources/World.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/LocalMedia.bundle/Contents/Libraries/Shared/ID3.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/LyricFind.bundle/Contents/Code/__init__.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/LyricFind.bundle/Contents/Info.plist
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Aspect\ Ratio/1.33.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Aspect\ Ratio/1.66.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Aspect\ Ratio/1.78.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Aspect\ Ratio/1.85.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Aspect\ Ratio/2.20.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Aspect\ Ratio/2.25.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Aspect\ Ratio/2.35.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Channels/1.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Channels/2.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Channels/5.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Channels/6.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Channels/7.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Channels/8.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/aac.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/aif.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/aifc.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/aiff.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/alac.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/ape.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/cdda.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/dca-ma.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/dolby_digital.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/dolby_truehd.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/dts.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/eac3.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/flac.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/m4a.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/mlp.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/mp2.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/mp3.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/mpc.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/ogg.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/pcm.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/ra.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/shn.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/wav.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/wave.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/wma.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/wmahd.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/wmapro.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/wmav2.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Audio\ Codec/wv.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/blank.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/au/E.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/au/G.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/au/M.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/au/MA15+.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/au/MA15.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/au/PG.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/au/R18+.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/au/R18.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/au/X18+.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/au/X18.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/ca/14A.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/ca/18A.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/ca/E.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/ca/G.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/ca/PG.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/ca/R.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/de/0.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/de/12.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/de/16.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/de/18.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/de/6.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/fr/-10.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/fr/-12.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/fr/-16.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/fr/-18.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/fr/Tout Public.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/fr/U.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/G.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/gb/12.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/gb/12A.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/gb/15.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/gb/18.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/gb/PG.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/gb/R18.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/gb/U.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/NC-17.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/nl/12.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/nl/16.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/nl/6.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/nl/9.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/nl/AL.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/nl/Alle Leeftijden.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/Not Rated.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/NR.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/PG-13.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/PG.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/R.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/TV-14.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/TV-G.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/TV-MA.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/TV-PG.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/TV-Y.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/TV-Y7-FV.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/TV-Y7.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/Unrated.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Content\ Rating/X.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/icon-default.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/1492_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/20th_century_fox.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/2929.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/360_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/40_acres.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/57_irving.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/777_film_corp.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/a_and_e.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/aardman.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/abandon.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/abc_australia.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/adult_swim.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/afi.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/after_dark.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/alcon_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/alfred_hitchcock_productions.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/alloy.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/alphaville.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/amazon_studios.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/ambience.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/amblin_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/american_masters.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/american_zoetrope.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/anchor_bay_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/animal_planet.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/antena_3.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/apatow_productions.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/apple.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/ard.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/ark.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/arte.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/artisan_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/aspen_film_society.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/atom_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/australian_film_commission.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/avalanche_studios.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/avnet_kerner.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/babylonian.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bad_boy_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bad_robot.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/baltimore_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bandai.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bandai_visual.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bandapart.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/batjac.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bazmark.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bbc.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bbc_america.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bbc_four.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bbc_one.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bbc_prime.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bbc_three.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bbc_two.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/beacon.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/becker_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/belair_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bet.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bigtalk.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/biography_channel.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/blackdog.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/blind_ambition_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/blue_sky.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/blue_underground.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bnn.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bravo.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/brightlight.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bristol_bay.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/broken_lizard.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/brooklyn_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/buena_vista.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/bulletproof.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/c2_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/canalplus.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/cannon_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/capcom.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/capitol_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/caravan_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/carnaby.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/carolco.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/cartoonnetwork.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/casablanca_filmes.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/cascade_film.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/casey_silver_productions.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/castle_rock_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/cat_in_the_hat.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/cbbc.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/cbc.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/celador.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/centropolis_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/ceska_televize.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/channel_nine.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/channel_seven.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/channel_ten.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/cheyenne.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/cinemax.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/cmt.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/cnc.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/columbia_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/comedy_central.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/concorde.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/condemned.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/constantin_film.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/constellation.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/cookie_jar.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/cpfilms.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/criterion.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/ctv.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/cw.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/czolowka.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/damselfly.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/danjaq.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/dark_castle_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/dark_horse.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/davis_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/de_laurentiis.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/destination_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/dfi.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/dickhouse_productions.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/digital_factory.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/digital_playground.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/dimension_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/discovery_channel.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/disney_xd.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/distant_horizon.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/dmax.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/dna.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/dolores_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/don_simpson_jerry_bruckheimer_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/donners.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/dreamworks.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/e4.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/ealing.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/eclectic.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/edmonds_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/electric_enterteinment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/electric_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/eleven_eleven.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/emmedia.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/encore.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/endgame_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/entara.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/entertainment_television.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/eon_productions.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/escape_artists.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/espn.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/eurimages.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/europa_corp.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/eurosport.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/excel.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/eyekiss_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/fact.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/figaro.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/film_colony.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/film_four.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/film_institut.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/film_media.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/film_polski.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/film_tv.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/filmauro.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/filmax_animation.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/filmforderung_hamburg.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/filmoteka\ narodowa.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/filmstiftung_nordrhein-westfalen.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/finos_film.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/fireworks_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/first_look_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/five.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/flower_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/focus_features.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/food_network.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/forte_cinema.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/fourhands_film.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/fox.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/fox_atomic.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/fox_searchlight_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/france_2.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/france_3.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/france_4.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/franchise_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/fuji_tv.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/future_flix.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/g4.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/gaumont.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/geffen.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/ghost_house.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/gk_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/glass_eye_pix.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/global_tv.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/glue_works_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/gofilms.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/gold_circle_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/goldwyn.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/gracie_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/gramercy_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/grandhustle.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/green_street.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/greentree_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/grub_street_productions.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/guinea_pig_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/gutek.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/halestorm.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/hallucination_on_film.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/hand_made_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/happy_madison.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/hbo.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/hemus_film.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/heyday_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/hgtv.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/hollywood_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/hustler_video.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/hyde_park_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/icon_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/ifc.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/illumination_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/image.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/image_movers.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/imagi_studios.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/imaginary_forces.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/imagine.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/imax.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/imperial_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/independent_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/industrial_light_and_magic.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/infilm.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/ingenious_film_partners.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/ingenius_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/inside_track.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/interactual.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/intermedia.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/interscope_shady_aftermath.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/intrepid_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/island_world.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/janus.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/jarowskij.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/jawa.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/jerry_bruckheimer_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/jersey_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/jim_henson.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/kadokawa_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/kadr.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/kamera.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/kanal_5.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/kennedymarshall.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/kid_rhino.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/killer_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/kinepolis.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/king_world.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/kinowelt.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/kopelson.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/ladd.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/lakeshore_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/latham.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/lawrence_bender_productions.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/league\ of\ noble peers.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/legendary_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/liberty_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/lift.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/lightstorm_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/lionsgate.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/little_chicken.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/london_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/lookout.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/lucasfilm.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/lucky_7.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/madman.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/magnolia_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/mandalay_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/mandate_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/manga.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/marc_dorcel.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/maverick.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/maya_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/media8.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/mediapro.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/meridian_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/mgm.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/mibac.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/midway_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/mike_zoss_productions.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/milkshake.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/minds_eye_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/mirage.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/miramax.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/monarch_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/monolith.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/montecito_picture_company.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/morgan_creek.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/mosaic_media.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/mosfilm.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/mpca.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/msnbc.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/mtv.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/musashi_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/mutual_film_company.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/myriad.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/mytv.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/nala.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/nat_geo_wild.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/national_general_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/nbc.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/nbc_universal.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/nelvana.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/netflix.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/new_deal_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/new_line_cinema.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/new_zealand_film_commission.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/newmarket.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/ngc.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/nick_at_nite.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/nick_jr.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/nickelodeon.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/nicktoons.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/nine\ network.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/nord_ouest.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/nordisk\ film.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/northern_lights_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/nothing.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/nuimage.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/o2_filmes.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/oddlot.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/oko.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/only_vegas.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/orf.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/orion.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/overturefilms.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/pan_vision.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/pandora_film.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/paramount_classics.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/paramount_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/paramount_vantage.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/participant.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/pathe.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/pbs.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/peacearch.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/pecf.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/peters_entertainment2.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/pheonix.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/picturehouse.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/pisf.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/pixar.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/plan_b.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/platige.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/platinum_dunes.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/play_uk.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/playtone.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/polsat.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/polygram.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/porchlight.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/portman_film.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/premiere direkt.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/premiere.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/private_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/pro7.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/profilm_productions.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/promotion_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/prosieben.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/radical_media.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/rai_cinema.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/rankin.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/red_hour.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/red_wagon_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/redrum.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/reel_dog_productions.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/regency.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/relativity_media.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/renaissance_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/republic_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/resident_evil.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/revere_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/revision3.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/revolution_studios.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/rhombus.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/rick_mill.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/rickety_shack_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/river_road_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/roadside_attractions.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/rogue_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/romar.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/rtl.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/rtl5.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/rtl7.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/rtl8.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/rtl_ii.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/rysher_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/salter_street_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/sandrew.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/sat1.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/saturn_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/saul_zaentz.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/sbs.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/scifi.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/scott_free.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/screen_gems.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/selznick_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/semafor.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/seven\ network.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/sfi.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/shady_acres_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/shangri-la_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/shout_factory.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/showtime.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/sidney_kimmel.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/silver_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/sky.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/sky_1.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/slim_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/smc.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/snl_studios.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/sobini_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/sony.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/spelling_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/spitfire_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/splendid.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/spyglass_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/squareenix.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/stage6.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/starbucks_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/steele.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/storyline.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/studio_canal.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/studio_ghibli.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/summit.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/svensk_filmindustri.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/svt1.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/svt2.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/syfy.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/syrena.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/tandem.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/taurus_film.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/telecinco.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/telemundo.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/telos.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/tf1.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/the_cw.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/the_entertainment_group.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/the_film_foundry.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/the_hub.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/the_independent_film_channel.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/the_wb.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/the_wb_television_network.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/thierry_mugler.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/think_film.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/this_is_that.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/tlc.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/tnt.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/toho.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/tor.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/touchstone.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/tristar_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/trutv.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/turner.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/tv2.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/tv3.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/tv4.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/tv_2.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/tv_tokyo.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/tvn.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/tvnz.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/tvp.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/twisted_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/ugc.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/uk_film_council.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/united_artists.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/universal.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/univision.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/upn.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/usa_network.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/vara.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/versus.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/vertigo.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/viacom.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/view_askew.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/village_roadshow_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/virtual_studios.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/vital_film_works.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/viz.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/vortex_entertainment.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/vox.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/vpro.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/vtm.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/walden_media.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/walt_disney_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/warner_bros.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/warner_independent_pictures.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/water_walk_productions.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/wdr.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/weinstein_company.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/wfdif.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/wild_bunch.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/wild_side.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/working_title_films.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/xfilme.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/xxx_productions.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/yari_film_group.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/zaloom_mayfield.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/zdf.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/zebra.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/zentropa.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Studio/zomba.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/substitutions.xml
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Codec/h264.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Codec/hevc.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Codec/mpeg1video.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Codec/mpeg2video.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Codec/mpeg4.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Codec/vc1.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Codec/wmv.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Codec/wmvhd.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Frame\ Rate/24p.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Frame\ Rate/25p.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Frame\ Rate/50p.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Frame\ Rate/60p.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Frame\ Rate/NTSC.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Frame\ Rate/PAL.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Resolution/1080.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Resolution/1080i.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Resolution/270.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Resolution/360.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Resolution/432.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Resolution/480.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Resolution/480i.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Resolution/4k.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Resolution/540.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Resolution/544.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Resolution/576.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Resolution/576i.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Resolution/720.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Resolution/8k.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Resolution/hdtv.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Media-Flags.bundle/Contents/Resources/Video\ Resolution/sd.png
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/PlexVevo.bundle/Contents/Code/__init__.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/PlexVevo.bundle/Contents/Info.plist
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/PlexVevo.bundle/Contents/Resources/icon-default.jpg
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Scanners.bundle/Contents/Resources/Common/AudioFiles.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Scanners.bundle/Contents/Resources/Common/ID3.py
+chmod a+x $ADDON_DIR/lib/Resources/Plug-ins-2bd156c/Scanners.bundle/Contents/Resources/Common/PhotoFiles.py
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/config/install-sh
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/config/makesetup
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/ctypes/macholib/fetch_macholib
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_bisect.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_codecs_cn.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_codecs_hk.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_codecs_iso2022.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_codecs_jp.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_codecs_kr.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_codecs_tw.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_collections.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_csv.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_ctypes.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_ctypes_test.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_elementtree.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_functools.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_hashlib.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_heapq.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_hotshot.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_io.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_json.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_locale.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_lsprof.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_multibytecodec.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_multiprocessing.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_random.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_socket.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_struct.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/_testcapi.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/array.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/audioop.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/binascii.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/bz2.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/cmath.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/cPickle.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/crypt.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/cStringIO.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/datetime.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/dl.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/fcntl.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/future_builtins.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/grp.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/imageop.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/itertools.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/linuxaudiodev.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/math.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/mmap.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/nis.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/operator.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/ossaudiodev.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/parser.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/pyexpat.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/resource.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/select.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/spwd.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/strop.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/syslog.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/termios.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/time.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/unicodedata.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/lib-dynload/zlib.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/plat-linux2/regen
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/site-packages/cjson.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/site-packages/lxml/etree.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/site-packages/lxml/objectify.so
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/site-packages/simplejson/_speedups.so
+chmod a+x $ADDON_DIR/lib/Resources/start.sh
+chmod a+x $ADDON_DIR/resources/language/English/strings.po
+chmod a+x $ADDON_DIR/resources/settings.xml
+chmod a+x $ADDON_DIR/settings-default.xml
+chmod a+x $ADDON_DIR/system.d/service.multimedia.plexmediaserver.service
 
 > $ADDON_LOG_FILE
 
