@@ -40,8 +40,7 @@ ulimit -s $PLEX_MEDIA_SERVER_MAX_STACK_SIZE
 chmod a+x $ADDON_DIR/bin/*
 chmod a+x $ADDON_DIR/lib/Plex*
 chmod a+x $ADDON_DIR/lib/Resources/Plex*
-chmod a+x $ADDON_DIR/lib/Resources/rsync
-chmod a+x $ADDON_DIR/lib/Resources/Python/bin/python
+chmod a+x $ADDON_DIR/lib/Resources/Python/lib/python2.7/*
 
 > $ADDON_LOG_FILE
 
