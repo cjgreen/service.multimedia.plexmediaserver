@@ -1,2 +1,2 @@
 # service.multimedia.plexmediaserver
-Plex Media Server Addon for OpenELEC 5 (Kodi) running on CuBox-i (ARMv7)
+Plex Media Server Addon for LibreELEC 7 (Kodi 16 – Jarvis) running on Intel NUC (x86_64)

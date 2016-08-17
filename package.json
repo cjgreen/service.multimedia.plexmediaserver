@@ -1,7 +1,7 @@
 {
     "name": "service.multimedia.plexmediaserver",
     "description": "Plex Media Server Addon for OpenELEC 5 (Kodi) running on CuBox-i (ARMv7)",
-    "version": "1.0.4",
+    "version": "2.0.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/cjgreen/service.multimedia.plexmediaserver.git"
@@ -13,6 +13,7 @@
         "grunt-contrib-compress": "^0.13.0",
         "grunt-contrib-copy": "^0.8.1",
         "grunt-curl": "^2.2.0",
-        "grunt-untar": "0.0.1"
+        "grunt-untar": "0.0.1",
+        "ar": "0.0.1"
     }
 }
