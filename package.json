@@ -1,7 +1,7 @@
 {
     "name": "service.multimedia.plexmediaserver",
     "description": "Plex Media Server Addon for LibreElec 8 (Kodi) running on Intel NUC (x86_64)",
-    "version": "2.0.13",
+    "version": "2.0.14",
     "repository": {
         "type": "git",
         "url": "https://github.com/cjgreen/service.multimedia.plexmediaserver.git"
