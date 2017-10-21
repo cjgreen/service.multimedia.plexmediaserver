@@ -1,3 +1,6 @@
+2.0.19
+- Updating to PMS 1.9.5.4339
+
 2.0.18
 - Updating to PMS 1.9.4.4325
 
