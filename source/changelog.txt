@@ -1,3 +1,6 @@
+2.0.24
+- Updating to PMS 1.11.0.4666
+
 2.0.23
 - Updating to PMS 1.11.0.4633
 
